@@ -1,0 +1,9 @@
+{
+  "version": 2,
+  "projects": {
+    "api": "apps/api",
+    "api-interfaces": "libs/api-interfaces",
+    "ux-films-finder": "apps/ux-films-finder",
+    "ux-films-finder-e2e": "apps/ux-films-finder-e2e"
+  }
+}

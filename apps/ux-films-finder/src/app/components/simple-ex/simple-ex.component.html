@@ -1,0 +1,10 @@
+<div class="ff-simple-ex">
+  <p>simple-ex works!</p>
+
+  <mat-slider min="1" max="100" step="1" value="50"></mat-slider>
+
+  <ng-container *ngIf="filmInfo">
+    <div>{{ filmInfo?.nameOriginal }}</div>
+    <div>{{ filmInfo?.year }}</div>
+  </ng-container>
+</div>
