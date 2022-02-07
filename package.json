@@ -7,6 +7,7 @@
     "postinstall": "node ./decorate-angular-cli.js && ngcc --properties es2015 browser module main",
     "start": "node dist/apps/api/main.js",
     "serve": "nx serve",
+    "serve-backend": "nx serve api",
     "build": "npm run backend:build && npm run frontend:build",
     "frontend:build": "nx build ux-films-finder --prod",
     "backend:build": "nx build api --prod",
