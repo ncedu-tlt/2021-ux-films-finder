@@ -8,11 +8,19 @@ import { SimpleExComponent } from './components/simple-ex/simple-ex.component';
 import { MatSliderModule } from '@angular/material/slider';
 import { CommonModule } from '@angular/common';
 import { ApiHttpInterceptor } from './interceptors/api-http.interceptor';
+import { AppRoutingModule } from './app-routing.module';
+import { SearchPersonsComponent } from './components/search-persons/search-persons.component';
+import { MainPageComponent } from './components/main-page/main-page.component';
+import { NotFoundPageComponent } from './components/not-found-page/not-found-page.component';
+import { CategoryComponent } from './components/category/category.component';
+import { DetailsComponent } from './components/details/details.component';
+import { AdvancedSearchComponent } from './components/advanced-search/advanced-search.component';
 
 @NgModule({
-  declarations: [AppComponent, SimpleExComponent],
+  declarations: [AppComponent, SimpleExComponent, SearchPersonsComponent, MainPageComponent, NotFoundPageComponent, CategoryComponent, DetailsComponent, AdvancedSearchComponent, ],
   imports: [
     BrowserModule,
+    AppRoutingModule,
     CommonModule,
     HttpClientModule,
     BrowserAnimationsModule,
