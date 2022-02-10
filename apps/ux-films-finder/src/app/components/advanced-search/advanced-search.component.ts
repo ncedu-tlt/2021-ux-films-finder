@@ -5,7 +5,4 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './advanced-search.component.html',
   styleUrls: ['./advanced-search.component.less']
 })
-export class AdvancedSearchComponent {
-
-
-}
+export class AdvancedSearchComponent {}

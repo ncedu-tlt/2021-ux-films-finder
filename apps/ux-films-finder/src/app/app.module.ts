@@ -17,7 +17,16 @@ import { DetailsComponent } from './components/details/details.component';
 import { AdvancedSearchComponent } from './components/advanced-search/advanced-search.component';
 
 @NgModule({
-  declarations: [AppComponent, SimpleExComponent, SearchPersonsComponent, MainPageComponent, NotFoundPageComponent, CategoryComponent, DetailsComponent, AdvancedSearchComponent, ],
+  declarations: [
+    AppComponent,
+    SimpleExComponent,
+    SearchPersonsComponent,
+    MainPageComponent,
+    NotFoundPageComponent,
+    CategoryComponent,
+    DetailsComponent,
+    AdvancedSearchComponent
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,

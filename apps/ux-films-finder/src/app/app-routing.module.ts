@@ -9,16 +9,16 @@ import { SearchPersonsComponent } from './components/search-persons/search-perso
 import { MainPageComponent } from './components/main-page/main-page.component';
 import { SimpleExComponent } from './components/simple-ex/simple-ex.component';
 const routes: Routes = [
-  {path: '', component: MainPageComponent},
-  {path: 'search-films', component: AdvancedSearchComponent},
-  {path: 'category', component: CategoryComponent},
-  {path: 'search-persons', component: SearchPersonsComponent},
-  {path: 'details/:id', component: DetailsComponent},
-  {path: 'simple-ex', component: SimpleExComponent},
-  {path: '**', component: NotFoundPageComponent}
+  { path: '', component: MainPageComponent },
+  { path: 'search-films', component: AdvancedSearchComponent },
+  { path: 'category', component: CategoryComponent },
+  { path: 'search-persons', component: SearchPersonsComponent },
+  { path: 'details/:id', component: DetailsComponent },
+  { path: 'simple-ex', component: SimpleExComponent },
+  { path: '**', component: NotFoundPageComponent }
 ];
 @NgModule({
   imports: [BrowserModule, RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
