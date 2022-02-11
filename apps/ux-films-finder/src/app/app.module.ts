@@ -15,9 +15,20 @@ import { NotFoundPageComponent } from './components/not-found-page/not-found-pag
 import { CategoryComponent } from './components/category/category.component';
 import { DetailsComponent } from './components/details/details.component';
 import { AdvancedSearchComponent } from './components/advanced-search/advanced-search.component';
+import { CategoryFilmListBannerComponent } from './components/category-film-list-banner/category-film-list-banner.component';
 
 @NgModule({
-  declarations: [AppComponent, SimpleExComponent, SearchPersonsComponent, MainPageComponent, NotFoundPageComponent, CategoryComponent, DetailsComponent, AdvancedSearchComponent, ],
+  declarations: [
+    AppComponent,
+    SimpleExComponent,
+    SearchPersonsComponent,
+    MainPageComponent,
+    NotFoundPageComponent,
+    CategoryComponent,
+    DetailsComponent,
+    AdvancedSearchComponent,
+    CategoryFilmListBannerComponent
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,

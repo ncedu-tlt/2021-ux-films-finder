@@ -9,16 +9,24 @@ import { SearchPersonsComponent } from './components/search-persons/search-perso
 import { MainPageComponent } from './components/main-page/main-page.component';
 import { SimpleExComponent } from './components/simple-ex/simple-ex.component';
 const routes: Routes = [
-  {path: '', component: MainPageComponent},
-  {path: 'search-films', component: AdvancedSearchComponent},
-  {path: 'category', component: CategoryComponent},
-  {path: 'search-persons', component: SearchPersonsComponent},
-  {path: 'details/:id', component: DetailsComponent},
-  {path: 'simple-ex', component: SimpleExComponent},
-  {path: '**', component: NotFoundPageComponent}
+  { path: '', component: MainPageComponent },
+  { path: 'search-films', component: AdvancedSearchComponent },
+  { path: 'comedy', component: CategoryComponent },
+  { path: 'horror', component: CategoryComponent },
+  { path: 'action', component: CategoryComponent },
+  { path: 'drama', component: CategoryComponent },
+  { path: 'adventure', component: CategoryComponent },
+  { path: 'fantasy', component: CategoryComponent },
+  { path: 'thriller', component: CategoryComponent },
+  { path: 'romance', component: CategoryComponent },
+  { path: 'family', component: CategoryComponent },
+  { path: 'search-persons', component: SearchPersonsComponent },
+  { path: 'details/:id', component: DetailsComponent },
+  { path: 'simple-ex', component: SimpleExComponent },
+  { path: '**', component: NotFoundPageComponent }
 ];
 @NgModule({
   imports: [BrowserModule, RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
