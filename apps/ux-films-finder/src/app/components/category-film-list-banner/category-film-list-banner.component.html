@@ -32,4 +32,11 @@
       ><div class="keen-slider__slide number-slide9">family</div></a
     >
   </div>
+  <div class="dots">
+    <button
+      (click)="slider.moveToIdx(i)"
+      *ngFor="let slide of dotHelper; let i = index"
+      [class]="'dot ' + (i === currentSlide ? 'active' : '')"
+    ></button>
+  </div>
 </div>

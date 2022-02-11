@@ -10,18 +10,28 @@ export class CategoryFilmListBannerComponent {
   @ViewChild('sliderRef') sliderRef!: ElementRef<HTMLElement>;
 
   slider!: KeenSliderInstance;
-
+  currentSlide: number = 1;
+  dotHelper: Array<Number> = [];
   ngAfterViewInit() {
-    this.slider = new KeenSlider(this.sliderRef.nativeElement, {
-      breakpoints: {
-        '(min-width: 400px)': {
-          slides: { perView: 2, spacing: 5 }
+    setTimeout(() => {
+      this.slider = new KeenSlider(this.sliderRef.nativeElement, {
+        initial: this.currentSlide,
+        slideChanged: s => {
+          this.currentSlide = s.track.details.rel;
         },
-        '(min-width: 1000px)': {
-          slides: { perView: 3, spacing: 10 }
-        }
-      },
-      slides: { perView: 1 }
+        breakpoints: {
+          '(min-width: 400px)': {
+            slides: { perView: 2, spacing: 5 }
+          },
+          '(min-width: 1000px)': {
+            slides: { perView: 3, spacing: 10 }
+          }
+        },
+        slides: { perView: 1 }
+      });
+      this.dotHelper = [
+        ...Array(this.slider.track.details.slides.length).keys()
+      ];
     });
   }
 
