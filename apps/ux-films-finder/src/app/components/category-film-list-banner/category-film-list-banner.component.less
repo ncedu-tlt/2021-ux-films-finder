@@ -29,19 +29,22 @@
 .container {
   width: 80%;
   margin: 16px auto;
+
   a {
     text-decoration: none;
     color: @color-white-ff;
   }
-}
-p {
-  font-size: 16px;
-  letter-spacing: 2px;
-}
-h1 {
-  font-size: 24px;
-  line-height: 1;
-  font-weight: 600;
+
+  p {
+    font-size: 16px;
+    letter-spacing: 2px;
+  }
+
+  h1 {
+    font-size: 24px;
+    line-height: 1;
+    font-weight: 600;
+  }
 }
 .number-slide1 {
   background: rgb(64, 175, 255);
@@ -112,12 +115,12 @@ h1 {
   margin: 0 5px;
   padding: 5px;
   cursor: pointer;
-}
 
-.dot:focus {
-  outline: none;
-}
+  &:focus {
+    outline: none;
+  }
 
-.dot.active {
-  background: #000;
+  &.active {
+    background: #000;
+  }
 }
