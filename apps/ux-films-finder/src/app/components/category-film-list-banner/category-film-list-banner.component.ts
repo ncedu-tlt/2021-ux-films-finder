@@ -1,4 +1,10 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  ElementRef,
+  OnDestroy,
+  ViewChild
+} from '@angular/core';
 import KeenSlider, { KeenSliderInstance } from 'keen-slider';
 
 @Component({
@@ -6,12 +12,14 @@ import KeenSlider, { KeenSliderInstance } from 'keen-slider';
   templateUrl: './category-film-list-banner.component.html',
   styleUrls: ['./category-film-list-banner.component.less']
 })
-export class CategoryFilmListBannerComponent {
+export class CategoryFilmListBannerComponent
+  implements AfterViewInit, OnDestroy
+{
   @ViewChild('sliderRef') sliderRef!: ElementRef<HTMLElement>;
 
   slider!: KeenSliderInstance;
-  currentSlide: number = 1;
-  dotHelper: Array<Number> = [];
+  currentSlide = 1;
+  dotHelper: Array<number> = [];
   ngAfterViewInit() {
     setTimeout(() => {
       this.slider = new KeenSlider(this.sliderRef.nativeElement, {
