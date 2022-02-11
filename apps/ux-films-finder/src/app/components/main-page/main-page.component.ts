@@ -5,6 +5,4 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './main-page.component.html',
   styleUrls: ['./main-page.component.less']
 })
-export class MainPageComponent {
-
-}
+export class MainPageComponent {}

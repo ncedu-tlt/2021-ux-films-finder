@@ -5,7 +5,4 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './category.component.html',
   styleUrls: ['./category.component.less']
 })
-export class CategoryComponent {
-
-
-}
+export class CategoryComponent {}
