@@ -40,6 +40,6 @@ export class GenresBannerComponent implements AfterViewInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    this.slider.destroy();
+    this.slider?.destroy();
   }
 }
