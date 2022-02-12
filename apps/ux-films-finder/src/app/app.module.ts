@@ -15,7 +15,7 @@ import { NotFoundPageComponent } from './components/not-found-page/not-found-pag
 import { CategoryComponent } from './components/category/category.component';
 import { DetailsComponent } from './components/details/details.component';
 import { AdvancedSearchComponent } from './components/advanced-search/advanced-search.component';
-import { CategoryFilmListBannerComponent } from './components/category-film-list-banner/category-film-list-banner.component';
+import { GenresBanner } from './components/genres-banner/genres-banner.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +27,7 @@ import { CategoryFilmListBannerComponent } from './components/category-film-list
     CategoryComponent,
     DetailsComponent,
     AdvancedSearchComponent,
-    CategoryFilmListBannerComponent
+    GenresBanner
   ],
   imports: [
     BrowserModule,

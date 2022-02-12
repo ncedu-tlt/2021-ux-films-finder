@@ -1,0 +1,61 @@
+<div class="genres-banner">
+  <div class="genres-banner__title">
+    <h1>Все жанры фильмов ></h1>
+    <p>(Комедия, хоррер, боевик, драма, семейный и многое другое)</p>
+  </div>
+  <div class="genres-banner__slider keen-slider" #sliderRef>
+    <a routerLink="/comedy" class="genres-banner__slide-link"
+      ><div class="genres-banner__slide _comedy keen-slider__slide">
+        comedy
+      </div></a
+    >
+    <a routerLink="/horror" class="genres-banner__slide-link"
+      ><div class="genres-banner__slide _horror keen-slider__slide">
+        horror
+      </div></a
+    >
+    <a routerLink="/action" class="genres-banner__slide-link"
+      ><div class="genres-banner__slide _action keen-slider__slide">
+        action
+      </div></a
+    >
+    <a routerLink="/drama" class="genres-banner__slide-link"
+      ><div class="genres-banner__slide _drama keen-slider__slide">
+        drama
+      </div></a
+    >
+    <a routerLink="/adventure" class="genres-banner__slide-link"
+      ><div class="genres-banner__slide _adventure keen-slider__slide">
+        adventure
+      </div></a
+    >
+    <a routerLink="/fantasy" class="genres-banner__slide-link"
+      ><div class="genres-banner__slide _fantasy keen-slider__slide">
+        fantasy
+      </div></a
+    >
+    <a routerLink="/thriller" class="genres-banner__slide-link"
+      ><div class="genres-banner__slide _thriller keen-slider__slide">
+        thriller
+      </div></a
+    >
+    <a routerLink="/romance" class="genres-banner__slide-link"
+      ><div class="genres-banner__slide _romance keen-slider__slide">
+        romance
+      </div></a
+    >
+    <a routerLink="/family" class="genres-banner__slide-link"
+      ><div class="genres-banner__slide _family keen-slider__slide">
+        family
+      </div></a
+    >
+  </div>
+  <div class="genres-banner__dots">
+    <button
+      class="genres-banner__dot"
+      (click)="slider.moveToIdx(i)"
+      *ngFor="let slide of dots; let i = index"
+      [class]="'dot ' + (i === currentSlide ? 'active' : '')"
+    ></button>
+  </div>
+</div>
