@@ -9,6 +9,7 @@ import { FilmDataService } from '../../services/film-data.service';
 })
 export class SimpleExComponent implements OnInit {
   public filmInfo: FilmModel | null = null;
+  public filmImg: FilmModel | null = null;
 
   constructor(private filmDataService: FilmDataService) {}
 
