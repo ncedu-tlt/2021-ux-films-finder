@@ -1,1 +1,9 @@
-<p>category works!</p>
+<ng-container *ngFor="let film of (films$ | async)?.items">
+  <a routerLink="/details/:{{ film?.kinopoiskId }}">
+    <div>
+      {{ film?.nameOriginal }} - {{ film?.ratingImdb }} -
+      {{ film?.posterUrlPreview }}
+    </div>
+  </a>
+</ng-container>
+<mat-paginator [length]="200" [pageSizeOptions]="[1]"> </mat-paginator>
