@@ -16,6 +16,7 @@ import { CategoryComponent } from './components/category/category.component';
 import { DetailsComponent } from './components/details/details.component';
 import { AdvancedSearchComponent } from './components/advanced-search/advanced-search.component';
 import { GenresBannerComponent } from './components/genres-banner/genres-banner.component';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { GenresBannerComponent } from './components/genres-banner/genres-banner.
     CommonModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    MatSliderModule
+    MatSliderModule,
+    MatPaginatorModule
   ],
   providers: [
     {
