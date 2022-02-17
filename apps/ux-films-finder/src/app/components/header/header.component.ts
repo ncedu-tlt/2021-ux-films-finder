@@ -1,4 +1,4 @@
-import { Component} from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'ff-header',
@@ -6,9 +6,9 @@ import { Component} from '@angular/core';
   styleUrls: ['./header.component.less']
 })
 export class HeaderComponent {
-  isPressed = false;
+  isShown = false;
 
-  searchDisplay(){
-    this.isPressed = !this.isPressed;
+  searchDisplay() {
+    this.isShown = !this.isShown;
   }
 }
