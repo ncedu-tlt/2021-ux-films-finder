@@ -1,0 +1,164 @@
+@import '../../../assets/styles/themes/base/common/shared';
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  height: 70px;
+
+  a {
+    text-decoration: none;
+    color: black;
+    background: white;
+  }
+
+  &__left-side {
+    display: flex;
+    justify-content: space-around;
+    width: 873px;
+  }
+
+  &__logo {
+    font-size: 24px;
+    margin: 25px;
+  }
+
+  &__navigation {
+    display: flex;
+    justify-content: space-between;
+    width: 700px;
+    margin-top: 20px;
+    margin-left: 22px;
+  }
+
+  &__link {
+    height: 40px;
+    font-family: ABeeZee, serif;
+    color: aliceblue;
+    font-size: 23px;
+  }
+
+  &__toogle {
+    display: none;
+  }
+
+  &__right-side {
+    display: flex;
+    justify-content: flex-end;
+    width: 1220px;
+  }
+
+  &__user-info {
+    display: flex;
+    align-items: center;
+  }
+
+  &__person-icon {
+    width: 50px;
+    height: 50px;
+    font-size: 50px;
+    margin-right: 34px;
+  }
+
+  &__search {
+    width: 470px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-right: 25px;
+  }
+  &__search-icon,
+  &__filter {
+    cursor: pointer;
+  }
+
+  &__search-icon-hidden {
+    display: none;
+  }
+  &__search-content {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    border: solid 1px;
+    border-radius: 5px;
+  }
+
+  &__input {
+    border: none;
+    width: 400px;
+  }
+}
+
+@media only screen and (max-width: 1500px) {
+  .header {
+    display: flex;
+
+    &__left-side {
+      justify-content: flex-start;
+    }
+
+    &__navigation {
+      display: none;
+    }
+
+    &__toogle {
+      position: relative;
+      margin-top: 25px;
+      margin-left: 25px;
+    }
+
+    &__logo {
+      margin-left: 1px;
+    }
+
+    &__toogle {
+      display: block;
+      width: 50px;
+    }
+
+    &__search {
+      width: 420px;
+      margin-right: 15px;
+    }
+
+    &__search-content {
+      width: 400px;
+    }
+
+    &__person-icon {
+      margin-right: 20px;
+    }
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .header {
+    &__right-side {
+      justify-content: flex-end;
+      width: 38%;
+    }
+
+    &__left-side {
+      width: 62%;
+      justify-content: space-between;
+    }
+
+    &__search-icon-hidden {
+      width: 35px;
+      display: block;
+      cursor: pointer;
+      margin-left: 10px;
+    }
+
+    &__search-icon {
+      display: none;
+    }
+
+    &__toogle {
+      margin-left: 12px;
+    }
+
+    &__person-icon {
+      margin-right: 10px;
+    }
+  }
+}
