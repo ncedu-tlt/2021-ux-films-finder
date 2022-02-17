@@ -17,9 +17,12 @@ export class FilmDataService {
       this.kinopoiskUrl + '/api/v2.2/films/' + id
     );
   }
-  public getFilmByGenre(genre: number): Observable<FilmsResponseModel | null> {
+  public getFilmByGenre(
+    genre: number,
+    page: number
+  ): Observable<FilmsResponseModel | null> {
     return this.http.get<FilmsResponseModel>(
-      this.kinopoiskUrl + '/api/v2.2/films?genres=' + genre + '&page=1'
+      this.kinopoiskUrl + '/api/v2.2/films?genres=' + genre + '&page=' + page
     );
   }
 }

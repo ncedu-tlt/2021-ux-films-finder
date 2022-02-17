@@ -6,4 +6,11 @@
     </div>
   </a>
 </ng-container>
-<mat-paginator [length]="200" [pageSizeOptions]="[1]"> </mat-paginator>
+<mat-paginator
+  class="category"
+  [length]="(films$ | async)?.total"
+  [pageSize]="pageSize"
+  [pageSizeOptions]="pageSizeOptions"
+  (page)="onPageChange($event)"
+>
+</mat-paginator>
