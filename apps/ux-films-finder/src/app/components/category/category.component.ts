@@ -11,11 +11,11 @@ import { PageEvent } from '@angular/material/paginator';
 export class PaginatorIntl implements MatPaginatorIntl {
   changes = new Subject<void>();
 
-  firstPageLabel: string = 'First page';
-  itemsPerPageLabel: string = 'Items per page:';
-  lastPageLabel: string = 'Last page';
-  nextPageLabel: string = 'Next page';
-  previousPageLabel: string = 'Previous page';
+  firstPageLabel = 'First page';
+  itemsPerPageLabel = 'Items per page:';
+  lastPageLabel = 'Last page';
+  nextPageLabel = 'Next page';
+  previousPageLabel = 'Previous page';
 
   getRangeLabel(page: number, pageSize: number, length: number): string {
     if (length === 0) {
@@ -36,10 +36,10 @@ export class CategoryComponent implements OnInit {
   private activeFilm$: Subscription = new Subscription();
   films$: Subject<FilmsResponseModel | null> = new Subject();
   film: FilmModel | undefined;
-  pageSize: number = 20;
+  pageSize = 20;
   pageSizeOptions: number[] = [5, 10, 25, 100];
   pageEvent?: PageEvent;
-  genre: number = 0;
+  genre = 0;
 
   constructor(
     private filmDataService: FilmDataService,
