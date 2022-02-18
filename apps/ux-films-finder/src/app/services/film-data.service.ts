@@ -20,7 +20,7 @@ export class FilmDataService {
   public getFilmByGenre(
     genre: number,
     page: number
-  ): Observable<FilmsResponseModel | null> {
+  ): Observable<FilmsResponseModel> {
     return this.http.get<FilmsResponseModel>(
       this.kinopoiskUrl + '/api/v2.2/films?genres=' + genre + '&page=' + page
     );

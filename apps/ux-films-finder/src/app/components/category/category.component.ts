@@ -1,30 +1,10 @@
-import { Component, Injectable, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FilmDataService } from '../../services/film-data.service';
 import { FilmModel } from '../../models/film.model';
 import { ActivatedRoute } from '@angular/router';
 import { Subject, Subscription, take } from 'rxjs';
 import { FilmsResponseModel } from '../../models/films-response.model';
-import { MatPaginatorIntl } from '@angular/material/paginator';
 import { PageEvent } from '@angular/material/paginator';
-
-@Injectable()
-export class PaginatorIntl implements MatPaginatorIntl {
-  changes = new Subject<void>();
-
-  firstPageLabel = 'First page';
-  itemsPerPageLabel = 'Items per page:';
-  lastPageLabel = 'Last page';
-  nextPageLabel = 'Next page';
-  previousPageLabel = 'Previous page';
-
-  getRangeLabel(page: number, pageSize: number, length: number): string {
-    if (length === 0) {
-      return 'Page 1 of 1';
-    }
-    const amountPages = Math.ceil(length / pageSize);
-    return `Page ${page + 1} of ${amountPages}`;
-  }
-}
 
 @Component({
   selector: 'ff-category',
@@ -34,12 +14,11 @@ export class PaginatorIntl implements MatPaginatorIntl {
 export class CategoryComponent implements OnInit {
   private loadFilms$: Subscription = new Subscription();
   private activeFilm$: Subscription = new Subscription();
-  films$: Subject<FilmsResponseModel | null> = new Subject();
-  film: FilmModel | undefined;
+  films$?: Subject<FilmsResponseModel> = new Subject();
+  film?: FilmModel;
   pageSize = 20;
-  pageSizeOptions: number[] = [5, 10, 25, 100];
   pageEvent?: PageEvent;
-  genre = 0;
+  genreId = 0;
 
   constructor(
     private filmDataService: FilmDataService,
@@ -50,18 +29,19 @@ export class CategoryComponent implements OnInit {
     this.activeFilm$ = this.activatedRoute.data
       .pipe(take(1))
       .subscribe(data => {
-        this.genre = data['genreId'];
+        this.genreId = data['genreId'];
         this.loadFilmsList(1);
       });
   }
   onPageChange(page: PageEvent): void {
-    console.log(page.pageIndex);
     this.loadFilmsList(++page.pageIndex);
   }
   loadFilmsList(pageIndex: number): void {
+    this.loadFilms$ && this.loadFilms$.unsubscribe();
     this.loadFilms$ = this.filmDataService
-      .getFilmByGenre(this.genre, pageIndex)
-      .subscribe((info: FilmsResponseModel | null) => {
+      .getFilmByGenre(this.genreId, pageIndex)
+      .pipe(take(1))
+      .subscribe((info: FilmsResponseModel) => {
         this.films$.next(info);
       });
   }

@@ -1,16 +1,15 @@
 <ng-container *ngFor="let film of (films$ | async)?.items">
   <a routerLink="/details/:{{ film?.kinopoiskId }}">
-    <div>
+    <ng-container>
       {{ film?.nameOriginal }} - {{ film?.ratingImdb }} -
       {{ film?.posterUrlPreview }}
-    </div>
+    </ng-container>
   </a>
 </ng-container>
 <mat-paginator
   class="category"
   [length]="(films$ | async)?.total"
   [pageSize]="pageSize"
-  [pageSizeOptions]="pageSizeOptions"
   (page)="onPageChange($event)"
 >
 </mat-paginator>

@@ -33,7 +33,6 @@
     "@nestjs/platform-express": "^8.0.0",
     "@nestjs/serve-static": "^2.1.4",
     "@nrwl/angular": "13.7.3",
-    "angular-localize": "^2.4.0",
     "eslint-plugin-prettier": "^4.0.0",
     "keen-slider": "^6.6.3",
     "reflect-metadata": "^0.1.13",
