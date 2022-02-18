@@ -17,7 +17,6 @@ export class CategoryComponent implements OnInit {
   readonly pageSize = 20;
   films$: Subject<FilmsResponseModel> = new Subject<FilmsResponseModel>();
   film!: FilmModel;
-  pageEvent?: PageEvent;
   genreId = 0;
 
   constructor(
