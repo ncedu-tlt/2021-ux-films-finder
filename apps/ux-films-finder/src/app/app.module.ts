@@ -5,7 +5,6 @@ import { AppComponent } from './app.component';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SimpleExComponent } from './components/simple-ex/simple-ex.component';
-import { MatSliderModule } from '@angular/material/slider';
 import { CommonModule } from '@angular/common';
 import { ApiHttpInterceptor } from './interceptors/api-http.interceptor';
 import { AppRoutingModule } from './app-routing.module';
@@ -21,9 +20,10 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatIconModule } from '@angular/material/icon';
 import { SidenavListComponent } from './components/sidenav-list/sidenav-list.component';
 import { MatListModule } from '@angular/material/list';
-import { MatSidenavModule } from '@angular/material/sidenav';
 import { GenresBannerComponent } from './components/genres-banner/genres-banner.component';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSliderModule } from '@angular/material/slider';
+import { MatSidenavModule } from '@angular/material/sidenav';
 
 @NgModule({
   declarations: [
@@ -45,13 +45,13 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     CommonModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    MatSliderModule,
     MatButtonModule,
     MatSlideToggleModule,
     MatIconModule,
     MatListModule,
     MatSliderModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatSidenavModule
   ],
   providers: [
     {
