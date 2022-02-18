@@ -15,6 +15,13 @@ import { NotFoundPageComponent } from './components/not-found-page/not-found-pag
 import { CategoryComponent } from './components/category/category.component';
 import { DetailsComponent } from './components/details/details.component';
 import { AdvancedSearchComponent } from './components/advanced-search/advanced-search.component';
+import { HeaderComponent } from './components/header/header.component';
+import { MatButtonModule } from '@angular/material/button';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatIconModule } from '@angular/material/icon';
+import { SidenavListComponent } from './components/sidenav-list/sidenav-list.component';
+import { MatListModule } from '@angular/material/list';
+import { MatSidenavModule } from '@angular/material/sidenav';
 import { GenresBannerComponent } from './components/genres-banner/genres-banner.component';
 import { MatPaginatorModule } from '@angular/material/paginator';
 
@@ -28,6 +35,8 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     CategoryComponent,
     DetailsComponent,
     AdvancedSearchComponent,
+    HeaderComponent,
+    SidenavListComponent,
     GenresBannerComponent
   ],
   imports: [
@@ -36,6 +45,11 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     CommonModule,
     HttpClientModule,
     BrowserAnimationsModule,
+    MatSliderModule,
+    MatButtonModule,
+    MatSlideToggleModule,
+    MatIconModule,
+    MatListModule,
     MatSliderModule,
     MatPaginatorModule
   ],

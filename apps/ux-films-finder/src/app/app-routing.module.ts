@@ -11,6 +11,10 @@ import { SimpleExComponent } from './components/simple-ex/simple-ex.component';
 const routes: Routes = [
   { path: '', component: MainPageComponent },
   { path: 'search-films', component: AdvancedSearchComponent },
+  { path: 'news', component: CategoryComponent,data: { genreId: 26 } },
+  { path: 'show', component: CategoryComponent,data: { genreId: 32 } },
+  { path: 'for-children', component: CategoryComponent,data: { genreId: 33 } },
+  { path: 'cartoon', component: CategoryComponent,data: { genreId: 18 } },
   { path: 'comedy', component: CategoryComponent, data: { genreId: 13 } },
   { path: 'horror', component: CategoryComponent, data: { genreId: 17 } },
   { path: 'action', component: CategoryComponent, data: { genreId: 11 } },
