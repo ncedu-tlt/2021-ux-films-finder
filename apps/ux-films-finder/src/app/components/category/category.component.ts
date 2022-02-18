@@ -14,9 +14,9 @@ import { PageEvent } from '@angular/material/paginator';
 export class CategoryComponent implements OnInit {
   private loadFilms$: Subscription = new Subscription();
   private activeFilm$: Subscription = new Subscription();
-  films$: Subject<FilmsResponseModel> = new Subject();
-  film?: FilmModel;
-  pageSize = 20;
+  readonly pageSize = 20;
+  films$: Subject<FilmsResponseModel> = new Subject<FilmsResponseModel>();
+  film!: FilmModel;
   pageEvent?: PageEvent;
   genreId = 0;
 
