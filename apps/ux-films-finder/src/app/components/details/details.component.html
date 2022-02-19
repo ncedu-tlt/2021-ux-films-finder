@@ -1,1 +1,66 @@
-<p>details works!</p>
+<div class="film-details">
+  <ng-container *ngIf="filmInfo">
+    <img src="{{ filmInfo?.posterUrlPreview }}" class="film-details__img" />
+    <div class="film-details__info">
+      <div class="film-details__info _title">
+        <ng-container *ngIf="filmInfo.nameRu">{{
+          filmInfo?.nameRu
+        }}</ng-container>
+        <ng-template #elseBlock>
+          {{ filmInfo?.nameOriginal }}
+        </ng-template>
+      </div>
+      <div class="film-details__info _feature">
+        <div class="film-details__info _feature _type">
+          <div class="film-details__info _feature _type _type-title">Тип</div>
+          <div class="film-details__info _feature _type _type-title-name">
+            {{ filmInfo?.type }}
+          </div>
+        </div>
+        <div class="film-details__info _feature _year">
+          <div class="film-details__info _feature _year _year-title">Год</div>
+          <div class="film-details__info _feature _year _year-date">
+            {{ filmInfo?.year }}
+          </div>
+        </div>
+        <div class="film-details__info _feature _ratingImdb">
+          <div class="film-details__info _feature _ratingImdb-title">
+            Рейтинг Imdb
+          </div>
+          <div class="film-details__info _feature _ratingImdb-number">
+            {{ filmInfo?.ratingImdb }}
+          </div>
+        </div>
+        <div class="film-details__info _feature _genres">
+          <div class="film-details__info _feature _genres-title">Жанр</div>
+          <ng-container *ngFor="let genreItem of filmInfo?.genres; index as i">
+            <div class="film-details__info _feature _genres-names">
+              {{ genreItem.genre }}
+              <span *ngIf="i !== filmInfo.genres.length">,</span>
+            </div>
+          </ng-container>
+        </div>
+
+        <div class="film-details__info _feature _countries">
+          <div class="film-details__info _feature _countries-title">Страна</div>
+          <ng-container *ngFor="let countryItem of filmInfo?.countries">
+            <div class="film-details__info _feature _countries-names">
+              {{ countryItem.country }}
+            </div>
+          </ng-container>
+        </div>
+        <ng-container *ngIf="filmInfo.slogan"
+          ><div class="film-details__info _feature _slogan">
+            Слоган:<br />
+            {{ filmInfo?.slogan }}
+          </div></ng-container
+        >
+        <ng-container *ngIf="filmInfo.description">
+          <div class="film-details__info _feature _description">
+            Описание:{{ filmInfo?.description }}
+          </div>
+        </ng-container>
+      </div>
+    </div>
+  </ng-container>
+</div>
