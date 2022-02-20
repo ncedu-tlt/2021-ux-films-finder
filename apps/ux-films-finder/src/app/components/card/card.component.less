@@ -1,6 +1,9 @@
 @import '../../../assets/styles/themes/base/common/shared';
 
 .card {
+  position: relative;
+  line-height: 20px;
+  font-size: 21px;
   &__img {
     border-radius: 10px;
     width: 275px;
@@ -9,28 +12,25 @@
   &__name {
     display: flex;
     position: absolute;
+    bottom: 25px;
     align-items: center;
-    top: 910px;
     width: 275px;
     height: 40px;
-    font-size: 20px;
-    line-height: 20px;
-    color: #000000;
-    background-color: #ffffff;
+    color: @color-black-00;
+    background-color: @color-white-ff;
     border-radius: 1px;
   }
   &__rating {
     display: flex;
     position: absolute;
-    text-align: center;
+    align-items: center;
+    bottom: 85%;
+    padding: 10px;
     width: 44px;
     height: 28px;
-    top: 630px;
     left: 232px;
-    font-size: 26px;
-    line-height: 20px;
-    color: #000000;
+    color: @color-black-00;
     border-radius: 4px 0 0 4px;
-    background-color: #ffffff;
+    background-color: @color-white-ff;
   }
 }
