@@ -12,4 +12,8 @@ export class CardComponent {
   public name = '';
   @Input()
   public rating = 0;
+  @Input()
+  public names = '';
+  @Input()
+  public ratings = '';
 }

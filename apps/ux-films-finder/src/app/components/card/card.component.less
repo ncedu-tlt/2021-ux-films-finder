@@ -3,28 +3,34 @@
 .card {
   &__img {
     border-radius: 10px;
-    width: 281px;
+    width: 275px;
     height: 367px;
   }
   &__name {
+    display: flex;
     position: absolute;
-    width: 250px;
-    height: 47px;
-    left: 0;
-    right: 0;
-    top: 860px;
+    align-items: center;
+    top: 910px;
+    width: 275px;
+    height: 40px;
     font-size: 20px;
     line-height: 20px;
-    color: #ffffff;
+    color: #000000;
+    background-color: #ffffff;
+    border-radius: 1px;
   }
   &__rating {
-    position: relative;
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
     display: flex;
-    overflow: hidden;
-    text-decoration: none;
-    border-radius: 4px;
+    position: absolute;
+    text-align: center;
+    width: 44px;
+    height: 28px;
+    top: 630px;
+    left: 232px;
+    font-size: 26px;
+    line-height: 20px;
+    color: #000000;
+    border-radius: 4px 0 0 4px;
+    background-color: #ffffff;
   }
 }
