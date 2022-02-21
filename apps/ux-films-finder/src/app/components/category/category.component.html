@@ -1,5 +1,5 @@
 <ng-container *ngFor="let film of (films$ | async)?.items">
-  <a routerLink="/details/:{{ film?.kinopoiskId }}">
+  <a routerLink="/details/{{ film?.kinopoiskId }}">
     <ng-container>
       {{ film?.nameOriginal }} - {{ film?.ratingImdb }} -
       {{ film?.posterUrlPreview }}
