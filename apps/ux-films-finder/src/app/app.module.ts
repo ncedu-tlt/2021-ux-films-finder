@@ -5,7 +5,6 @@ import { AppComponent } from './app.component';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SimpleExComponent } from './components/simple-ex/simple-ex.component';
-import { MatSliderModule } from '@angular/material/slider';
 import { CommonModule } from '@angular/common';
 import { ApiHttpInterceptor } from './interceptors/api-http.interceptor';
 import { AppRoutingModule } from './app-routing.module';
@@ -15,8 +14,21 @@ import { NotFoundPageComponent } from './components/not-found-page/not-found-pag
 import { CategoryComponent } from './components/category/category.component';
 import { DetailsComponent } from './components/details/details.component';
 import { AdvancedSearchComponent } from './components/advanced-search/advanced-search.component';
+import { HeaderComponent } from './components/header/header.component';
+import { MatButtonModule } from '@angular/material/button';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatIconModule } from '@angular/material/icon';
+import { SidenavListComponent } from './components/sidenav-list/sidenav-list.component';
+import { MatListModule } from '@angular/material/list';
 import { GenresBannerComponent } from './components/genres-banner/genres-banner.component';
+<<<<<<< HEAD
 import { FooterComponent } from './components/footer/footer.component';
+=======
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSliderModule } from '@angular/material/slider';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { CardComponent } from './components/card/card.component';
+>>>>>>> 866bb5a8ae64d35147f8048a59465d92f7bc8078
 
 @NgModule({
   declarations: [
@@ -26,10 +38,17 @@ import { FooterComponent } from './components/footer/footer.component';
     MainPageComponent,
     NotFoundPageComponent,
     CategoryComponent,
+    CardComponent,
     DetailsComponent,
     AdvancedSearchComponent,
+<<<<<<< HEAD
     GenresBannerComponent,
     FooterComponent
+=======
+    HeaderComponent,
+    SidenavListComponent,
+    GenresBannerComponent
+>>>>>>> 866bb5a8ae64d35147f8048a59465d92f7bc8078
   ],
   imports: [
     BrowserModule,
@@ -37,7 +56,13 @@ import { FooterComponent } from './components/footer/footer.component';
     CommonModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    MatSliderModule
+    MatButtonModule,
+    MatSlideToggleModule,
+    MatIconModule,
+    MatListModule,
+    MatSliderModule,
+    MatPaginatorModule,
+    MatSidenavModule
   ],
   providers: [
     {
