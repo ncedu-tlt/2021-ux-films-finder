@@ -17,6 +17,7 @@ export interface FilmModel {
   posterUrlPreview: string;
   description: string;
   slogan: string;
+  filmLength: number;
 }
 
 export type KinopoiskRequestModel = FilmModel;
