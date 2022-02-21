@@ -1,12 +1,16 @@
 <div class="film-details">
   <ng-container *ngIf="filmInfo">
-    <img src="{{ filmInfo?.posterUrlPreview }}" class="film-details__img" />
+    <img
+      src="{{ filmInfo?.posterUrlPreview }}"
+      alt="poster Url Preview"
+      class="film-details__img"
+    />
     <div class="film-details__info">
       <div class="film-details__info _title">
-        <ng-container *ngIf="filmInfo.nameRu">{{
+        <ng-container *ngIf="filmInfo.nameRu; else originalNameTemplate">{{
           filmInfo?.nameRu
         }}</ng-container>
-        <ng-template #elseBlock>
+        <ng-template #originalNameTemplate>
           {{ filmInfo?.nameOriginal }}
         </ng-template>
       </div>
@@ -45,7 +49,7 @@
         </div>
         <div class="film-details__info _feature _genres">
           <div class="film-details__info _feature _feature-title">Жанр</div>
-          <br />
+
           <ng-container *ngFor="let genreItem of filmInfo?.genres">
             <div class="film-details__info _feature _genres-name">
               {{ genreItem.genre }}
