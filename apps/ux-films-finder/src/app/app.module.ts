@@ -16,6 +16,7 @@ import { CategoryComponent } from './components/category/category.component';
 import { DetailsComponent } from './components/details/details.component';
 import { AdvancedSearchComponent } from './components/advanced-search/advanced-search.component';
 import { GenresBannerComponent } from './components/genres-banner/genres-banner.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { GenresBannerComponent } from './components/genres-banner/genres-banner.
     CategoryComponent,
     DetailsComponent,
     AdvancedSearchComponent,
-    GenresBannerComponent
+    GenresBannerComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
