@@ -4,30 +4,39 @@
   flex-direction: row;
   justify-content: center;
   background-color: @color-gray-42;
+  color: @color-gray-1b;
   width: 93px;
   height: 35px;
   padding: 4px;
   border-radius: 32px;
   margin-top: 20px;
   margin-left: 22px;
+
   &__button {
     width: 40px;
     height: 28px;
     border-style: none;
     border-radius: 32px;
-    background-color: transparent;
+    background-color: @color-green-69;
 
-    &._base {
-      color: @color-black-00;
-      background-color: @color-green-69;
+    &._moon {
+      background-color: transparent;
+      color: @color-gray-1b;
     }
+
     &._dark {
-      background-color: @color-black-00;
-      color: @color-green-69;
+      background-color: transparent;
     }
-    &._icon {
-      width: 24px;
-      height: 24px;
+    &._dark._moon {
+      background-color: @color-gray-1b;
+    }
+  }
+
+  &__icon {
+    color: @color-gray-1b;
+
+    &._dark._moon {
+      color: @color-green-69;
     }
   }
 }
