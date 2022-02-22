@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Inject } from '@angular/core';
+import { DOCUMENT } from '@angular/common';
 
 @Component({
   selector: 'ff-switcher',
@@ -6,11 +7,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./switcher.component.less']
 })
 export class SwitcherComponent {
-  isDarkThemeEnabled = false;
-  isBaseThemeEnabled = true;
-
-  themeEnabled() {
-    this.isDarkThemeEnabled = !this.isDarkThemeEnabled;
-    this.isBaseThemeEnabled = !this.isBaseThemeEnabled;
+  isThemeEnabled = false;
+  constructor(@Inject(DOCUMENT) private document: Document) {}
+  changeTheme() {
+    this.isThemeEnabled = !this.isThemeEnabled;
+    this.document.body.classList.add('theme-dark');
   }
 }
