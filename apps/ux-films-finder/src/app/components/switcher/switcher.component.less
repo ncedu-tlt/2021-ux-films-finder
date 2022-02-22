@@ -1,0 +1,33 @@
+@import '../../../assets/styles/themes/dark/common/shared';
+.switcher {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  background-color: @color-gray-42;
+  width: 93px;
+  height: 36px;
+  padding: 4px;
+  border-radius: 32px;
+  margin-top: 20px;
+  margin-left: 22px;
+  &__button {
+    width: 40px;
+    height: 28px;
+    border-style: none;
+    border-radius: 32px;
+    background-color: @color-gray-42;
+
+    &._base {
+      color: @color-black-00;
+      background-color: @color-green-69;
+    }
+    &._dark {
+      background-color: @color-black-00;
+      color: @color-green-69;
+    }
+    &._icon {
+      width: 24px;
+      height: 24px;
+    }
+  }
+}
