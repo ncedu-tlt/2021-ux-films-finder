@@ -11,6 +11,9 @@
   border-radius: 32px;
   margin-top: 20px;
   margin-left: 22px;
+  &__button:not([disabled]) {
+    cursor: pointer;
+  }
   &__button:not([disabled]):hover &__icon {
     color: fade(@color-green-69, 70%);
   }
@@ -20,7 +23,6 @@
     border-style: none;
     border-radius: 32px;
     background-color: @color-green-69;
-    cursor: pointer;
     transition: 0.3s;
 
     &._moon {
