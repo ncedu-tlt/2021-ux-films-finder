@@ -1,0 +1,48 @@
+@import '../../../assets/styles/themes/dark/common/shared';
+.switcher {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: @color-gray-42;
+  color: @color-gray-1b;
+  width: 93px;
+  height: 35px;
+  padding: 4px;
+  border-radius: 32px;
+  margin-top: 20px;
+  margin-left: 22px;
+  &__button:not([disabled]) {
+    cursor: pointer;
+  }
+  &__button:not([disabled]):hover &__icon {
+    color: fade(@color-green-69, 70%);
+  }
+  &__button {
+    width: 40px;
+    height: 28px;
+    border-style: none;
+    border-radius: 32px;
+    background-color: @color-green-69;
+    transition: 0.3s;
+
+    &._moon {
+      background-color: transparent;
+      color: @color-gray-1b;
+    }
+
+    &._dark {
+      background-color: transparent;
+    }
+    &._dark._moon {
+      background-color: @color-gray-1b;
+    }
+  }
+
+  &__icon {
+    color: @color-gray-1b;
+    transition: 0.3s;
+    &._dark._moon {
+      color: @color-green-69;
+    }
+  }
+}
