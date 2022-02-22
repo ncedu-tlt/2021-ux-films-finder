@@ -1,10 +1,10 @@
 <div class="switcher" (click)="changeTheme()">
-  <button class="switcher__button" [class._dark]="isThemeEnabled">
+  <button class="switcher__button" [class._dark]="isDarkThemeEnabled">
     <mat-icon class="switcher__button _icon">
       <span class="material-icons-outlined"> nightlight </span>
     </mat-icon>
   </button>
-  <button class="switcher__button" [class._base]="isThemeEnabled">
+  <button class="switcher__button" [class._base]="!isDarkThemeEnabled">
     <mat-icon class="switcher__button _icon"> light_mode </mat-icon>
   </button>
 </div>

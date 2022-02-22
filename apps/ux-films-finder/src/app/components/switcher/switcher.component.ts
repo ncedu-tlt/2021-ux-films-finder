@@ -7,10 +7,10 @@ import { DOCUMENT } from '@angular/common';
   styleUrls: ['./switcher.component.less']
 })
 export class SwitcherComponent {
-  isThemeEnabled = false;
+  isDarkThemeEnabled = false;
   constructor(@Inject(DOCUMENT) private document: Document) {}
   changeTheme() {
-    this.isThemeEnabled = !this.isThemeEnabled;
-    this.document.body.classList.add('theme-dark');
+    this.isDarkThemeEnabled = !this.isDarkThemeEnabled;
+    this.document.body.classList.toggle('theme-dark');
   }
 }
