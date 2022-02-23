@@ -1,0 +1,191 @@
+<div class="keen-slider" #sliderRef>
+  <div class="keen-slider__slide slide1">
+    <div class="banner">
+      <div class="banner-name">
+        <div class="nameRu">Зеленая миля</div>
+        <div class="nameEn">The Green Mile</div>
+        <div class="description">
+          <p>Жанр:</p>
+          <div class="genres">
+            драма, криминал, детектив, фантастика, фэнтези
+          </div>
+          <div class="addition">
+            <div class="year">1999</div>
+            &nbsp;&nbsp;
+            <div class="countries">США</div>
+          </div>
+        </div>
+        <div class="filmLength">
+          <p>Продолжительность:</p>
+          03:09
+        </div>
+      </div>
+      <div class="poster">
+        <div class="posterUrl"></div>
+      </div>
+    </div>
+  </div>
+  <div class="keen-slider__slide slide2">
+    <div class="banner">
+      <div class="banner-name">
+        <div class="nameRu">Зеленая миля</div>
+        <div class="nameEn">The Green Mile</div>
+        <div class="description">
+          <p>Жанр:</p>
+          <div class="genres">
+            драма, криминал, детектив, фантастика, фэнтези
+          </div>
+          <div class="addition">
+            <div class="year">1999</div>
+            &nbsp;&nbsp;
+            <div class="countries">США</div>
+          </div>
+        </div>
+        <div class="filmLength">
+          <p>Продолжительность:</p>
+          03:09
+        </div>
+      </div>
+      <div class="poster">
+        <div class="posterUrl"></div>
+      </div>
+    </div>
+  </div>
+  <div class="keen-slider__slide slide3">
+    <div class="banner">
+      <div class="banner-name">
+        <div class="nameRu">Зеленая миля</div>
+        <div class="nameEn">The Green Mile</div>
+        <div class="description">
+          <p>Жанр:</p>
+          <div class="genres">
+            драма, криминал, детектив, фантастика, фэнтези
+          </div>
+          <div class="addition">
+            <div class="year">1999</div>
+            &nbsp;&nbsp;
+            <div class="countries">США</div>
+          </div>
+        </div>
+        <div class="filmLength">
+          <p>Продолжительность:</p>
+          03:09
+        </div>
+      </div>
+      <div class="poster">
+        <div class="posterUrl"></div>
+      </div>
+    </div>
+  </div>
+  <div class="keen-slider__slide slide4">
+    <div class="banner">
+      <div class="banner-name">
+        <div class="nameRu">Зеленая миля</div>
+        <div class="nameEn">The Green Mile</div>
+        <div class="description">
+          <p>Жанр:</p>
+          <div class="genres">
+            драма, криминал, детектив, фантастика, фэнтези
+          </div>
+          <div class="addition">
+            <div class="year">1999</div>
+            &nbsp;&nbsp;
+            <div class="countries">США</div>
+          </div>
+        </div>
+        <div class="filmLength">
+          <p>Продолжительность:</p>
+          03:09
+        </div>
+      </div>
+      <div class="poster">
+        <div class="posterUrl"></div>
+      </div>
+    </div>
+  </div>
+  <div class="keen-slider__slide slide5">
+    <div class="banner">
+      <div class="banner-name">
+        <div class="nameRu">Зеленая миля</div>
+        <div class="nameEn">The Green Mile</div>
+        <div class="description">
+          <p>Жанр:</p>
+          <div class="genres">
+            драма, криминал, детектив, фантастика, фэнтези
+          </div>
+          <div class="addition">
+            <div class="year">1999</div>
+            &nbsp;&nbsp;
+            <div class="countries">США</div>
+          </div>
+        </div>
+        <div class="filmLength">
+          <p>Продолжительность:</p>
+          03:09
+        </div>
+      </div>
+      <div class="poster">
+        <div class="posterUrl"></div>
+      </div>
+    </div>
+  </div>
+  <div class="keen-slider__slide slide6">
+    <div class="banner">
+      <div class="banner-name">
+        <div class="nameRu">Зеленая миля</div>
+        <div class="nameEn">The Green Mile</div>
+        <div class="description">
+          <p>Жанр:</p>
+          <div class="genres">
+            драма, криминал, детектив, фантастика, фэнтези
+          </div>
+          <div class="addition">
+            <div class="year">1999</div>
+            &nbsp;&nbsp;
+            <div class="countries">США</div>
+          </div>
+        </div>
+        <div class="filmLength">
+          <p>Продолжительность:</p>
+          03:09
+        </div>
+      </div>
+      <div class="poster">
+        <div class="posterUrl"></div>
+      </div>
+    </div>
+  </div>
+  <svg
+    [ngClass]="
+      'arrow arrow--left ' + (currentSlide === 0 ? 'arrow--disabled' : '')
+    "
+    (click)="slider.prev()"
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+  >
+    <path
+      d="M16.67 0l2.83 2.829-9.339 9.175 9.339 9.167-2.83 2.829-12.17-11.996z"
+    />
+  </svg>
+  <svg
+    *ngIf="slider"
+    [ngClass]="
+      'arrow arrow--right ' +
+      (slider.track.details.slides.length - 1 === currentSlide
+        ? 'arrow--disabled'
+        : '')
+    "
+    (click)="slider.next()"
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+  >
+    <path d="M5 3l3.057-3 11.943 12-11.943 12-3.057-3 9-9z" />
+  </svg>
+</div>
+<div class="dots">
+  <button
+    (click)="slider.moveToIdx(i)"
+    *ngFor="let slide of dotHelper; let i = index"
+    [class]="'dot ' + (i === currentSlide ? 'active' : '')"
+  ></button>
+</div>

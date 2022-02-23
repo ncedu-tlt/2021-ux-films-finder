@@ -21,6 +21,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { SidenavListComponent } from './components/sidenav-list/sidenav-list.component';
 import { MatListModule } from '@angular/material/list';
 import { GenresBannerComponent } from './components/genres-banner/genres-banner.component';
+import { BannerComponent } from './components/banner/banner.component';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatSidenavModule } from '@angular/material/sidenav';
@@ -38,6 +39,8 @@ import { SwitcherComponent } from './components/switcher/switcher.component';
     CardComponent,
     DetailsComponent,
     AdvancedSearchComponent,
+    GenresBannerComponent,
+    BannerComponent,
     HeaderComponent,
     SidenavListComponent,
     GenresBannerComponent,
