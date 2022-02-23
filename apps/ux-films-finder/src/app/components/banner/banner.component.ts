@@ -3,9 +3,17 @@ import {
   Component,
   ElementRef,
   OnDestroy,
+  OnInit,
   ViewChild
 } from '@angular/core';
 import KeenSlider, { KeenSliderInstance } from 'keen-slider';
+import { Subject, Subscription, take } from 'rxjs';
+import { FilmsResponseModel } from '../../models/films-response.model';
+import { FilmBannerResponseModel } from '../../models/film-banner-response.model';
+import { FilmBannerModel } from '../../models/film-banner.model';
+import { FilmDataService } from '../../services/film-data.service';
+import { ActivatedRoute } from '@angular/router';
+import { PageEvent } from '@angular/material/paginator';
 
 @Component({
   selector: 'ff-film-banner',
@@ -13,10 +21,30 @@ import KeenSlider, { KeenSliderInstance } from 'keen-slider';
   styleUrls: ['./banner.component.less']
 })
 export class BannerComponent implements AfterViewInit, OnDestroy {
+  private loadFilms$: Subscription = new Subscription();
+  films$: Subject<FilmBannerResponseModel> =
+    new Subject<FilmBannerResponseModel>();
+  film!: FilmBannerModel;
   @ViewChild('sliderRef') sliderRef!: ElementRef<HTMLElement>;
   currentSlide = 1;
   slider!: KeenSliderInstance;
   dotHelper: number[] | undefined;
+
+  constructor(private filmDataService: FilmDataService) {}
+
+  onPageChange(page: PageEvent): void {
+    this.loadFilmsList();
+  }
+
+  loadFilmsList(): void {
+    this.loadFilms$ = this.filmDataService
+      .getTopFilms('TOP_100_POPULAR_FILMS', 1)
+      .pipe(take(1))
+      .subscribe((info: FilmBannerResponseModel) => {
+        this.films$.next(info);
+      });
+  }
+
   ngAfterViewInit() {
     setTimeout(() => {
       this.slider = new KeenSlider(
