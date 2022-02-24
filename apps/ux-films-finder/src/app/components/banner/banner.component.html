@@ -1,19 +1,17 @@
 <ng-container *ngFor="let film of (films$ | async)?.films">
   <div class="keen-slider" #sliderRef>
-    <div class="keen-slider__slide slide6">
+    <div class="keen-slider__slide slide1">
       <div class="banner">
         <div class="banner-name">
           <div class="nameRu">{{ film?.nameRu }}</div>
           <div class="nameEn">{{ film?.nameEn }}</div>
           <div class="description">
             <p>Жанр:</p>
-            <div class="genres">
-              драма, криминал, детектив, фантастика, фэнтези
-            </div>
+            <div class="genres">{{ film?.genres }}></div>
             <div class="addition">
               <div class="year">{{ film?.year }}</div>
               &nbsp;&nbsp;
-              <div class="countries">США</div>
+              <div class="countries">{{ film?.countries }}></div>
             </div>
           </div>
           <div class="filmLength">
@@ -53,13 +51,14 @@
       <path d="M5 3l3.057-3 11.943 12-11.943 12-3.057-3 9-9z" />
     </svg>
   </div>
+  <div class="dots">
+    <button
+      (click)="slider.moveToIdx(i)"
+      *ngFor="let slide of dotHelper; let i = index"
+      [class]="'dot ' + (i === currentSlide ? 'active' : '')"
+    ></button>
+  </div>
 </ng-container>
-<div class="dots">
-  <button
-    (click)="slider.moveToIdx(i)"
-    *ngFor="let slide of dotHelper; let i = index"
-    [class]="'dot ' + (i === currentSlide ? 'active' : '')"
-  ></button>
-</div>
-<mat-paginator class="category" [length]="100" (page)="onPageChange($event)">
+
+<mat-paginator class="banner" [length]="100" (page)="onPageChange($event)">
 </mat-paginator>
