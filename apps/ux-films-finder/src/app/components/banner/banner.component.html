@@ -20,7 +20,10 @@
           </div>
         </div>
         <div class="poster">
-          <div class="posterUrl"></div>
+          <div class="posterUrl">
+            <img src="{{ film?.posterUrl }}" alt="Постер" />
+          </div>
+          <div class="gradient"></div>
         </div>
       </div>
     </div>
@@ -50,13 +53,6 @@
     >
       <path d="M5 3l3.057-3 11.943 12-11.943 12-3.057-3 9-9z" />
     </svg>
-  </div>
-  <div class="dots">
-    <button
-      (click)="slider.moveToIdx(i)"
-      *ngFor="let slide of dotHelper; let i = index"
-      [class]="'dot ' + (i === currentSlide ? 'active' : '')"
-    ></button>
   </div>
 </ng-container>
 

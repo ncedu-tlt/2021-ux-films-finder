@@ -1,3 +1,3 @@
 export interface FilmGenreModel {
-  genre: string;
+  genre: object;
 }

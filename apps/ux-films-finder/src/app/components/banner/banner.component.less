@@ -88,63 +88,47 @@
   height: 100%;
   float: right;
 }
-.posterUrl {
-  width: 93%;
+.posterUrl img {
+  width: 55%;
   height: 100%;
+  float: right;
+  margin-right: 20%;
+
+  background-size: 55% 100%;
+}
+.gradient {
+  width: 57%;
+  height: 100%;
+  float: right;
+  margin-right: 15%;
+  position: absolute;
   background: linear-gradient(
       to left,
       rgba(0, 0, 0, 0),
+      rgba(0, 0, 0, 0.001),
       rgba(0, 0, 0, 0.005),
       rgba(0, 0, 0, 0.15),
       rgba(0, 0, 0, 0.25),
-      rgba(0, 0, 0, 0.35),
-      rgba(0, 0, 0, 0.45),
-      rgba(0, 0, 0, 0.741),
+      rgba(0, 0, 0, 0.3),
+      rgba(0, 0, 0, 0.9),
+      rgba(0, 0, 0, 1),
       black
     ),
     linear-gradient(
       to right,
       rgba(0, 0, 0, 0),
-      rgba(0, 0, 0, 0.003),
-      rgba(0, 0, 0, 0.01),
-      rgba(0, 0, 0, 0.02),
-      rgba(0, 0, 0, 0.1),
-      rgba(0, 0, 0, 0.35),
-      rgba(0, 0, 0, 0.741),
+      rgba(0, 0, 0, 0.001),
+      rgba(0, 0, 0, 0.005),
+      rgba(0, 0, 0, 0.15),
+      rgba(0, 0, 0, 0.2),
+      rgba(0, 0, 0, 0.4),
+      rgba(0, 0, 0, 0.9),
+      rgba(0, 0, 0, 1),
       black
-    ),
-    url('https://kinopoiskapiunofficial.tech/images/posters/kp/435.jpg') 100%
-      100% no-repeat;
-  background-position: center;
-  background-size: 65% 100%;
+    );
 }
 .navigation-wrapper {
   position: relative;
-}
-
-.dots {
-  display: flex;
-  padding: 10px 0;
-  justify-content: center;
-}
-
-.dot {
-  border: none;
-  width: 10px;
-  height: 10px;
-  background: #c5c5c5;
-  border-radius: 50%;
-  margin: 0 5px;
-  padding: 5px;
-  cursor: pointer;
-}
-
-.dot:focus {
-  outline: none;
-}
-
-.dot.active {
-  background: #000;
 }
 
 .arrow {
