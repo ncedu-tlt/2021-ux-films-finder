@@ -1,0 +1,36 @@
+@import '../../../assets/styles/themes/base/common/shared';
+
+.card {
+  position: relative;
+  line-height: 20px;
+  font-size: 21px;
+  &__img {
+    border-radius: 10px;
+    width: 275px;
+    height: 367px;
+  }
+  &__name {
+    display: flex;
+    position: absolute;
+    bottom: 25px;
+    align-items: center;
+    width: 275px;
+    height: 40px;
+    color: @color-black-00;
+    background-color: @color-white-ff;
+    border-radius: 1px;
+  }
+  &__rating {
+    display: flex;
+    position: absolute;
+    align-items: center;
+    bottom: 85%;
+    padding: 10px;
+    width: 44px;
+    height: 28px;
+    left: 232px;
+    color: @color-black-00;
+    border-radius: 4px 0 0 4px;
+    background-color: @color-white-ff;
+  }
+}

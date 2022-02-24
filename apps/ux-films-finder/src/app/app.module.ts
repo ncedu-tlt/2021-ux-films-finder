@@ -24,6 +24,8 @@ import { GenresBannerComponent } from './components/genres-banner/genres-banner.
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatSidenavModule } from '@angular/material/sidenav';
+import { CardComponent } from './components/card/card.component';
+import { SwitcherComponent } from './components/switcher/switcher.component';
 
 @NgModule({
   declarations: [
@@ -33,11 +35,13 @@ import { MatSidenavModule } from '@angular/material/sidenav';
     MainPageComponent,
     NotFoundPageComponent,
     CategoryComponent,
+    CardComponent,
     DetailsComponent,
     AdvancedSearchComponent,
     HeaderComponent,
     SidenavListComponent,
-    GenresBannerComponent
+    GenresBannerComponent,
+    SwitcherComponent
   ],
   imports: [
     BrowserModule,
