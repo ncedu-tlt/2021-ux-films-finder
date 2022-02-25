@@ -1,1 +1,21 @@
-<p>search-persons works!</p>
+<div class="search-person">
+  <div class="search-person__list">
+    <ng-container *ngFor="let person of (person$ | async)?.items">
+      <a routerLink="/persons/{{ person?.kinopoiskId }}">
+        <ff-card
+          [name]="person?.nameRu ? person.nameRu : person.nameEn"
+          [url]="person?.posterUrl ?? ''"
+          [gender]="person?.sex === 'FEMALE' ? 'Женский' : 'Мужской'"
+        ></ff-card>
+      </a>
+    </ng-container>
+  </div>
+  <mat-paginator
+    *ngIf="(person$ | async)?.total"
+    class="search-person__paginator"
+    [length]="(person$ | async).total > 100 ? 100 : (person$ | async).total"
+    [pageSize]="pageSize"
+    (page)="onPageChange($event)"
+  >
+  </mat-paginator>
+</div>

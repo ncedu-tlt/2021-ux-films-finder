@@ -8,6 +8,7 @@ import { NotFoundPageComponent } from './components/not-found-page/not-found-pag
 import { SearchPersonsComponent } from './components/search-persons/search-persons.component';
 import { MainPageComponent } from './components/main-page/main-page.component';
 import { SimpleExComponent } from './components/simple-ex/simple-ex.component';
+import { PersonComponent } from './components/person/person.component';
 const routes: Routes = [
   { path: '', component: MainPageComponent },
   { path: 'search-films', component: AdvancedSearchComponent },
@@ -26,6 +27,7 @@ const routes: Routes = [
   { path: 'family', component: CategoryComponent, data: { genreId: 19 } },
   { path: 'search-persons', component: SearchPersonsComponent },
   { path: 'details/:id', component: DetailsComponent },
+  { path: 'persons/:id', component: PersonComponent },
   { path: 'simple-ex', component: SimpleExComponent },
   { path: '**', component: NotFoundPageComponent }
 ];
