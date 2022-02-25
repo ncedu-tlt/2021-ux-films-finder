@@ -1,4 +1,12 @@
 <div class="search-person">
+  <input
+    matInput
+    placeholder="Кристен Стюарт"
+    [(ngModel)]="search"
+    (keyup.enter)="onSearch()"
+    class="search-person__input"
+  />
+
   <div class="search-person__list">
     <ng-container *ngFor="let person of (person$ | async)?.items">
       <a routerLink="/persons/{{ person?.kinopoiskId }}">
@@ -11,9 +19,9 @@
     </ng-container>
   </div>
   <mat-paginator
-    *ngIf="(person$ | async)?.total"
+    *ngIf="(person$ | async)?.total as total"
     class="search-person__paginator"
-    [length]="(person$ | async).total > 100 ? 100 : (person$ | async).total"
+    [length]="total > 100 ? 100 : total"
     [pageSize]="pageSize"
     (page)="onPageChange($event)"
   >

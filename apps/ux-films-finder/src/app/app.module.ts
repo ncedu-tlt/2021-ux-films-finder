@@ -27,6 +27,8 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { CardComponent } from './components/card/card.component';
 import { SwitcherComponent } from './components/switcher/switcher.component';
 import { PersonComponent } from './components/person/person.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -57,7 +59,9 @@ import { PersonComponent } from './components/person/person.component';
     MatListModule,
     MatSliderModule,
     MatPaginatorModule,
-    MatSidenavModule
+    MatSidenavModule,
+    MatFormFieldModule,
+    FormsModule
   ],
   providers: [
     {
