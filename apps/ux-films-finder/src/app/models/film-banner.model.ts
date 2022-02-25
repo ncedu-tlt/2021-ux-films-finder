@@ -9,6 +9,7 @@ export interface FilmBannerModel {
   countries: FilmCountryModel[];
   filmLength: string;
   posterUrl: string;
+  rating: string;
 }
 
 export type KinopoiskRequestModel = FilmBannerModel;

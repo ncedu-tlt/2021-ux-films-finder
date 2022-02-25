@@ -1,5 +1,6 @@
 import {
   AfterViewInit,
+  ChangeDetectorRef,
   Component,
   ElementRef,
   OnDestroy,
@@ -14,25 +15,28 @@ import { FilmBannerModel } from '../../models/film-banner.model';
 import { FilmDataService } from '../../services/film-data.service';
 import { ActivatedRoute } from '@angular/router';
 import { PageEvent } from '@angular/material/paginator';
+import { FilmModel } from '../../models/film.model';
+import { FilmCountryModel } from '../../models/film-country.model';
 
 @Component({
   selector: 'ff-film-banner',
   templateUrl: './banner.component.html',
   styleUrls: ['./banner.component.less']
 })
-export class BannerComponent implements AfterViewInit, OnDestroy {
+export class BannerComponent implements AfterViewInit, OnDestroy, OnInit {
   private loadFilms$: Subscription = new Subscription();
-  films$: Subject<FilmBannerResponseModel> =
-    new Subject<FilmBannerResponseModel>();
-  film!: FilmBannerModel;
+  films$: Subject<FilmBannerModel[]> = new Subject<FilmBannerModel[]>();
+
   @ViewChild('sliderRef') sliderRef!: ElementRef<HTMLElement>;
   currentSlide = 1;
   slider!: KeenSliderInstance;
-  dotHelper: number[] | undefined;
 
-  constructor(private filmDataService: FilmDataService) {}
+  constructor(
+    private filmDataService: FilmDataService,
+    private cdr: ChangeDetectorRef
+  ) {}
 
-  onPageChange(page: PageEvent): void {
+  ngOnInit(): void {
     this.loadFilmsList();
   }
 
@@ -41,7 +45,10 @@ export class BannerComponent implements AfterViewInit, OnDestroy {
       .getTopFilms('TOP_100_POPULAR_FILMS', 1)
       .pipe(take(1))
       .subscribe((info: FilmBannerResponseModel) => {
-        this.films$.next(info);
+        this.films$.next(info.films.splice(10, 90));
+        console.log(info);
+        this.cdr.detectChanges();
+        this.slider.update();
       });
   }
 
@@ -87,10 +94,9 @@ export class BannerComponent implements AfterViewInit, OnDestroy {
           }
         ]
       );
-      this.dotHelper = [
-        ...Array(this.slider.track.details.slides.length).keys()
-      ];
     });
+    this.cdr.detectChanges();
+    this.slider.update();
   }
 
   ngOnDestroy() {

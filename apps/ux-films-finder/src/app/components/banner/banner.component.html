@@ -1,29 +1,40 @@
-<ng-container *ngFor="let film of (films$ | async)?.films">
+<ng-container>
   <div class="keen-slider" #sliderRef>
-    <div class="keen-slider__slide slide1">
+    <div class="keen-slider__slide slide1" *ngFor="let film of films$ | async">
       <div class="banner">
         <div class="banner-name">
           <div class="nameRu">{{ film?.nameRu }}</div>
           <div class="nameEn">{{ film?.nameEn }}</div>
-          <div class="description">
-            <p>Жанр:</p>
-            <div class="genres">{{ film?.genres }}></div>
-            <div class="addition">
-              <div class="year">{{ film?.year }}</div>
-              &nbsp;&nbsp;
-              <div class="countries">{{ film?.countries }}></div>
-            </div>
-          </div>
-          <div class="filmLength">
-            <p>Продолжительность:</p>
-            {{ film?.filmLength }}
+          <div class="genres">
+            <ng-container *ngFor="let genre of film.genres">
+              {{ genre.genre }}
+            </ng-container>
           </div>
         </div>
         <div class="poster">
           <div class="posterUrl">
             <img src="{{ film?.posterUrl }}" alt="Постер" />
           </div>
-          <div class="gradient"></div>
+        </div>
+        <div class="description">
+          <div class="rating">
+            <p>Рейтинг</p>
+            {{ film?.rating }}
+          </div>
+          <div class="filmLength">
+            <p>Продолжительность</p>
+            {{ film?.filmLength }}
+          </div>
+          <div class="countries">
+            <p>Страна</p>
+            <ng-container *ngFor="let country of film.countries">
+              {{ country.country }}
+            </ng-container>
+          </div>
+          <div class="year">
+            <p>Год выпуска</p>
+            {{ film?.year }}
+          </div>
         </div>
       </div>
     </div>
@@ -55,6 +66,3 @@
     </svg>
   </div>
 </ng-container>
-
-<mat-paginator class="banner" [length]="100" (page)="onPageChange($event)">
-</mat-paginator>
