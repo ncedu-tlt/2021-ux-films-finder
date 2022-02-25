@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'ff-card',
@@ -10,6 +10,8 @@ export class CardComponent {
   public url = '';
   @Input()
   public name = '';
+  @Input()
+  public gender = '';
   @Input()
   public rating = 0;
 }

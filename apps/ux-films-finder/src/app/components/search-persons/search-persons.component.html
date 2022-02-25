@@ -12,7 +12,7 @@
       <a routerLink="/persons/{{ person?.kinopoiskId }}">
         <ff-card
           [name]="person?.nameRu ? person.nameRu : person.nameEn"
-          [url]="person?.posterUrl ?? ''"
+          [url]="person?.posterUrl ? person.posterUrl : ''"
           [gender]="person?.sex === 'FEMALE' ? 'Женский' : 'Мужской'"
         ></ff-card>
       </a>
