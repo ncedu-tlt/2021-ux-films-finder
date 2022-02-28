@@ -6,8 +6,19 @@
     (keyup.enter)="onSearch()"
     class="search-person__input"
   />
-
-  <div class="search-person__list">
+  <ng-template #noItemsTemplate>
+    <div class="search-person__list _empty">
+      {{
+        !search
+          ? 'Здесь будет отображаться результат, введите что-то в поиск'
+          : ' По вашему запросу ничего не найдено, проверьте правильность написания и попробуйте снова'
+      }}
+    </div></ng-template
+  >
+  <div
+    class="search-person__list"
+    *ngIf="(person$ | async)?.items; else noItemsTemplate"
+  >
     <ng-container *ngFor="let person of (person$ | async)?.items">
       <a routerLink="/persons/{{ person?.kinopoiskId }}">
         <ff-card

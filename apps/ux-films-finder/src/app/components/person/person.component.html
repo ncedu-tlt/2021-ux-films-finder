@@ -1,1 +1,75 @@
-<p>person works!</p>
+<div class="person">
+  <ng-container *ngIf="personsInfo">
+    <div class="person__details">
+      <div class="person__details _img">
+        <img
+          src="{{ personsInfo?.posterUrl }}"
+          alt="poster"
+          class="person__details _img _person-img"
+        />
+      </div>
+
+      <div class="person__details _info">
+        <div class="person__details _info _title">
+          <ng-container *ngIf="personsInfo.nameRu; else NameEnTemplate">{{
+            personsInfo?.nameRu
+          }}</ng-container>
+          <ng-template #NameEnTemplate>
+            {{ personsInfo?.nameEn }}
+          </ng-template>
+        </div>
+        <div class="person__details _info _profession">
+          {{
+            personsInfo.profession + ', ' + personsInfo.hasAwards + '  наград'
+          }}
+        </div>
+        <div class="person__details _info _date">
+          {{
+            'Родился ' +
+              personsInfo.birthday +
+              ', ' +
+              personsInfo.birthplace +
+              ', возраст ' +
+              personsInfo.age
+          }}
+        </div>
+        <ng-container *ngIf="personsInfo.death">
+          <div class="person__details _info _date">
+            {{ 'Умер ' + personsInfo.death + ', ' + personsInfo.deathplace }}
+          </div>
+        </ng-container>
+        <div class="person__details _info _gender">
+          {{
+            personsInfo.sex === 'FEMALE'
+              ? 'Женщина'
+              : 'Мужчина' + ', рост ' + personsInfo.growth
+          }}
+        </div>
+
+        <ng-container *ngFor="let spousesItem of personsInfo?.spouses">
+          <div class="person__details _spouses _relation">
+            {{
+              spousesItem.relation.toUpperCase() +
+                ' - ' +
+                spousesItem.name +
+                spousesItem.divorcedReason +
+                ', общих детей ' +
+                spousesItem.children
+            }}
+          </div>
+        </ng-container>
+        <div class="person__details _films">
+          Снимался в фильмах:
+          <ng-container *ngFor="let filmsItem of personsInfo?.films">
+            {{ filmsItem.nameRu }}
+          </ng-container>
+        </div>
+      </div>
+    </div>
+    <div class="person__facts">
+      <ng-container *ngFor="let factsItem of personsInfo?.facts">
+        <p class="person__facts _paragrath">{{ factsItem }}</p></ng-container
+      >
+    </div>
+  </ng-container>
+</div>

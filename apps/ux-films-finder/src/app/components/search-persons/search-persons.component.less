@@ -5,7 +5,14 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     margin: 16px;
+    &._empty {
+      display: flex;
+      margin: 32px 20%;
+      font-size: 32px;
+      color: @color-gray-66;
+    }
   }
+
   &__input {
     display: flex;
     width: 60%;

@@ -1,0 +1,71 @@
+@import '../../../assets/styles/themes/base/common/shared';
+.person {
+  font-size: 24px;
+  &__details {
+    display: flex;
+    flex-direction: row;
+    margin: 16px;
+    &._img {
+      width: 400px;
+      height: 550px;
+    }
+    &._person-img {
+      box-shadow: 0 4px 8px 0 @color-gray-66;
+    }
+    &._spouses {
+      display: flex;
+      flex-direction: row;
+    }
+    &._person-img {
+      border-radius: 5%;
+    }
+    &._info {
+      display: flex;
+      flex-direction: column;
+    }
+    &._profession {
+      display: flex;
+      flex-direction: row;
+    }
+
+    &._films {
+      height: 50px;
+      overflow: hidden;
+    }
+    &._title {
+      font-size: 40px;
+      line-height: 125%;
+      letter-spacing: 0.08em;
+    }
+  }
+  &__facts {
+  }
+}
+@media only screen and (max-width: 820px) {
+  .person {
+    font-size: 16px;
+    width: 100%;
+    &__details {
+      display: flex;
+      flex-direction: column;
+      margin: 16px;
+      width: 100%;
+
+      &._films {
+        height: 120px;
+        overflow: hidden;
+      }
+      &._title {
+        font-size: 24px;
+        line-height: 125%;
+        letter-spacing: 0.08em;
+      }
+    }
+    &__facts {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      margin: 0 24px;
+    }
+  }
+}

@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { FilmModel } from '../models/film.model';
 import { FilmsResponseModel } from '../models/films-response.model';
 import { PersonInfoResponseModel } from '../models/person-info-response.model';
+import { BiographyModel } from '../models/biography.model';
 
 @Injectable({
   providedIn: 'root'
@@ -32,6 +33,11 @@ export class FilmDataService {
   ): Observable<PersonInfoResponseModel> {
     return this.http.get<PersonInfoResponseModel>(
       this.kinopoiskUrl + '/api/v1/persons?name=' + name + '&page=' + page
+    );
+  }
+  public getPersonsInfoById(id: number): Observable<BiographyModel> {
+    return this.http.get<BiographyModel>(
+      this.kinopoiskUrl + '/api/v1/staff/' + id
     );
   }
 }
