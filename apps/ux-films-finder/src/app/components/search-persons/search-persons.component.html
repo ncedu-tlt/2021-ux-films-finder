@@ -1,11 +1,19 @@
 <div class="search-person">
-  <input
-    matInput
-    placeholder="Кристен Стюарт"
-    [(ngModel)]="search"
-    (keyup.enter)="onSearch()"
-    class="search-person__input"
-  />
+  <form class="search-person__search">
+    <input
+      matInput
+      [(ngModel)]="search"
+      name="search"
+      class="search-person__search _input"
+    />
+    <button
+      class="search-person__search _button"
+      type="submit"
+      (click)="onSearch()"
+    >
+      Найти
+    </button>
+  </form>
   <ng-template #noItemsTemplate>
     <div class="search-person__list _empty">
       {{
@@ -13,18 +21,18 @@
           ? 'Здесь будет отображаться результат, введите что-то в поиск'
           : ' По вашему запросу ничего не найдено, проверьте правильность написания и попробуйте снова'
       }}
-    </div></ng-template
-  >
+    </div>
+  </ng-template>
   <div
     class="search-person__list"
-    *ngIf="(person$ | async)?.items; else noItemsTemplate"
+    *ngIf="(person$ | async)?.items?.length; else noItemsTemplate"
   >
     <ng-container *ngFor="let person of (person$ | async)?.items">
       <a routerLink="/persons/{{ person?.kinopoiskId }}">
         <ff-card
+          class="search-person__list _card"
           [name]="person?.nameRu ? person.nameRu : person.nameEn"
           [url]="person?.posterUrl ? person.posterUrl : ''"
-          [gender]="person?.sex === 'FEMALE' ? 'Женский' : 'Мужской'"
         ></ff-card>
       </a>
     </ng-container>

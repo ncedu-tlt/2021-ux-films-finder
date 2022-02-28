@@ -12,7 +12,6 @@ import { PageEvent } from '@angular/material/paginator';
 })
 export class SearchPersonsComponent {
   constructor(private personData: FilmDataService) {}
-  public personInfo!: PersonInfoModel;
   public person$: Subject<PersonInfoResponseModel> =
     new Subject<PersonInfoResponseModel>();
   readonly pageSize = 50;
