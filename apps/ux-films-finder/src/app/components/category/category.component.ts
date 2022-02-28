@@ -18,7 +18,6 @@ export class CategoryComponent implements OnInit {
   films$: Subject<FilmsResponseModel> = new Subject<FilmsResponseModel>();
   film!: FilmModel;
   genreId = 0;
-
   constructor(
     private filmDataService: FilmDataService,
     private activatedRoute: ActivatedRoute

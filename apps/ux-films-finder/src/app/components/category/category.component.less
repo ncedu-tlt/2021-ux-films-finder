@@ -1,4 +1,14 @@
 @import '../../../assets/styles/themes/dark/common/shared';
+* {
+  padding: 1%;
+}
+.category {
+  &__card {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 55px;
+  }
+}
 .theme-dark {
   & a {
     color: @color-white-ff;

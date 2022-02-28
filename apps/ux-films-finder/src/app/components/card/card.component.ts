@@ -6,10 +6,7 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./card.component.less']
 })
 export class CardComponent {
-  @Input()
-  public url = '';
-  @Input()
-  public name = '';
-  @Input()
-  public rating = 0;
+  @Input() public name = '';
+  @Input() public rating = 0;
+  @Input() public url = '';
 }
