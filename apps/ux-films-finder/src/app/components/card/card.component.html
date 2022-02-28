@@ -2,17 +2,19 @@
   <img class="card__img" [src]="url" />
   <div class="card__name">{{ name }}</div>
   <div class="card__rating" *ngIf="rating > 0">{{ rating }}</div>
-  <ng-container
-    class="card__gender"
-    *ngIf="gender === 'FEMALE'; else maleTemplate"
-  >
-    <div class="card__gender _icon _female">
-      <mat-icon>female</mat-icon>
-    </div>
+  <ng-container *ngIf="gender !== ''">
+    <ng-container
+      class="card__gender"
+      *ngIf="gender === 'FEMALE'; else maleTemplate"
+    >
+      <div class="card__gender _icon _female">
+        <mat-icon>female</mat-icon>
+      </div>
+    </ng-container>
+    <ng-template #maleTemplate>
+      <div class="card__gender _icon _male">
+        <mat-icon>male</mat-icon>
+      </div>
+    </ng-template>
   </ng-container>
-  <ng-template #maleTemplate>
-    <div class="card__gender _icon _male">
-      <mat-icon>male</mat-icon>
-    </div>
-  </ng-template>
 </div>

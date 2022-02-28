@@ -33,6 +33,7 @@
           class="search-person__list _card"
           [name]="person?.nameRu ? person.nameRu : person.nameEn"
           [url]="person?.posterUrl ? person.posterUrl : ''"
+          [gender]="person?.sex ? person.sex : ''"
         ></ff-card>
       </a>
     </ng-container>

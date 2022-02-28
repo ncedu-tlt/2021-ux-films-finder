@@ -31,6 +31,7 @@
       width: 30%;
       height: 48px;
       background: url('../../../assets/images/search.svg') no-repeat left;
+      background-color: @color-white-ff;
       background-position: 19px;
       border: 2px solid @color-gray-42;
       box-sizing: border-box;
@@ -52,7 +53,35 @@
       border-radius: 24px;
       font-size: 16px;
       line-height: 18px;
+      border: 0;
       color: @color-black-00;
+    }
+  }
+}
+@media only screen and (max-width: 820px) {
+  .search-person {
+    &__list {
+      display: grid;
+      grid-template-columns: 1fr;
+
+      &._empty {
+        display: flex;
+        font-size: 16px;
+      }
+    }
+
+    &__search {
+      &._input {
+        width: 70%;
+        height: 36px;
+        margin-right: 16px;
+        padding-left: 16%;
+      }
+
+      &._button {
+        width: 100px;
+        height: 36px;
+      }
     }
   }
 }

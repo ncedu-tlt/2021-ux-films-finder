@@ -1,44 +1,91 @@
-@import '../../../assets/styles/themes/base/common/shared';
+@import '../../../assets/styles/themes/dark/common/shared';
 .person {
-  font-size: 24px;
+  font-size: 20px;
+  line-height: 42px;
+  margin: 40px;
   &__details {
     display: flex;
     flex-direction: row;
-    margin: 16px;
+
     &._img {
-      width: 400px;
-      height: 550px;
-    }
-    &._person-img {
-      box-shadow: 0 4px 8px 0 @color-gray-66;
-    }
-    &._spouses {
       display: flex;
-      flex-direction: row;
+      justify-self: center;
+      justify-content: center;
+      width: 420px;
+      height: 500px;
+      background-color: @color-black-00;
+      padding-left: 12px;
+      margin-right: 32px;
     }
     &._person-img {
-      border-radius: 5%;
+      width: 335px;
+      height: 501px;
+      filter: drop-shadow(0px 5px 5px rgba(0, 0, 0, 0.25))
+        drop-shadow(1px -1px 8px rgba(0, 0, 0, 0.25));
     }
+
     &._info {
       display: flex;
       flex-direction: column;
     }
-    &._profession {
-      display: flex;
-      flex-direction: row;
+    &._data {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
     }
-
-    &._films {
-      height: 50px;
-      overflow: hidden;
+    &._date-title,
+    &._age-title {
+      color: @color-gray-42;
+      margin-bottom: 24px;
+    }
+    &._date,
+    &._age,
+    &_.birthplace {
+      font-size: 24px;
+      line-height: 24px;
     }
     &._title {
-      font-size: 40px;
-      line-height: 125%;
-      letter-spacing: 0.08em;
+      display: flex;
+      flex-direction: row-reverse;
+      justify-content: left;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 36px;
+      line-height: 56px;
+      margin-bottom: 8px;
+    }
+    &._nameEn {
+      font-size: 24px;
+      line-height: 24px;
+      margin-bottom: 72px;
+    }
+    &_.birthplace-title {
+      color: @color-gray-42;
+      margin-bottom: 8px;
     }
   }
   &__facts {
+    font-size: 18px;
+    line-height: 32px;
+    &._profession {
+      display: flex;
+      flex-direction: column;
+      font-size: 18px;
+      line-height: 32px;
+    }
+    &._profession-title {
+      color: @color-gray-42;
+      margin-bottom: 8px;
+    }
+    &._spouses {
+      display: flex;
+      flex-direction: column;
+    }
+    &._relation {
+      display: flex;
+      flex-direction: row;
+    }
+    &._films {
+    }
   }
 }
 @media only screen and (max-width: 820px) {
@@ -51,10 +98,6 @@
       margin: 16px;
       width: 100%;
 
-      &._films {
-        height: 120px;
-        overflow: hidden;
-      }
       &._title {
         font-size: 24px;
         line-height: 125%;

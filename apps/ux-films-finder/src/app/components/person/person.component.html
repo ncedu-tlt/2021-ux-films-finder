@@ -10,66 +10,112 @@
       </div>
 
       <div class="person__details _info">
-        <div class="person__details _info _title">
-          <ng-container *ngIf="personsInfo.nameRu; else NameEnTemplate">{{
-            personsInfo?.nameRu
-          }}</ng-container>
-          <ng-template #NameEnTemplate>
-            {{ personsInfo?.nameEn }}
-          </ng-template>
+        <div class="person__details _info">
+          <div class="person__details _info _title _icon">
+            <ng-container
+              *ngIf="personsInfo?.sex === 'FEMALE'; else maleTemplate"
+            >
+              <div class="card__gender _icon _female">
+                <mat-icon>female</mat-icon>
+              </div>
+            </ng-container>
+            <ng-template #maleTemplate>
+              <div class="card__gender _icon _male">
+                <mat-icon>male</mat-icon>
+              </div>
+            </ng-template>
+            <div class="person__details _info _title _nameRu">
+              <ng-container *ngIf="personsInfo.nameRu; else NameEnTemplate">{{
+                personsInfo?.nameRu
+              }}</ng-container>
+              <ng-template #NameEnTemplate>
+                {{ personsInfo?.nameEn }}
+              </ng-template>
+            </div>
+          </div>
+          <div class="person__details _info _nameEn">
+            <ng-container *ngIf="personsInfo.nameRu"
+              >{{ personsInfo?.nameEn }}
+            </ng-container>
+          </div>
         </div>
-        <div class="person__details _info _profession">
-          {{
-            personsInfo.profession + ', ' + personsInfo.hasAwards + '  наград'
-          }}
-        </div>
-        <div class="person__details _info _date">
-          {{
-            'Родился ' +
-              personsInfo.birthday +
-              ', ' +
-              personsInfo.birthplace +
-              ', возраст ' +
-              personsInfo.age
-          }}
+
+        <div class="person__details _info">
+          <div class="person__details _info _data">
+            <div class="person__details _info _data _date-title">
+              Дата рождения
+            </div>
+            <div class="person__details _info _data _date">
+              {{ personsInfo.birthday }}
+            </div>
+            <div class="person__details _info _data _age-title">Возраст</div>
+            <div class="person__details _info _data _age">
+              {{ personsInfo.age }}
+            </div>
+          </div>
+          <div class="person__details _info _place">
+            <div class="person__details _info _place _birthplace-title">
+              Место рождения
+            </div>
+            <div class="person__details _info _place _birthplace">
+              {{ personsInfo.birthplace }}
+            </div>
+          </div>
         </div>
         <ng-container *ngIf="personsInfo.death">
           <div class="person__details _info _date">
             {{ 'Умер ' + personsInfo.death + ', ' + personsInfo.deathplace }}
           </div>
         </ng-container>
-        <div class="person__details _info _gender">
-          {{
-            personsInfo.sex === 'FEMALE'
-              ? 'Женщина'
-              : 'Мужчина' + ', рост ' + personsInfo.growth
-          }}
-        </div>
-
-        <ng-container *ngFor="let spousesItem of personsInfo?.spouses">
-          <div class="person__details _spouses _relation">
-            {{
-              spousesItem.relation.toUpperCase() +
-                ' - ' +
-                spousesItem.name +
-                spousesItem.divorcedReason +
-                ', общих детей ' +
-                spousesItem.children
-            }}
-          </div>
-        </ng-container>
-        <div class="person__details _films">
-          Снимался в фильмах:
-          <ng-container *ngFor="let filmsItem of personsInfo?.films">
-            {{ filmsItem.nameRu }}
-          </ng-container>
-        </div>
       </div>
     </div>
     <div class="person__facts">
+      <div class="person__facts _profession">
+        <div class="person__facts _profession _profession-title">Провессия</div>
+        <div class="person__facts _profession">
+          {{ personsInfo.profession }}
+        </div>
+      </div>
+      <ng-container *ngFor="let spousesItem of personsInfo?.spouses">
+        <div class="person__facts _spouses _relation-title">Отношения</div>
+        <div class="person__facts _spouses _relation">
+          <div
+            class="person__facts _spouses _relation _icon"
+            *ngIf="spousesItem.relation === 'супруга'; else maleTemplate"
+          >
+            <div class="person__facts _spouses _relation _icon _female">
+              <mat-icon>female</mat-icon>
+            </div>
+
+            <ng-template #maleTemplate>
+              <div class="person__facts _spouses _relation _icon _male">
+                <mat-icon>male</mat-icon>
+              </div>
+            </ng-template>
+          </div>
+          <div class="person__facts _spouses _relation _name">
+            {{ spousesItem.name }}
+          </div>
+          <div class="person__facts _spouses _relation _divorced">
+            <ng-container
+              *ngIf="spousesItem.divorced === true ? 'Разведены' : 'В браке'"
+            >
+            </ng-container>
+          </div>
+          <div class="person__facts _spouses _relation _children">
+            <ng-container>{{ spousesItem?.children }}</ng-container>
+          </div>
+        </div>
+      </ng-container>
       <ng-container *ngFor="let factsItem of personsInfo?.facts">
         <p class="person__facts _paragrath">{{ factsItem }}</p></ng-container
       >
+      <div class="person__facts _films">
+        Снимался в фильмах:
+        <ng-container *ngFor="let filmsItem of personsInfo?.films">
+          {{ filmsItem.nameRu }}
+        </ng-container>
+      </div>
     </div>
   </ng-container>
 </div>
