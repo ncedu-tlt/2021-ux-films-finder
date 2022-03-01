@@ -1,0 +1,72 @@
+@import '../../../assets/styles/themes/base/common/shared';
+
+// @color-gray-66
+.footer {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  background-color: @color-gray-66;
+  margin-top: 10px;
+  padding: 20px;
+
+  &__navigation {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+
+  &__navigation-block {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+  }
+
+  &__link {
+    text-decoration: none;
+    color: white;
+    margin: 2px;
+  }
+
+  &__credits {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    color: white;
+    margin-top: 15px;
+  }
+
+  &__media-icons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+
+  &__svg-icon {
+    fill: white;
+    width: 32px;
+    height: 32px;
+    margin: 5px;
+  }
+
+  &__svg-icon:hover {
+    fill: black;
+    cursor: pointer;
+  }
+
+  &__svg-icon-in-path {
+    fill: white;
+  }
+
+  &__svg-icon-in-path:hover {
+    fill: black;
+  }
+}
+
+@media (max-width: @mobile-max-width) {
+  .footer {
+    &__navigation-block {
+      flex: 0 0 45%;
+      margin: 5px;
+    }
+  }
+}

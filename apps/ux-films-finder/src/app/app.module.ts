@@ -21,14 +21,11 @@ import { MatIconModule } from '@angular/material/icon';
 import { SidenavListComponent } from './components/sidenav-list/sidenav-list.component';
 import { MatListModule } from '@angular/material/list';
 import { GenresBannerComponent } from './components/genres-banner/genres-banner.component';
-<<<<<<< HEAD
-import { FooterComponent } from './components/footer/footer.component';
-=======
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { CardComponent } from './components/card/card.component';
->>>>>>> 866bb5a8ae64d35147f8048a59465d92f7bc8078
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -41,14 +38,11 @@ import { CardComponent } from './components/card/card.component';
     CardComponent,
     DetailsComponent,
     AdvancedSearchComponent,
-<<<<<<< HEAD
     GenresBannerComponent,
-    FooterComponent
-=======
+    FooterComponent,
     HeaderComponent,
     SidenavListComponent,
     GenresBannerComponent
->>>>>>> 866bb5a8ae64d35147f8048a59465d92f7bc8078
   ],
   imports: [
     BrowserModule,
