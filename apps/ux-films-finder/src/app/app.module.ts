@@ -26,6 +26,7 @@ import { MatSliderModule } from '@angular/material/slider';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { CardComponent } from './components/card/card.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { SwitcherComponent } from './components/switcher/switcher.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { FooterComponent } from './components/footer/footer.component';
     FooterComponent,
     HeaderComponent,
     SidenavListComponent,
-    GenresBannerComponent
+    GenresBannerComponent,
+    SwitcherComponent
   ],
   imports: [
     BrowserModule,
