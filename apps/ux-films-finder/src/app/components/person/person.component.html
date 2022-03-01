@@ -15,13 +15,15 @@
             <ng-container
               *ngIf="personsInfo?.sex === 'FEMALE'; else maleTemplate"
             >
-              <div class="card__gender _icon _female">
-                <mat-icon>female</mat-icon>
+              <div class="person__details _icon">
+                <mat-icon class="person__details _icon _female"
+                  >female</mat-icon
+                >
               </div>
             </ng-container>
             <ng-template #maleTemplate>
-              <div class="card__gender _icon _male">
-                <mat-icon>male</mat-icon>
+              <div class="person__details _icon">
+                <mat-icon class="person__details _icon _male">male</mat-icon>
               </div>
             </ng-template>
             <div class="person__details _info _title _nameRu">
@@ -63,8 +65,10 @@
           </div>
         </div>
         <ng-container *ngIf="personsInfo.death">
-          <div class="person__details _info _date">
-            {{ 'Умер ' + personsInfo.death + ', ' + personsInfo.deathplace }}
+          <div class="person__details _info _date _death">
+            {{
+              'Дата смерти ' + personsInfo.death + ', ' + personsInfo.deathplace
+            }}
           </div>
         </ng-container>
       </div>
@@ -76,48 +80,47 @@
           {{ personsInfo.profession }}
         </div>
       </div>
-      <ng-container *ngFor="let spousesItem of personsInfo?.spouses">
+      <div class="person__facts _spouses">
         <div class="person__facts _spouses _relation-title">Отношения</div>
-        <div class="person__facts _spouses _relation">
-          <div
-            class="person__facts _spouses _relation _icon"
-            *ngIf="spousesItem.relation === 'супруга'; else maleTemplate"
-          >
-            <div class="person__facts _spouses _relation _icon _female">
-              <mat-icon>female</mat-icon>
-            </div>
+        <ng-container *ngFor="let spousesItem of personsInfo?.spouses">
+          <div class="person__facts _spouses _relation">
+            <div class="person__facts _spouses _relation _icon-and-name">
+              <div
+                class="person__facts _spouses _relation _icon"
+                *ngIf="spousesItem.relation === 'супруга'; else maleTemplate"
+              >
+                <div class="person__facts _spouses _relation _icon _female">
+                  <mat-icon>female</mat-icon>
+                </div>
 
-            <ng-template #maleTemplate>
-              <div class="person__facts _spouses _relation _icon _male">
-                <mat-icon>male</mat-icon>
+                <ng-template #maleTemplate>
+                  <div class="person__facts _spouses _relation _icon _male">
+                    <mat-icon>male</mat-icon>
+                  </div>
+                </ng-template>
               </div>
-            </ng-template>
-          </div>
-          <div class="person__facts _spouses _relation _name">
-            <a
-              class="person__facts _spouses _relation _person-link _name"
-              routerLink="/persons/{{ spousesItem?.personId }}"
-            >
-              {{ spousesItem.name }}
-            </a>
-          </div>
-          <div class="person__facts _spouses _relation _divorced">
-            <ng-container
-              *ngIf="spousesItem.divorced === true ? 'Разведены' : 'В браке'"
-            >
-            </ng-container>
-          </div>
-          <div class="person__facts _spouses _relation _children">
-            <ng-container
-              *ngIf="
+              <div class="person__facts _spouses _relation _name">
+                <a
+                  class="person__facts _spouses _relation _person-link _name"
+                  routerLink="/persons/{{ spousesItem?.personId }}"
+                >
+                  {{ spousesItem.name }}
+                </a>
+              </div>
+            </div>
+            <div class="person__facts _spouses _relation _divorced">
+              {{ spousesItem.divorced ? 'Разведены' : 'В браке' }}
+            </div>
+            <div class="person__facts _spouses _relation _children">
+              {{
                 spousesItem?.children !== 0
-                  ? 'Детей' + spousesItem.children
+                  ? 'Детей ' + spousesItem.children
                   : 'Детей нет'
-              "
-            ></ng-container>
+              }}
+            </div>
           </div>
-        </div>
-      </ng-container>
+        </ng-container>
+      </div>
       <div class="person__facts _fact">
         Факты
         <ng-container *ngFor="let factsItem of personsInfo?.facts">
@@ -125,8 +128,7 @@
         </ng-container>
       </div>
       <div class="person__facts _films">
-        Снимался в фильмах:
-
+        Фильмы
         <ng-container *ngFor="let filmsItem of personsInfo?.films">
           <div class="person__facts _film">
             <div class="person__facts _rating-name">

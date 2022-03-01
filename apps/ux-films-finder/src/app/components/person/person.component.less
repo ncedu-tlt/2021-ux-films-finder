@@ -37,6 +37,7 @@
       color: @color-gray-42;
       margin-bottom: 24px;
     }
+
     &._date,
     &._age,
     &_.birthplace {
@@ -62,29 +63,49 @@
       color: @color-gray-42;
       margin-bottom: 8px;
     }
+    &._female {
+      font-size: 40px;
+      color: @color-pink-cb;
+    }
+    &._male {
+      font-size: 40px;
+      color: @color-blue-27;
+    }
+    &._icon {
+      margin: 4px 24px 0 0;
+    }
+    &_.death {
+      margin-top: 24px;
+    }
   }
   &__facts {
-    font-size: 18px;
+    font-size: 20px;
     line-height: 32px;
     &._profession {
       display: flex;
       flex-direction: column;
       font-size: 18px;
       line-height: 32px;
+      margin-bottom: 32px;
     }
     &._profession-title {
       color: @color-gray-42;
       margin: 30px 0 8px 0;
     }
-    &._spouses,
+    &._spouses {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 8px;
+    }
     &._films {
       display: flex;
       flex-direction: column;
+      margin-bottom: 32px;
     }
     &._relation {
-      display: flex;
-      flex-direction: row;
-      margin-bottom: 8px;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      font-size: 18px;
     }
     &._rating {
       width: 55px;
@@ -100,9 +121,13 @@
       color: @color-green-04;
       text-decoration: none;
     }
-    &._female,
+    &._female {
+      font-size: 24px;
+      color: @color-pink-cb;
+    }
     &._male {
-      color: red;
+      font-size: 24px;
+      color: @color-blue-27;
     }
     &._fact {
       margin-bottom: 32px;
@@ -112,10 +137,11 @@
       grid-template-columns: 1fr 1fr;
       margin-bottom: 16px;
     }
-    &._rating-name {
+    &._rating-name,
+    &._icon-and-name {
       display: flex;
       flex-direction: row;
-      justify-content: left;
+      justify-content: start;
     }
   }
 }
