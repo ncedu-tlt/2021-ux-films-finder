@@ -54,10 +54,10 @@
             </div>
           </div>
           <div class="person__details _info _place">
-            <div class="person__details _info _place _birthplace-title">
+            <div class="person__details _info _birthplace-title">
               Место рождения
             </div>
-            <div class="person__details _info _place _birthplace">
+            <div class="person__details _info _birthplace">
               {{ personsInfo.birthplace }}
             </div>
           </div>
@@ -94,7 +94,12 @@
             </ng-template>
           </div>
           <div class="person__facts _spouses _relation _name">
-            {{ spousesItem.name }}
+            <a
+              class="person__facts _spouses _relation _person-link _name"
+              routerLink="/persons/{{ spousesItem?.personId }}"
+            >
+              {{ spousesItem.name }}
+            </a>
           </div>
           <div class="person__facts _spouses _relation _divorced">
             <ng-container
@@ -103,17 +108,43 @@
             </ng-container>
           </div>
           <div class="person__facts _spouses _relation _children">
-            <ng-container>{{ spousesItem?.children }}</ng-container>
+            <ng-container
+              *ngIf="
+                spousesItem?.children !== 0
+                  ? 'Детей' + spousesItem.children
+                  : 'Детей нет'
+              "
+            ></ng-container>
           </div>
         </div>
       </ng-container>
-      <ng-container *ngFor="let factsItem of personsInfo?.facts">
-        <p class="person__facts _paragrath">{{ factsItem }}</p></ng-container
-      >
+      <div class="person__facts _fact">
+        Факты
+        <ng-container *ngFor="let factsItem of personsInfo?.facts">
+          <p class="person__facts _fact _fact-paragraph">{{ factsItem }}</p>
+        </ng-container>
+      </div>
       <div class="person__facts _films">
         Снимался в фильмах:
+
         <ng-container *ngFor="let filmsItem of personsInfo?.films">
-          {{ filmsItem.nameRu }}
+          <div class="person__facts _film">
+            <div class="person__facts _rating-name">
+              <div class="person__facts _rating">
+                {{ filmsItem.rating }}
+              </div>
+              <div class="person__facts _nameRu">
+                <a
+                  class="person__facts _name"
+                  routerLink="/details/{{ filmsItem?.filmId }}"
+                  >{{ filmsItem.nameRu }}</a
+                >
+              </div>
+            </div>
+            <div class="person__facts _film _professionKey">
+              {{ filmsItem.professionKey }}
+            </div>
+          </div>
         </ng-container>
       </div>
     </div>

@@ -30,7 +30,7 @@
     }
     &._data {
       display: grid;
-      grid-template-columns: 1fr 1fr 1fr 1fr;
+      grid-template-columns: 2fr 2fr 2fr 2fr;
     }
     &._date-title,
     &._age-title {
@@ -74,17 +74,48 @@
     }
     &._profession-title {
       color: @color-gray-42;
-      margin-bottom: 8px;
+      margin: 30px 0 8px 0;
     }
-    &._spouses {
+    &._spouses,
+    &._films {
       display: flex;
       flex-direction: column;
     }
     &._relation {
       display: flex;
       flex-direction: row;
+      margin-bottom: 8px;
     }
-    &._films {
+    &._rating {
+      width: 55px;
+      height: 32px;
+      background: @color-gray-0E;
+      border-radius: 16px;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      margin-right: 16px;
+    }
+    &._name {
+      color: @color-green-04;
+      text-decoration: none;
+    }
+    &._female,
+    &._male {
+      color: red;
+    }
+    &._fact {
+      margin-bottom: 32px;
+    }
+    &._film {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      margin-bottom: 16px;
+    }
+    &._rating-name {
+      display: flex;
+      flex-direction: row;
+      justify-content: left;
     }
   }
 }
