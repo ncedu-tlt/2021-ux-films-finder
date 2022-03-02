@@ -75,13 +75,15 @@
     </div>
     <div class="person__facts">
       <div class="person__facts _profession">
-        <div class="person__facts _profession _profession-title">Провессия</div>
+        <div class="person__facts _profession _profession-title">Профессия</div>
         <div class="person__facts _profession">
           {{ personsInfo.profession }}
         </div>
       </div>
       <div class="person__facts _spouses">
-        <div class="person__facts _spouses _relation-title">Отношения</div>
+        <div class="person__facts _spouses _relation-title">
+          {{ !personsInfo.spouses.length ? '' : 'Отношения' }}
+        </div>
         <ng-container *ngFor="let spousesItem of personsInfo?.spouses">
           <div class="person__facts _spouses _relation">
             <div class="person__facts _spouses _relation _icon-and-name">
@@ -89,7 +91,9 @@
                 class="person__facts _spouses _relation _icon"
                 *ngIf="spousesItem.relation === 'супруга'; else maleTemplate"
               >
-                <div class="person__facts _spouses _relation _icon _female">
+                <div
+                  class="person__facts _spouses _relation _icon _female _relation-female"
+                >
                   <mat-icon>female</mat-icon>
                 </div>
 
@@ -130,21 +134,29 @@
       <div class="person__facts _films">
         Фильмы
         <ng-container *ngFor="let filmsItem of personsInfo?.films">
-          <div class="person__facts _film">
-            <div class="person__facts _rating-name">
-              <div class="person__facts _rating">
+          <div class="person__facts _film-item _film">
+            <div class="person__facts _film-item _rating-name">
+              <div
+                class="person__facts _film-item _rating"
+                *ngIf="filmsItem.rating; else emptyTemplate"
+              >
                 {{ filmsItem.rating }}
               </div>
-              <div class="person__facts _nameRu">
+              <ng-template #emptyTemplate
+                ><div class="person__facts _film-item _rating-empty"></div
+              ></ng-template>
+              <div class="person__facts _film-item _nameRu">
                 <a
-                  class="person__facts _name"
+                  class="person__facts _film-item _name"
                   routerLink="/details/{{ filmsItem?.filmId }}"
-                  >{{ filmsItem.nameRu }}</a
+                  >{{
+                    filmsItem.nameRu ? filmsItem.nameRu : filmsItem.nameEn
+                  }}</a
                 >
               </div>
             </div>
             <div class="person__facts _film _professionKey">
-              {{ filmsItem.professionKey }}
+              {{ getRole(filmsItem.professionKey) }}
             </div>
           </div>
         </ng-container>

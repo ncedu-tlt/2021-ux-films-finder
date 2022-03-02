@@ -5,6 +5,7 @@
       [(ngModel)]="search"
       name="search"
       class="search-person__search _input"
+      (keyup.enter)="onSearch()"
     />
     <button
       class="search-person__search _button"

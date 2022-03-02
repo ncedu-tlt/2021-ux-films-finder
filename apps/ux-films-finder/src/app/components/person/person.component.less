@@ -31,6 +31,7 @@
     &._data {
       display: grid;
       grid-template-columns: 2fr 2fr 2fr 2fr;
+      white-space: nowrap;
     }
     &._date-title,
     &._age-title {
@@ -86,7 +87,7 @@
       flex-direction: column;
       font-size: 18px;
       line-height: 32px;
-      margin-bottom: 32px;
+      margin-bottom: 24px;
     }
     &._profession-title {
       color: @color-gray-42;
@@ -106,6 +107,12 @@
       display: grid;
       grid-template-columns: 1fr 1fr 1fr;
       font-size: 18px;
+      line-height: 32px;
+      margin-top: 8px;
+    }
+
+    &._person-link {
+      white-space: nowrap;
     }
     &._rating {
       width: 55px;
@@ -117,6 +124,12 @@
       justify-content: center;
       margin-right: 16px;
     }
+    &._rating-empty {
+      display: flex;
+      flex-direction: row;
+      width: 71px;
+      height: 32px;
+    }
     &._name {
       color: @color-green-04;
       text-decoration: none;
@@ -125,18 +138,14 @@
       font-size: 24px;
       color: @color-pink-cb;
     }
-    &._male {
-      font-size: 24px;
-      color: @color-blue-27;
-    }
-    &._fact {
-      margin-bottom: 32px;
-    }
+
     &._film {
       display: grid;
       grid-template-columns: 1fr 1fr;
       margin-bottom: 16px;
+      white-space: nowrap;
     }
+
     &._rating-name,
     &._icon-and-name {
       display: flex;
