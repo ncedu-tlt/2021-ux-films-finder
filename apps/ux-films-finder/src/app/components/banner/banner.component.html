@@ -17,24 +17,40 @@
           </div>
         </div>
         <div class="description">
-          <div class="rating">
-            <p>Рейтинг</p>
-            {{ film?.rating }}
-          </div>
-          <div class="filmLength">
-            <p>Продолжительность</p>
-            {{ film?.filmLength }}
-          </div>
-          <div class="countries">
-            <p>Страна</p>
-            <ng-container *ngFor="let country of film.countries">
-              {{ country.country }}
-            </ng-container>
-          </div>
-          <div class="year">
-            <p>Год выпуска</p>
-            {{ film?.year }}
-          </div>
+          <table>
+            <tr class="rating">
+              <td><p>Рейтинг</p></td>
+              <td class="information">
+                <div class="rating-icon">{{ film?.rating }}</div>
+              </td>
+            </tr>
+            <tr class="filmLength">
+              <td>
+                <p>Продолжительность</p>
+              </td>
+              <td class="information">
+                {{ film?.filmLength }}
+              </td>
+            </tr>
+            <tr class="year">
+              <td>
+                <p>Год выпуска</p>
+              </td>
+              <td class="information">
+                {{ film?.year }}
+              </td>
+            </tr>
+            <tr class="countries">
+              <td>
+                <p>Страна</p>
+              </td>
+              <td class="information">
+                <ng-container *ngFor="let country of film.countries">
+                  {{ country.country }}
+                </ng-container>
+              </td>
+            </tr>
+          </table>
         </div>
       </div>
     </div>
