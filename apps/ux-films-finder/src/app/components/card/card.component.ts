@@ -1,9 +1,10 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'ff-card',
   templateUrl: './card.component.html',
-  styleUrls: ['./card.component.less']
+  styleUrls: ['./card.component.less'],
+  encapsulation: ViewEncapsulation.None
 })
 export class CardComponent {
   @Input() public name = '';
