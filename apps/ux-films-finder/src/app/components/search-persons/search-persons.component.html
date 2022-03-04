@@ -20,8 +20,13 @@
       {{
         !search
           ? 'Здесь будет отображаться результат, введите что-то в поиск'
-          : ' По вашему запросу ничего не найдено, проверьте правильность написания и попробуйте снова'
+          : ''
       }}
+    </div>
+  </ng-template>
+  <ng-template #notFoundItemsTemplate>
+    <div class="search-person__list _empty">
+      {{ (person$ | async)?.total === 0 ? 'Такой человек не найден' : '' }}
     </div>
   </ng-template>
   <div

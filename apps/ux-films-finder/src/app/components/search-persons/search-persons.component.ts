@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FilmDataService } from '../../services/film-data.service';
 import { PersonInfoResponseModel } from '../../models/person-info-response.model';
-import { Subject, Subscription, take } from 'rxjs';
+import { BehaviorSubject, map, Subject, Subscription, take } from 'rxjs';
 import { PageEvent } from '@angular/material/paginator';
 import { ActivatedRoute, Router } from '@angular/router';
+import { takeUntil } from 'rxjs/operators';
 
 @Component({
   selector: 'ff-search-persons',
@@ -16,37 +17,51 @@ export class SearchPersonsComponent implements OnInit {
     private router: Router,
     private activatedRoute: ActivatedRoute
   ) {}
-  public person$: Subject<PersonInfoResponseModel> =
-    new Subject<PersonInfoResponseModel>();
+  public person$: BehaviorSubject<PersonInfoResponseModel> =
+    new BehaviorSubject<PersonInfoResponseModel>({ items: [], total: 0 });
+
+  private unsubscribe$: Subject<void> = new Subject<void>();
+
   readonly pageSize = 50;
+
   private loadInfo$: Subscription = new Subscription();
-  search = '';
+
+  public search = '';
+
   ngOnInit(): void {
-    this.activatedRoute.queryParams.subscribe(params => {
-      this.search = params['search'];
-    });
-    this.loadPersonInfo(1);
+    this.activatedRoute.queryParams
+      .pipe(takeUntil(this.unsubscribe$))
+      .subscribe(params => {
+        this.search = params['search'];
+        this.loadPersonInfo(1);
+      });
   }
+
   loadPersonInfo(pageIndex: number) {
     this.loadInfo$ && this.loadInfo$.unsubscribe();
     this.loadInfo$ = this.personData
-      .getInfoByPersonName(this.search, pageIndex)
+      .getInfoByPersonName(this.search ?? '', pageIndex)
       .pipe(take(1))
       .subscribe((info: PersonInfoResponseModel) => {
         this.person$.next(info);
       });
   }
+
   onSearch() {
     this.router.navigate(['/search-persons'], {
-      queryParams: { search: this.search }
+      queryParams: { search: this.search.trim() }
     });
-    this.loadPersonInfo(1);
   }
   onPageChange(page: PageEvent): void {
     this.loadPersonInfo(++page.pageIndex);
+    this.router.navigate(['/search-persons'], {
+      queryParams: { page: page.pageIndex }
+    });
   }
 
   ngOnDestroy(): void {
     this.loadInfo$.unsubscribe();
+    this.unsubscribe$.next();
+    this.unsubscribe$.complete();
   }
 }
