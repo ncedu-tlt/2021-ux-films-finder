@@ -27,12 +27,14 @@ export class SearchPersonsComponent implements OnInit {
   private loadInfo$: Subscription = new Subscription();
 
   public search = '';
+  public searchParam = '';
 
   ngOnInit(): void {
     this.activatedRoute.queryParams
       .pipe(takeUntil(this.unsubscribe$))
       .subscribe(params => {
         this.search = params['search'];
+        this.searchParam = params['search'];
         this.loadPersonInfo(1);
       });
   }
