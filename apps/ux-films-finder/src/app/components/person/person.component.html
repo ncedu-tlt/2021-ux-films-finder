@@ -1,121 +1,92 @@
 <div class="person">
   <ng-container *ngIf="personsInfo">
     <div class="person__details">
-      <div class="person__details _img">
+      <div class="person__photo">
         <img
           src="{{ personsInfo?.posterUrl }}"
           alt="poster"
-          class="person__details _img _person-img"
+          class="person__img"
         />
       </div>
 
-      <div class="person__details _info">
-        <div class="person__details _info">
-          <div class="person__details _info _title _icon">
-            <ng-container
-              *ngIf="personsInfo?.sex === 'FEMALE'; else maleTemplate"
-            >
-              <div class="person__details _icon">
-                <mat-icon class="person__details _icon _female"
-                  >female</mat-icon
-                >
-              </div>
+      <div class="person__info">
+        <div class="person__genres-and-nameRuEn">
+          <div class="person__genres-and-name">
+            <ng-container *ngIf="personsInfo.sex !== ''">
+              <mat-icon class="person__icon">
+                {{ personsInfo.sex === 'FEMALE' ? 'female' : 'male' }}
+              </mat-icon>
             </ng-container>
-            <ng-template #maleTemplate>
-              <div class="person__details _icon">
-                <mat-icon class="person__details _icon _male">male</mat-icon>
-              </div>
-            </ng-template>
-            <div class="person__details _info _title _nameRu">
-              <ng-container *ngIf="personsInfo.nameRu; else NameEnTemplate">{{
-                personsInfo?.nameRu
-              }}</ng-container>
+            <div class="person__name">
+              <ng-container *ngIf="personsInfo.nameRu; else NameEnTemplate">
+                {{ personsInfo?.nameRu }}
+              </ng-container>
               <ng-template #NameEnTemplate>
                 {{ personsInfo?.nameEn }}
               </ng-template>
             </div>
           </div>
-          <div class="person__details _info _nameEn">
-            <ng-container *ngIf="personsInfo.nameRu"
-              >{{ personsInfo?.nameEn }}
+          <div class="person__nameEn">
+            <ng-container *ngIf="personsInfo.nameRu">
+              {{ personsInfo?.nameEn }}
             </ng-container>
           </div>
         </div>
 
-        <div class="person__details _info">
-          <div class="person__details _info _data">
-            <div class="person__details _info _data _date-title">
-              Дата рождения
-            </div>
-            <div class="person__details _info _data _date">
+        <div class="person__details-data">
+          <div class="person__data">
+            <div class="person__date-title">Дата рождения</div>
+            <div class="person__date">
               {{ personsInfo.birthday }}
             </div>
-            <div class="person__details _info _data _age-title">Возраст</div>
-            <div class="person__details _info _data _age">
+            <div class="person__age-title">Возраст</div>
+            <div class="person__age">
               {{ personsInfo.age }}
             </div>
           </div>
-          <div class="person__details _info _place">
-            <div class="person__details _info _birthplace-title">
-              Место рождения
-            </div>
-            <div class="person__details _info _birthplace">
+          <div class="person__place">
+            <div class="person__birthplace-title">Место рождения</div>
+            <div class="person__birthplace">
               {{ personsInfo.birthplace }}
             </div>
           </div>
         </div>
         <ng-container *ngIf="personsInfo.death">
-          <div class="person__details _info _date _death">
-            {{
-              'Дата смерти ' + personsInfo.death + ', ' + personsInfo.deathplace
-            }}
+          <div class="person__death">
+            {{ 'Дата смерти ' + personsInfo.death }}
           </div>
         </ng-container>
       </div>
     </div>
-    <div class="person__facts">
-      <div class="person__facts _profession">
-        <div class="person__facts _profession _profession-title">Профессия</div>
-        <div class="person__facts _profession">
+    <div class="person__own-dossier">
+      <div class="person__profession">
+        <div class="person__title">Профессия</div>
+        <div class="person__profession-name">
           {{ personsInfo.profession }}
         </div>
       </div>
-      <div class="person__facts _spouses">
-        <div class="person__facts _spouses _relation-title">
-          {{ !personsInfo.spouses.length ? '' : 'Отношения' }}
-        </div>
+      <div class="person__spouses" *ngIf="personsInfo?.spouses?.length !== 0">
+        <div class="person__title">Отношения</div>
         <ng-container *ngFor="let spousesItem of personsInfo?.spouses">
-          <div class="person__facts _spouses _relation">
-            <div class="person__facts _spouses _relation _icon-and-name">
-              <div
-                class="person__facts _spouses _relation _icon"
-                *ngIf="spousesItem.relation === 'супруга'; else maleTemplate"
-              >
-                <div
-                  class="person__facts _spouses _relation _icon _female _relation-female"
-                >
-                  <mat-icon>female</mat-icon>
-                </div>
+          <div class="person__relation">
+            <div class="person__icon-and-name">
+              <div class="person__icon">
+                <mat-icon>
+                  {{ spousesItem.relation === 'супруга' ? 'female' : 'male' }}
+                </mat-icon>
+              </div>
 
-                <ng-template #maleTemplate>
-                  <div class="person__facts _spouses _relation _icon _male">
-                    <mat-icon>male</mat-icon>
-                  </div>
-                </ng-template>
-              </div>
-              <div class="person__facts _spouses _relation _name">
-                <a
-                  class="person__facts _spouses _relation _person-link _name"
-                  routerLink="/persons/{{ spousesItem?.personId }}"
-                >
-                  {{ spousesItem.name }}
-                </a>
-              </div>
+              <a
+                class="person__spouses-link-name"
+                routerLink="/persons/{{ spousesItem?.personId }}"
+              >
+                {{ spousesItem.name }}
+              </a>
             </div>
-            <div class="person__facts _spouses _relation _divorced">
+            <div class="person__divorced">
               {{ spousesItem.divorced ? 'Разведены' : 'В браке' }}
             </div>
-            <div class="person__facts _spouses _relation _children">
+            <div class="person__children">
               {{
                 spousesItem?.children !== 0
                   ? 'Детей ' + spousesItem.children
@@ -125,42 +96,38 @@
           </div>
         </ng-container>
       </div>
-      <div class="person__facts _fact">
-        Факты
-        <ng-container *ngFor="let factsItem of personsInfo?.facts">
-          <p class="person__facts _fact _fact-paragraph">{{ factsItem }}</p>
-        </ng-container>
-      </div>
-      <div class="person__facts _films">
-        Фильмы
-        <ng-container *ngFor="let filmsItem of personsInfo?.films">
-          <div class="person__facts _film-item _film">
-            <div class="person__facts _film-item _rating-name">
-              <div
-                class="person__facts _film-item _rating"
-                *ngIf="filmsItem.rating; else emptyTemplate"
-              >
-                {{ filmsItem.rating }}
-              </div>
-              <ng-template #emptyTemplate
-                ><div class="person__facts _film-item _rating-empty"></div
-              ></ng-template>
-              <div class="person__facts _film-item _nameRu">
-                <a
-                  class="person__facts _film-item _name"
-                  routerLink="/details/{{ filmsItem?.filmId }}"
-                  >{{
-                    filmsItem.nameRu ? filmsItem.nameRu : filmsItem.nameEn
-                  }}</a
-                >
-              </div>
+    </div>
+    <div class="person__facts" *ngIf="personsInfo?.facts?.length !== 0">
+      <div class="person__title">Факты</div>
+      <ng-container *ngFor="let factsItem of personsInfo?.facts">
+        <p class="person__fact-paragraph">{{ factsItem }}</p>
+      </ng-container>
+    </div>
+    <div class="person__films">
+      <div class="person__title">Фильмы</div>
+      <ng-container *ngFor="let filmsItem of personsInfo?.films">
+        <div class="person__film">
+          <div class="person__rating-name">
+            <div
+              class="person__rating"
+              *ngIf="filmsItem.rating; else emptyTemplate"
+            >
+              {{ filmsItem.rating }}
             </div>
-            <div class="person__facts _film _professionKey">
-              {{ getRole(filmsItem.professionKey) }}
-            </div>
+            <ng-template #emptyTemplate>
+              <div class="person__rating-empty"></div>
+            </ng-template>
+            <a
+              class="person__film-nameRu"
+              routerLink="/details/{{ filmsItem?.filmId }}"
+              >{{ filmsItem.nameRu ? filmsItem.nameRu : filmsItem.nameEn }}
+            </a>
           </div>
-        </ng-container>
-      </div>
+          <div class="person__professionKey">
+            {{ getRole(filmsItem.professionKey) }}
+          </div>
+        </div>
+      </ng-container>
     </div>
   </ng-container>
 </div>

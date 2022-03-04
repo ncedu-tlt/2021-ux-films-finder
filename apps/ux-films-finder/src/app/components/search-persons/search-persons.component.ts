@@ -39,7 +39,7 @@ export class SearchPersonsComponent implements OnInit {
       });
   }
 
-  loadPersonInfo(pageIndex: number) {
+  loadPersonInfo(pageIndex: number): void {
     this.loadInfo$ && this.loadInfo$.unsubscribe();
     this.loadInfo$ = this.personData
       .getInfoByPersonName(this.search ?? '', pageIndex)
@@ -49,7 +49,7 @@ export class SearchPersonsComponent implements OnInit {
       });
   }
 
-  onSearch() {
+  onSearch(): void {
     this.router.navigate(['/search-persons'], {
       queryParams: { search: this.search.trim() }
     });

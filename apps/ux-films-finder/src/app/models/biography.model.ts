@@ -10,7 +10,7 @@ export interface BiographyModel {
   posterUrl: string;
   growth: number;
   birthday: string;
-  death: null;
+  death: string;
   age: number;
   birthplace: string;
   deathplace: string | null;
@@ -20,4 +20,3 @@ export interface BiographyModel {
   facts: string[];
   films: FilmModel[];
 }
-export type KinopoiskRequestModel = BiographyModel;

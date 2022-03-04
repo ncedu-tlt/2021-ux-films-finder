@@ -8,4 +8,3 @@ export interface SpousesModel {
   webUrl: string;
   relation: string;
 }
-export type KinopoiskRequestModel = SpousesModel;

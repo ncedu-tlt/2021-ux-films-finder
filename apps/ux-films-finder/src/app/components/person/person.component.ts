@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FilmDataService } from '../../services/film-data.service';
 import { ActivatedRoute } from '@angular/router';
 import { BiographyModel } from '../../models/biography.model';
+import { takeUntil } from 'rxjs/operators';
+import { Subject, take } from 'rxjs';
 
 @Component({
   selector: 'ff-person',
@@ -10,16 +12,18 @@ import { BiographyModel } from '../../models/biography.model';
 })
 export class PersonComponent implements OnInit {
   public personsInfo!: BiographyModel;
+  private unsubscribe$: Subject<void> = new Subject<void>();
   constructor(
     private filmDataService: FilmDataService,
     private activatedRouter: ActivatedRoute
   ) {}
 
   ngOnInit(): void {
-    this.activatedRouter.params.subscribe(params => {
+    this.activatedRouter.params.pipe(take(1)).subscribe(params => {
       const param = params['id'];
       this.filmDataService
         .getPersonsInfoById(+param)
+        .pipe(takeUntil(this.unsubscribe$))
         .subscribe((info: BiographyModel) => {
           this.personsInfo = info;
         });

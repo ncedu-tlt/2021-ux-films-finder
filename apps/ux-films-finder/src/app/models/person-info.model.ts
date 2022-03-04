@@ -6,4 +6,3 @@ export interface PersonInfoModel {
   sex: string;
   posterUrl: string;
 }
-export type KinopoiskRequestModel = PersonInfoModel;
