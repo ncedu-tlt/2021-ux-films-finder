@@ -15,7 +15,7 @@
           <div class="person__genres-and-name">
             <ng-container *ngIf="personsInfo.sex !== ''">
               <mat-icon
-                class="person__icon"
+                class="person__icon-title"
                 [ngClass]="personsInfo.sex === 'FEMALE' ? '_female' : '_male'"
               >
                 {{ personsInfo.sex === 'FEMALE' ? 'female' : 'male' }}
