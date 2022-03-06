@@ -2,14 +2,13 @@
 .person {
   font-size: 18px;
   line-height: 32px;
-  margin: 40px;
-  background: url('../../../assets/images/gray-stripe.png') no-repeat;
-  background-position: top;
+  padding: 40px;
   &__title {
     font-size: 20px;
     line-height: 42px;
     color: @color-gray-1b;
     margin-top: 32px;
+    margin-bottom: 8px;
   }
   &__photo {
     display: flex;
@@ -18,8 +17,8 @@
     width: 420px;
     height: 500px;
     background-color: @color-black-00;
-    padding-left: 12px;
     margin-right: 32px;
+    border-radius: 16px;
   }
   &__img {
     width: 335px;
@@ -32,7 +31,15 @@
     flex-direction: column;
   }
   &__icon {
-    margin: 4px 24px 0 0;
+    font-size: 32px;
+    line-height: 56px;
+    margin-right: 24px;
+    &._female {
+      color: @color-pink-cb;
+    }
+    &._male {
+      color: @color-blue-27;
+    }
   }
   &__name {
     display: flex;
@@ -67,7 +74,7 @@
   &__age,
   &__birthplace {
     font-size: 24px;
-    line-height: 24px;
+    line-height: 42px;
   }
   &__birthplace {
     font-size: 24px;
@@ -77,22 +84,12 @@
   &__details {
     display: flex;
     flex-direction: row;
-
-    &._female {
-      font-size: 40px;
-      color: @color-pink-cb;
-    }
-    &._male {
-      font-size: 40px;
-      color: @color-blue-27;
-    }
   }
   &__genres-and-name {
     display: flex;
     flex-direction: row-reverse;
     justify-content: start;
-    margin-bottom: 8px;
-    margin-top: 128px;
+    margin-top: 88px;
   }
   &__nameEn {
     margin-bottom: 72px;
@@ -110,7 +107,6 @@
   }
   &__profession-title {
     color: @color-gray-42;
-    margin: 30px 0 8px 0;
   }
   &__spouses {
     display: flex;
@@ -128,17 +124,41 @@
     flex-direction: column;
     margin-bottom: 32px;
   }
+  &__stripe {
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background: @color-gray-0E;
+    right: -1px;
+    top: 158px;
+    width: 100%;
+    height: 160px;
+    z-index: -1;
+    stroke-opacity: 0%;
+    &:before {
+      content: '';
+      display: flex;
+      width: 73px;
+      height: 100%;
+      transform: rotate(0.5turn);
+      background: url('../../../assets/images/triangles.svg') no-repeat;
+    }
+    &:after {
+      content: '';
+      display: flex;
+      width: 73px;
+      height: 100%;
+      background: url('../../../assets/images/triangles.svg') no-repeat;
+    }
+  }
+
   &__relation {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     font-size: 18px;
-    line-height: 32px;
+    line-height: 56px;
     margin-top: 8px;
-  }
-
-  &._female {
-    font-size: 24px;
-    color: @color-pink-cb;
   }
 
   &__rating-empty {
@@ -190,6 +210,26 @@
       display: flex;
       flex-direction: column;
       margin: 0 24px;
+    }
+  }
+}
+.theme-dark {
+  & .person {
+    &__stripe {
+      background-color: @color-gray-1b;
+    }
+    &__date-title,
+    &__age-title,
+    &__birthplace-title,
+    &__title {
+      color: @color-white-ff;
+    }
+    &__spouses-link-name,
+    &__film-nameRu {
+      color: @color-green-69;
+    }
+    &__rating {
+      background: @color-gray-1b;
     }
   }
 }

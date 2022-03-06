@@ -1,4 +1,5 @@
 <div class="person">
+  <div class="person__stripe"></div>
   <ng-container *ngIf="personsInfo">
     <div class="person__details">
       <div class="person__photo">
@@ -13,7 +14,10 @@
         <div class="person__genres-and-nameRuEn">
           <div class="person__genres-and-name">
             <ng-container *ngIf="personsInfo.sex !== ''">
-              <mat-icon class="person__icon">
+              <mat-icon
+                class="person__icon"
+                [ngClass]="personsInfo.sex === 'FEMALE' ? '_female' : '_male'"
+              >
                 {{ personsInfo.sex === 'FEMALE' ? 'female' : 'male' }}
               </mat-icon>
             </ng-container>
@@ -39,9 +43,13 @@
             <div class="person__date">
               {{ personsInfo.birthday }}
             </div>
-            <div class="person__age-title">Возраст</div>
+            <div class="person__age-title">
+              {{ personsInfo.death !== null ? 'Дата смерти' : 'Возраст' }}
+            </div>
             <div class="person__age">
-              {{ personsInfo.age }}
+              {{
+                personsInfo.death !== null ? personsInfo.death : personsInfo.age
+              }}
             </div>
           </div>
           <div class="person__place">
@@ -51,11 +59,6 @@
             </div>
           </div>
         </div>
-        <ng-container *ngIf="personsInfo.death">
-          <div class="person__death">
-            {{ 'Дата смерти ' + personsInfo.death }}
-          </div>
-        </ng-container>
       </div>
     </div>
     <div class="person__own-dossier">
@@ -70,11 +73,14 @@
         <ng-container *ngFor="let spousesItem of personsInfo?.spouses">
           <div class="person__relation">
             <div class="person__icon-and-name">
-              <div class="person__icon">
-                <mat-icon>
-                  {{ spousesItem.relation === 'супруга' ? 'female' : 'male' }}
-                </mat-icon>
-              </div>
+              <mat-icon
+                class="person__icon"
+                [ngClass]="
+                  spousesItem.relation === 'супруга' ? '_female' : '_male'
+                "
+              >
+                {{ spousesItem.relation === 'супруга' ? 'female' : 'male' }}
+              </mat-icon>
 
               <a
                 class="person__spouses-link-name"

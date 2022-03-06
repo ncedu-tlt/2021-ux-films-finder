@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { FilmDataService } from '../../services/film-data.service';
 import { ActivatedRoute } from '@angular/router';
 import { BiographyModel } from '../../models/biography.model';
@@ -8,7 +8,8 @@ import { Subject, take } from 'rxjs';
 @Component({
   selector: 'ff-person',
   templateUrl: './person.component.html',
-  styleUrls: ['./person.component.less']
+  styleUrls: ['./person.component.less'],
+  encapsulation: ViewEncapsulation.None
 })
 export class PersonComponent implements OnInit {
   public personsInfo!: BiographyModel;
