@@ -1,1 +1,39 @@
-<input />
+<div class="search">
+  <input
+    class="search__input"
+    type="text"
+    [(ngModel)]="_searchInput"
+    (ngModelChange)="getListFilms()"
+    (ngModelChange)="getActorFilms()"
+    placeholder=""
+  />
+  <mat-icon class="search__filter">filter_list</mat-icon>
+</div>
+
+<ng-container class="films">
+  <mat-list class="films__list">
+    <p *ngIf="_searchInput" class="films__titleName">Фильмы и сериалы</p>
+    <mat-list-item
+      class="films__list-item"
+      *ngFor="let film of films$ | async | slice: 0:5"
+      routerLink="/details/{{ film?.kinopoiskId }}"
+      ><img src="{{ film?.posterUrlPreview }}" /> {{ film?.nameRu }}
+      <p class="films__nameEn">{{ film?.nameEn }}</p>
+    </mat-list-item>
+    <button *ngIf="_searchInput" class="films__button" (click)="getListFilms()">
+      Показать все
+    </button>
+    <p *ngIf="_searchInput" class="films__titleName">Персоны</p>
+    <mat-list-item
+      class="films__list-item"
+      *ngFor="let actor of actors$ | async | slice: 0:5"
+      routerLink="/details/{{ actor?.personId }}"
+      ><img src="{{ actor?.posterUrl }}" /> {{ actor?.nameEn }}/{{
+        actor?.nameRu
+      }}
+    </mat-list-item>
+    <button *ngIf="_searchInput" class="films__button" (click)="getListFilms()">
+      Показать все
+    </button>
+  </mat-list>
+</ng-container>

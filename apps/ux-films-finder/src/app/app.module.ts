@@ -26,6 +26,8 @@ import { MatSliderModule } from '@angular/material/slider';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { CardComponent } from './components/card/card.component';
 import { SwitcherComponent } from './components/switcher/switcher.component';
+import { SearchComponent } from './components/search/search.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -41,7 +43,8 @@ import { SwitcherComponent } from './components/switcher/switcher.component';
     HeaderComponent,
     SidenavListComponent,
     GenresBannerComponent,
-    SwitcherComponent
+    SwitcherComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,
@@ -55,7 +58,8 @@ import { SwitcherComponent } from './components/switcher/switcher.component';
     MatListModule,
     MatSliderModule,
     MatPaginatorModule,
-    MatSidenavModule
+    MatSidenavModule,
+    FormsModule
   ],
   providers: [
     {
