@@ -41,14 +41,16 @@
           <div class="person__data">
             <div class="person__date-title">Дата рождения</div>
             <div class="person__date">
-              {{ personsInfo.birthday }}
+              {{ getDate(personsInfo.birthday) }}
             </div>
             <div class="person__age-title">
               {{ personsInfo.death !== null ? 'Дата смерти' : 'Возраст' }}
             </div>
             <div class="person__age">
               {{
-                personsInfo.death !== null ? personsInfo.death : personsInfo.age
+                personsInfo.death !== null
+                  ? getDate(personsInfo.death)
+                  : personsInfo.age
               }}
             </div>
           </div>

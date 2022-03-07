@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { BiographyModel } from '../../models/biography.model';
 import { takeUntil } from 'rxjs/operators';
 import { Subject, take } from 'rxjs';
+import DateTimeFormatOptions = Intl.DateTimeFormatOptions;
 
 @Component({
   selector: 'ff-person',
@@ -75,5 +76,15 @@ export class PersonComponent implements OnInit {
       default:
         return 'Не указано';
     }
+  }
+
+  getDate(date: string): string {
+    const event = new Date(date);
+    const options = {
+      year: 'numeric',
+      month: 'short',
+      day: 'numeric'
+    } as DateTimeFormatOptions;
+    return event.toLocaleDateString('ru-RU', options);
   }
 }
