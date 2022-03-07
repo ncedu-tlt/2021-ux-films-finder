@@ -21,15 +21,17 @@ export class PersonComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.activatedRouter.params.pipe(take(1)).subscribe(params => {
-      const param = params['id'];
-      this.filmDataService
-        .getPersonsInfoById(+param)
-        .pipe(takeUntil(this.unsubscribe$))
-        .subscribe((info: BiographyModel) => {
-          this.personsInfo = info;
-        });
-    });
+    this.activatedRouter.params
+      .pipe(takeUntil(this.unsubscribe$))
+      .subscribe(params => {
+        const param = params['id'];
+        this.filmDataService
+          .getPersonsInfoById(+param)
+          .pipe(take(1))
+          .subscribe((info: BiographyModel) => {
+            this.personsInfo = info;
+          });
+      });
   }
 
   public getRole(professionKey: string): string {
