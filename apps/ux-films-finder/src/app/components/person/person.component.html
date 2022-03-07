@@ -11,8 +11,8 @@
       </div>
 
       <div class="person__info">
-        <div class="person__genres-and-nameRuEn">
-          <div class="person__genres-and-name">
+        <div class="person__main-info">
+          <div class="person__gender-and-name">
             <ng-container *ngIf="personsInfo.sex !== ''">
               <mat-icon
                 class="person__icon-title"
@@ -30,7 +30,7 @@
               </ng-template>
             </div>
           </div>
-          <div class="person__nameEn">
+          <div class="person__name-en">
             <ng-container *ngIf="personsInfo.nameRu">
               {{ personsInfo?.nameEn }}
             </ng-container>
@@ -40,13 +40,13 @@
         <div class="person__details-data">
           <div class="person__data">
             <div class="person__date-title">Дата рождения</div>
-            <div class="person__date">
+            <div class="person__label-info">
               {{ getDate(personsInfo.birthday) }}
             </div>
             <div class="person__age-title">
               {{ personsInfo.death !== null ? 'Дата смерти' : 'Возраст' }}
             </div>
-            <div class="person__age">
+            <div class="person__label-info">
               {{
                 personsInfo.death !== null
                   ? getDate(personsInfo.death)
@@ -56,7 +56,7 @@
           </div>
           <div class="person__place">
             <div class="person__birthplace-title">Место рождения</div>
-            <div class="person__birthplace">
+            <div class="person__label-info">
               {{ personsInfo.birthplace }}
             </div>
           </div>
@@ -126,12 +126,12 @@
               <div class="person__rating-empty"></div>
             </ng-template>
             <a
-              class="person__film-nameRu"
+              class="person__film-name"
               routerLink="/details/{{ filmsItem?.filmId }}"
               >{{ filmsItem.nameRu ? filmsItem.nameRu : filmsItem.nameEn }}
             </a>
           </div>
-          <div class="person__professionKey">
+          <div class="person__profession-key">
             {{ getRole(filmsItem.professionKey) }}
           </div>
         </div>

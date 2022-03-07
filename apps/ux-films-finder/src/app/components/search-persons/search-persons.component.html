@@ -4,26 +4,22 @@
       matInput
       [(ngModel)]="search"
       name="search"
-      class="search-person__search _input"
+      class="search-person__input"
       (keyup.enter)="onSearch()"
     />
-    <button
-      class="search-person__search _button"
-      type="submit"
-      (click)="onSearch()"
-    >
+    <button class="search-person__button" type="submit" (click)="onSearch()">
       Найти
     </button>
   </form>
   <ng-container *ngIf="!searchParam; else contentTemplate">
-    <div class="search-person__list _empty">
+    <div class="search-person__list-empty">
       Здесь будет отображаться результат, введите что-то в поиск
     </div>
   </ng-container>
   <ng-template #contentTemplate>
     <ng-container
       *ngIf="(person$ | async)?.total === 0; else listTemplate"
-      class="search-person__list _empty"
+      class="search-person__list-empty"
     >
       Такой человек не найден
     </ng-container>
@@ -33,7 +29,7 @@
       <ng-container *ngFor="let person of (person$ | async)?.items">
         <a routerLink="/persons/{{ person?.kinopoiskId }}">
           <ff-card
-            class="search-person__list _card"
+            class="search-person__card"
             [name]="person?.nameRu ? person.nameRu : person.nameEn"
             [url]="person?.posterUrl ? person.posterUrl : ''"
             [gender]="person?.sex ? person.sex : ''"
