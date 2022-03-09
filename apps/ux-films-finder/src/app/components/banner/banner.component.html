@@ -2,55 +2,37 @@
   <div class="keen-slider" #sliderRef>
     <div class="keen-slider__slide slide1" *ngFor="let film of films$ | async">
       <div class="banner">
-        <div class="banner-name">
-          <div class="nameRu">{{ film?.nameRu }}</div>
-          <div class="nameEn">{{ film?.nameEn }}</div>
-          <div class="genres">
+        <div class="banner__name">
+          <div class="banner__name _nameRu">{{ film?.nameRu }}</div>
+          <div class="banner__name _nameEn">{{ film?.nameEn }}</div>
+          <div class="banner__name _genres">
             <ng-container *ngFor="let genre of film.genres">
               {{ genre.genre }}
             </ng-container>
           </div>
         </div>
-        <div class="poster">
-          <div class="posterUrl">
+        <div class="banner__poster">
+          <div class="banner__poster _posterUrl">
             <img src="{{ film?.posterUrl }}" alt="Постер" />
           </div>
         </div>
-        <div class="description">
-          <table>
-            <tr class="rating">
-              <td><p>Рейтинг</p></td>
-              <td class="information">
-                <div class="rating-icon">{{ film?.rating }}</div>
-              </td>
-            </tr>
-            <tr class="filmLength">
-              <td>
-                <p>Продолжительность</p>
-              </td>
-              <td class="information">
-                {{ film?.filmLength }}
-              </td>
-            </tr>
-            <tr class="year">
-              <td>
-                <p>Год выпуска</p>
-              </td>
-              <td class="information">
-                {{ film?.year }}
-              </td>
-            </tr>
-            <tr class="countries">
-              <td>
-                <p>Страна</p>
-              </td>
-              <td class="information">
-                <ng-container *ngFor="let country of film.countries">
-                  {{ country.country }}
-                </ng-container>
-              </td>
-            </tr>
-          </table>
+        <div class="banner__description">
+          <div class="banner__description _rating">Рейтинг</div>
+          <div class="banner__description _rating-icon">
+            <p>{{ film?.rating }}</p>
+          </div>
+          <div class="banner__description _filmLength">Продолжительность</div>
+          <div class="banner__description _filmLength-info">
+            {{ film?.filmLength }}
+          </div>
+          <div class="banner__description _countries">Страна</div>
+          <div class="banner__description _country">
+            <ng-container *ngFor="let country of film.countries">
+              {{ country.country }}
+            </ng-container>
+          </div>
+          <div class="banner__description _years">Год выпуска</div>
+          <div class="banner__description _year">{{ film?.year }}</div>
         </div>
       </div>
     </div>
