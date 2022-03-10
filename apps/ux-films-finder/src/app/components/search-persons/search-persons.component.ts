@@ -28,14 +28,14 @@ export class SearchPersonsComponent implements OnInit {
 
   public search = '';
   public searchParam = '';
-
+  private firstPage: number = 1;
   ngOnInit(): void {
     this.activatedRoute.queryParams
       .pipe(takeUntil(this.unsubscribe$))
       .subscribe(params => {
         this.search = params['search'];
         this.searchParam = params['search'];
-        this.loadPersonInfo(1);
+        this.loadPersonInfo(this.firstPage);
       });
   }
 

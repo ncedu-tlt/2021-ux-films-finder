@@ -30,7 +30,7 @@
         <a routerLink="/persons/{{ person?.kinopoiskId }}">
           <ff-card
             class="search-person__card"
-            [name]="person?.nameRu ? person.nameRu : person.nameEn"
+            [name]="person.nameRu || person.nameEn"
             [url]="person?.posterUrl ? person.posterUrl : ''"
             [gender]="person?.sex ? person.sex : ''"
           >

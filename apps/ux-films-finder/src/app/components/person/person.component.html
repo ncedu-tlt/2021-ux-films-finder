@@ -4,7 +4,7 @@
     <div class="person__details">
       <div class="person__photo">
         <img
-          src="{{ personsInfo?.posterUrl }}"
+          src="{{ personsInfo.posterUrl }}"
           alt="poster"
           class="person__img"
         />
@@ -13,17 +13,19 @@
       <div class="person__info">
         <div class="person__main-info">
           <div class="person__gender-and-name">
-            <ng-container *ngIf="personsInfo.sex !== ''">
+            <ng-container *ngIf="!!personsInfo.sex">
               <mat-icon
                 class="person__icon-title"
                 [ngClass]="personsInfo.sex === 'FEMALE' ? '_female' : '_male'"
               >
-                {{ personsInfo.sex === 'FEMALE' ? 'female' : 'male' }}
+                <mat-icon>{{
+                  gender === GENDER.FEMALE ? 'female' : 'male'
+                }}</mat-icon>
               </mat-icon>
             </ng-container>
             <div class="person__name">
               <ng-container *ngIf="personsInfo.nameRu; else NameEnTemplate">
-                {{ personsInfo?.nameRu }}
+                {{ personsInfo.nameRu }}
               </ng-container>
               <ng-template #NameEnTemplate>
                 {{ personsInfo?.nameEn }}
@@ -32,29 +34,33 @@
           </div>
           <div class="person__name-en">
             <ng-container *ngIf="personsInfo.nameRu">
-              {{ personsInfo?.nameEn }}
+              {{ personsInfo.nameEn }}
             </ng-container>
           </div>
         </div>
 
         <div class="person__details-data">
           <div class="person__data">
-            <div class="person__date-title">Дата рождения</div>
-            <div class="person__label-info">
-              {{ getDate(personsInfo.birthday) }}
-            </div>
-            <div class="person__age-title">
-              {{ personsInfo.death !== null ? 'Дата смерти' : 'Возраст' }}
-            </div>
-            <div class="person__label-info">
-              {{
-                personsInfo.death !== null
-                  ? getDate(personsInfo.death)
-                  : personsInfo.age
-              }}
-            </div>
+            <ng-container *ngIf="!!personsInfo.birthday">
+              <div class="person__date-title">Дата рождения</div>
+              <div class="person__label-info">
+                {{ getDate(personsInfo.birthday) }}
+              </div>
+            </ng-container>
+            <ng-container *ngIf="!!personsInfo.death || !!personsInfo.age">
+              <div class="person__age-title">
+                {{ !!personsInfo.death ? 'Дата смерти' : 'Возраст' }}
+              </div>
+              <div class="person__label-info">
+                {{
+                  !!personsInfo.death
+                    ? getDate(personsInfo.death)
+                    : personsInfo.age
+                }}
+              </div>
+            </ng-container>
           </div>
-          <div class="person__place">
+          <div class="person__place" *ngIf="!!personsInfo.birthplace">
             <div class="person__birthplace-title">Место рождения</div>
             <div class="person__label-info">
               {{ personsInfo.birthplace }}
@@ -86,7 +92,7 @@
 
               <a
                 class="person__spouses-link-name"
-                routerLink="/persons/{{ spousesItem?.personId }}"
+                routerLink="/persons/{{ spousesItem.personId }}"
               >
                 {{ spousesItem.name }}
               </a>
@@ -96,7 +102,7 @@
             </div>
             <div class="person__children">
               {{
-                spousesItem?.children !== 0
+                spousesItem.children !== 0
                   ? 'Детей ' + spousesItem.children
                   : 'Детей нет'
               }}
@@ -128,7 +134,7 @@
             <a
               class="person__film-name"
               routerLink="/details/{{ filmsItem?.filmId }}"
-              >{{ filmsItem.nameRu ? filmsItem.nameRu : filmsItem.nameEn }}
+              >{{ filmsItem.nameRu || filmsItem.nameEn }}
             </a>
           </div>
           <div class="person__profession-key">

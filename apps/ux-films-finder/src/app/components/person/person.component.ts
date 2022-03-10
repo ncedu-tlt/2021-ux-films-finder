@@ -5,6 +5,7 @@ import { BiographyModel } from '../../models/biography.model';
 import { takeUntil } from 'rxjs/operators';
 import { Subject, take } from 'rxjs';
 import DateTimeFormatOptions = Intl.DateTimeFormatOptions;
+import { GenderEnum } from '../../enum/gender.enum';
 
 @Component({
   selector: 'ff-person',
@@ -15,6 +16,8 @@ import DateTimeFormatOptions = Intl.DateTimeFormatOptions;
 export class PersonComponent implements OnInit {
   public personsInfo!: BiographyModel;
   private unsubscribe$: Subject<void> = new Subject<void>();
+  public gender!: GenderEnum;
+  public GENDER!: GenderEnum;
   constructor(
     private filmDataService: FilmDataService,
     private activatedRouter: ActivatedRoute
