@@ -28,7 +28,7 @@ export class SearchPersonsComponent implements OnInit {
 
   public search = '';
   public searchParam = '';
-  private firstPage: number = 1;
+  private firstPage = 1;
   ngOnInit(): void {
     this.activatedRoute.queryParams
       .pipe(takeUntil(this.unsubscribe$))

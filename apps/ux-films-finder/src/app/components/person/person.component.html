@@ -16,10 +16,12 @@
             <ng-container *ngIf="!!personsInfo.sex">
               <mat-icon
                 class="person__icon-title"
-                [ngClass]="personsInfo.sex === 'FEMALE' ? '_female' : '_male'"
+                [ngClass]="
+                  personsInfo.sex === GENDER.FEMALE ? '_female' : '_male'
+                "
               >
                 <mat-icon>{{
-                  gender === GENDER.FEMALE ? 'female' : 'male'
+                  personsInfo.sex === GENDER.FEMALE ? 'female' : 'male'
                 }}</mat-icon>
               </mat-icon>
             </ng-container>
@@ -84,10 +86,10 @@
               <mat-icon
                 class="person__icon"
                 [ngClass]="
-                  spousesItem.relation === 'супруга' ? '_female' : '_male'
+                  spousesItem.relation === SPOUSES.WIFE ? '_female' : '_male'
                 "
               >
-                {{ spousesItem.relation === 'супруга' ? 'female' : 'male' }}
+                {{ spousesItem.relation === SPOUSES.WIFE ? 'female' : 'male' }}
               </mat-icon>
 
               <a
