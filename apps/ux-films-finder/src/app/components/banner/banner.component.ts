@@ -9,14 +9,10 @@ import {
 } from '@angular/core';
 import KeenSlider, { KeenSliderInstance } from 'keen-slider';
 import { Subject, Subscription, take } from 'rxjs';
-import { FilmsResponseModel } from '../../models/films-response.model';
 import { FilmBannerResponseModel } from '../../models/film-banner-response.model';
 import { FilmBannerModel } from '../../models/film-banner.model';
 import { FilmDataService } from '../../services/film-data.service';
-import { ActivatedRoute } from '@angular/router';
-import { PageEvent } from '@angular/material/paginator';
-import { FilmModel } from '../../models/film.model';
-import { FilmCountryModel } from '../../models/film-country.model';
+import { COLORS } from '../../consts/color-gender.const';
 
 @Component({
   selector: 'ff-film-banner',
@@ -26,7 +22,7 @@ import { FilmCountryModel } from '../../models/film-country.model';
 export class BannerComponent implements AfterViewInit, OnDestroy, OnInit {
   private loadFilms$: Subscription = new Subscription();
   films$: Subject<FilmBannerModel[]> = new Subject<FilmBannerModel[]>();
-
+  public color = COLORS;
   @ViewChild('sliderRef') sliderRef!: ElementRef<HTMLElement>;
   currentSlide = 1;
   slider!: KeenSliderInstance;

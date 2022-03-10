@@ -1,5 +1,5 @@
 @import 'keen-slider/keen-slider.min.css';
-
+@import '../../../assets/styles/themes/base/common/shared';
 [class^='slide'],
 [class*=' slide'] {
   display: flex;
@@ -25,32 +25,85 @@
 
   &__name {
     width: 445px;
-    padding-left: 58px;
+    padding-left: 100px;
+  }
 
-    &._nameRu {
-      width: 300px;
-      margin-top: 90px;
-      margin-bottom: 85px;
-      font-size: 35px;
-      font-weight: bold;
-      color: white;
-      line-height: 1.5;
+  &__name-ru {
+    width: 300px;
+    margin-top: 90px;
+    margin-bottom: 85px;
+    font-size: 35px;
+    font-weight: bold;
+    color: white;
+    line-height: 1.5;
+  }
+
+  &__name-en {
+    width: 300px;
+    margin-bottom: 60px;
+    color: rgb(167, 167, 167);
+    font-size: 19px;
+  }
+
+  &__genres {
+    padding: 1px 2px;
+    border-radius: 17px;
+    width: 300px;
+    color: white;
+    font-size: 13px;
+    line-height: 2.2;
+    word-spacing: 0.5em;
+    text-transform: capitalize;
+    &._bg-comedy {
+      background-color: @color-comedy;
     }
-
-    &._nameEn {
-      width: 300px;
-      margin-bottom: 60px;
-      color: rgb(167, 167, 167);
-      font-size: 19px;
+    &._bg-horror {
+      background-color: @color-horror;
     }
-
-    &._genres {
-      width: 300px;
-      color: white;
-      font-size: 16px;
-      line-height: 2.2;
-      word-spacing: 0.5em;
-      text-transform: capitalize;
+    &._bg-adventures {
+      background-color: @color-adventures;
+    }
+    &._bg-thriller {
+      background-color: @color-thriller;
+    }
+    &._bg-melodrama {
+      background-color: @color-melodrama;
+    }
+    &._bg-fantasy {
+      background-color: @color-fantasy;
+    }
+    &._bg-action {
+      background-color: @color-action;
+    }
+    &._bg-family {
+      background-color: @color-family;
+    }
+    &._bg-drama {
+      background-color: @color-drama;
+    }
+    &._bg-crime {
+      background-color: @color-crime;
+    }
+    &._bg-cartoon {
+      background-color: @color-cartoon;
+    }
+    &._bg-anime {
+      background-color: @color-anime;
+    }
+    &._bg-military {
+      background-color: @color-military;
+    }
+    &._bg-history {
+      background-color: @color-history;
+    }
+    &._bg-biography {
+      background-color: @color-biography;
+    }
+    &._bg-detective {
+      background-color: @color-detective;
+    }
+    &._bg-fiction {
+      background-color: @color-fiction;
     }
   }
   &__poster {
@@ -69,7 +122,7 @@
     height: 496px;
     margin-top: 55px;
     line-height: 2;
-    margin-left: 15px;
+    margin-left: 12px;
     display: inline-grid;
     display: grid;
     grid-template-columns: 130px 100px;
@@ -89,7 +142,7 @@
       text-align: right;
     }
 
-    &._rating-icon p {
+    &._rating-icon div {
       background: #ffffff;
       border-radius: 17px;
       text-align: center;

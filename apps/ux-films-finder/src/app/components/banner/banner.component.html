@@ -3,13 +3,13 @@
     <div class="keen-slider__slide slide1" *ngFor="let film of films$ | async">
       <div class="banner">
         <div class="banner__name">
-          <div class="banner__name _nameRu">{{ film?.nameRu }}</div>
-          <div class="banner__name _nameEn">{{ film?.nameEn }}</div>
-          <div class="banner__name _genres">
-            <ng-container *ngFor="let genre of film.genres">
+          <div class="banner__name-ru">{{ film?.nameRu }}</div>
+          <div class="banner__name-en">{{ film?.nameEn }}</div>
+          <ng-container *ngFor="let genre of film.genres">
+            <div class="banner__genres" [ngClass]="color[genre.genre]">
               {{ genre.genre }}
-            </ng-container>
-          </div>
+            </div>
+          </ng-container>
         </div>
         <div class="banner__poster">
           <div class="banner__poster _posterUrl">
@@ -19,7 +19,7 @@
         <div class="banner__description">
           <div class="banner__description _rating">Рейтинг</div>
           <div class="banner__description _rating-icon">
-            <p>{{ film?.rating }}</p>
+            <div>{{ film?.rating }}</div>
           </div>
           <div class="banner__description _filmLength">Продолжительность</div>
           <div class="banner__description _filmLength-info">
