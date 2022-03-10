@@ -5,7 +5,7 @@ import { AppComponent } from './app.component';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SimpleExComponent } from './components/simple-ex/simple-ex.component';
-import { CommonModule } from '@angular/common';
+import { CommonModule, registerLocaleData } from '@angular/common';
 import { ApiHttpInterceptor } from './interceptors/api-http.interceptor';
 import { AppRoutingModule } from './app-routing.module';
 import { SearchPersonsComponent } from './components/search-persons/search-persons.component';
@@ -29,7 +29,8 @@ import { SwitcherComponent } from './components/switcher/switcher.component';
 import { PersonComponent } from './components/person/person.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule } from '@angular/forms';
-
+import localeRu from '@angular/common/locales/ru';
+registerLocaleData(localeRu);
 @NgModule({
   declarations: [
     AppComponent,

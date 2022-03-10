@@ -20,9 +20,7 @@
                   personsInfo.sex === GENDER.FEMALE ? '_female' : '_male'
                 "
               >
-                <mat-icon>{{
-                  personsInfo.sex === GENDER.FEMALE ? 'female' : 'male'
-                }}</mat-icon>
+                {{ personsInfo.sex === GENDER.FEMALE ? 'female' : 'male' }}
               </mat-icon>
             </ng-container>
             <div class="person__name">
@@ -46,7 +44,7 @@
             <ng-container *ngIf="!!personsInfo.birthday">
               <div class="person__date-title">Дата рождения</div>
               <div class="person__label-info">
-                {{ getDate(personsInfo.birthday) }}
+                {{ personsInfo.birthday | date: 'dd MMMM yyyy':'GMT':'ru-Ru' }}
               </div>
             </ng-container>
             <ng-container *ngIf="!!personsInfo.death || !!personsInfo.age">
@@ -56,7 +54,7 @@
               <div class="person__label-info">
                 {{
                   !!personsInfo.death
-                    ? getDate(personsInfo.death)
+                    ? (personsInfo.death | date: 'dd MMMM yyyy':'GMT':'ru-Ru')
                     : personsInfo.age
                 }}
               </div>
@@ -72,7 +70,7 @@
       </div>
     </div>
     <div class="person__own-dossier">
-      <div class="person__profession">
+      <div class="person__profession" *ngIf="personsInfo.profession">
         <div class="person__title">Профессия</div>
         <div class="person__profession-name">
           {{ personsInfo.profession }}
@@ -140,7 +138,7 @@
             </a>
           </div>
           <div class="person__profession-key">
-            {{ getRole(filmsItem.professionKey) }}
+            {{ professions[filmsItem.professionKey] }}
           </div>
         </div>
       </ng-container>
