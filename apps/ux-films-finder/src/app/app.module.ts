@@ -5,7 +5,7 @@ import { AppComponent } from './app.component';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SimpleExComponent } from './components/simple-ex/simple-ex.component';
-import { CommonModule } from '@angular/common';
+import { CommonModule, registerLocaleData } from '@angular/common';
 import { ApiHttpInterceptor } from './interceptors/api-http.interceptor';
 import { AppRoutingModule } from './app-routing.module';
 import { SearchPersonsComponent } from './components/search-persons/search-persons.component';
@@ -26,8 +26,13 @@ import { MatSliderModule } from '@angular/material/slider';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { CardComponent } from './components/card/card.component';
 import { SwitcherComponent } from './components/switcher/switcher.component';
-import { SearchComponent } from './components/search/search.component';
+import { PersonComponent } from './components/person/person.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule } from '@angular/forms';
+import { SearchComponent } from './components/search/search.component';
+import localeRu from '@angular/common/locales/ru';
+registerLocaleData(localeRu);
+
 
 @NgModule({
   declarations: [
@@ -44,6 +49,7 @@ import { FormsModule } from '@angular/forms';
     SidenavListComponent,
     GenresBannerComponent,
     SwitcherComponent,
+    PersonComponent,
     SearchComponent
   ],
   imports: [
@@ -58,6 +64,8 @@ import { FormsModule } from '@angular/forms';
     MatListModule,
     MatSliderModule,
     MatPaginatorModule,
+    MatSidenavModule,
+    MatFormFieldModule,
     MatSidenavModule,
     FormsModule
   ],

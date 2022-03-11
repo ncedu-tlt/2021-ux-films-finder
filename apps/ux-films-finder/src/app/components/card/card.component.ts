@@ -11,5 +11,7 @@ export class CardComponent {
   @Input()
   public name = '';
   @Input()
+  public gender = '';
+  @Input()
   public rating = 0;
 }
