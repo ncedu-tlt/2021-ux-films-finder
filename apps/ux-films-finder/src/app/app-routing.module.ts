@@ -26,6 +26,7 @@ const routes: Routes = [
   { path: 'romance', component: CategoryComponent, data: { genreId: 4 } },
   { path: 'family', component: CategoryComponent, data: { genreId: 19 } },
   { path: 'search-persons', component: SearchPersonsComponent },
+  { path: 'advanced-search', component: AdvancedSearchComponent },
   { path: 'details/:id', component: DetailsComponent },
   { path: 'persons/:id', component: PersonComponent },
   { path: 'simple-ex', component: SimpleExComponent },

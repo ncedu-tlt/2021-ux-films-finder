@@ -33,7 +33,6 @@ import { SearchComponent } from './components/search/search.component';
 import localeRu from '@angular/common/locales/ru';
 registerLocaleData(localeRu);
 
-
 @NgModule({
   declarations: [
     AppComponent,

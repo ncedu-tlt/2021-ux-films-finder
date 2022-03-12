@@ -33,7 +33,7 @@ export class FilmDataService {
   }
   public getFilmByKeyWord(
     keyword: string,
-    page: number
+    page: number = 1
   ): Observable<FilmKeywordModel> {
     return this.http.get<FilmKeywordModel>(
       this.kinopoiskUrl +

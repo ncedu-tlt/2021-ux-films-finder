@@ -5,8 +5,7 @@
   display: flex;
   justify-content: space-between;
   height: 70px;
-  background: #424242;
-
+  background: #494949;
   a {
     text-decoration: none;
     color: white;
@@ -20,9 +19,25 @@
 
   &__logo {
     font-size: 24px;
-    margin: 25px;
+    margin: 20px;
+  }
+  hr {
+    margin-bottom: 2px;
   }
 
+  &__first-line {
+    margin-top: -3px;
+  }
+  &__second-line {
+    margin-top: 3px;
+    width: 60px;
+    margin-left: 5px;
+  }
+  &__third-line {
+    margin-top: 3px;
+    width: 24px;
+    margin-left: 12px;
+  }
   &__navigation {
     display: flex;
     justify-content: space-between;
@@ -54,7 +69,7 @@
     align-items: center;
   }
 
-  &__person-icon {
+  &__person-icon.mat-icon {
     width: 50px;
     height: 50px;
     font-size: 50px;
@@ -68,16 +83,12 @@
     align-items: flex-start;
     justify-content: flex-end;
     margin-right: 25px;
-    margin-top: 16px;
+    margin-top: 18px;
   }
 
-  &__search-icon-hidden {
+  &__search-icon-hidden.mat-icon {
     display: none;
     margin-top: 5px;
-  }
-  &__search-content {
-    border: solid 2px;
-    border-radius: 15px;
   }
 }
 
@@ -122,8 +133,13 @@
 }
 @media only screen and (max-width: 1438px) {
   .header {
-    display: flex;
-
+    width: 100vw;
+    position: sticky;
+    z-index: 1;
+    top: 0px;
+    &__right-side {
+      margin-right: 10px;
+    }
     &__left-side {
       justify-content: flex-start;
     }
@@ -135,16 +151,13 @@
     &__toogle {
       position: relative;
       margin-top: 25px;
-      margin-left: 25px;
+      margin-left: 10px;
+      display: block;
+      width: 38px;
     }
 
     &__logo {
       margin-left: 1px;
-    }
-
-    &__toogle {
-      display: block;
-      width: 50px;
     }
 
     &__search {
@@ -175,9 +188,9 @@
     }
 
     &__search {
-      width: 60px;
+      width: 35px;
     }
-    &__search-icon-hidden {
+    &__search-icon-hidden.mat-icon {
       width: 25px;
       display: block;
       cursor: pointer;
@@ -233,18 +246,33 @@
       width: 75%;
     }
     &__search-content {
-      width: 180px;
+      width: 200px;
     }
     &__input {
       width: 80px;
     }
   }
 }
+@media screen and (max-width: 380px) {
+  .header {
+    &__search-content {
+      width: 170px;
+    }
+    &__search {
+      margin-right: 5px;
+    }
+  }
+}
+
 .theme-dark {
   & .header {
-    background: #303030;
+    background: @color-gray-1b;
   }
+
   & a {
-    color: #69f0ae;
+    color: @color-green-69;
+  }
+  & hr {
+    border-color: #69f0ae;
   }
 }

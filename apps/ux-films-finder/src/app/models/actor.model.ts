@@ -1,6 +1,7 @@
 import { FilmModel } from './film.model';
 
 export interface ActorModel {
+  kinopoiskId: number;
   personId: number;
   webUrl: string;
   nameRu: string;

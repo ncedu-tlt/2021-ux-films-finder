@@ -9,15 +9,19 @@ import { Component, HostListener, ViewEncapsulation } from '@angular/core';
 export class HeaderComponent {
   isShown = false;
   desktop = false;
-
+  isScrolled = false;
+  DESKTOP_SIZE = 871;
   searchDisplay() {
     this.isShown = !this.isShown;
   }
   @HostListener('window:resize')
   onResize() {
-    window.innerWidth >= 871
-      ? ((this.desktop = true), (this.isShown = false))
-      : (this.desktop = false);
+    if (window.innerWidth >= this.DESKTOP_SIZE) {
+      this.desktop = true;
+      this.isShown = false;
+    } else {
+      this.desktop = false;
+    }
   }
   ngOnInit() {
     this.onResize();

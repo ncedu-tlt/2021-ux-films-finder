@@ -7,22 +7,25 @@
     </div>
     <div *ngIf="!isShown" class="header__logo">
       <a routerLink="">OnlineCinema</a>
+      <hr class="header__first-line" />
+      <hr class="header__second-line" />
+      <hr class="header__third-line" />
     </div>
     <div class="header__navigation">
-      <a class="header__link" mat-flat-button routerLink="/news">Новости</a>
-      <a class="header__link" mat-flat-button routerLink="/show">Ток-шоу</a>
+      <a class="header__link" mat-flat-button routerLink="/news">НОВОСТИ</a>
+      <a class="header__link" mat-flat-button routerLink="/show">ТОК-ШОУ</a>
       <a class="header__link" mat-flat-button routerLink="/for-children"
-        >Детский
+        >ДЕТСКИЙ
       </a>
       <a class="header__link" mat-flat-button routerLink="/cartoon">
-        Мультфильмы
+        МУЛЬТФИЛЬМЫ
       </a>
     </div>
   </div>
   <div class="header__right-side">
     <ff-switcher *ngIf="!isShown" class="header__switcher"></ff-switcher>
     <form class="header__search">
-      <div *ngIf="isShown || desktop === true" class="header__search-content">
+      <div *ngIf="isShown || desktop" class="header__search-content">
         <ff-search></ff-search>
       </div>
       <mat-icon
@@ -34,7 +37,7 @@
       </mat-icon>
     </form>
     <div class="header__user-info">
-      <mat-icon class="header__person-icon"> person_pin</mat-icon>
+      <mat-icon class="header__person-icon"> account_circle</mat-icon>
     </div>
   </div>
   <mat-sidenav #sidenav role="navigation">

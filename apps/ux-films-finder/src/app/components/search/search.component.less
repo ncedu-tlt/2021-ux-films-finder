@@ -1,3 +1,5 @@
+@import '../../../assets/styles/themes/base/common/shared';
+@import '../../../assets/styles/themes/dark/common/shared';
 .list {
   color: #211b19;
 }
@@ -13,8 +15,8 @@ img {
   padding: 0;
   justify-content: space-around;
   background: white;
-  border-radius: 8px 8px 0px 0px;
-
+  border-radius: 18px;
+  padding: 5px;
   &__search-icon,
   &__filter {
     cursor: pointer;
@@ -32,7 +34,6 @@ img {
   &__input {
     border: none;
     width: 400px;
-    margin-right: 15px;
     border-radius: 5px;
   }
 
@@ -42,21 +43,132 @@ img {
 }
 
 .films {
-  &__list {
+  &__list.mat-list-base {
+    max-width: 439px;
+    padding-top: 0;
     z-index: 1;
-    background: #494949;
     position: relative;
-    background: white;
-    border-radius: 0px 0px 25px 25px;
+    background: #494949;
+    border-radius: 10px;
   }
   &__list-item {
-    margin: 2px;
-    color: #211b19;
+    color: white;
+    min-height: 83px;
+    margin-bottom: 10px;
+    display: flex !important;
+    align-items: center;
+  }
+  &__img {
+    height: 80px;
+    width: 53px;
+  }
+  &__names {
+    display: inline;
+    margin-left: 16px;
+  }
+  &__nameEn {
+    font-size: 13px;
+  }
+  &__nameRu {
+    font-size: 19px;
+    font-family: sans-serif;
+  }
+  &__titleName {
+    margin-top: 19px;
+    font-size: 18px;
+    color: white;
+    padding: 10px;
+    margin-bottom: 0;
+  }
+  &__second-titleName {
+    margin-top: 10px;
+    margin-bottom: 0;
+    font-size: 18px;
+    color: white;
+    padding: 10px;
   }
 
-  &__nameEn {
-  }
-  &__titleName,
   &__button {
+    color: white;
+    margin: 0px 0px 0px 9px;
+    padding: 0;
+  }
+  &__full-list {
+    display: flex;
+    align-items: center;
+  }
+}
+.theme-dark {
+  & .search {
+    &__filter {
+      color: black;
+    }
+  }
+
+  & .films {
+    &__list {
+      background: @color-gray-1b;
+    }
+  }
+}
+@media only screen and (max-width: 555px) {
+  .films {
+    &__list.mat-list-base {
+      margin-right: -100px;
+      padding-top: 0;
+      z-index: 1;
+      position: relative;
+      background: #494949;
+      border-radius: 10px;
+    }
+  }
+}
+@media only screen and (max-width: 425px) {
+  .films {
+    &__list.mat-list-base {
+      margin-right: -100px;
+      padding-top: 0;
+      z-index: 1;
+      position: relative;
+      background: #494949;
+      border-radius: 10px;
+    }
+  }
+}
+
+@media only screen and (max-width: 380px) {
+  .films {
+    &__list.mat-list-base {
+      margin-right: -100px;
+      max-width: 250px;
+      padding-top: 0;
+      z-index: 1;
+      position: relative;
+      background: #494949;
+      border-radius: 10px;
+    }
+  }
+  .search {
+    &__input {
+      width: 120px;
+    }
+  }
+}
+
+@media only screen and (max-width: 320px) {
+  .films {
+    &__list.mat-list-base {
+      margin-right: -100px;
+      padding-top: 0;
+      z-index: 1;
+      position: relative;
+      background: #494949;
+      border-radius: 10px;
+    }
+  }
+  .search {
+    &__input {
+      width: 120px;
+    }
   }
 }
