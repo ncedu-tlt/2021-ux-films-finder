@@ -25,6 +25,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { CardComponent } from './components/card/card.component';
+import { FooterComponent } from './components/footer/footer.component';
 import { SwitcherComponent } from './components/switcher/switcher.component';
 import { PersonComponent } from './components/person/person.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -42,6 +43,8 @@ registerLocaleData(localeRu);
     CardComponent,
     DetailsComponent,
     AdvancedSearchComponent,
+    GenresBannerComponent,
+    FooterComponent,
     HeaderComponent,
     SidenavListComponent,
     GenresBannerComponent,
