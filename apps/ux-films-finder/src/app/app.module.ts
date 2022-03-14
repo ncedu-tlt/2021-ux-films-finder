@@ -32,7 +32,6 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule } from '@angular/forms';
 import { SearchComponent } from './components/search/search.component';
 import localeRu from '@angular/common/locales/ru';
-import { VideoComponent } from './components/video/video.component';
 registerLocaleData(localeRu);
 
 @NgModule({
@@ -53,8 +52,7 @@ registerLocaleData(localeRu);
     GenresBannerComponent,
     SwitcherComponent,
     PersonComponent,
-    SearchComponent,
-    VideoComponent
+    SearchComponent
   ],
   imports: [
     BrowserModule,
