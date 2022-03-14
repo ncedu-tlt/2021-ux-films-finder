@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FilmDataService } from '../../services/film-data.service';
 import { FilmModel } from '../../models/film.model';
 import { ActivatedRoute } from '@angular/router';
@@ -11,7 +11,7 @@ import { PageEvent } from '@angular/material/paginator';
   templateUrl: './category.component.html',
   styleUrls: ['./category.component.less']
 })
-export class CategoryComponent implements OnInit {
+export class CategoryComponent implements OnInit, OnDestroy {
   private loadFilms$: Subscription = new Subscription();
   private activeFilm$: Subscription = new Subscription();
   readonly pageSize = 20;

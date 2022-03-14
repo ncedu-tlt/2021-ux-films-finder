@@ -7,7 +7,6 @@ import { Subject, take } from 'rxjs';
 import { GenderEnum } from '../../enum/gender.enum';
 import { SpousesEnum } from '../../enum/spouses.enum';
 import { PROFESSIONS } from '../../consts/professions-key.const';
-import DateTimeFormatOptions = Intl.DateTimeFormatOptions;
 
 @Component({
   selector: 'ff-person',

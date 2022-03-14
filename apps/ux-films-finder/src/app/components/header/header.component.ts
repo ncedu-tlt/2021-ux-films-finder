@@ -1,4 +1,9 @@
-import { Component, HostListener, ViewEncapsulation } from '@angular/core';
+import {
+  Component,
+  HostListener,
+  OnInit,
+  ViewEncapsulation
+} from '@angular/core';
 
 @Component({
   selector: 'ff-header',
@@ -6,7 +11,7 @@ import { Component, HostListener, ViewEncapsulation } from '@angular/core';
   styleUrls: ['./header.component.less'],
   encapsulation: ViewEncapsulation.None
 })
-export class HeaderComponent {
+export class HeaderComponent implements OnInit {
   isShown = false;
   desktop = false;
   isScrolled = false;

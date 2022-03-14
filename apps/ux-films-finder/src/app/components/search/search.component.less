@@ -22,7 +22,6 @@ img {
     cursor: pointer;
     margin-right: 5px;
   }
-
   &__search-content {
     display: flex;
     justify-content: flex-end;
@@ -30,19 +29,17 @@ img {
     border: solid 1px;
     border-radius: 5px;
   }
-
   &__input {
     border: none;
     width: 400px;
     border-radius: 5px;
   }
-
   &__container {
     padding: 0;
   }
 }
 
-.films {
+.search-field {
   &__list.mat-list-base {
     max-width: 439px;
     padding-top: 0;
@@ -66,28 +63,27 @@ img {
     display: inline;
     margin-left: 16px;
   }
-  &__nameEn {
+  &__name-en {
     font-size: 13px;
   }
-  &__nameRu {
+  &__name-ru {
     font-size: 19px;
     font-family: sans-serif;
   }
-  &__titleName {
+  &__title-name {
     margin-top: 19px;
     font-size: 18px;
     color: white;
     padding: 10px;
     margin-bottom: 0;
   }
-  &__second-titleName {
+  &__second-title-name {
     margin-top: 10px;
     margin-bottom: 0;
     font-size: 18px;
     color: white;
     padding: 10px;
   }
-
   &__button {
     color: white;
     margin: 0px 0px 0px 9px;
@@ -105,14 +101,14 @@ img {
     }
   }
 
-  & .films {
+  & .search-field {
     &__list {
       background: @color-gray-1b;
     }
   }
 }
 @media only screen and (max-width: 555px) {
-  .films {
+  .search-field {
     &__list.mat-list-base {
       margin-right: -100px;
       padding-top: 0;
@@ -124,7 +120,7 @@ img {
   }
 }
 @media only screen and (max-width: 425px) {
-  .films {
+  .search-field {
     &__list.mat-list-base {
       margin-right: -100px;
       padding-top: 0;
@@ -137,7 +133,7 @@ img {
 }
 
 @media only screen and (max-width: 380px) {
-  .films {
+  .search-field {
     &__list.mat-list-base {
       margin-right: -100px;
       max-width: 250px;
@@ -156,7 +152,7 @@ img {
 }
 
 @media only screen and (max-width: 320px) {
-  .films {
+  .search-field {
     &__list.mat-list-base {
       margin-right: -100px;
       padding-top: 0;
