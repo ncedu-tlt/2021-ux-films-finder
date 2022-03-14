@@ -24,6 +24,7 @@
       Такой человек не найден
     </ng-container>
   </ng-template>
+  <ff-loader *ngIf="loading"></ff-loader>
   <ng-template #listTemplate>
     <div class="search-person__list">
       <ng-container *ngFor="let person of (person$ | async)?.items">
