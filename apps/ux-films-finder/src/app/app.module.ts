@@ -21,7 +21,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { SidenavListComponent } from './components/sidenav-list/sidenav-list.component';
 import { MatListModule } from '@angular/material/list';
 import { GenresBannerComponent } from './components/genres-banner/genres-banner.component';
-import { BannerComponent } from './components/banner/banner.component';
+import { FilmBannerComponent } from './components/banner/film-banner.component';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatSidenavModule } from '@angular/material/sidenav';
@@ -50,7 +50,8 @@ registerLocaleData(localeRu);
     SidenavListComponent,
     GenresBannerComponent,
     SwitcherComponent,
-    PersonComponent
+    PersonComponent,
+    FilmBannerComponent
   ],
   imports: [
     BrowserModule,

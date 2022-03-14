@@ -16,10 +16,10 @@ import { COLORS } from '../../consts/color-gender.const';
 
 @Component({
   selector: 'ff-film-banner',
-  templateUrl: './banner.component.html',
-  styleUrls: ['./banner.component.less']
+  templateUrl: './film-banner.component.html',
+  styleUrls: ['./film-banner.component.less']
 })
-export class BannerComponent implements AfterViewInit, OnDestroy, OnInit {
+export class FilmBannerComponent implements AfterViewInit, OnDestroy, OnInit {
   private loadFilms$: Subscription = new Subscription();
   films$: Subject<FilmBannerModel[]> = new Subject<FilmBannerModel[]>();
   public color = COLORS;
