@@ -11,34 +11,36 @@
       Найти
     </button>
   </form>
-  <ng-container *ngIf="!searchParam; else contentTemplate">
-    <div class="search-person__list-empty">
-      Здесь будет отображаться результат, введите что-то в поиск
-    </div>
-  </ng-container>
-  <ng-template #contentTemplate>
-    <ng-container
-      *ngIf="(person$ | async)?.total === 0; else listTemplate"
-      class="search-person__list-empty"
-    >
-      Такой человек не найден
+  <ff-loader *ngIf="loading; else searchResultsTemplate"></ff-loader
+  ><ng-template #searchResultsTemplate>
+    <ng-container *ngIf="!searchParam; else contentTemplate">
+      <div class="search-person__list-empty">
+        Здесь будет отображаться результат, введите что-то в поиск
+      </div>
     </ng-container>
-  </ng-template>
-  <ff-loader *ngIf="loading"></ff-loader>
-  <ng-template #listTemplate>
-    <div class="search-person__list">
-      <ng-container *ngFor="let person of (person$ | async)?.items">
-        <a routerLink="/persons/{{ person?.kinopoiskId }}">
-          <ff-card
-            class="search-person__card"
-            [name]="person.nameRu || person.nameEn"
-            [url]="person?.posterUrl ? person.posterUrl : ''"
-            [gender]="person?.sex ? person.sex : ''"
-          >
-          </ff-card>
-        </a>
+    <ng-template #contentTemplate>
+      <ng-container *ngIf="(person$ | async)?.total === 0; else listTemplate"
+        ><div class="search-person__list-empty">Такой человек не найден</div>
       </ng-container>
-    </div>
+    </ng-template>
+
+    <ng-template #listTemplate>
+      <div class="search-person__list">
+        <ng-container *ngFor="let person of (person$ | async)?.items"
+          ><div class="search-person__item">
+            <a routerLink="/persons/{{ person?.kinopoiskId }}">
+              <ff-card
+                class="search-person__card"
+                [name]="person.nameRu || person.nameEn"
+                [url]="person?.posterUrl ? person.posterUrl : ''"
+                [gender]="person?.sex ? person.sex : ''"
+              >
+              </ff-card>
+            </a>
+          </div>
+        </ng-container>
+      </div>
+    </ng-template>
   </ng-template>
   <mat-paginator
     *ngIf="(person$ | async)?.total as total"
