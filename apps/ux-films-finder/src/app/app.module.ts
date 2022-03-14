@@ -5,7 +5,7 @@ import { AppComponent } from './app.component';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SimpleExComponent } from './components/simple-ex/simple-ex.component';
-import { CommonModule } from '@angular/common';
+import { CommonModule, registerLocaleData } from '@angular/common';
 import { ApiHttpInterceptor } from './interceptors/api-http.interceptor';
 import { AppRoutingModule } from './app-routing.module';
 import { SearchPersonsComponent } from './components/search-persons/search-persons.component';
@@ -26,8 +26,13 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { CardComponent } from './components/card/card.component';
+import { FooterComponent } from './components/footer/footer.component';
 import { SwitcherComponent } from './components/switcher/switcher.component';
-
+import { PersonComponent } from './components/person/person.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { FormsModule } from '@angular/forms';
+import localeRu from '@angular/common/locales/ru';
+registerLocaleData(localeRu);
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,11 +45,12 @@ import { SwitcherComponent } from './components/switcher/switcher.component';
     DetailsComponent,
     AdvancedSearchComponent,
     GenresBannerComponent,
-    BannerComponent,
+    FooterComponent,
     HeaderComponent,
     SidenavListComponent,
     GenresBannerComponent,
-    SwitcherComponent
+    SwitcherComponent,
+    PersonComponent
   ],
   imports: [
     BrowserModule,
@@ -58,7 +64,9 @@ import { SwitcherComponent } from './components/switcher/switcher.component';
     MatListModule,
     MatSliderModule,
     MatPaginatorModule,
-    MatSidenavModule
+    MatSidenavModule,
+    MatFormFieldModule,
+    FormsModule
   ],
   providers: [
     {
