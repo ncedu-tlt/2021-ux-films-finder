@@ -33,6 +33,7 @@ import { FormsModule } from '@angular/forms';
 import localeRu from '@angular/common/locales/ru';
 import { LoaderComponent } from './components/loader/loader.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { ScreenGalleryComponent } from './components/screen-gallery/screen-gallery.component';
 registerLocaleData(localeRu);
 @NgModule({
   declarations: [
@@ -52,7 +53,8 @@ registerLocaleData(localeRu);
     GenresBannerComponent,
     SwitcherComponent,
     PersonComponent,
-    LoaderComponent
+    LoaderComponent,
+    ScreenGalleryComponent
   ],
   imports: [
     BrowserModule,

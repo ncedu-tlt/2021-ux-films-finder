@@ -1,0 +1,8 @@
+<div class="screen-gallery keen-slider" #sliderRef>
+  <div
+    class="screen-gallery__slide keen-slider__slide"
+    *ngFor="let img of (filmImages$ | async)?.items"
+  >
+    <img src="{{ img.imageUrl }}" />
+  </div>
+</div>
