@@ -37,18 +37,25 @@
     flex-direction: row;
     margin: 20px 0 0 40px;
   }
-  &__input {
-    display: flex;
+  &__search-person__field {
     width: 30%;
     height: 48px;
+    position: relative;
+  }
+  &__search-person__field-icon {
+    position: absolute;
     background: url('../../../assets/images/search.svg') no-repeat left;
+  }
+  &__input {
+    display: flex;
+
     background-color: @color-white-ff;
     background-position: 19px;
     border: 2px solid @color-gray-42;
     box-sizing: border-box;
     border-radius: 24px;
     font-size: 18px;
-    padding-left: 3%;
+    padding-left: 48px;
     margin-right: 24px;
   }
   &__button {
@@ -66,13 +73,14 @@
     line-height: 18px;
     border: 0;
     color: @color-black-00;
+    cursor: pointer;
     &:hover {
       background: @color-green-04;
       color: @color-white-ff;
     }
   }
 }
-@media only screen and (max-width: 1620px) {
+@media only screen and (max-width: 1240px) {
   .search-person {
     &__list {
       display: grid;

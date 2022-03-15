@@ -1,12 +1,14 @@
 <ng-container class="search-person">
   <form class="search-person__search">
-    <input
-      matInput
-      [(ngModel)]="search"
-      name="search"
-      class="search-person__input"
-      (keyup.enter)="onSearch()"
-    />
+    <div class="search-person__field">
+      <input
+        [(ngModel)]="search"
+        name="search"
+        class="search-person__input"
+        (keyup.enter)="onSearch()"
+      />
+    </div>
+    <div class="search-person__field-icon"></div>
     <button class="search-person__button" type="submit" (click)="onSearch()">
       Найти
     </button>
