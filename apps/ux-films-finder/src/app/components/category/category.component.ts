@@ -18,6 +18,7 @@ export class CategoryComponent implements OnInit {
   films$: Subject<FilmsResponseModel> = new Subject<FilmsResponseModel>();
   film!: FilmModel;
   genreId = 0;
+  public loading!: boolean;
 
   constructor(
     private filmDataService: FilmDataService,
@@ -30,6 +31,7 @@ export class CategoryComponent implements OnInit {
       .subscribe(data => {
         this.genreId = data['genreId'];
         this.loadFilmsList(1);
+        this.loading = true;
       });
   }
   onPageChange(page: PageEvent): void {
@@ -42,6 +44,7 @@ export class CategoryComponent implements OnInit {
       .pipe(take(1))
       .subscribe((info: FilmsResponseModel) => {
         this.films$.next(info);
+        this.loading = false;
       });
   }
   ngOnDestroy(): void {

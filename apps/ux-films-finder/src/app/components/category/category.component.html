@@ -1,3 +1,4 @@
+<ff-loader *ngIf="loading"></ff-loader>
 <ng-container *ngFor="let film of (films$ | async)?.items">
   <a routerLink="/details/{{ film?.kinopoiskId }}">
     <ng-container>

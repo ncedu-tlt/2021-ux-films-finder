@@ -31,6 +31,8 @@ import { PersonComponent } from './components/person/person.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule } from '@angular/forms';
 import localeRu from '@angular/common/locales/ru';
+import { LoaderComponent } from './components/loader/loader.component';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 registerLocaleData(localeRu);
 @NgModule({
   declarations: [
@@ -49,7 +51,8 @@ registerLocaleData(localeRu);
     SidenavListComponent,
     GenresBannerComponent,
     SwitcherComponent,
-    PersonComponent
+    PersonComponent,
+    LoaderComponent
   ],
   imports: [
     BrowserModule,
@@ -65,7 +68,8 @@ registerLocaleData(localeRu);
     MatPaginatorModule,
     MatSidenavModule,
     MatFormFieldModule,
-    FormsModule
+    FormsModule,
+    MatProgressSpinnerModule
   ],
   providers: [
     {
