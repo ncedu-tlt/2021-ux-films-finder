@@ -1,1 +1,55 @@
-<p>search-persons works!</p>
+<ng-container class="search-person">
+  <form class="search-person__search">
+    <div class="search-person__field">
+      <input
+        [(ngModel)]="search"
+        name="search"
+        class="search-person__input"
+        (keyup.enter)="onSearch()"
+      />
+      <div class="search-person__field-icon"></div>
+    </div>
+    <button class="search-person__button" type="submit" (click)="onSearch()">
+      Найти
+    </button>
+  </form>
+  <ff-loader *ngIf="loading; else searchResultsTemplate"></ff-loader
+  ><ng-template #searchResultsTemplate>
+    <ng-container *ngIf="!searchParam; else contentTemplate">
+      <div class="search-person__list-empty">
+        Здесь будет отображаться результат, введите что-то в поиск
+      </div>
+    </ng-container>
+    <ng-template #contentTemplate>
+      <ng-container *ngIf="(person$ | async)?.total === 0; else listTemplate"
+        ><div class="search-person__list-empty">Такой человек не найден</div>
+      </ng-container>
+    </ng-template>
+
+    <ng-template #listTemplate>
+      <div class="search-person__list">
+        <ng-container *ngFor="let person of (person$ | async)?.items"
+          ><div class="search-person__item">
+            <a routerLink="/persons/{{ person?.kinopoiskId }}">
+              <ff-card
+                class="search-person__card"
+                [name]="person.nameRu || person.nameEn"
+                [url]="person?.posterUrl ? person.posterUrl : ''"
+                [gender]="person?.sex ? person.sex : ''"
+              >
+              </ff-card>
+            </a>
+          </div>
+        </ng-container>
+      </div>
+    </ng-template>
+  </ng-template>
+  <mat-paginator
+    *ngIf="(person$ | async)?.total as total"
+    class="search-person__paginator"
+    [length]="total > 100 ? 100 : total"
+    [pageSize]="pageSize"
+    (page)="onPageChange($event)"
+  >
+  </mat-paginator>
+</ng-container>

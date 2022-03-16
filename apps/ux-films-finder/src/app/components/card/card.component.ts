@@ -7,7 +7,12 @@ import { Component, Input, ViewEncapsulation } from '@angular/core';
   encapsulation: ViewEncapsulation.None
 })
 export class CardComponent {
-  @Input() public name = '';
-  @Input() public rating = 0;
-  @Input() public url = '';
+  @Input()
+  public url = '';
+  @Input()
+  public name = '';
+  @Input()
+  public gender = '';
+  @Input()
+  public rating = 0;
 }

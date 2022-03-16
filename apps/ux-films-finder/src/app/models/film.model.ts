@@ -3,6 +3,7 @@ import { FilmCountryModel } from './film-country.model';
 
 export interface FilmModel {
   kinopoiskId: number;
+  filmId: number;
   imdbId: string;
   nameRu: string;
   nameEn: string;
@@ -17,6 +18,8 @@ export interface FilmModel {
   posterUrlPreview: string;
   description: string;
   slogan: string;
+  professionKey: string;
+  rating: string;
   filmLength: number;
 }
 
