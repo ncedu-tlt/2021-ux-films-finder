@@ -1,5 +1,6 @@
 import {
   AfterViewInit,
+  ChangeDetectorRef,
   Component,
   ElementRef,
   Input,
@@ -10,8 +11,7 @@ import {
 import KeenSlider, { KeenSliderInstance } from 'keen-slider';
 import { FilmDataService } from '../../services/film-data.service';
 import { FilmImagesResponseModel } from '../../models/fiml-images-response.model';
-import { BehaviorSubject, Subject, Subscription, take } from 'rxjs';
-import { PersonInfoResponseModel } from '../../models/person-info-response.model';
+import { BehaviorSubject, Subscription, take } from 'rxjs';
 
 @Component({
   selector: 'ff-screen-gallery',
@@ -33,13 +33,16 @@ export class ScreenGalleryComponent
 
   private loadImages$: Subscription = new Subscription();
 
-  constructor(private filmDataService: FilmDataService) {}
+  constructor(
+    private filmDataService: FilmDataService,
+    private cdr: ChangeDetectorRef
+  ) {}
 
   ngAfterViewInit() {
     this.slider = new KeenSlider(this.sliderRef.nativeElement, {
       loop: true,
       mode: 'free',
-      slides: { origin: 'center', perView: 2.5, spacing: 10 },
+      slides: { origin: 'center', perView: 2.5, spacing: 32 },
       range: {
         min: -5,
         max: 5
@@ -52,9 +55,11 @@ export class ScreenGalleryComponent
       .pipe(take(1))
       .subscribe((img: FilmImagesResponseModel) => {
         this.filmImages$.next(img);
+        this.cdr.detectChanges();
+        this.slider?.update();
       });
-    this.slider?.update();
   }
+
   ngOnDestroy() {
     this.slider?.destroy();
     this.loadImages$.unsubscribe();
