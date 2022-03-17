@@ -3,4 +3,3 @@ export interface FilmActorModel {
   total: number;
   items: BiographyModel[];
 }
-export type KinopoiskRequestModel = FilmActorModel;

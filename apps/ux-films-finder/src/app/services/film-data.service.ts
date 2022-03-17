@@ -45,7 +45,7 @@ export class FilmDataService {
   }
   public getActorByKeyWord(
     name: string,
-    page: number
+    page: number = 1
   ): Observable<FilmActorModel> {
     return this.http.get<FilmActorModel>(
       this.kinopoiskUrl + '/api/v1/persons?name=' + name + '&page=' + page
