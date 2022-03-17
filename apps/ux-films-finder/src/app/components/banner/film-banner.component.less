@@ -10,7 +10,6 @@
 
 .keen-slider {
   width: 100%;
-  height: 496px;
   max-width: 100%;
 }
 
@@ -37,6 +36,7 @@
   }
 
   &__name-en {
+    width: 80%;
     margin-bottom: 36px;
     color: rgb(167, 167, 167);
     font-size: 19px;
@@ -57,7 +57,6 @@
     word-spacing: 0.5em;
     text-transform: capitalize;
     text-align: center;
-    //height: 35px;
     &._comedy {
       background-color: @color-comedy;
     }
@@ -120,15 +119,14 @@
     }
   }
   &__description {
-    margin-left: 48px;
-    height: 496px;
+    margin-left: 75px;
     margin-top: 100px;
     line-height: 2;
     display: grid;
-    grid-template-columns: 150px 130px;
+    grid-template-columns: 150px 160px;
     grid-template-rows: 75px 75px 75px 75px 75px;
     &-title {
-      font-size: 18px;
+      font-size: 17px;
       text-align: left;
       color: rgb(167, 167, 167);
 
@@ -160,7 +158,7 @@
       &._icon {
         background: #ffffff;
         border-radius: 17px;
-        margin-left: 85px;
+        margin-left: 110px;
         text-align: center;
         color: black;
       }
@@ -187,7 +185,6 @@
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  -webkit-transform: translateY(-50%);
   fill: #fff;
   cursor: pointer;
 }
@@ -203,46 +200,69 @@
 .arrow--disabled {
   fill: rgba(255, 255, 255, 0.5);
 }
-.banner {
-  height: 100%;
-  display: flex;
-  padding: 24px 48px;
-  @media screen and (max-width: 800px) {
+
+@media screen and (max-width: 800px) {
+  flex-direction: column;
+  align-items: center;
+  .banner {
+    padding: 24px 48px;
+    display: flex;
     flex-direction: column;
-    align-items: center;
-  }
 
-  &__genres {
-    margin-top: 24px;
-  }
-
-  &__genre {
-    padding: 4px 8px;
-    margin-bottom: 8px;
-    display: inline-block;
-  }
-
-  &__poster {
-    margin: 0 24px;
-
-    &._posterUrl img {
-      height: 400px;
+    &__name {
+      flex-grow: 1;
     }
-  }
 
-  &__description {
-    display: inline-grid;
-    grid-template-columns: 1fr 1fr;
-
-    &-value {
-      text-align: right;
+    &__name-ru {
+      margin-bottom: 25px;
+      margin-top: 50px;
+      font-size: 30px;
     }
-  }
 
-  &__name {
-    flex-grow: 1;
-  }
+    &__name-en {
+      font-size: 17px;
+    }
 
+    &__genre {
+      padding: 2px 18px;
+      margin: 0.5px 10px 10px 0.5px;
+      font-size: 15px;
+    }
+
+    &__poster {
+      height: 496px;
+
+      &._posterUrl img {
+        margin-top: 25px;
+        height: 90%;
+      }
+    }
+    //&__description {
+    //  margin-left: 75px;
+    //  margin-top: 10px;
+    //  line-height: 2;
+    //  display: grid;
+    //  grid-template-columns: 150px 160px;
+    //  grid-template-rows: 75px 75px 75px 75px 75px;
+    //
+    //  &-title {
+    //    font-size: 16px;
+    //  }
+    //  &-value {
+    //    font-size: 17px;
+    //    word-spacing: 80px;
+    //    &._rating {
+    //      width: 50px;
+    //      height: 35px;
+    //    }
+    //    &._icon {
+    //      border-radius: 17px;
+    //      margin-left: 110px;
+    //      text-align: center;
+    //    }
+    //  }
+    //}
+  }
   &__arrow {
     position: absolute;
     font-size: 80px;

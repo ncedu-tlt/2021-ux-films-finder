@@ -1,0 +1,7 @@
+<div class="banner__genres">
+  <ng-container *ngFor="let genre of film.genres">
+    <div class="banner__genre" [ngClass]="color[genre.genre]">
+      {{ genre.genre }}
+    </div>
+  </ng-container>
+</div>

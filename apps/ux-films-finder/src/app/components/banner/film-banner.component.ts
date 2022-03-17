@@ -71,7 +71,7 @@ export class FilmBannerComponent implements AfterViewInit, OnDestroy, OnInit {
               if (mouseOver) return;
               timeout = setTimeout(() => {
                 slider.next();
-              }, 5000);
+              }, 50000);
             }
             slider.on('created', () => {
               slider.container.addEventListener('mouseover', () => {
@@ -90,11 +90,10 @@ export class FilmBannerComponent implements AfterViewInit, OnDestroy, OnInit {
           }
         ]
       );
+      this.cdr.detectChanges();
+      this.slider.update();
     });
-    this.cdr.detectChanges();
-    this.slider.update();
   }
-
   ngOnDestroy() {
     if (this.slider) this.slider.destroy();
   }
