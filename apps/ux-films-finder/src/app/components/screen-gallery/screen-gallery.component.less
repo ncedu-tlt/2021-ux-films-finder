@@ -2,9 +2,11 @@
 @import '../../../assets/styles/themes/dark/common/shared';
 .screen-gallery {
   &__slider {
-    background-color: @color-gray-42;
-    padding: 24px 0;
-    margin: 38px 0 104px 0;
+    &._inactive {
+      background-color: @color-gray-42;
+      padding: 24px 0;
+      margin: 38px 0 104px 0;
+    }
   }
   &__slide {
     width: 680px;

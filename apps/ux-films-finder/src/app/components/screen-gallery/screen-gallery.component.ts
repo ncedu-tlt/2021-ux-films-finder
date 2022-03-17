@@ -42,6 +42,17 @@ export class ScreenGalleryComponent
     this.slider = new KeenSlider(this.sliderRef.nativeElement, {
       loop: true,
       mode: 'free',
+      breakpoints: {
+        '(min-width: 370px)': {
+          slides: { perView: 1, spacing: 8 }
+        },
+        '(min-width: 800px)': {
+          slides: { perView: 1.5, spacing: 16 }
+        },
+        '(min-width: 1000px)': {
+          slides: { perView: 2.5, spacing: 32 }
+        }
+      },
       slides: { origin: 'center', perView: 2.5, spacing: 32 },
       range: {
         min: -5,

@@ -1,6 +1,12 @@
-<div class="screen-gallery keen-slider" #sliderRef>
-  <div class="screen-gallery__slider" *ngIf="(filmImages$ | async)?.total">
-    <div class="screen-gallery__stripe"></div>
+<div
+  class="screen-gallery__slider"
+  [class._inactive]="!!(filmImages$ | async)?.total"
+>
+  <div class="screen-gallery keen-slider" #sliderRef>
+    <div
+      *ngIf="(filmImages$ | async)?.total"
+      class="screen-gallery__stripe"
+    ></div>
     <div
       class="screen-gallery__slide keen-slider__slide"
       *ngFor="let img of (filmImages$ | async)?.items"
