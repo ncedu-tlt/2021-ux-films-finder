@@ -1,10 +1,13 @@
-<ff-loader *ngIf="loading"></ff-loader>
 <div class="category">
-  <div class="category__card">
+  <div class="category__card-list">
     <ng-container *ngFor="let film of (films$ | async)?.items">
-      <a routerLink="/details/{{ film?.kinopoiskId }}">
+      <a
+        class="category__card-link"
+        routerLink="/details/{{ film.kinopoiskId }}"
+      >
         <ff-card
-          [name]="film.nameOriginal"
+          class="category__card"
+          [name]="film.nameRu || film.nameOriginal"
           [rating]="film.ratingImdb"
           [url]="film.posterUrlPreview"
         >
@@ -13,12 +16,10 @@
     </ng-container>
   </div>
   <mat-paginator
-    class="category"
+    class="category__paginator"
     [length]="(films$ | async)?.total"
     [pageSize]="pageSize"
     (page)="onPageChange($event)"
   >
   </mat-paginator>
 </div>
-
-

@@ -1,4 +1,9 @@
-import { Component, Input, ViewEncapsulation } from '@angular/core';
+import {
+  Component,
+  HostBinding,
+  Input,
+  ViewEncapsulation
+} from '@angular/core';
 
 @Component({
   selector: 'ff-card',
@@ -7,10 +12,12 @@ import { Component, Input, ViewEncapsulation } from '@angular/core';
   encapsulation: ViewEncapsulation.None
 })
 export class CardComponent {
-  @Input()
-  public url = '';
+  @HostBinding('class.ff-card')
+  private hostClass = true;
   @Input()
   public name = '';
+  @Input()
+  public url = '';
   @Input()
   public gender = '';
   @Input()

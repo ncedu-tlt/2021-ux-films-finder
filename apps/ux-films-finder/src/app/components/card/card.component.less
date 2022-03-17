@@ -1,15 +1,22 @@
 @import '../../../assets/styles/themes/base/common/shared';
 
-.card {
-  position: relative;
-  background-color: @color-black-00;
-  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.25), 1px -1px 8px rgba(0, 0, 0, 0.25);
+.ff-card {
   width: 360px;
+  position: relative;
+  background-color: @color-gray-1b;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.25), 1px -1px 8px rgba(0, 0, 0, 0.25);
   height: 450px;
   border-radius: 10px;
   overflow: hidden;
   display: flex;
   justify-content: center;
+
+  &:hover &__name,
+  &:hover &__rating,
+  &:hover &__gender {
+    background-color: @color-green-69;
+  }
+
   &__img {
     width: 314px;
     height: 450px;
@@ -27,9 +34,10 @@
     padding-left: 24px;
     padding-right: 24px;
 
-    color: @color-black-00;
+    color: @color-gray-1b;
     background-color: @color-white-ff;
   }
+
   &__rating,
   &__gender {
     display: flex;
@@ -39,31 +47,34 @@
     font-size: 24px;
     width: 84px;
     height: 49px;
-    left: 277px;
     top: 0;
     bottom: 85%;
     border-radius: 0 0 0 16px;
     right: 0;
-    color: @color-black-00;
+    color: @color-gray-1b;
     background-color: @color-white-ff;
+  }
+  &__gender .mat-icon {
+    font-size: 32px;
+    line-height: 32px;
+    height: 32px;
+    width: 32px;
   }
 }
 
 .theme-dark {
-  .card {
-    &__rating {
-      background-color: #1b1b1b;
-      color: @color-white-ff;
-    }
-    &__name {
-      background-color: #1b1b1b;
+  & .ff-card {
+    &__rating,
+    &__name,
+    &__gender {
+      background-color: @color-gray-1b;
       color: @color-white-ff;
     }
   }
 }
 
 @media only screen and (max-width: 480px) {
-  .card {
+  .ff-card {
     width: 214px;
     height: 270px;
     &__img {
@@ -73,10 +84,7 @@
     &__name {
       width: 214px;
       bottom: 24px;
-      padding-top: 6px;
-      padding-bottom: 6px;
-      padding-left: 12px;
-      padding-right: 12px;
+      padding: 6px 12px;
     }
   }
 }
