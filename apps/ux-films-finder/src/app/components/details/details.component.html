@@ -1,89 +1,92 @@
 <div class="film-details">
   <ng-container *ngIf="filmInfo">
-    <img
-      src="{{ filmInfo?.posterUrlPreview }}"
-      alt="poster Url Preview"
-      class="film-details__img"
-    />
-    <div class="film-details__info">
-      <div class="film-details__info _title">
-        <ng-container *ngIf="filmInfo.nameRu; else originalNameTemplate">{{
-          filmInfo?.nameRu
-        }}</ng-container>
-        <ng-template #originalNameTemplate>
-          {{ filmInfo?.nameOriginal }}
-        </ng-template>
-      </div>
-      <div class="film-details__info _feature">
-        <div class="film-details__info _feature _type">
-          <div class="film-details__info _feature _type _feature-title">
-            Тип
-          </div>
-          <div class="film-details__info _feature _type _type-title-name">
-            {{ filmInfo?.type }}
-          </div>
+    <div class="film-details__main-info">
+      <img
+        src="{{ filmInfo?.posterUrlPreview }}"
+        alt="poster Url Preview"
+        class="film-details__img"
+      />
+      <div class="film-details__info">
+        <div class="film-details__info _title">
+          <ng-container *ngIf="filmInfo.nameRu; else originalNameTemplate">{{
+            filmInfo?.nameRu
+          }}</ng-container>
+          <ng-template #originalNameTemplate>
+            {{ filmInfo?.nameOriginal }}
+          </ng-template>
         </div>
-        <div class="film-details__info _feature _year">
-          <div class="film-details__info _feature _year _feature-title">
-            Год
+        <div class="film-details__info _feature">
+          <div class="film-details__info _feature _type">
+            <div class="film-details__info _feature _type _feature-title">
+              Тип
+            </div>
+            <div class="film-details__info _feature _type _type-title-name">
+              {{ filmInfo?.type }}
+            </div>
           </div>
-          <div class="film-details__info _feature _year _year-date">
-            {{ filmInfo?.year }}
+          <div class="film-details__info _feature _year">
+            <div class="film-details__info _feature _year _feature-title">
+              Год
+            </div>
+            <div class="film-details__info _feature _year _year-date">
+              {{ filmInfo?.year }}
+            </div>
           </div>
-        </div>
-        <div class="film-details__info _feature _ratingImdb">
-          <div class="film-details__info _feature _feature-title">
-            Рейтинг Imdb
+          <div class="film-details__info _feature _ratingImdb">
+            <div class="film-details__info _feature _feature-title">
+              Рейтинг Imdb
+            </div>
+            <div class="film-details__info _feature _ratingImdb-number">
+              {{ filmInfo?.ratingImdb }}
+            </div>
           </div>
-          <div class="film-details__info _feature _ratingImdb-number">
-            {{ filmInfo?.ratingImdb }}
+          <div class="film-details__info _feature _filmLength">
+            <div class="film-details__info _feature _feature-title">
+              Длительность
+            </div>
+            <div class="film-details__info _feature _filmLength-number">
+              {{ filmInfo?.filmLength + ' минут' }}
+            </div>
           </div>
-        </div>
-        <div class="film-details__info _feature _filmLength">
-          <div class="film-details__info _feature _feature-title">
-            Длительность
-          </div>
-          <div class="film-details__info _feature _filmLength-number">
-            {{ filmInfo?.filmLength + ' минут' }}
-          </div>
-        </div>
-        <div class="film-details__info _feature _genres">
-          <div class="film-details__info _feature _feature-title">Жанр</div>
+          <div class="film-details__info _feature _genres">
+            <div class="film-details__info _feature _feature-title">Жанр</div>
 
-          <ng-container *ngFor="let genreItem of filmInfo?.genres">
-            <div class="film-details__info _feature _genres-name">
-              {{ genreItem.genre }}
+            <ng-container *ngFor="let genreItem of filmInfo?.genres">
+              <div class="film-details__info _feature _genres-name">
+                {{ genreItem.genre }}
+              </div>
+            </ng-container>
+          </div>
+
+          <div class="film-details__info _feature _countries">
+            <div class="film-details__info _feature _feature-title">Страна</div>
+            <ng-container *ngFor="let countryItem of filmInfo?.countries">
+              <div class="film-details__info _feature _countries-names">
+                {{ countryItem.country }}
+              </div>
+            </ng-container>
+          </div>
+          <ng-container *ngIf="filmInfo.slogan"
+            ><div class="film-details__info _feature _slogan">
+              <div class="film-details__info _feature _slogan _feature-title">
+                Слоган
+              </div>
+              {{ filmInfo?.slogan }}
+            </div>
+          </ng-container>
+          <ng-container *ngIf="filmInfo.description">
+            <div class="film-details__info _feature _description">
+              <div
+                class="film-details__info _feature _description _feature-title"
+              >
+                Описание
+              </div>
+              {{ filmInfo?.description }}
             </div>
           </ng-container>
         </div>
-
-        <div class="film-details__info _feature _countries">
-          <div class="film-details__info _feature _feature-title">Страна</div>
-          <ng-container *ngFor="let countryItem of filmInfo?.countries">
-            <div class="film-details__info _feature _countries-names">
-              {{ countryItem.country }}
-            </div>
-          </ng-container>
-        </div>
-        <ng-container *ngIf="filmInfo.slogan"
-          ><div class="film-details__info _feature _slogan">
-            <div class="film-details__info _feature _slogan _feature-title">
-              Слоган
-            </div>
-            {{ filmInfo?.slogan }}
-          </div>
-        </ng-container>
-        <ng-container *ngIf="filmInfo.description">
-          <div class="film-details__info _feature _description">
-            <div
-              class="film-details__info _feature _description _feature-title"
-            >
-              Описание
-            </div>
-            {{ filmInfo?.description }}
-          </div>
-        </ng-container>
       </div>
     </div>
+    <ff-screen-gallery [filmId]="filmInfo.kinopoiskId"> </ff-screen-gallery>
   </ng-container>
 </div>

@@ -6,6 +6,7 @@ import { FilmsResponseModel } from '../models/films-response.model';
 import { PersonInfoResponseModel } from '../models/person-info-response.model';
 import { BiographyModel } from '../models/biography.model';
 import { Router } from '@angular/router';
+import { FilmImagesResponseModel } from '../models/fiml-images-response.model';
 
 @Injectable({
   providedIn: 'root'
@@ -18,6 +19,16 @@ export class FilmDataService {
   public getFilmById(id: number): Observable<FilmModel> {
     return this.http
       .get<FilmModel>(this.kinopoiskUrl + '/api/v2.2/films/' + id)
+      .pipe(catchError(this.handleError));
+  }
+  public getFilmImages(id: number): Observable<FilmImagesResponseModel> {
+    return this.http
+      .get<FilmImagesResponseModel>(
+        this.kinopoiskUrl +
+          '/api/v2.2/films/' +
+          id +
+          '/images?type=STILL&page=1'
+      )
       .pipe(catchError(this.handleError));
   }
   public getFilmByGenre(
