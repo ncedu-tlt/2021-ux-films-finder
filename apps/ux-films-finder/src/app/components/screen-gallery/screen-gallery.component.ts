@@ -53,7 +53,7 @@ export class ScreenGalleryComponent
           slides: { perView: 2.5, spacing: 32 }
         }
       },
-      slides: { origin: 'center', perView: 2.5, spacing: 32 },
+
       range: {
         min: -5,
         max: 5
