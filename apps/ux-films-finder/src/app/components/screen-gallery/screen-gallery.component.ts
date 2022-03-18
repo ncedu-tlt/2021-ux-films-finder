@@ -52,11 +52,6 @@ export class ScreenGalleryComponent
         '(min-width: 1000px)': {
           slides: { perView: 2.5, spacing: 32 }
         }
-      },
-
-      range: {
-        min: -5,
-        max: 5
       }
     });
   }
