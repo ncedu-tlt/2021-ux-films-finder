@@ -29,12 +29,14 @@ export class SearchPersonsComponent implements OnInit, OnDestroy {
   public search = '';
   public searchParam = '';
   private firstPage = 1;
+  public loading!: boolean;
   ngOnInit(): void {
     this.activatedRoute.queryParams
       .pipe(takeUntil(this.unsubscribe$))
       .subscribe(params => {
         this.search = params['search'];
         this.searchParam = params['search'];
+        this.loading = true;
         this.loadPersonInfo(this.firstPage);
       });
   }
@@ -46,6 +48,7 @@ export class SearchPersonsComponent implements OnInit, OnDestroy {
       .pipe(take(1))
       .subscribe((info: PersonInfoResponseModel) => {
         this.person$.next(info);
+        this.loading = false;
       });
   }
 
