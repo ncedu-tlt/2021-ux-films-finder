@@ -11,16 +11,19 @@ import { PageEvent } from '@angular/material/paginator';
   templateUrl: './category.component.html',
   styleUrls: ['./category.component.less']
 })
+// TODO: Subscription? Это тот же Observable ($)? В чем отличие от Subject?
 export class CategoryComponent implements OnInit {
   private loadFilms$: Subscription = new Subscription();
   private activeFilm$: Subscription = new Subscription();
   readonly pageSize = 20;
   films$: Subject<FilmsResponseModel> = new Subject<FilmsResponseModel>();
+  // TODO: film!  ?
   film!: FilmModel;
   genreId = 0;
 
   constructor(
     private filmDataService: FilmDataService,
+    // TODO: ActivatedRoute?
     private activatedRoute: ActivatedRoute
   ) {}
 

@@ -1,3 +1,4 @@
+<!-- TODO: Нужно ли сюда включать кадры? -->
 <ng-container *ngFor="let film of (films$ | async)?.items">
   <a routerLink="/details/{{ film?.kinopoiskId }}">
     <ng-container>
@@ -6,6 +7,7 @@
     </ng-container>
   </a>
 </ng-container>
+<!-- TODO: mat-paginator? -->
 <mat-paginator
   class="category"
   [length]="(films$ | async)?.total"
