@@ -1,11 +1,20 @@
 @import '../../../assets/styles/themes/base/common/shared';
 @import '../../../assets/styles/themes/dark/common/shared';
 
+header {
+  width: 100%;
+  background: #494949;
+  position: absolute;
+  left: 0;
+  height: 70px;
+}
 .header {
   display: flex;
   justify-content: space-between;
+  position: relative;
   height: 70px;
-  background: #494949;
+  max-width: 1600px;
+  margin: 0 auto;
   a {
     text-decoration: none;
     color: white;
@@ -48,7 +57,6 @@
 
   &__link {
     height: 40px;
-    font-family: ABeeZee, serif;
     color: aliceblue;
     font-size: 23px;
     background: none;
@@ -128,6 +136,7 @@
     }
     &__user-info {
       width: 50px;
+      margin-right: 7px;
     }
   }
 }
