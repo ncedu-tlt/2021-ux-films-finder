@@ -11,7 +11,12 @@
       class="screen-gallery__slide keen-slider__slide"
       *ngFor="let img of (filmImages$ | async)?.items"
     >
-      <img class="screen-gallery__image" src="{{ img.imageUrl }}" />
+      <img
+        class="screen-gallery__image"
+        (click)="openDialog()"
+        src="{{ img.imageUrl }}"
+        alt="image"
+      />
     </div>
   </div>
 </div>

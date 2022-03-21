@@ -12,6 +12,8 @@ import KeenSlider, { KeenSliderInstance } from 'keen-slider';
 import { FilmDataService } from '../../services/film-data.service';
 import { FilmImagesResponseModel } from '../../models/fiml-images-response.model';
 import { BehaviorSubject, Subscription, take } from 'rxjs';
+import { MatDialog } from '@angular/material/dialog';
+import { PopupFromMovieComponent } from '../popup-from-movie/popup-from-movie.component';
 
 @Component({
   selector: 'ff-screen-gallery',
@@ -35,9 +37,16 @@ export class ScreenGalleryComponent
 
   constructor(
     private filmDataService: FilmDataService,
-    private cdr: ChangeDetectorRef
+    private cdr: ChangeDetectorRef,
+    public dialog: MatDialog
   ) {}
+  openDialog() {
+    const dialogRef = this.dialog.open(PopupFromMovieComponent);
 
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
+  }
   ngAfterViewInit() {
     this.slider = new KeenSlider(this.sliderRef.nativeElement, {
       loop: true,
