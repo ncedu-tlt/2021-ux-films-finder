@@ -32,6 +32,7 @@ import { PersonComponent } from './components/person/person.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule } from '@angular/forms';
 import localeRu from '@angular/common/locales/ru';
+import { GenreLabelComponent } from './components/genre-label/genre-label.component';
 registerLocaleData(localeRu);
 @NgModule({
   declarations: [
@@ -51,7 +52,8 @@ registerLocaleData(localeRu);
     GenresBannerComponent,
     SwitcherComponent,
     PersonComponent,
-    FilmBannerComponent
+    FilmBannerComponent,
+    GenreLabelComponent
   ],
   imports: [
     BrowserModule,

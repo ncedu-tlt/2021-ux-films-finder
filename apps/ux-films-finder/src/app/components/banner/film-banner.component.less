@@ -18,7 +18,7 @@
   width: 100%;
   height: 496px;
   background: black;
-  display: flex;
+  display: grid;
   grid-template-columns: 5fr 2fr 3fr;
 
   &__name {
@@ -40,74 +40,6 @@
     margin-bottom: 36px;
     color: rgb(167, 167, 167);
     font-size: 19px;
-  }
-  &__genres {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    margin-right: 219px;
-    width: 400px;
-  }
-  &__genre {
-    padding: 4px 32px;
-    margin: 1px 24px 24px 1px;
-    border-radius: 17px;
-    color: white;
-    font-size: 20px;
-    line-height: 24px;
-    word-spacing: 0.5em;
-    text-transform: capitalize;
-    text-align: center;
-    &._comedy {
-      background-color: @color-comedy;
-    }
-    &._horror {
-      background-color: @color-horror;
-    }
-    &._adventures {
-      background-color: @color-adventures;
-    }
-    &._thriller {
-      background-color: @color-thriller;
-    }
-    &._melodrama {
-      background-color: @color-melodrama;
-    }
-    &._fantasy {
-      background-color: @color-fantasy;
-    }
-    &._action {
-      background-color: @color-action;
-    }
-    &._family {
-      background-color: @color-family;
-    }
-    &._drama {
-      background-color: @color-drama;
-    }
-    &._crime {
-      background-color: @color-crime;
-    }
-    &._cartoon {
-      background-color: @color-cartoon;
-    }
-    &._anime {
-      background-color: @color-anime;
-    }
-    &._military {
-      background-color: @color-military;
-    }
-    &._history {
-      background-color: @color-history;
-    }
-    &._biography {
-      background-color: @color-biography;
-    }
-    &._detective {
-      background-color: @color-detective;
-    }
-    &._fiction {
-      background-color: @color-fiction;
-    }
   }
   &__poster {
     height: 496px;
@@ -200,69 +132,63 @@
 .arrow--disabled {
   fill: rgba(255, 255, 255, 0.5);
 }
+.banner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: black;
+  display: flex;
+  grid-template-columns: 5fr 2fr 3fr;
 
-@media screen and (max-width: 800px) {
-  flex-direction: column;
-  align-items: center;
-  .banner {
-    padding: 24px 48px;
-    display: flex;
+  @media screen and (max-width: 800px) {
     flex-direction: column;
-
+    padding: 24px 48px;
+    height: 1000px;
     &__name {
       flex-grow: 1;
     }
 
     &__name-ru {
-      margin-bottom: 25px;
-      margin-top: 50px;
-      font-size: 30px;
+      margin-bottom: 20px;
+      margin-top: 35px;
+      font-size: 28px;
     }
 
     &__name-en {
-      font-size: 17px;
+      font-size: 16px;
+      margin-bottom: 26px;
     }
-
+    &__genres {
+      width: 300px;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
     &__genre {
-      padding: 2px 18px;
+      padding: 2px 10px;
       margin: 0.5px 10px 10px 0.5px;
-      font-size: 15px;
+      font-size: 13px;
     }
 
     &__poster {
-      height: 496px;
+      margin: 0 auto 0 auto;
+      height: 380px;
 
       &._posterUrl img {
-        margin-top: 25px;
-        height: 90%;
+        margin-top: 20px;
       }
     }
-    //&__description {
-    //  margin-left: 75px;
-    //  margin-top: 10px;
-    //  line-height: 2;
-    //  display: grid;
-    //  grid-template-columns: 150px 160px;
-    //  grid-template-rows: 75px 75px 75px 75px 75px;
-    //
-    //  &-title {
-    //    font-size: 16px;
-    //  }
-    //  &-value {
-    //    font-size: 17px;
-    //    word-spacing: 80px;
-    //    &._rating {
-    //      width: 50px;
-    //      height: 35px;
-    //    }
-    //    &._icon {
-    //      border-radius: 17px;
-    //      margin-left: 110px;
-    //      text-align: center;
-    //    }
-    //  }
-    //}
+    &__description {
+      margin: 0 auto 0 auto;
+      grid-template-rows: 40px 40px 40px 40px;
+
+      &-title {
+        font-size: 16px;
+      }
+      &-value {
+        font-size: 17px;
+      }
+    }
   }
+
   &__arrow {
     position: absolute;
     font-size: 80px;

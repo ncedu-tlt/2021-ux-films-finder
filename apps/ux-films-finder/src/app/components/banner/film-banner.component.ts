@@ -71,7 +71,7 @@ export class FilmBannerComponent implements AfterViewInit, OnDestroy, OnInit {
               if (mouseOver) return;
               timeout = setTimeout(() => {
                 slider.next();
-              }, 50000);
+              }, 5000);
             }
             slider.on('created', () => {
               slider.container.addEventListener('mouseover', () => {

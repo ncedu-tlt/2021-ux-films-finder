@@ -5,13 +5,14 @@
         <div class="banner__name">
           <div class="banner__name-ru">{{ film?.nameRu }}</div>
           <div class="banner__name-en">{{ film?.nameEn }}</div>
-          <div class="banner__genres">
-            <ng-container *ngFor="let genre of film.genres">
-              <div class="banner__genre" [ngClass]="color[genre.genre]">
-                {{ genre.genre }}
-              </div>
-            </ng-container>
-          </div>
+          <!--            <ng-container *ngFor="let genre of film.genres">-->
+          <!--              <div class="banner__genre" [ngClass]="color[genre.genre]">-->
+          <!--                {{ genre.genre }}-->
+          <!--              </div>-->
+          <!--            </ng-container>-->
+          <ng-container *ngFor="let genre of film.genres">
+            <ff-genre-label [genres]="genre.genre"></ff-genre-label>
+          </ng-container>
         </div>
         <div class="banner__poster">
           <div class="banner__poster _posterUrl">
