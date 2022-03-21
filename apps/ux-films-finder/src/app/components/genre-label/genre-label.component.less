@@ -2,8 +2,7 @@
 @import '../../../assets/styles/themes/base/common/shared';
 
 .genres {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  display: flex;
   margin-right: 219px;
   width: 400px;
 
@@ -17,6 +16,7 @@
     word-spacing: 0.5em;
     text-transform: capitalize;
     text-align: center;
+    display: inline-block;
 
     &._comedy {
       background-color: @color-comedy;
