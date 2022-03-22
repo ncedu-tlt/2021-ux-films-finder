@@ -1,5 +1,4 @@
 @import '../../../assets/styles/themes/base/common/shared';
-@import '../../../assets/styles/themes/dark/common/shared';
 
 header {
   width: 100%;
@@ -100,29 +99,6 @@ header {
   }
 }
 
-@media only screen and (max-width: 2630px) {
-  .header {
-    display: flex;
-    &__right-side {
-      justify-content: flex-end;
-      width: 1473px;
-    }
-    &__left-side {
-      width: 1073px;
-    }
-  }
-}
-@media only screen and (max-width: 1610px) {
-  .header {
-    display: flex;
-    &__left-side {
-      width: 800px;
-    }
-    &__navigation {
-      margin-left: 15px;
-    }
-  }
-}
 @media only screen and (max-width: 1500px) {
   .header {
     &__right-side {
@@ -274,8 +250,11 @@ header {
 }
 
 .theme-dark {
-  & .header {
+  & header {
     background: @color-gray-1b;
+  }
+  & mat-icon {
+    color: #69f0ae;
   }
 
   & a {
