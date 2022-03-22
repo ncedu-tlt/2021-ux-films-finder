@@ -14,6 +14,7 @@ header {
   height: 70px;
   max-width: 1600px;
   margin: 0 auto;
+
   a {
     text-decoration: none;
     color: white;
@@ -46,17 +47,17 @@ header {
     width: 24px;
     margin-left: 12px;
   }
-  &__navigation {
+  &__navigation.mat-nav-list {
     display: flex;
     justify-content: space-between;
     width: 600px;
-    margin-top: 20px;
+    margin-top: 10px;
     margin-left: 15px;
+    color: white;
   }
 
   &__link {
     height: 40px;
-    color: aliceblue;
     font-size: 23px;
     background: none;
   }
@@ -129,7 +130,7 @@ header {
       justify-content: flex-start;
     }
 
-    &__navigation {
+    &__navigation.mat-nav-list {
       display: none;
     }
 
@@ -256,7 +257,9 @@ header {
   & mat-icon {
     color: #69f0ae;
   }
-
+  & .mat-nav-list {
+    color: #69f0ae;
+  }
   & a {
     color: @color-green-69;
   }
