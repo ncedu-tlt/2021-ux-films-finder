@@ -3,6 +3,7 @@ import {
   ChangeDetectorRef,
   Component,
   ElementRef,
+  Inject,
   Input,
   OnDestroy,
   OnInit,
@@ -12,7 +13,7 @@ import KeenSlider, { KeenSliderInstance } from 'keen-slider';
 import { FilmDataService } from '../../services/film-data.service';
 import { FilmImagesResponseModel } from '../../models/fiml-images-response.model';
 import { BehaviorSubject, Subscription, take } from 'rxjs';
-import { MatDialog } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialog } from '@angular/material/dialog';
 import { PopupFromMovieComponent } from '../popup-from-movie/popup-from-movie.component';
 
 @Component({
@@ -24,6 +25,7 @@ export class ScreenGalleryComponent
   implements AfterViewInit, OnDestroy, OnInit
 {
   @ViewChild('sliderRef') sliderRef!: ElementRef<HTMLElement>;
+  @ViewChild('image') imageRef!: ElementRef<HTMLImageElement>;
   slider?: KeenSliderInstance;
   @Input() public filmId = 0;
   public filmImages$: BehaviorSubject<FilmImagesResponseModel> =
@@ -34,14 +36,25 @@ export class ScreenGalleryComponent
     });
 
   private loadImages$: Subscription = new Subscription();
+  public enlargeImage?: string;
 
   constructor(
     private filmDataService: FilmDataService,
     private cdr: ChangeDetectorRef,
     public dialog: MatDialog
   ) {}
-  openDialog() {
-    const dialogRef = this.dialog.open(PopupFromMovieComponent);
+
+  openDialog(url: string) {
+    this.enlargeImage = url;
+    let widthImage = this.imageRef.nativeElement.naturalWidth;
+    let heightImage = this.imageRef.nativeElement.naturalHeight;
+    const dialogRef = this.dialog.open(PopupFromMovieComponent, {
+      data: this.enlargeImage,
+      maxWidth: '1600px',
+      minWidth: '90vw',
+      width: widthImage + 'px',
+      height: heightImage + 'px'
+    });
 
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
