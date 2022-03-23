@@ -46,8 +46,8 @@ export class ScreenGalleryComponent
 
   openDialog(url: string) {
     this.enlargeImage = url;
-    let widthImage = this.imageRef.nativeElement.naturalWidth;
-    let heightImage = this.imageRef.nativeElement.naturalHeight;
+    const widthImage = this.imageRef.nativeElement.naturalWidth;
+    const heightImage = this.imageRef.nativeElement.naturalHeight;
     const dialogRef = this.dialog.open(PopupFromMovieComponent, {
       data: this.enlargeImage,
       maxWidth: '1600px',
