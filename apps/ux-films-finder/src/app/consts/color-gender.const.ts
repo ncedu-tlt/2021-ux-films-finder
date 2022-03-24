@@ -17,5 +17,6 @@ export const COLORS: {
   история: '_history',
   биография: '_biography',
   детектив: '_detective',
-  фантастика: '_fiction'
+  фантастика: '_fiction',
+  вестерн: '_western'
 };

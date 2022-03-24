@@ -1,104 +1,94 @@
 @import 'keen-slider/keen-slider.min.css';
 @import '../../../assets/styles/themes/base/common/shared';
 
-.genres {
-  display: flex;
+.genre-label {
   margin-right: 219px;
-  width: 400px;
+  padding: 4px 32px;
+  margin: 1px 24px 24px 1px;
+  border-radius: 17px;
+  color: white;
+  font-size: 20px;
+  line-height: 24px;
+  word-spacing: 0.5em;
+  text-transform: capitalize;
+  text-align: center;
+  display: inline-block;
 
-  &__genre {
-    padding: 4px 32px;
-    margin: 1px 24px 24px 1px;
-    border-radius: 17px;
-    color: white;
-    font-size: 20px;
-    line-height: 24px;
-    word-spacing: 0.5em;
-    text-transform: capitalize;
-    text-align: center;
-    display: inline-block;
+  &._comedy {
+    background-color: @color-comedy;
+  }
 
-    &._comedy {
-      background-color: @color-comedy;
-    }
+  &._horror {
+    background-color: @color-horror;
+  }
 
-    &._horror {
-      background-color: @color-horror;
-    }
+  &._adventures {
+    background-color: @color-adventures;
+  }
 
-    &._adventures {
-      background-color: @color-adventures;
-    }
+  &._thriller {
+    background-color: @color-thriller;
+  }
 
-    &._thriller {
-      background-color: @color-thriller;
-    }
+  &._melodrama {
+    background-color: @color-melodrama;
+  }
 
-    &._melodrama {
-      background-color: @color-melodrama;
-    }
+  &._fantasy {
+    background-color: @color-fantasy;
+  }
 
-    &._fantasy {
-      background-color: @color-fantasy;
-    }
+  &._action {
+    background-color: @color-action;
+  }
 
-    &._action {
-      background-color: @color-action;
-    }
+  &._family {
+    background-color: @color-family;
+  }
 
-    &._family {
-      background-color: @color-family;
-    }
+  &._drama {
+    background-color: @color-drama;
+  }
 
-    &._drama {
-      background-color: @color-drama;
-    }
+  &._crime {
+    background-color: @color-crime;
+  }
 
-    &._crime {
-      background-color: @color-crime;
-    }
+  &._cartoon {
+    background-color: @color-cartoon;
+  }
 
-    &._cartoon {
-      background-color: @color-cartoon;
-    }
+  &._anime {
+    background-color: @color-anime;
+  }
 
-    &._anime {
-      background-color: @color-anime;
-    }
+  &._military {
+    background-color: @color-military;
+  }
 
-    &._military {
-      background-color: @color-military;
-    }
+  &._history {
+    background-color: @color-history;
+  }
 
-    &._history {
-      background-color: @color-history;
-    }
+  &._biography {
+    background-color: @color-biography;
+  }
 
-    &._biography {
-      background-color: @color-biography;
-    }
+  &._detective {
+    background-color: @color-detective;
+  }
 
-    &._detective {
-      background-color: @color-detective;
-    }
-
-    &._fiction {
-      background-color: @color-fiction;
-    }
+  &._fiction {
+    background-color: @color-fiction;
+  }
+  &._western {
+    background-color: @color-western;
   }
 }
 @media screen and (max-width: 800px) {
-  flex-direction: column;
-  padding: 24px 48px;
-  height: 1000px;
-  .genres {
-    width: 300px;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-  }
-
-  &__genre {
-    padding: 2px 10px;
-    margin: 0.5px 10px 10px 0.5px;
-    font-size: 13px;
+  .genre-label {
+    font-size: 14px;
+    padding: 2px 15px;
+    margin: 2px 6px 6px 2px;
   }
 }
