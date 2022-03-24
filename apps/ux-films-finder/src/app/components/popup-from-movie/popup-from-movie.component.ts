@@ -1,11 +1,6 @@
-import {
-  ChangeDetectorRef,
-  Component,
-  Inject,
-  ViewEncapsulation
-} from '@angular/core';
-import { FilmDataService } from '../../services/film-data.service';
-import { MAT_DIALOG_DATA, MatDialog } from '@angular/material/dialog';
+import { Component, Inject, ViewEncapsulation } from '@angular/core';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { ImageDataInterface } from '../../models/image-data.interface';
 
 @Component({
   selector: 'ff-popup-from-movie',
@@ -14,5 +9,5 @@ import { MAT_DIALOG_DATA, MatDialog } from '@angular/material/dialog';
   encapsulation: ViewEncapsulation.None
 })
 export class PopupFromMovieComponent {
-  constructor(@Inject(MAT_DIALOG_DATA) public data: string) {}
+  constructor(@Inject(MAT_DIALOG_DATA) public data: ImageDataInterface) {}
 }

@@ -3,7 +3,6 @@ import {
   ChangeDetectorRef,
   Component,
   ElementRef,
-  Inject,
   Input,
   OnDestroy,
   OnInit,
@@ -15,6 +14,7 @@ import { FilmImagesResponseModel } from '../../models/fiml-images-response.model
 import { BehaviorSubject, Subscription, take } from 'rxjs';
 import { MAT_DIALOG_DATA, MatDialog } from '@angular/material/dialog';
 import { PopupFromMovieComponent } from '../popup-from-movie/popup-from-movie.component';
+import { FilmImagesModel } from '../../models/film-images.model';
 
 @Component({
   selector: 'ff-screen-gallery',
@@ -25,15 +25,9 @@ export class ScreenGalleryComponent
   implements AfterViewInit, OnDestroy, OnInit
 {
   @ViewChild('sliderRef') sliderRef!: ElementRef<HTMLElement>;
-  @ViewChild('image') imageRef!: ElementRef<HTMLImageElement>;
-  slider?: KeenSliderInstance;
   @Input() public filmId = 0;
-  public filmImages$: BehaviorSubject<FilmImagesResponseModel> =
-    new BehaviorSubject<FilmImagesResponseModel>({
-      items: [],
-      total: 0,
-      totalPages: 0
-    });
+  slider?: KeenSliderInstance;
+  public images: FilmImagesModel[] = [];
   private loadImages$: Subscription = new Subscription();
   public enlargeImage?: string;
   currentSlide = 1;
@@ -47,11 +41,8 @@ export class ScreenGalleryComponent
   openDialog(url: string) {
     this.enlargeImage = url;
     const dialogRef = this.dialog.open(PopupFromMovieComponent, {
-      data: this.enlargeImage,
+      data: { image: this.enlargeImage, images: this.images },
       maxWidth: '1600px'
-    });
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
     });
   }
 
@@ -60,8 +51,8 @@ export class ScreenGalleryComponent
       loop: true,
       mode: 'free',
       initial: this.currentSlide,
-      slideChanged: s => {
-        this.currentSlide = s.track.details.rel;
+      slideChanged: slide => {
+        this.currentSlide = slide.track.details.rel;
       },
       breakpoints: {
         '(min-width: 370px)': {
@@ -82,7 +73,7 @@ export class ScreenGalleryComponent
       .getFilmImages(this.filmId)
       .pipe(take(1))
       .subscribe((img: FilmImagesResponseModel) => {
-        this.filmImages$.next(img);
+        this.images = img.items;
         this.cdr.detectChanges();
         this.slider?.update();
       });

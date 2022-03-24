@@ -1,7 +1,17 @@
 .popup {
   &__img {
-    width: 90vw;
-    height: 90vh;
+    max-width: 90vw;
+    max-height: 90vh;
     object-fit: contain;
+  }
+  &__arrow {
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    top: 0;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    fill: #fff;
+    cursor: pointer;
   }
 }
