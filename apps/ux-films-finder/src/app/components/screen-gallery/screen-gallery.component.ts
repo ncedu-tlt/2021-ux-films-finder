@@ -34,9 +34,9 @@ export class ScreenGalleryComponent
       total: 0,
       totalPages: 0
     });
-
   private loadImages$: Subscription = new Subscription();
   public enlargeImage?: string;
+  currentSlide: number = 1;
 
   constructor(
     private filmDataService: FilmDataService,
@@ -46,24 +46,23 @@ export class ScreenGalleryComponent
 
   openDialog(url: string) {
     this.enlargeImage = url;
-    const widthImage = this.imageRef.nativeElement.naturalWidth;
-    const heightImage = this.imageRef.nativeElement.naturalHeight;
     const dialogRef = this.dialog.open(PopupFromMovieComponent, {
       data: this.enlargeImage,
-      maxWidth: '1600px',
-      minWidth: '90vw',
-      width: widthImage + 'px',
-      height: heightImage + 'px'
+      maxWidth: '1600px'
     });
-
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
     });
   }
+
   ngAfterViewInit() {
     this.slider = new KeenSlider(this.sliderRef.nativeElement, {
       loop: true,
       mode: 'free',
+      initial: this.currentSlide,
+      slideChanged: s => {
+        this.currentSlide = s.track.details.rel;
+      },
       breakpoints: {
         '(min-width: 370px)': {
           slides: { perView: 1, spacing: 8 }
@@ -77,6 +76,7 @@ export class ScreenGalleryComponent
       }
     });
   }
+
   ngOnInit() {
     this.loadImages$ = this.filmDataService
       .getFilmImages(this.filmId)
