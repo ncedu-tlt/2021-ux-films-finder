@@ -18,5 +18,18 @@ export const COLORS: {
   биография: '_biography',
   детектив: '_detective',
   фантастика: '_fiction',
-  вестерн: '_western'
+  вестерн: '_western',
+  музыка: 'music',
+  мюзикл: 'musical',
+  спорт: 'sport',
+  документальный: 'documentary',
+  короткометражка: 'short-film',
+  новости: 'news',
+  концерт: 'concert',
+  'для взрослых': 'for-adults',
+  церемония: 'ceremony',
+  'реальное ТВ': 'real-tv',
+  игра: 'game',
+  'ток-шоу': 'talk-show',
+  детский: 'baby'
 };

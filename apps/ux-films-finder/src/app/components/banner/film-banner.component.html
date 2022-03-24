@@ -10,27 +10,27 @@
           </ng-container>
         </div>
         <div class="banner__poster">
-          <div class="banner__poster _posterUrl">
+          <div class="banner__poster _image">
             <img src="{{ film?.posterUrl }}" alt="Постер" />
           </div>
         </div>
         <div class="banner__description">
           <div class="banner__description-title _rating">Рейтинг</div>
-          <div class="banner__description-value _rating">
-            <div class="banner__description-value _rating _icon">
+          <div class="banner__description-info _rating">
+            <div class="banner__description-info _rating _icon">
               {{ film?.rating }}
             </div>
           </div>
           <div class="banner__description-title _filmLength">
             Продолжительность
           </div>
-          <div class="banner__description-value _filmLength">
+          <div class="banner__description-info _filmLength">
             {{ film?.filmLength }}
           </div>
           <div class="banner__description-title _year">Год выпуска</div>
-          <div class="banner__description-value _year">{{ film?.year }}</div>
+          <div class="banner__description-info _year">{{ film?.year }}</div>
           <div class="banner__description-title _country">Страна</div>
-          <div class="banner__description-value _country">
+          <div class="banner__description-info _country">
             <ng-container *ngFor="let country of film.countries">
               {{ country.country }}
             </ng-container>
