@@ -196,7 +196,31 @@
       }
     }
   }
-
+  @media screen and (max-width: 420px) {
+    &__name-ru {
+      font-size: 20px;
+    }
+    &__name-en {
+      font-size: 12px;
+    }
+  }
+  @media screen and (max-width: 400px) {
+    &__name {
+      padding-left: 50px;
+    }
+    @media screen and (max-width: 330px) {
+      &__name {
+        padding-left: 50px;
+      }
+    }
+    &__description {
+      grid-template-columns: 100px 160px;
+      grid-template-rows: 30px 30px 30px 30px;
+      &-title {
+        font-size: 14px;
+      }
+    }
+  }
   &__arrow {
     position: absolute;
     font-size: 80px;
