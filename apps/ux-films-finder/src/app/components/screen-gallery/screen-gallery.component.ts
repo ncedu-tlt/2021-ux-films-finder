@@ -36,7 +36,7 @@ export class ScreenGalleryComponent
     });
   private loadImages$: Subscription = new Subscription();
   public enlargeImage?: string;
-  currentSlide: number = 1;
+  currentSlide = 1;
 
   constructor(
     private filmDataService: FilmDataService,
