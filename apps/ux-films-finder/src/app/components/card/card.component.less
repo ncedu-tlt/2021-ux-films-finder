@@ -1,36 +1,90 @@
 @import '../../../assets/styles/themes/base/common/shared';
 
-.card {
+.ff-card {
+  width: 360px;
   position: relative;
-  line-height: 20px;
-  font-size: 21px;
+  background-color: @color-gray-1b;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.25), 1px -1px 8px rgba(0, 0, 0, 0.25);
+  height: 450px;
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+
+  &:hover &__name,
+  &:hover &__rating,
+  &:hover &__gender {
+    background-color: @color-green-69;
+  }
+
   &__img {
-    border-radius: 10px;
-    width: 275px;
-    height: 367px;
+    width: 314px;
+    height: 450px;
   }
   &__name {
     display: flex;
     position: absolute;
-    bottom: 25px;
-    align-items: center;
-    width: 275px;
-    height: 40px;
-    color: @color-black-00;
+    bottom: 24px;
+    line-height: 36px;
+    font-size: 24px;
+    width: 360px;
+    left: 0;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    padding-left: 24px;
+    padding-right: 24px;
+
+    color: @color-gray-1b;
     background-color: @color-white-ff;
-    border-radius: 1px;
   }
-  &__rating {
+
+  &__rating,
+  &__gender {
     display: flex;
-    position: absolute;
     align-items: center;
+    justify-content: center;
+    position: absolute;
+    font-size: 24px;
+    width: 84px;
+    height: 49px;
+    top: 0;
     bottom: 85%;
-    padding: 10px;
-    width: 44px;
-    height: 28px;
-    left: 232px;
-    color: @color-black-00;
-    border-radius: 4px 0 0 4px;
+    border-radius: 0 0 0 16px;
+    right: 0;
+    color: @color-gray-1b;
     background-color: @color-white-ff;
+  }
+  &__gender .mat-icon {
+    font-size: 32px;
+    line-height: 32px;
+    height: 32px;
+    width: 32px;
+  }
+}
+
+.theme-dark {
+  & .ff-card {
+    &__rating,
+    &__name,
+    &__gender {
+      background-color: @color-gray-1b;
+      color: @color-white-ff;
+    }
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .ff-card {
+    width: 214px;
+    height: 270px;
+    &__img {
+      width: 214px;
+      height: 270px;
+    }
+    &__name {
+      width: 214px;
+      bottom: 24px;
+      padding: 6px 12px;
+    }
   }
 }

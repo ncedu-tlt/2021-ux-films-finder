@@ -1,7 +1,44 @@
 @import '../../../assets/styles/themes/dark/common/shared';
 
-.theme-dark {
-  & a {
-    color: @color-white-ff;
+.category {
+  padding: 40px;
+
+  &__card-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 72px 40px;
+
+    @media only screen and (max-width: 1240px) {
+      grid-template-columns: 1fr 1fr;
+    }
+    @media only screen and (max-width: 840px) {
+      grid-template-columns: 1fr;
+      grid-gap: 72px 0;
+    }
+  }
+
+  &__card-link {
+    width: 360px;
+    @media screen and (min-width: 1240px) {
+      &:nth-child(3n + 2) {
+        margin: 0 auto;
+      }
+
+      &:nth-child(3n + 3) {
+        margin-left: auto;
+      }
+    }
+
+    @media screen and (min-width: 840px) and (max-width: 1240px) {
+      &:nth-child(2n) {
+        margin-left: auto;
+      }
+    }
+    @media only screen and (max-width: 840px) {
+      margin: 0 auto;
+    }
+  }
+  &__paginator {
+    margin-top: 64px;
   }
 }

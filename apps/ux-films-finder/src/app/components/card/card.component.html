@@ -1,5 +1,8 @@
-<div class="card">
-  <img class="card__img" [src]="url" />
-  <div class="card__name">{{ name }}</div>
-  <div class="card__rating">{{ rating }}</div>
-</div>
+<img class="ff-card__img" [src]="url" />
+<div *ngIf="name" class="ff-card__name">{{ name }}</div>
+<div class="ff-card__rating" *ngIf="rating > 0">{{ rating }}</div>
+<ng-container *ngIf="!!gender">
+  <div class="ff-card__gender">
+    <mat-icon>{{ gender === 'FEMALE' ? 'female' : 'male' }}</mat-icon>
+  </div>
+</ng-container>

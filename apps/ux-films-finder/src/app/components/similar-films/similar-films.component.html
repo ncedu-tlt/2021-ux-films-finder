@@ -1,0 +1,19 @@
+<div class="similar-films">
+  <p class="similar-films__title">Похожие фильмы</p>
+  <div class="similar-films__slider keen-slider" #sliderRef>
+    <ng-container *ngFor="let films of (similarFilms$ | async)?.items">
+      <a
+        class="similar-films__card-link keen-slider__slide"
+        routerLink="/details/{{ films.filmId }}"
+      >
+        <ff-card
+          class="similar-films__card"
+          [name]="films.nameRu || films.nameOriginal"
+          [url]="films.posterUrlPreview"
+        >
+        </ff-card>
+      </a>
+    </ng-container>
+  </div>
+  <div class="similar-films__dots"></div>
+</div>

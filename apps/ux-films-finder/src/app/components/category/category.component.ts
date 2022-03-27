@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { FilmDataService } from '../../services/film-data.service';
 import { FilmModel } from '../../models/film.model';
 import { ActivatedRoute } from '@angular/router';
@@ -9,21 +9,19 @@ import { PageEvent } from '@angular/material/paginator';
 @Component({
   selector: 'ff-category',
   templateUrl: './category.component.html',
-  styleUrls: ['./category.component.less']
+  styleUrls: ['./category.component.less'],
+  encapsulation: ViewEncapsulation.None
 })
-// TODO: Subscription? Это тот же Observable ($)? В чем отличие от Subject?
 export class CategoryComponent implements OnInit {
   private loadFilms$: Subscription = new Subscription();
   private activeFilm$: Subscription = new Subscription();
   readonly pageSize = 20;
   films$: Subject<FilmsResponseModel> = new Subject<FilmsResponseModel>();
-  // TODO: film!  ?
-  film!: FilmModel;
   genreId = 0;
+  public loading!: boolean;
 
   constructor(
     private filmDataService: FilmDataService,
-    // TODO: ActivatedRoute?
     private activatedRoute: ActivatedRoute
   ) {}
 
@@ -33,6 +31,7 @@ export class CategoryComponent implements OnInit {
       .subscribe(data => {
         this.genreId = data['genreId'];
         this.loadFilmsList(1);
+        this.loading = true;
       });
   }
   onPageChange(page: PageEvent): void {
@@ -45,6 +44,7 @@ export class CategoryComponent implements OnInit {
       .pipe(take(1))
       .subscribe((info: FilmsResponseModel) => {
         this.films$.next(info);
+        this.loading = false;
       });
   }
   ngOnDestroy(): void {
