@@ -184,48 +184,117 @@
     }
   }
   @media screen and (max-width: 1000px) {
-    flex-direction: column;
-
-    &__name {
-      flex-grow: 2;
-      width: 90%;
-    }
-
     &__name-ru {
-      width: 90%;
-      margin-bottom: 10px;
-      margin-top: 5px;
-      font-size: 26px;
+      margin-top: 60px;
+      font-size: 28px;
+      margin-bottom: 25px;
     }
-
     &__name-en {
-      font-size: 14px;
-      margin-bottom: 12px;
+      margin-bottom: 30px;
     }
-
     &__poster {
-      margin: 0 auto 0 auto;
-      height: 320px;
+      width: 206px;
+      height: 406px;
     }
     &__poster-image {
-      margin-top: 5px;
+      margin-top: 60px;
+    }
+  }
+  @media screen and (max-width: 928px) {
+    &__poster {
+      width: 186px;
+      height: 386px;
+    }
+
+    &__poster-image {
+      margin-top: 70px;
     }
 
     &__description {
+      margin-left: 18px;
+      grid-template-columns: 110px 120px;
+
+      &-info {
+        &._icon {
+          margin-left: 75px;
+        }
+      }
+    }
+  }
+  @media screen and (max-width: 830px) {
+    &__main-info {
+      flex-direction: column;
+      grid-template-columns: none;
+    }
+    &__name {
+      flex-grow: 1;
+      width: 100%;
+    }
+
+    &__name-ru {
+      margin-top: 15px;
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+    &__name-en {
+      font-size: 17px;
+      margin-bottom: 10px;
+    }
+    &__poster {
       margin: 0 auto 0 auto;
+      width: 159px;
+      height: 244px;
+    }
+    &__poster-image {
+      margin-top: 1px;
+      margin-bottom: 3px;
+      height: 100%;
+    }
+    &__genre {
+      width: 95%;
+    }
+    &__description {
+      margin: 0 auto 0 auto;
+      grid-template-columns: 150px 160px;
       grid-template-rows: 32px 32px 32px 32px;
 
       &-title {
-        font-size: 15px;
+        font-size: 14px;
       }
       &-info {
-        font-size: 16px;
+        font-size: 15px;
         &._rating {
           width: 45px;
           height: 30px;
         }
         &._icon {
           margin-left: 120px;
+        }
+      }
+    }
+  }
+  @media screen and (max-width: 510px) {
+    &__name {
+      padding-left: 50px;
+    }
+    &__name-ru {
+      margin-top: 10px;
+      font-size: 17px;
+      margin-bottom: 5px;
+    }
+    &__name-en {
+      font-size: 12px;
+      margin-bottom: 6px;
+    }
+    &__poster {
+      width: 149px;
+      height: 224px;
+    }
+    &__description {
+      grid-template-columns: 140px 150px;
+      &-info {
+        &._icon {
+          margin-left: 110px;
         }
       }
     }
