@@ -32,6 +32,9 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule } from '@angular/forms';
 import { SearchComponent } from './components/search/search.component';
 import localeRu from '@angular/common/locales/ru';
+import { LoaderComponent } from './components/loader/loader.component';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { ScreenGalleryComponent } from './components/screen-gallery/screen-gallery.component';
 registerLocaleData(localeRu);
 
 @NgModule({
@@ -52,7 +55,9 @@ registerLocaleData(localeRu);
     GenresBannerComponent,
     SwitcherComponent,
     PersonComponent,
-    SearchComponent
+    SearchComponent,
+    LoaderComponent,
+    ScreenGalleryComponent
   ],
   imports: [
     BrowserModule,
@@ -69,7 +74,8 @@ registerLocaleData(localeRu);
     MatSidenavModule,
     MatFormFieldModule,
     MatSidenavModule,
-    FormsModule
+    FormsModule,
+    MatProgressSpinnerModule
   ],
   providers: [
     {

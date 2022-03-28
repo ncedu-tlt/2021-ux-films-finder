@@ -1,0 +1,38 @@
+@import (inline) 'keen-slider/keen-slider.min.css';
+@import '../../../assets/styles/themes/dark/common/shared';
+.screen-gallery {
+  &__slider {
+    &._inactive {
+      background-color: @color-gray-42;
+      padding: 24px 0;
+      margin: 38px 0 104px 0;
+    }
+  }
+  &__slide {
+    width: 680px;
+    height: 429px;
+  }
+  &__image {
+    width: 100%;
+    height: 100%;
+  }
+  &__stripe {
+    position: absolute;
+    width: 100%;
+    height: 476px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    z-index: 1;
+    &:before,
+    &:after {
+      content: '';
+      width: 80px;
+      height: 476px;
+      background: linear-gradient(90deg, @color-black-00, @color-white-ff);
+    }
+    &:after {
+      transform: rotate(0.5turn);
+    }
+  }
+}
