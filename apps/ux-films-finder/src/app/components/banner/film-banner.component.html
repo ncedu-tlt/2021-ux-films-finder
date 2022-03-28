@@ -1,18 +1,25 @@
 <ng-container>
-  <div class="keen-slider" #sliderRef>
-    <div class="keen-slider__slide slide1" *ngFor="let film of films$ | async">
-      <div class="banner">
+  <div class="banner keen-slider" #sliderRef>
+    <div
+      class="banner__slide keen-slider__slide slide1"
+      *ngFor="let film of films$ | async"
+    >
+      <div class="banner__main-info">
         <div class="banner__name">
           <div class="banner__name-ru">{{ film?.nameRu }}</div>
           <div class="banner__name-en">{{ film?.nameEn }}</div>
-          <ng-container *ngFor="let genre of film.genres">
-            <ff-genre-label [genres]="genre.genre"></ff-genre-label>
-          </ng-container>
+          <div class="banner__genre">
+            <div *ngFor="let genre of film.genres">
+              <ff-genre-label [genres]="genre.genre"></ff-genre-label>
+            </div>
+          </div>
         </div>
         <div class="banner__poster">
-          <div class="banner__poster _image">
-            <img src="{{ film?.posterUrl }}" alt="Постер" />
-          </div>
+          <img
+            class="banner__poster-image"
+            src="{{ film?.posterUrl }}"
+            alt="Постер"
+          />
         </div>
         <div class="banner__description">
           <div class="banner__description-title _rating">Рейтинг</div>

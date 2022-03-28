@@ -1,33 +1,26 @@
 @import 'keen-slider/keen-slider.min.css';
 @import '../../../assets/styles/themes/base/common/shared';
-[class^='slide'],
-[class*=' slide'] {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  max-height: 100vh;
-}
-
-.keen-slider {
-  width: 100%;
-  max-width: 100%;
-}
 
 .banner {
-  position: relative;
   width: 100%;
-  height: 496px;
-  background: black;
-  display: grid;
-  grid-template-columns: 5fr 2fr 3fr;
+  max-width: 100%;
+
+  &__main-info {
+    position: relative;
+    width: 100%;
+    height: 496px;
+    background: black;
+    display: grid;
+    grid-template-columns: 5fr 2fr 3fr;
+  }
 
   &__name {
     padding-left: 100px;
-    width: 45%;
+    width: 100%;
   }
 
   &__name-ru {
-    width: 80%;
+    width: 85%;
     margin-top: 90px;
     margin-bottom: 32px;
     font-size: 35px;
@@ -42,25 +35,31 @@
     color: rgb(167, 167, 167);
     font-size: 19px;
   }
+
   &__genre {
     display: flex;
+    width: 90%;
+    flex-wrap: wrap;
   }
+
   &__poster {
+    width: 296px;
     height: 496px;
     display: flex;
-
-    &._image img {
-      margin-top: 25px;
-      height: 90%;
-    }
   }
+  &__poster-image {
+    margin-top: 25px;
+    height: 90%;
+  }
+
   &__description {
-    margin-left: 75px;
+    margin-left: 48px;
     margin-top: 100px;
     line-height: 2;
     display: grid;
     grid-template-columns: 150px 160px;
     grid-template-rows: 75px 75px 75px 75px 75px;
+
     &-title {
       font-size: 17px;
       text-align: left;
@@ -73,13 +72,16 @@
       &._filmLength {
         grid-area: 2 / 1 / 3 / 2;
       }
+
       &._country {
         grid-area: 4 / 1 / 5 / 2;
       }
+
       &._year {
         grid-area: 3 / 1 / 4 / 2;
       }
     }
+
     &-info {
       font-size: 18px;
       text-align: right;
@@ -91,6 +93,7 @@
         width: 50px;
         height: 35px;
       }
+
       &._icon {
         background: #ffffff;
         border-radius: 17px;
@@ -98,14 +101,17 @@
         text-align: center;
         color: black;
       }
+
       &._filmLength {
         grid-area: 2 / 2 / 3 / 3;
       }
+
       &._country {
         word-spacing: 0px;
         text-indent: 60px;
         grid-area: 4 / 2 / 5 / 3;
       }
+
       &._year {
         grid-area: 3 / 2 / 4 / 3;
       }
@@ -138,6 +144,7 @@
 .arrow--disabled {
   fill: rgba(255, 255, 255, 0.5);
 }
+
 .banner {
   position: relative;
   width: 100%;
@@ -145,12 +152,42 @@
   background: black;
   display: flex;
   grid-template-columns: 5fr 2fr 3fr;
+  @media screen and (max-width: 1400px) {
+    &__name-ru {
+      font-size: 30px;
+    }
 
-  @media screen and (max-width: 800px) {
+    &__poster-image {
+      margin-top: 40px;
+      height: 80%;
+    }
+
+    &__description {
+      grid-template-columns: 100px 140px;
+
+      &-title {
+        font-size: 15px;
+      }
+
+      &-info {
+        font-size: 16px;
+
+        &._icon {
+          margin-left: 95px;
+        }
+      }
+    }
+  }
+  @media screen and (max-width: 1230px) {
+    &__main-info {
+      grid-template-columns: 3fr 2fr 3fr;
+    }
+  }
+  @media screen and (max-width: 1000px) {
     flex-direction: column;
 
     &__name {
-      flex-grow: 1;
+      flex-grow: 2;
       width: 90%;
     }
 
@@ -165,18 +202,15 @@
       font-size: 14px;
       margin-bottom: 12px;
     }
-    &__genre {
-      display: flex;
-    }
 
     &__poster {
       margin: 0 auto 0 auto;
       height: 320px;
-
-      &._image img {
-        margin-top: 5px;
-      }
     }
+    &__poster-image {
+      margin-top: 5px;
+    }
+
     &__description {
       margin: 0 auto 0 auto;
       grid-template-rows: 32px 32px 32px 32px;
@@ -194,44 +228,6 @@
           margin-left: 120px;
         }
       }
-    }
-  }
-  @media screen and (max-width: 420px) {
-    &__name-ru {
-      font-size: 20px;
-    }
-    &__name-en {
-      font-size: 12px;
-    }
-  }
-  @media screen and (max-width: 400px) {
-    &__name {
-      padding-left: 50px;
-    }
-    @media screen and (max-width: 330px) {
-      &__name {
-        padding-left: 50px;
-      }
-    }
-    &__description {
-      grid-template-columns: 100px 160px;
-      grid-template-rows: 30px 30px 30px 30px;
-      &-title {
-        font-size: 14px;
-      }
-    }
-  }
-  &__arrow {
-    position: absolute;
-    font-size: 80px;
-    color: white;
-    top: 50%;
-    transform: translateY(-50%);
-    left: 6px;
-
-    &._right {
-      right: 6px;
-      left: auto;
     }
   }
 }
