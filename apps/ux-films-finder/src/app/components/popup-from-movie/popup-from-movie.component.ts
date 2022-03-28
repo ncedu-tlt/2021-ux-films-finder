@@ -12,7 +12,7 @@ export class PopupFromMovieComponent implements OnInit {
   constructor(@Inject(MAT_DIALOG_DATA) public data: ImageDataInterface) {}
   public currentImage: string = this.data.image;
   public images: string[] = this.data.images;
-  public currentIndex: number = 0;
+  public currentIndex = 0;
   ngOnInit(): void {
     this.currentIndex = this.images.indexOf(this.currentImage);
   }
