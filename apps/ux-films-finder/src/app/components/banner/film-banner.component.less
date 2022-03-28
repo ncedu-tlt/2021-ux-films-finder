@@ -2,20 +2,25 @@
 @import '../../../assets/styles/themes/base/common/shared';
 
 .banner {
+  position: relative;
   width: 100%;
-  max-width: 100%;
+  height: 100%;
+  background: black;
+  display: flex;
+  grid-template-columns: 5fr 2fr 3fr;
 
-  &__main-info {
+  &__slide {
     position: relative;
     width: 100%;
     height: 496px;
     background: black;
     display: grid;
     grid-template-columns: 5fr 2fr 3fr;
+    padding: 24px 80px 24px 80px;
   }
 
   &__name {
-    padding-left: 100px;
+    padding-left: 40px;
     width: 100%;
   }
 
@@ -48,7 +53,6 @@
     display: flex;
   }
   &__poster-image {
-    margin-top: 25px;
     height: 90%;
   }
 
@@ -146,12 +150,6 @@
 }
 
 .banner {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  background: black;
-  display: flex;
-  grid-template-columns: 5fr 2fr 3fr;
   @media screen and (max-width: 1400px) {
     &__name-ru {
       font-size: 30px;
@@ -179,7 +177,7 @@
     }
   }
   @media screen and (max-width: 1230px) {
-    &__main-info {
+    &__slide {
       grid-template-columns: 3fr 2fr 3fr;
     }
   }
@@ -189,13 +187,16 @@
       font-size: 28px;
       margin-bottom: 25px;
     }
+
     &__name-en {
       margin-bottom: 30px;
     }
+
     &__poster {
       width: 206px;
       height: 406px;
     }
+
     &__poster-image {
       margin-top: 60px;
     }
@@ -211,7 +212,6 @@
     }
 
     &__description {
-      margin-left: 18px;
       grid-template-columns: 110px 120px;
 
       &-info {
@@ -221,11 +221,13 @@
       }
     }
   }
-  @media screen and (max-width: 830px) {
-    &__main-info {
+  @media screen and (max-width: 875px) {
+    &__slide {
+      padding: 5px 60px 5px 60px;
       flex-direction: column;
       grid-template-columns: none;
     }
+
     &__name {
       flex-grow: 1;
       width: 100%;
@@ -236,23 +238,28 @@
       font-size: 20px;
       margin-bottom: 10px;
     }
+
     &__name-en {
       font-size: 17px;
       margin-bottom: 10px;
     }
+
     &__poster {
       margin: 0 auto 0 auto;
       width: 159px;
       height: 244px;
     }
+
     &__poster-image {
       margin-top: 1px;
       margin-bottom: 3px;
       height: 100%;
     }
+
     &__genre {
       width: 95%;
     }
+
     &__description {
       margin: 0 auto 0 auto;
       grid-template-columns: 150px 160px;
@@ -261,45 +268,64 @@
       &-title {
         font-size: 14px;
       }
+
       &-info {
         font-size: 15px;
+
         &._rating {
           width: 45px;
           height: 30px;
         }
+
         &._icon {
           margin-left: 120px;
         }
       }
     }
   }
-  @media screen and (max-width: 510px) {
-    &__name {
-      padding-left: 50px;
-    }
+  @media screen and (max-width: 580px) {
     &__name-ru {
       margin-top: 10px;
       font-size: 17px;
       margin-bottom: 5px;
     }
+
     &__name-en {
       font-size: 12px;
       margin-bottom: 6px;
     }
+
     &__poster {
       width: 149px;
       height: 224px;
     }
+
     &__description {
       grid-template-columns: 140px 150px;
+
       &-title {
         font-size: 13px;
       }
+
       &-info {
         font-size: 13px;
+
         &._icon {
           margin-left: 110px;
           grid-template-rows: 22px 22px 22px 22px;
+        }
+      }
+    }
+  }
+  @media screen and (max-width: 388px) {
+    &__slide {
+      padding: 2px 6px 2px 6px;
+    }
+    &__description {
+      grid-template-columns: 130px 140px;
+      &-info {
+        &._icon {
+          margin-left: 100px;
         }
       }
     }
