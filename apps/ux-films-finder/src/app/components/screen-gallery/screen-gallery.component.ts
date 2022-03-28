@@ -40,8 +40,11 @@ export class ScreenGalleryComponent
 
   openDialog(url: string) {
     this.enlargeImage = url;
+    const newImagesArray = this.images.map((currentValue, index) => {
+      return currentValue.imageUrl;
+    });
     const dialogRef = this.dialog.open(PopupFromMovieComponent, {
-      data: { image: this.enlargeImage, images: this.images },
+      data: { image: this.enlargeImage, images: newImagesArray },
       maxWidth: '1600px'
     });
   }
