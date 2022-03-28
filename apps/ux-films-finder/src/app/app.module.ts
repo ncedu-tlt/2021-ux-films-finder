@@ -33,6 +33,9 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule } from '@angular/forms';
 import localeRu from '@angular/common/locales/ru';
 import { GenreLabelComponent } from './components/genre-label/genre-label.component';
+import { LoaderComponent } from './components/loader/loader.component';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { ScreenGalleryComponent } from './components/screen-gallery/screen-gallery.component';
 registerLocaleData(localeRu);
 @NgModule({
   declarations: [
@@ -53,7 +56,9 @@ registerLocaleData(localeRu);
     SwitcherComponent,
     PersonComponent,
     FilmBannerComponent,
-    GenreLabelComponent
+    GenreLabelComponent,
+    LoaderComponent,
+    ScreenGalleryComponent
   ],
   imports: [
     BrowserModule,
@@ -69,7 +74,8 @@ registerLocaleData(localeRu);
     MatPaginatorModule,
     MatSidenavModule,
     MatFormFieldModule,
-    FormsModule
+    FormsModule,
+    MatProgressSpinnerModule
   ],
   providers: [
     {

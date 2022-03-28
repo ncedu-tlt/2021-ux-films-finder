@@ -1,15 +1,25 @@
-<ng-container *ngFor="let film of (films$ | async)?.items">
-  <a routerLink="/details/{{ film?.kinopoiskId }}">
-    <ng-container>
-      {{ film?.nameOriginal }} - {{ film?.ratingImdb }} -
-      {{ film?.posterUrlPreview }}
+<div class="category">
+  <div class="category__card-list">
+    <ng-container *ngFor="let film of (films$ | async)?.items">
+      <a
+        class="category__card-link"
+        routerLink="/details/{{ film.kinopoiskId }}"
+      >
+        <ff-card
+          class="category__card"
+          [name]="film.nameRu || film.nameOriginal"
+          [rating]="film.ratingImdb"
+          [url]="film.posterUrlPreview"
+        >
+        </ff-card>
+      </a>
     </ng-container>
-  </a>
-</ng-container>
-<mat-paginator
-  class="category"
-  [length]="(films$ | async)?.total"
-  [pageSize]="pageSize"
-  (page)="onPageChange($event)"
->
-</mat-paginator>
+  </div>
+  <mat-paginator
+    class="category__paginator"
+    [length]="(films$ | async)?.total"
+    [pageSize]="pageSize"
+    (page)="onPageChange($event)"
+  >
+  </mat-paginator>
+</div>
