@@ -20,7 +20,10 @@ import { FilmDataService } from '../../services/film-data.service';
 })
 export class SimilarFilmsComponent implements OnInit, OnDestroy, AfterViewInit {
   @ViewChild('sliderRef') sliderRef!: ElementRef<HTMLElement>;
-  slider?: KeenSliderInstance;
+  currentSlide = 1;
+  dots: number[] = [];
+  slider!: KeenSliderInstance;
+
   @Input() public filmId = 0;
   public similarFilms$: Subject<BaseFilmsResponseModel> =
     new Subject<BaseFilmsResponseModel>();
@@ -32,11 +35,18 @@ export class SimilarFilmsComponent implements OnInit, OnDestroy, AfterViewInit {
   ) {}
 
   ngAfterViewInit() {
-    this.slider = new KeenSlider(this.sliderRef.nativeElement, {
-      slides: {
-        perView: 4,
-        spacing: 40
-      }
+    setTimeout(() => {
+      this.slider = new KeenSlider(this.sliderRef.nativeElement, {
+        initial: this.currentSlide,
+        slideChanged: slider => {
+          this.currentSlide = slider.track.details.rel;
+        },
+        slides: {
+          perView: 3,
+          spacing: 150
+        }
+      });
+      this.dots = [...Array(this.slider.track.details.slides.length).keys()];
     });
   }
 

@@ -15,5 +15,13 @@
       </a>
     </ng-container>
   </div>
-  <div class="similar-films__dots"></div>
+  <div class="similar-films__dots">
+    <p>hello world</p>
+    <button
+      class="similar-films__dot"
+      (click)="slider.moveToIdx(i)"
+      *ngFor="let slide of dots; let i = index"
+      [class]="'dot ' + (i === currentSlide ? 'active' : '')"
+    ></button>
+  </div>
 </div>
