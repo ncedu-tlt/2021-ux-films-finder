@@ -9,6 +9,7 @@ import { PersonInfoResponseModel } from '../models/person-info-response.model';
 import { BiographyModel } from '../models/biography.model';
 import { Router } from '@angular/router';
 import { FilmImagesResponseModel } from '../models/fiml-images-response.model';
+import { VideoModel } from '../models/video.model';
 
 @Injectable({
   providedIn: 'root'
@@ -68,6 +69,11 @@ export class FilmDataService {
   ): Observable<PersonInfoResponseModel> {
     return this.http.get<PersonInfoResponseModel>(
       this.kinopoiskUrl + '/api/v1/persons?name=' + name + '&page=' + page
+    );
+  }
+  public getVideoById(id: number): Observable<VideoModel> {
+    return this.http.get<VideoModel>(
+      this.kinopoiskUrl + '/api/v2.2/films/' + id + '/videos'
     );
   }
   public getPersonsInfoById(id: number): Observable<BiographyModel> {
