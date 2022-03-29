@@ -13,7 +13,7 @@ import { FilmDataService } from '../../services/film-data.service';
 import { FilmImagesResponseModel } from '../../models/fiml-images-response.model';
 import { BehaviorSubject, Subscription, take } from 'rxjs';
 import { MAT_DIALOG_DATA, MatDialog } from '@angular/material/dialog';
-import { PopupFromMovieComponent } from '../popup-from-movie/popup-from-movie.component';
+import { MovieCadrComponent } from '../movie-cadr/movie-cadr.component';
 import { FilmImagesModel } from '../../models/film-images.model';
 
 @Component({
@@ -43,7 +43,7 @@ export class ScreenGalleryComponent
     const newImagesArray = this.images.map((currentValue, index) => {
       return currentValue.imageUrl;
     });
-    const dialogRef = this.dialog.open(PopupFromMovieComponent, {
+    const dialogRef = this.dialog.open(MovieCadrComponent, {
       data: { image: this.enlargeImage, images: newImagesArray },
       maxWidth: '1600px'
     });

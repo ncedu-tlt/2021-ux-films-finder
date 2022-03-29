@@ -1,0 +1,20 @@
+<div class="popup-film-movie">
+  <img
+    class="popup-film-movie__image"
+    src="{{ images[currentIndex] }}"
+    alt="enlargeImage"
+  />
+  <div class="popup-film-movie__arrows">
+    <img
+      class="popup-film-movie__arrow _left-arrow"
+      src="../../../assets/images/left-arrow.svg"
+      (click)="switchImage(true)"
+    />
+    <img
+      *ngIf="data.images"
+      class="popup-film-movie__arrow _right-arrow"
+      src="../../../assets/images/right-arrow.svg"
+      (click)="switchImage(false)"
+    />
+  </div>
+</div>
