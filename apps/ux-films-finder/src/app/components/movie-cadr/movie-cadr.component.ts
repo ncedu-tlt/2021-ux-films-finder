@@ -10,23 +10,21 @@ import { ImageDataInterface } from '../../models/image-data.interface';
 })
 export class MovieCadrComponent implements OnInit {
   constructor(@Inject(MAT_DIALOG_DATA) public data: ImageDataInterface) {}
-  public currentImage: string = this.data.image;
-  public images: string[] = this.data.images;
-  public currentIndex = 0;
+
+  public currentIndex: number = 0;
+
   ngOnInit(): void {
-    this.currentIndex = this.images.indexOf(this.currentImage);
+    this.currentIndex = this.data.images.indexOf(this.data.currentImage);
   }
   public switchImage(isLeftArrowClicked: boolean): void {
     if (isLeftArrowClicked) {
-      if (this.currentIndex == 0) {
-        this.currentIndex = this.images.length - 1;
-      } else {
-        this.currentIndex--;
-      }
-    } else if (this.currentIndex == this.images.length - 1) {
-      this.currentIndex = 0;
-    } else {
-      this.currentIndex++;
-    }
+      this.currentIndex =
+        this.currentIndex == 0
+          ? this.data.images.length - 1
+          : this.currentIndex - 1;
+    } else
+      this.currentIndex == this.data.images.length - 1
+        ? (this.currentIndex = 0)
+        : this.currentIndex++;
   }
 }

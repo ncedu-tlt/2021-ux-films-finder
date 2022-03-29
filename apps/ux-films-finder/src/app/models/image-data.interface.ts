@@ -1,4 +1,4 @@
 export interface ImageDataInterface {
-  image: string;
+  currentImage: string;
   images: string[];
 }

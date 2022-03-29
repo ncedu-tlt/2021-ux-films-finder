@@ -27,9 +27,7 @@ export class ScreenGalleryComponent
   @ViewChild('sliderRef') sliderRef!: ElementRef<HTMLElement>;
   @Input() public filmId = 0;
   slider?: KeenSliderInstance;
-  public images: FilmImagesModel[] = [];
-  private loadImages$: Subscription = new Subscription();
-  public enlargeImage?: string;
+  public activeImage: FilmImagesModel[] = [];
   currentSlide = 1;
 
   constructor(
@@ -38,13 +36,12 @@ export class ScreenGalleryComponent
     public dialog: MatDialog
   ) {}
 
-  openDialog(url: string) {
-    this.enlargeImage = url;
-    const newImagesArray = this.images.map((currentValue, index) => {
+  openDialog(url: string): void {
+    const newImagesArray = this.activeImage.map((currentValue, index) => {
       return currentValue.imageUrl;
     });
     const dialogRef = this.dialog.open(MovieCadrComponent, {
-      data: { image: this.enlargeImage, images: newImagesArray },
+      data: { currentImage: url, images: newImagesArray },
       maxWidth: '1600px'
     });
   }
@@ -72,11 +69,11 @@ export class ScreenGalleryComponent
   }
 
   ngOnInit() {
-    this.loadImages$ = this.filmDataService
+    this.filmDataService
       .getFilmImages(this.filmId)
       .pipe(take(1))
-      .subscribe((img: FilmImagesResponseModel) => {
-        this.images = img.items;
+      .subscribe((filmImagesResponse: FilmImagesResponseModel) => {
+        this.activeImage = filmImagesResponse.items;
         this.cdr.detectChanges();
         this.slider?.update();
       });
@@ -84,6 +81,5 @@ export class ScreenGalleryComponent
 
   ngOnDestroy() {
     this.slider?.destroy();
-    this.loadImages$.unsubscribe();
   }
 }

@@ -1,5 +1,6 @@
 @import '../../../assets/styles/themes/dark/common/shared';
-.popup-film-movie {
+.movie-cadr {
+  position: relative;
   &__image {
     max-width: 90vw;
     max-height: 90vh;
@@ -7,18 +8,26 @@
     user-select: none;
   }
   &__arrows {
+    position: absolute;
+
     width: 100%;
-    position: relative;
     display: flex;
     justify-content: space-between;
     justify-items: center;
-    fill: @color-white-ff;
     cursor: pointer;
   }
   &__arrow {
-    height: 64px;
+    max-height: 64px;
+    max-width: 64px;
+    margin: 0 80px;
+    viewbox: 0 0 100% 100%;
+    stroke: @color-white-ff;
+    fill: none;
+    &._right-arrow {
+      transform: rotate(0.5turn);
+    }
   }
-  &:hover &__arrow {
-    color: @color-green-69;
+  &__arrow:hover {
+    stroke: @color-green-69;
   }
 }

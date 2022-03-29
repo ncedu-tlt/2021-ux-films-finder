@@ -1,20 +1,26 @@
-<div class="popup-film-movie">
+<div class="movie-cadr">
   <img
-    class="popup-film-movie__image"
-    src="{{ images[currentIndex] }}"
+    class="movie-cadr__image"
+    src="{{ data.images[currentIndex] }}"
     alt="enlargeImage"
   />
-  <div class="popup-film-movie__arrows">
-    <img
-      class="popup-film-movie__arrow _left-arrow"
-      src="../../../assets/images/left-arrow.svg"
+  <div class="movie-cadr__arrows">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      class="movie-cadr__arrow _left-arrow"
       (click)="switchImage(true)"
-    />
-    <img
+      viewBox="0 0 28 28"
+    >
+      <path d="M12.5 23L1.5 12L12.5 1" />
+    </svg>
+    <svg
       *ngIf="data.images"
-      class="popup-film-movie__arrow _right-arrow"
-      src="../../../assets/images/right-arrow.svg"
+      class="movie-cadr__arrow _right-arrow"
       (click)="switchImage(false)"
-    />
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 28 28"
+    >
+      <path d="M12.5 23L1.5 12L12.5 1" />
+    </svg>
   </div>
 </div>
