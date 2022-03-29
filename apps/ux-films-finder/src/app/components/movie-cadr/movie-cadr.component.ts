@@ -11,7 +11,7 @@ import { ImageDataInterface } from '../../models/image-data.interface';
 export class MovieCadrComponent implements OnInit {
   constructor(@Inject(MAT_DIALOG_DATA) public data: ImageDataInterface) {}
 
-  public currentIndex: number = 0;
+  public currentIndex = 0;
 
   ngOnInit(): void {
     this.currentIndex = this.data.images.indexOf(this.data.currentImage);
