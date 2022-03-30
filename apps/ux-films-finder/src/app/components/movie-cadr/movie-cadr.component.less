@@ -1,10 +1,11 @@
 @import '../../../assets/styles/themes/dark/common/shared';
 .movie-cadr {
   position: relative;
+
   &__image {
+    object-fit: contain;
     max-width: 90vw;
     max-height: 90vh;
-    object-fit: contain;
     user-select: none;
   }
   &__arrows {
@@ -15,6 +16,7 @@
     justify-content: space-between;
     justify-items: center;
     cursor: pointer;
+    user-select: none;
   }
   &__arrow {
     height: 64px;
@@ -28,5 +30,14 @@
   }
   &__arrow:hover {
     stroke: @color-green-69;
+  }
+}
+@media (max-width: 550px) {
+  .movie-cadr {
+    &__arrow {
+      height: 48px;
+      width: 48px;
+      margin: 0 16px;
+    }
   }
 }
