@@ -1,81 +1,96 @@
-<div class="banner keen-slider" #sliderRef>
-  <div
-    class="banner__slide keen-slider__slide"
-    *ngFor="let film of films$ | async"
-  >
-    <div class="banner__main-info">
-      <div class="banner__name-ru">
-        {{ film?.nameRu }}
-        <div *ngIf="film.nameRu" else emptyTemplate></div>
-      </div>
-      <div class="banner__name-en">
-        {{ film?.nameEn }}
-        <div *ngIf="film.nameEn" else emptyTemplate></div>
-      </div>
-      <div class="banner__genres">
-        <ng-container *ngFor="let genre of film.genres">
-          <ff-genre-label [genres]="genre.genre"></ff-genre-label>
-        </ng-container>
-      </div>
-    </div>
-    <div class="banner__poster">
-      <img
-        class="banner__poster-image"
-        src="{{ film?.posterUrl }}"
-        alt="Постер"
-      />
-    </div>
-    <div class="banner__description">
-      <div class="banner__description-row">
-        <div class="banner__description-title">Рейтинг</div>
-        <div class="banner__description-info">
-          <div class="banner__description-info _rating">
-            {{ film?.rating }}
-          </div>
+<div class="banner">
+  <div class="banner__container keen-slider" #sliderRef>
+    <div
+      class="banner__slide keen-slider__slide"
+      *ngFor="let film of films$ | async"
+    >
+      <div class="banner__main-info">
+        <div class="banner__name-main">
+          {{ film.nameRu || film.nameEn }}
         </div>
-      </div>
-      <div class="banner__description-row">
-        <div class="banner__description-title">Продолжительность</div>
-        <div class="banner__description-info">
-          {{ film?.filmLength }}
+        <div *ngIf="film.nameRu && film.nameEn" class="banner__name-en">
+          {{ film?.nameEn }}
         </div>
-      </div>
-      <div class="banner__description-row">
-        <div class="banner__description-title">Год выпуска</div>
-        <div class="banner__description-info">{{ film?.year }}</div>
-      </div>
-      <div class="banner__description-row">
-        <div class="banner__description-title">Страна</div>
-        <div class="banner__description-info">
-          <ng-container *ngFor="let country of film.countries">
-            {{ country.country }}
+        <div class="banner__genres">
+          <ng-container *ngFor="let genre of film.genres">
+            <ff-genre-label [genres]="genre.genre"></ff-genre-label>
           </ng-container>
         </div>
       </div>
+      <div class="banner__poster">
+        <img
+          class="banner__poster-image"
+          src="{{ film?.posterUrl }}"
+          alt="Постер"
+        />
+      </div>
+      <div class="banner__description">
+        <div class="banner__description-row">
+          <div class="banner__description-title">Рейтинг</div>
+          <div class="banner__description-info">
+            <div class="banner__rating">
+              {{ film?.rating }}
+            </div>
+          </div>
+        </div>
+        <div class="banner__description-row">
+          <div
+            *ngIf="film.rating && film.filmLength"
+            class="banner__description-title"
+          >
+            Продолжительность
+          </div>
+          <div class="banner__description-info">
+            {{ film?.filmLength }}
+          </div>
+        </div>
+
+        <div class="banner__description-row">
+          <div class="banner__description-title">Год выпуска</div>
+          <div class="banner__description-info">{{ film?.year }}</div>
+        </div>
+
+        <div class="banner__description-row">
+          <div class="banner__description-title">Страна</div>
+          <div class="banner__description-info">
+            <ng-container *ngFor="let country of film.countries">
+              {{ country.country + ', ' }}
+            </ng-container>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
-  <div class="banner__arrow">
     <svg
-      [ngClass]="
-        'banner__arrow-left ' + (currentSlide === 0 ? 'arrow--disabled' : '')
-      "
-      (click)="slider.prev()"
+      class="banner__arrow _left"
       xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 24 24"
+      width="14"
+      height="24"
+      viewBox="0 0 14 24"
+      fill="none"
+      (click)="slider.prev()"
     >
       <path
-        d="M16.67 0l2.83 2.829-9.339 9.175 9.339 9.167-2.83 2.829-12.17-11.996z"
+        d="M1.5 1L12.5 12L1.5 23"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
       />
     </svg>
     <svg
-      *ngIf="(films$ | async)?.length as size"
-      class="banner__arrow-right"
-      [ngClass]="size - 1 === currentSlide ? 'arrow--disabled' : ''"
-      (click)="slider.next()"
+      class="banner__arrow _right"
+      width="14"
+      height="24"
+      viewBox="0 0 14 24"
+      fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 24 24"
+      (click)="slider.next()"
     >
-      <path d="M5 3l3.057-3 11.943 12-11.943 12-3.057-3 9-9z" />
+      <path
+        d="M1.5 1L12.5 12L1.5 23"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
     </svg>
   </div>
 </div>

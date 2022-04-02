@@ -30,6 +30,6 @@ export const COLORS: {
   церемония: 'ceremony',
   'реальное ТВ': 'real-tv',
   игра: 'game',
-  'ток-шоу': 'talk-show',
-  детский: 'baby'
+  детский: 'children',
+  'ток-шоу': 'talk-show'
 };
