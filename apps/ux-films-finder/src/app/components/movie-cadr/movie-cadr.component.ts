@@ -19,13 +19,14 @@ export class MovieCadrComponent implements OnInit {
   public switchImage(isLeftArrowClicked: boolean): void {
     if (isLeftArrowClicked) {
       this.currentIndex =
-        this.currentIndex == 0
+        this.currentIndex === 0
           ? this.data.images.length - 1
           : this.currentIndex - 1;
     } else {
-      this.currentIndex == this.data.images.length - 1
-        ? (this.currentIndex = 0)
-        : this.currentIndex++;
+      this.currentIndex =
+        this.currentIndex === this.data.images.length - 1
+          ? 0
+          : this.currentIndex + 1;
     }
   }
 }
