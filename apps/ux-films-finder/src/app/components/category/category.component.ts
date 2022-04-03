@@ -2,9 +2,10 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { FilmDataService } from '../../services/film-data.service';
 import { FilmModel } from '../../models/film.model';
 import { ActivatedRoute } from '@angular/router';
-import { Subject, Subscription, take } from 'rxjs';
+import { BehaviorSubject, Subject, Subscription, take } from 'rxjs';
 import { FilmsResponseModel } from '../../models/films-response.model';
 import { PageEvent } from '@angular/material/paginator';
+import { PersonInfoResponseModel } from '../../models/person-info-response.model';
 
 @Component({
   selector: 'ff-category',
@@ -16,7 +17,12 @@ export class CategoryComponent implements OnInit {
   private loadFilms$: Subscription = new Subscription();
   private activeFilm$: Subscription = new Subscription();
   readonly pageSize = 20;
-  films$: Subject<FilmsResponseModel> = new Subject<FilmsResponseModel>();
+  films$: BehaviorSubject<FilmsResponseModel> =
+    new BehaviorSubject<FilmsResponseModel>({
+      items: [],
+      total: 0,
+      totalPages: 0
+    });
   genreId = 0;
   public loading!: boolean;
 

@@ -19,6 +19,7 @@
   </div>
 
   <mat-paginator
+    *ngIf="(films$ | async)?.total as total"
     class="category__paginator"
     [length]="(films$ | async)?.total"
     [pageSize]="pageSize"

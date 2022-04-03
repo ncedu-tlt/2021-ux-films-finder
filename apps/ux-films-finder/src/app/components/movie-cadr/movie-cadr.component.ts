@@ -22,9 +22,10 @@ export class MovieCadrComponent implements OnInit {
         this.currentIndex == 0
           ? this.data.images.length - 1
           : this.currentIndex - 1;
-    } else
+    } else {
       this.currentIndex == this.data.images.length - 1
         ? (this.currentIndex = 0)
         : this.currentIndex++;
+    }
   }
 }
