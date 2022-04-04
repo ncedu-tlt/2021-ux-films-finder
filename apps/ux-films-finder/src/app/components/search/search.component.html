@@ -3,57 +3,56 @@
     <input
       class="search__input"
       type="text"
+      placeholder="Фильмы, сериалы, персоны"
       [(ngModel)]="searchInput"
       (ngModelChange)="getInfo()"
-      placeholder=""
     />
-    <mat-icon routerLink="advanced-search" class="search__filter"
-      >tune</mat-icon
-    >
+    <mat-icon routerLink="advanced-search" class="search__filter">
+      tune
+    </mat-icon>
   </div>
   <ng-container class="search__results">
     <mat-list class="search__results-list">
-      <p *ngIf="searchInput" class="search__results-title-name">
-        Фильмы и сериалы
-      </p>
+      <p *ngIf="searchInput" class="search__results-title">Фильмы и сериалы</p>
       <mat-list-item
         class="search__results-list-item"
         *ngFor="let film of films$ | async | slice: 0:3"
-        routerLink="/details/{{ film?.filmId }}"
-        ><img class="search__poster" src="{{ film?.posterUrlPreview }}" />
+        routerLink="/details/{{ film.filmId }}"
+      >
+        <img class="search__poster" src="{{ film.posterUrlPreview }}" />
 
         <div class="search__info">
-          <p class="search__name-ru">{{ film?.nameRu }}</p>
-          <p class="search__name-en">{{ film?.nameEn }}</p>
+          <p *ngIf="film.nameRu !== undefined" class="search__name-ru">
+            {{ film.nameRu }}
+          </p>
+          <p *ngIf="film.nameEn !== undefined" class="search__name-en">
+            {{ film.nameEn }}
+          </p>
         </div>
       </mat-list-item>
-      <div class="search__show-more">
-        <p *ngIf="searchInput" class="search__button" (click)="getListFilms()">
-          Показать все
-        </p>
-        <mat-icon *ngIf="searchInput" class="search__arrow-icon">
-          keyboard_arrow_right
-        </mat-icon>
+      <div *ngIf="searchInput" class="search__show-more">
+        <p class="search__button" (click)="getListFilms()">Показать все</p>
+        <mat-icon class="search__arrow-icon"> keyboard_arrow_right </mat-icon>
       </div>
 
-      <p *ngIf="searchInput" class="search__results-title-name">Персоны</p>
+      <p *ngIf="searchInput" class="search__second-results-title">Персоны</p>
       <mat-list-item
         class="search__results-list-item"
         *ngFor="let actor of actors$ | async | slice: 0:3"
-        routerLink="/persons/{{ actor?.kinopoiskId }}"
-        ><img class="search__poster" src="{{ actor?.posterUrl }}" />
+        routerLink="/persons/{{ actor.kinopoiskId }}"
+        ><img class="search__poster" src="{{ actor.posterUrl }}" />
         <div class="search__info">
-          <p class="search__name-ru">{{ actor?.nameRu }}</p>
-          <p class="search__name-en">{{ actor?.nameEn }}</p>
+          <p *ngIf="actor.nameRu !== undefined" class="search__name-ru">
+            {{ actor.nameRu }}
+          </p>
+          <p *ngIf="actor.nameEn !== undefined" class="search__name-en">
+            {{ actor.nameEn }}
+          </p>
         </div>
       </mat-list-item>
-      <div class="search__show-more">
-        <p *ngIf="searchInput" class="search__button" (click)="getActorFilms()">
-          Показать все
-        </p>
-        <mat-icon *ngIf="searchInput" class="search__arrow-icon"
-          >keyboard_arrow_right</mat-icon
-        >
+      <div *ngIf="searchInput" class="search__show-more">
+        <p class="search__button" (click)="getActorFilms()">Показать все</p>
+        <mat-icon class="search__arrow-icon">keyboard_arrow_right </mat-icon>
       </div>
     </mat-list>
   </ng-container>

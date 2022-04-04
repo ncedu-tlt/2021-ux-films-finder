@@ -1,5 +1,5 @@
-<header>
-  <div class="header">
+<header class="header">
+  <div class="header__content">
     <div class="header__left-side">
       <div class="header__toogle">
         <mat-icon class="header__toogle-button" (click)="sidenav.toggle()">
@@ -7,7 +7,7 @@
         </mat-icon>
       </div>
       <div *ngIf="!isShown" class="header__logo">
-        <a routerLink="">OnlineCinema</a>
+        <a class="header__text" routerLink="">OnlineCinema</a>
         <hr class="header__first-line" />
         <hr class="header__second-line" />
         <hr class="header__third-line" />
@@ -31,15 +31,15 @@
         </div>
         <mat-icon
           class="header__search-icon-hidden"
-          (click)="searchDisplay()"
+          (click)="toggleSearchVisibility()"
           routerLink="."
         >
           search
         </mat-icon>
       </form>
-      <div class="header__user-info">
+      <!--<div class="header__user-info">
         <mat-icon class="header__person-icon"> account_circle</mat-icon>
-      </div>
+      </div>-->
     </div>
     <mat-sidenav #sidenav role="navigation">
       <ff-sidenav-list (sidenavClose)="sidenav.close()"></ff-sidenav-list>

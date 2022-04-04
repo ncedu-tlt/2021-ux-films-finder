@@ -16,23 +16,29 @@ export class SearchComponent {
   searchInput = '';
   films$: Subject<FilmModel[]> = new Subject();
   actors$: Subject<BiographyModel[]> = new Subject();
+
   constructor(private filmDataService: FilmDataService) {}
+
   public getListFilms() {
     this.filmDataService
       .getFilmByKeyWord(this.searchInput, 1)
       .pipe(take(1))
       .subscribe((info: FilmKeywordModel) => {
         this.films$.next(info.films);
+        console.log(info);
       });
   }
+
   public getActorFilms() {
     this.filmDataService
       .getActorByKeyWord(this.searchInput, 1)
       .pipe(take(1))
       .subscribe((info: FilmActorModel) => {
         this.actors$.next(info.items);
+        console.log(info);
       });
   }
+
   public getInfo() {
     this.getActorFilms();
     this.getListFilms();

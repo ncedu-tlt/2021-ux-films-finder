@@ -14,9 +14,8 @@ import {
 export class HeaderComponent implements OnInit {
   isShown = false;
   desktop = false;
-  isScrolled = false;
-  DESKTOP_SIZE = 871;
-  searchDisplay() {
+  readonly DESKTOP_SIZE = 871;
+  toggleSearchVisibility() {
     this.isShown = !this.isShown;
   }
   @HostListener('window:resize')

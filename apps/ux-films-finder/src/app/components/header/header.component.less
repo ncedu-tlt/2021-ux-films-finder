@@ -1,23 +1,26 @@
 @import '../../../assets/styles/themes/base/common/shared';
 
-header {
+.header {
   width: 100%;
   background: @color-gray-49;
   position: fixed;
   left: 0;
   height: 70px;
-}
-.header {
-  display: flex;
-  justify-content: space-between;
-  position: relative;
-  height: 70px;
-  max-width: 1600px;
-  margin: 0 auto;
+  z-index: 2;
+  box-shadow: 0.4em 0.4em 5px rgba(122, 122, 122, 0.5);
 
-  a {
+  &__content {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    height: 70px;
+    max-width: 1600px;
+    margin: 0 auto;
+  }
+
+  &__text {
     text-decoration: none;
-    color: white;
+    color: @color-green-69;
   }
 
   &__left-side {
@@ -30,23 +33,37 @@ header {
     font-size: 24px;
     margin: 20px;
   }
-  hr {
-    margin-bottom: 2px;
+
+  &__first-line,
+  &__second-line,
+  &__third-line,
+  &__text:hover {
+    color: white;
+    border-color: none;
   }
 
   &__first-line {
     margin-top: -3px;
+    margin-bottom: 2px;
+    border-color: @color-green-69;
   }
+
   &__second-line {
+    margin-bottom: 2px;
     margin-top: 3px;
     width: 60px;
     margin-left: 5px;
+    border-color: @color-green-69;
   }
+
   &__third-line {
+    margin-bottom: 2px;
     margin-top: 3px;
     width: 24px;
     margin-left: 12px;
+    border-color: @color-green-69;
   }
+
   &__navigation.mat-nav-list {
     display: flex;
     justify-content: space-between;
@@ -58,10 +75,17 @@ header {
 
   &__link {
     height: 40px;
-    font-size: 23px;
+    line-height: 18px;
+    font-size: 20px;
     background: none;
+    text-decoration: none;
+    color: white;
+    font-family: ABeeZee;
   }
 
+  &__link:hover {
+    color: @color-green-69;
+  }
   &__toogle {
     display: none;
   }
@@ -72,10 +96,10 @@ header {
     width: 1220px;
   }
 
-  &__user-info {
+  /*&__user-info {
     display: flex;
     align-items: center;
-  }
+  }*/
 
   &__person-icon.mat-icon {
     width: 50px;
@@ -105,16 +129,19 @@ header {
     &__right-side {
       width: 650px;
     }
+
     &__search-content {
       width: 400px;
     }
+
     &__search {
       width: 410px;
     }
-    &__user-info {
+
+    /*&__user-info {
       width: 50px;
       margin-right: 7px;
-    }
+    }*/
   }
 }
 @media only screen and (max-width: 1438px) {
@@ -123,9 +150,11 @@ header {
     position: sticky;
     z-index: 1;
     top: 0px;
+
     &__right-side {
-      margin-right: 10px;
+      margin-right: 5px;
     }
+
     &__left-side {
       justify-content: flex-start;
     }
@@ -197,30 +226,30 @@ header {
   }
 }
 
-@media only screen and (max-width: 555px) {
+@media only screen and (max-width: 520px) {
   .header {
     &__search-content {
-      width: 300px;
+      width: 350px;
     }
     &__input {
-      width: 250px;
+      width: 300px;
     }
   }
 }
 @media screen and (max-width: 470px) {
   .header {
     &__search-content {
-      width: 220px;
+      width: 300px;
     }
     &__switcher {
       display: none;
     }
     &__input {
-      width: 190px;
+      width: 250px;
     }
   }
 }
-@media screen and (max-width: 380px) {
+@media screen and (max-width: 400px) {
   .header {
     &__left-side {
       width: 25%;
@@ -232,17 +261,7 @@ header {
       width: 75%;
     }
     &__search-content {
-      width: 200px;
-    }
-    &__input {
-      width: 80px;
-    }
-  }
-}
-@media screen and (max-width: 380px) {
-  .header {
-    &__search-content {
-      width: 170px;
+      width: 250px;
     }
     &__search {
       margin-right: 5px;
@@ -251,19 +270,23 @@ header {
 }
 
 .theme-dark {
-  & header {
+  & .header {
     background: @color-gray-1b;
-  }
-  & mat-icon {
-    color: #69f0ae;
-  }
-  & .mat-nav-list {
-    color: #69f0ae;
-  }
-  & a {
-    color: @color-green-69;
-  }
-  & hr {
-    border-color: #69f0ae;
+
+    &__first-line,
+    &__second-line,
+    &__third-line {
+      border-color: @color-green-69;
+    }
+    &__link,
+    &__text {
+      color: @color-green-69;
+    }
+    &__search-icon-hidden {
+      color: @color-green-69;
+    }
+    &__navigation {
+      color: @color-green-69;
+    }
   }
 }
