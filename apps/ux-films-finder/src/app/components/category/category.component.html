@@ -1,4 +1,6 @@
 <div class="category">
+  <ff-loader *ngIf="loading"></ff-loader>
+
   <div class="category__card-list">
     <ng-container *ngFor="let film of (films$ | async)?.items">
       <a
@@ -15,7 +17,9 @@
       </a>
     </ng-container>
   </div>
+
   <mat-paginator
+    *ngIf="(films$ | async)?.total as total"
     class="category__paginator"
     [length]="(films$ | async)?.total"
     [pageSize]="pageSize"
