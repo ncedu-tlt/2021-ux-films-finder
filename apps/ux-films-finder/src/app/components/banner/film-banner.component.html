@@ -29,7 +29,7 @@
           <div class="banner__description-title">Рейтинг</div>
           <div class="banner__description-info">
             <div class="banner__rating">
-              {{ film?.rating }}
+              {{ film?.rating | rating }}
             </div>
           </div>
         </div>
@@ -53,8 +53,10 @@
         <div class="banner__description-row">
           <div class="banner__description-title">Страна</div>
           <div class="banner__description-info">
-            <ng-container *ngFor="let country of film.countries">
-              {{ country.country + ', ' }}
+            <ng-container *ngFor="let country of film.countries; let i = index">
+              {{
+                country.country + (i + 1 === film.countries.length ? '' : ', ')
+              }}
             </ng-container>
           </div>
         </div>

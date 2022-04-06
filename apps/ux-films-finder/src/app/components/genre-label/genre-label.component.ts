@@ -2,7 +2,6 @@ import { Component, Input } from '@angular/core';
 import { Subject, take } from 'rxjs';
 import { FilmBannerModel } from '../../models/film-banner.model';
 import { COLORS } from '../../consts/color-gender.const';
-import { FilmBannerResponseModel } from '../../models/film-banner-response.model';
 
 @Component({
   selector: 'ff-genre-label',

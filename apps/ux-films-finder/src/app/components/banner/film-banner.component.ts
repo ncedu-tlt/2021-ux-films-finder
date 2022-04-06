@@ -13,6 +13,7 @@ import { FilmBannerResponseModel } from '../../models/film-banner-response.model
 import { FilmBannerModel } from '../../models/film-banner.model';
 import { FilmDataService } from '../../services/film-data.service';
 import { COLORS } from '../../consts/color-gender.const';
+import { Pipe, PipeTransform } from '@angular/core';
 
 @Component({
   selector: 'ff-film-banner',
@@ -41,7 +42,7 @@ export class FilmBannerComponent implements AfterViewInit, OnDestroy, OnInit {
       .getTopFilms('TOP_100_POPULAR_FILMS', 1)
       .pipe(take(1))
       .subscribe((info: FilmBannerResponseModel) => {
-        this.films$.next(info.films.splice(10, 90));
+        this.films$.next(info.films.slice(0, 10));
         console.log(info);
         this.cdr.detectChanges();
         this.slider.update();
