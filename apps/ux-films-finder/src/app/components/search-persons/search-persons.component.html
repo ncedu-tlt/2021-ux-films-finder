@@ -13,8 +13,8 @@
       Найти
     </button>
   </form>
-  <ff-loader *ngIf="loading; else searchResultsTemplate"></ff-loader
-  ><ng-template #searchResultsTemplate>
+  <ff-loader *ngIf="loading; else searchResultsTemplate"></ff-loader>
+  <ng-template #searchResultsTemplate>
     <ng-container *ngIf="!searchParam; else contentTemplate">
       <div class="search-person__list-empty">
         Здесь будет отображаться результат, введите что-то в поиск

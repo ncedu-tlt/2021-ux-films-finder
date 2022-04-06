@@ -28,7 +28,6 @@ export class SimilarFilmsComponent implements OnInit, OnDestroy, AfterViewInit {
   dots: number[] = [];
   slider!: KeenSliderInstance;
   isComponentInited = false;
-  isDotsInited = false;
   readonly SLIDER_OPTIONS = {
     initial: this.currentSlide,
     slideChanged: (slider: KeenSliderInstance) => {
