@@ -35,6 +35,8 @@ import localeRu from '@angular/common/locales/ru';
 import { LoaderComponent } from './components/loader/loader.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { ScreenGalleryComponent } from './components/screen-gallery/screen-gallery.component';
+import { MovieCadrComponent } from './components/movie-cadr/movie-cadr.component';
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 registerLocaleData(localeRu);
 
 @NgModule({
@@ -57,6 +59,7 @@ registerLocaleData(localeRu);
     PersonComponent,
     LoaderComponent,
     ScreenGalleryComponent,
+    MovieCadrComponent,
     SearchComponent
   ],
   imports: [
@@ -75,7 +78,8 @@ registerLocaleData(localeRu);
     MatFormFieldModule,
     MatSidenavModule,
     FormsModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatDialogModule
   ],
   providers: [
     {
