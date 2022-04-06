@@ -1,27 +1,29 @@
 <div class="similar-films">
-  <p class="similar-films__title">Похожие фильмы</p>
+  <p *ngIf="similarFilms.length" class="similar-films__title">Похожие фильмы</p>
   <div class="similar-films__slider keen-slider" #sliderRef>
-    <ng-container *ngFor="let films of (similarFilms$ | async)?.items">
+    <div
+      class="similar-films__card-container keen-slider__slide"
+      *ngFor="let film of similarFilms"
+    >
       <a
-        class="similar-films__card-link keen-slider__slide"
-        routerLink="/details/{{ films.filmId }}"
+        class="similar-films__card-link"
+        routerLink="/details/{{ film.filmId }}"
       >
         <ff-card
           class="similar-films__card"
-          [name]="films.nameRu || films.nameOriginal"
-          [url]="films.posterUrlPreview"
+          [name]="film.nameRu || film.nameOriginal"
+          [url]="film.posterUrlPreview"
         >
         </ff-card>
       </a>
-    </ng-container>
+    </div>
   </div>
-  <div class="similar-films__dots">
-    <p>hello world</p>
+  <div [class._inactive]="similarFilms.length <= 3" class="similar-films__dots">
     <button
-      class="similar-films__dot"
-      (click)="slider.moveToIdx(i)"
       *ngFor="let slide of dots; let i = index"
+      class="similar-films__dot"
       [class]="'dot ' + (i === currentSlide ? 'active' : '')"
+      (click)="moveToIndex(i)"
     ></button>
   </div>
 </div>

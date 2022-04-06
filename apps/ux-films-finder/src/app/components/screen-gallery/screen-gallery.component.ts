@@ -35,7 +35,7 @@ export class ScreenGalleryComponent
 
   constructor(
     private filmDataService: FilmDataService,
-    private cdr: ChangeDetectorRef //TODO: ChangeDetectorRef ?
+    private cdr: ChangeDetectorRef
   ) {}
 
   ngAfterViewInit() {

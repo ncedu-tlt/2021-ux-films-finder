@@ -6,28 +6,85 @@ import {
   Input,
   OnDestroy,
   ViewChild,
-  ElementRef
+  ElementRef,
+  ViewEncapsulation
 } from '@angular/core';
 import KeenSlider, { KeenSliderInstance } from 'keen-slider';
-import { Subject, Subscription, take } from 'rxjs';
+import { take } from 'rxjs';
 import { BaseFilmsResponseModel } from '../../models/films-response.model';
+import { BaseFilmModel } from '../../models/film.model';
 import { FilmDataService } from '../../services/film-data.service';
 
 @Component({
   selector: 'ff-similar-films',
   templateUrl: './similar-films.component.html',
-  styleUrls: ['./similar-films.component.less']
+  styleUrls: ['./similar-films.component.less'],
+  encapsulation: ViewEncapsulation.None
 })
 export class SimilarFilmsComponent implements OnInit, OnDestroy, AfterViewInit {
   @ViewChild('sliderRef') sliderRef!: ElementRef<HTMLElement>;
-  currentSlide = 1;
+  currentSlide = 0;
+  clickedSlide = -1;
   dots: number[] = [];
   slider!: KeenSliderInstance;
+  isComponentInited = false;
+  isDotsInited = false;
+  readonly SLIDER_OPTIONS = {
+    initial: this.currentSlide,
+    slideChanged: (slider: KeenSliderInstance) => {
+      if (this.clickedSlide >= 0) {
+        this.currentSlide = this.clickedSlide;
+        this.clickedSlide = -1;
+      } else {
+        this.currentSlide = slider.track.details.rel;
+      }
+    },
+    breakpoints: {
+      '(min-width: 900px)': {
+        slides: { perView: 2, spacing: 5 },
+        optionsChanged: () => {
+          if (this.similarFilms.length - this.dots.length === 2) {
+            this.dots.length++;
+          }
+          if (this.similarFilms.length === this.dots.length) {
+            this.dots.length--;
+          }
+        }
+      },
+      '(min-width: 1250px)': {
+        slides: { perView: 3, spacing: 10 },
+        optionsChanged: () => {
+          if (this.similarFilms.length - this.dots.length === 1) {
+            this.dots.length--;
+          }
+          if (this.similarFilms.length === this.dots.length) {
+            this.dots.length -= 2;
+          }
+        }
+      }
+    },
+    slides: { perView: 1 },
+    optionsChanged: () => {
+      if (this.similarFilms.length - this.dots.length === 1) {
+        this.dots.length++;
+      }
+      if (this.similarFilms.length - this.dots.length === 2) {
+        this.dots.length += 2;
+      }
+    }
+  };
 
-  @Input() public filmId = 0;
-  public similarFilms$: Subject<BaseFilmsResponseModel> =
-    new Subject<BaseFilmsResponseModel>();
-  private loadSimilarFilms$: Subscription = new Subscription();
+  @Input() get filmId(): number {
+    return this._filmId;
+  }
+  set filmId(filmdId: number) {
+    this._filmId = filmdId;
+    if (this.isComponentInited) {
+      this.loadSimilarFilms();
+    }
+  }
+  public similarFilms: BaseFilmModel[] = [];
+  private _filmId = 0;
 
   constructor(
     private filmDataService: FilmDataService,
@@ -36,34 +93,40 @@ export class SimilarFilmsComponent implements OnInit, OnDestroy, AfterViewInit {
 
   ngAfterViewInit() {
     setTimeout(() => {
-      this.slider = new KeenSlider(this.sliderRef.nativeElement, {
-        initial: this.currentSlide,
-        slideChanged: slider => {
-          this.currentSlide = slider.track.details.rel;
-        },
-        slides: {
-          perView: 3,
-          spacing: 150
-        }
-      });
-      this.dots = [...Array(this.slider.track.details.slides.length).keys()];
+      this.slider = new KeenSlider(
+        this.sliderRef.nativeElement,
+        this.SLIDER_OPTIONS
+      );
     });
   }
 
   ngOnInit(): void {
-    this.loadSimilarFilms$ = this.filmDataService
+    this.loadSimilarFilms();
+  }
+
+  loadSimilarFilms(): void {
+    this.filmDataService
       .getSimilarFilms(this.filmId)
       .pipe(take(1))
       .subscribe((films: BaseFilmsResponseModel) => {
-        // films.items.slice(0, 10);
-        this.similarFilms$.next(films);
+        this.similarFilms = films.items.slice(0, 10);
+        this.dots = Array(this.similarFilms.length);
+        this.dots.length -= 2;
+        this.currentSlide = 0;
         this.cdr.detectChanges();
-        this.slider?.update();
+
+        this.slider?.update(this.SLIDER_OPTIONS, 0);
+
+        this.isComponentInited = true;
       });
+  }
+
+  moveToIndex(index: number): void {
+    this.clickedSlide = index;
+    this.slider.moveToIdx(index);
   }
 
   ngOnDestroy() {
     this.slider?.destroy();
-    this.loadSimilarFilms$.unsubscribe();
   }
 }
