@@ -25,7 +25,6 @@ export class SearchComponent {
       .pipe(take(1))
       .subscribe((info: FilmKeywordModel) => {
         this.films$.next(info.films);
-        console.log(info);
       });
   }
 
@@ -35,7 +34,6 @@ export class SearchComponent {
       .pipe(take(1))
       .subscribe((info: FilmActorModel) => {
         this.actors$.next(info.items);
-        console.log(info);
       });
   }
 
