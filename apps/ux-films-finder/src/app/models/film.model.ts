@@ -13,6 +13,7 @@ export interface FilmModel extends FilmBaseModel {
   posterUrlPreview: string;
   slogan: string;
   professionKey: string;
+  description: string;
 }
 
 export type KinopoiskRequestModel = FilmModel;
