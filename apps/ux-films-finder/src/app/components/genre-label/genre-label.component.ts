@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Subject, take } from 'rxjs';
-import { FilmBannerModel } from '../../models/film-banner.model';
+import { FilmBaseModel } from '../../models/film-banner.model';
 import { COLORS } from '../../consts/color-gender.const';
 
 @Component({
@@ -11,6 +11,6 @@ import { COLORS } from '../../consts/color-gender.const';
 export class GenreLabelComponent {
   @Input()
   public genres = '';
-  films$: Subject<FilmBannerModel[]> = new Subject<FilmBannerModel[]>();
+  films$: Subject<FilmBaseModel[]> = new Subject<FilmBaseModel[]>();
   public color = COLORS;
 }

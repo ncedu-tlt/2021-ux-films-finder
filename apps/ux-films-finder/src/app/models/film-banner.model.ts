@@ -1,7 +1,7 @@
 import { FilmGenreModel } from './film-genre.model';
 import { FilmCountryModel } from './film-country.model';
 
-export interface FilmBannerModel {
+export interface FilmBaseModel {
   nameRu: string;
   nameEn: string;
   genres: FilmGenreModel[];
@@ -11,5 +11,3 @@ export interface FilmBannerModel {
   posterUrl: string;
   rating: string;
 }
-
-export type KinopoiskRequestModel = FilmBannerModel;

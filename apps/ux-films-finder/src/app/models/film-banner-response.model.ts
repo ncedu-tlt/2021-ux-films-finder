@@ -1,7 +1,5 @@
-import { FilmBannerModel } from './film-banner.model';
+import { FilmBaseModel } from './film-banner.model';
 
 export interface FilmBannerResponseModel {
-  films: FilmBannerModel[];
+  films: FilmBaseModel[];
 }
-
-export type KinopoiskRequestModel = FilmBannerResponseModel;

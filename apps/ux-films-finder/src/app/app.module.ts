@@ -36,7 +36,7 @@ import { GenreLabelComponent } from './components/genre-label/genre-label.compon
 import { LoaderComponent } from './components/loader/loader.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { ScreenGalleryComponent } from './components/screen-gallery/screen-gallery.component';
-import { RatingStrengthPipe } from './pipes/pipe';
+import { RatingPipe } from './pipes/pipe';
 
 registerLocaleData(localeRu);
 @NgModule({
@@ -61,7 +61,7 @@ registerLocaleData(localeRu);
     GenreLabelComponent,
     LoaderComponent,
     ScreenGalleryComponent,
-    RatingStrengthPipe
+    RatingPipe
   ],
   imports: [
     BrowserModule,

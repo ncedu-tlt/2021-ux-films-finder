@@ -1,58 +1,58 @@
-<div class="banner">
-  <div class="banner__container keen-slider" #sliderRef>
+<div class="film-banner">
+  <div class="film-banner__container keen-slider" #sliderRef>
     <div
-      class="banner__slide keen-slider__slide"
+      class="film-banner__slide keen-slider__slide"
       *ngFor="let film of films$ | async"
     >
-      <div class="banner__main-info">
-        <div class="banner__name-main">
+      <div class="film-banner__main-info">
+        <div class="film-banner__name-main">
           {{ film.nameRu || film.nameEn }}
         </div>
-        <div *ngIf="film.nameRu && film.nameEn" class="banner__name-en">
+        <div *ngIf="film.nameRu && film.nameEn" class="film-banner__name-en">
           {{ film?.nameEn }}
         </div>
-        <div class="banner__genres">
+        <div class="film-banner__genres">
           <ng-container *ngFor="let genre of film.genres">
             <ff-genre-label [genres]="genre.genre"></ff-genre-label>
           </ng-container>
         </div>
       </div>
-      <div class="banner__poster">
+      <div class="film-banner__poster">
         <img
-          class="banner__poster-image"
+          class="film-banner__poster-image"
           src="{{ film?.posterUrl }}"
           alt="Постер"
         />
       </div>
-      <div class="banner__description">
-        <div class="banner__description-row">
-          <div class="banner__description-title">Рейтинг</div>
-          <div class="banner__description-info">
-            <div class="banner__rating">
-              {{ film?.rating | rating }}
+      <div class="film-banner__description">
+        <div *ngIf="film.rating" class="film-banner__description-row">
+          <div class="film-banner__description-title">Рейтинг</div>
+          <div class="film-banner__description-info">
+            <div class="film-banner__rating">
+              {{ film.rating | rating }}
             </div>
           </div>
         </div>
-        <div class="banner__description-row">
+        <div *ngIf="film.filmLength" class="film-banner__description-row">
           <div
             *ngIf="film.rating && film.filmLength"
-            class="banner__description-title"
+            class="film-banner__description-title"
           >
             Продолжительность
           </div>
-          <div class="banner__description-info">
+          <div class="film-banner__description-info">
             {{ film?.filmLength }}
           </div>
         </div>
 
-        <div class="banner__description-row">
-          <div class="banner__description-title">Год выпуска</div>
-          <div class="banner__description-info">{{ film?.year }}</div>
+        <div *ngIf="film.year" class="film-banner__description-row">
+          <div class="film-banner__description-title">Год выпуска</div>
+          <div class="film-banner__description-info">{{ film?.year }}</div>
         </div>
 
-        <div class="banner__description-row">
-          <div class="banner__description-title">Страна</div>
-          <div class="banner__description-info">
+        <div *ngIf="film.countries" class="film-banner__description-row">
+          <div class="film-banner__description-title">Страна</div>
+          <div class="film-banner__description-info">
             <ng-container *ngFor="let country of film.countries; let i = index">
               {{
                 country.country + (i + 1 === film.countries.length ? '' : ', ')
@@ -63,7 +63,7 @@
       </div>
     </div>
     <svg
-      class="banner__arrow _left"
+      class="film-banner__arrow _left"
       xmlns="http://www.w3.org/2000/svg"
       width="14"
       height="24"
@@ -79,7 +79,7 @@
       />
     </svg>
     <svg
-      class="banner__arrow _right"
+      class="film-banner__arrow _right"
       width="14"
       height="24"
       viewBox="0 0 14 24"

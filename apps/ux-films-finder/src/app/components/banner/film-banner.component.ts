@@ -10,7 +10,7 @@ import {
 import KeenSlider, { KeenSliderInstance } from 'keen-slider';
 import { Subject, Subscription, take } from 'rxjs';
 import { FilmBannerResponseModel } from '../../models/film-banner-response.model';
-import { FilmBannerModel } from '../../models/film-banner.model';
+import { FilmBaseModel } from '../../models/film-banner.model';
 import { FilmDataService } from '../../services/film-data.service';
 import { COLORS } from '../../consts/color-gender.const';
 import { Pipe, PipeTransform } from '@angular/core';
@@ -22,7 +22,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class FilmBannerComponent implements AfterViewInit, OnDestroy, OnInit {
   private loadFilms$: Subscription = new Subscription();
-  films$: Subject<FilmBannerModel[]> = new Subject<FilmBannerModel[]>();
+  films$: Subject<FilmBaseModel[]> = new Subject<FilmBaseModel[]>();
   public color = COLORS;
   @ViewChild('sliderRef') sliderRef!: ElementRef<HTMLElement>;
   currentSlide = 1;
@@ -43,7 +43,6 @@ export class FilmBannerComponent implements AfterViewInit, OnDestroy, OnInit {
       .pipe(take(1))
       .subscribe((info: FilmBannerResponseModel) => {
         this.films$.next(info.films.slice(0, 10));
-        console.log(info);
         this.cdr.detectChanges();
         this.slider.update();
       });
@@ -62,17 +61,17 @@ export class FilmBannerComponent implements AfterViewInit, OnDestroy, OnInit {
         },
         [
           slider => {
-            let timeout: any;
+            let number: any;
             let mouseOver = false;
             function clearNextTimeout() {
-              clearTimeout(timeout);
+              clearTimeout(number);
             }
             function nextTimeout() {
-              clearTimeout(timeout);
+              clearTimeout(number);
               if (mouseOver) return;
-              timeout = setTimeout(() => {
+              number = setTimeout(() => {
                 slider.next();
-              }, 50000);
+              }, 5000);
             }
             slider.on('created', () => {
               slider.container.addEventListener('mouseover', () => {
@@ -96,6 +95,6 @@ export class FilmBannerComponent implements AfterViewInit, OnDestroy, OnInit {
     });
   }
   ngOnDestroy() {
-    if (this.slider) this.slider.destroy();
+    this.slider?.destroy();
   }
 }
