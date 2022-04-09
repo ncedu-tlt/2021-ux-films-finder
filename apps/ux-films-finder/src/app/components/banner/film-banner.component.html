@@ -34,12 +34,7 @@
           </div>
         </div>
         <div *ngIf="film.filmLength" class="film-banner__description-row">
-          <div
-            *ngIf="film.rating && film.filmLength"
-            class="film-banner__description-title"
-          >
-            Продолжительность
-          </div>
+          <div class="film-banner__description-title">Продолжительность</div>
           <div class="film-banner__description-info">
             {{ film?.filmLength }}
           </div>
