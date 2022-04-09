@@ -1,11 +1,9 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { FilmDataService } from '../../services/film-data.service';
-import { FilmModel } from '../../models/film.model';
 import { ActivatedRoute } from '@angular/router';
-import { BehaviorSubject, Subject, Subscription, take } from 'rxjs';
+import { BehaviorSubject, Subscription, take } from 'rxjs';
 import { FilmsResponseModel } from '../../models/films-response.model';
 import { PageEvent } from '@angular/material/paginator';
-import { PersonInfoResponseModel } from '../../models/person-info-response.model';
 
 @Component({
   selector: 'ff-category',
