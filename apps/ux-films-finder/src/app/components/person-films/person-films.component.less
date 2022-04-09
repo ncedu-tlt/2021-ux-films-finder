@@ -1,0 +1,51 @@
+@import '../../../assets/styles/themes/base/common/shared';
+.person-film {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-bottom: 32px;
+  white-space: nowrap;
+
+  &__rating-name {
+    display: flex;
+    justify-content: start;
+    margin-right: 32px;
+    margin-top: 8px;
+  }
+
+  &__rating-empty {
+    width: 71px;
+    height: 32px;
+  }
+
+  &__rating {
+    width: 55px;
+    height: 32px;
+    background: @color-gray-0E;
+    border-radius: 16px;
+    display: flex;
+    justify-content: center;
+    margin-right: 16px;
+  }
+
+  &__film-link {
+    white-space: nowrap;
+    color: @color-green-04;
+    text-decoration: none;
+  }
+}
+.theme-dark {
+  &.person-film {
+    &__film-link {
+      color: @color-green-69;
+    }
+    &__film-link:hover,
+    &__film-link:active,
+    &__film-link:focus {
+      color: @color-green-04;
+    }
+
+    &__rating {
+      background: @color-gray-1b;
+    }
+  }
+}

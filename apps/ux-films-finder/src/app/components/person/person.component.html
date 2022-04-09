@@ -42,13 +42,13 @@
         <div class="person__details-data">
           <div class="person__data">
             <ng-container *ngIf="!!personsInfo.birthday">
-              <div class="person__date-title">Дата рождения</div>
+              <div class="person__label-title">Дата рождения</div>
               <div class="person__label-info">
                 {{ personsInfo.birthday | date: 'dd MMMM yyyy':'GMT':'ru-Ru' }}
               </div>
             </ng-container>
             <ng-container *ngIf="!!personsInfo.death || !!personsInfo.age">
-              <div class="person__age-title">
+              <div class="person__label-title">
                 {{ !!personsInfo.death ? 'Дата смерти' : 'Возраст' }}
               </div>
               <div class="person__label-info">
@@ -61,7 +61,7 @@
             </ng-container>
           </div>
           <div class="person__place" *ngIf="!!personsInfo.birthplace">
-            <div class="person__birthplace-title">Место рождения</div>
+            <div class="person__label-title">Место рождения</div>
             <div class="person__label-info">
               {{ personsInfo.birthplace }}
             </div>
@@ -79,68 +79,33 @@
       <div class="person__spouses" *ngIf="personsInfo?.spouses?.length !== 0">
         <div class="person__title">Отношения</div>
         <ng-container *ngFor="let spousesItem of personsInfo?.spouses">
-          <div class="person__relation">
-            <div class="person__icon-and-name">
-              <mat-icon
-                class="person__icon"
-                [ngClass]="
-                  spousesItem.relation === SPOUSES.WIFE ? '_female' : '_male'
-                "
-              >
-                {{ spousesItem.relation === SPOUSES.WIFE ? 'female' : 'male' }}
-              </mat-icon>
-
-              <a
-                class="person__spouses-link-name"
-                routerLink="/persons/{{ spousesItem.personId }}"
-              >
-                {{ spousesItem.name }}
-              </a>
-            </div>
-            <div class="person__divorced">
-              {{ spousesItem.divorced ? 'Разведены' : 'В браке' }}
-            </div>
-            <div class="person__children">
-              {{
-                spousesItem.children !== 0
-                  ? 'Детей ' + spousesItem.children
-                  : 'Детей нет'
-              }}
-            </div>
-          </div>
+          <ff-person-spouses
+            [children]="spousesItem.children"
+            [divorced]="spousesItem.divorced"
+            [relation]="spousesItem.relation"
+            [personId]="spousesItem.personId"
+            [name]="spousesItem.name"
+          >
+          </ff-person-spouses>
         </ng-container>
       </div>
     </div>
     <div class="person__facts" *ngIf="personsInfo?.facts?.length !== 0">
       <div class="person__title">Факты</div>
       <ng-container *ngFor="let factsItem of personsInfo?.facts">
-        <p class="person__fact-paragraph">{{ factsItem }}</p>
+        <ff-person-facts [fact]="factsItem"></ff-person-facts>
       </ng-container>
     </div>
     <div class="person__films">
       <div class="person__title">Фильмы</div>
       <ng-container *ngFor="let filmsItem of personsInfo?.films">
-        <div class="person__film">
-          <div class="person__rating-name">
-            <div
-              class="person__rating"
-              *ngIf="filmsItem.rating; else emptyTemplate"
-            >
-              {{ filmsItem.rating }}
-            </div>
-            <ng-template #emptyTemplate>
-              <div class="person__rating-empty"></div>
-            </ng-template>
-            <a
-              class="person__film-name"
-              routerLink="/details/{{ filmsItem?.filmId }}"
-              >{{ filmsItem.nameRu || filmsItem.nameEn }}
-            </a>
-          </div>
-          <div class="person__profession-key">
-            {{ professions[filmsItem.professionKey] }}
-          </div>
-        </div>
+        <ff-person-films
+          [rating]="filmsItem.rating"
+          [nameEn]="filmsItem.nameEn"
+          [nameRu]="filmsItem.nameRu"
+          [filmId]="filmsItem.filmId"
+          [professionKey]="filmsItem.professionKey"
+        ></ff-person-films>
       </ng-container>
     </div>
   </ng-container>

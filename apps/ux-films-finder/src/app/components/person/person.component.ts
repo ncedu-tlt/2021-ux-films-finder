@@ -5,8 +5,6 @@ import { BiographyModel } from '../../models/biography.model';
 import { takeUntil } from 'rxjs/operators';
 import { Subject, take } from 'rxjs';
 import { GenderEnum } from '../../enum/gender.enum';
-import { SpousesEnum } from '../../enum/spouses.enum';
-import { PROFESSIONS } from '../../consts/professions-key.const';
 
 @Component({
   selector: 'ff-person',
@@ -18,8 +16,7 @@ export class PersonComponent implements OnInit {
   public personsInfo!: BiographyModel;
   private unsubscribe$: Subject<void> = new Subject<void>();
   public GENDER: typeof GenderEnum = GenderEnum;
-  public SPOUSES: typeof SpousesEnum = SpousesEnum;
-  public professions = PROFESSIONS;
+
   constructor(
     private filmDataService: FilmDataService,
     private activatedRouter: ActivatedRoute

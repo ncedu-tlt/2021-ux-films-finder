@@ -1,0 +1,16 @@
+<div class="person-film">
+  <div class="person-film__rating-name">
+    <div class="person-film__rating" *ngIf="rating; else emptyTemplate">
+      {{ rating }}
+    </div>
+    <ng-template #emptyTemplate>
+      <div class="person-film__rating-empty"></div>
+    </ng-template>
+    <a class="person-film__film-link" routerLink="/details/{{ filmId }}"
+      >{{ nameRu || nameEn }}
+    </a>
+  </div>
+  <div class="person-film__profession-key">
+    {{ professions[professionKey] }}
+  </div>
+</div>

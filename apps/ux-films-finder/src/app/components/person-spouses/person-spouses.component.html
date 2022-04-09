@@ -1,0 +1,23 @@
+<div class="person-spouses__relation">
+  <div class="person-spouses__icon-and-name">
+    <mat-icon
+      class="person-spouses__icon"
+      [ngClass]="relation === SPOUSES.WIFE ? '_female' : '_male'"
+    >
+      {{ relation === SPOUSES.WIFE ? 'female' : 'male' }}
+    </mat-icon>
+
+    <a
+      class="person-spouses__spouses-link"
+      routerLink="/persons/{{ personId }}"
+    >
+      {{ name }}
+    </a>
+  </div>
+  <div class="person-spouses__divorced">
+    {{ divorced ? 'Разведены' : 'В браке' }}
+  </div>
+  <div class="person-spouses__children">
+    {{ children !== 0 ? 'Детей ' + children : 'Детей нет' }}
+  </div>
+</div>

@@ -35,7 +35,11 @@ import { LoaderComponent } from './components/loader/loader.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { ScreenGalleryComponent } from './components/screen-gallery/screen-gallery.component';
 import { MovieCadrComponent } from './components/movie-cadr/movie-cadr.component';
-import { MatDialog, MatDialogModule } from '@angular/material/dialog';
+import { MatDialogModule } from '@angular/material/dialog';
+import { PersonSpousesComponent } from './components/person-spouses/person-spouses.component';
+import { PersonFactsComponent } from './components/person-facts/person-facts.component';
+import { PersonFilmsComponent } from './components/person-films/person-films.component';
+
 registerLocaleData(localeRu);
 @NgModule({
   declarations: [
@@ -57,7 +61,10 @@ registerLocaleData(localeRu);
     PersonComponent,
     LoaderComponent,
     ScreenGalleryComponent,
-    MovieCadrComponent
+    MovieCadrComponent,
+    PersonSpousesComponent,
+    PersonFactsComponent,
+    PersonFilmsComponent
   ],
   imports: [
     BrowserModule,
