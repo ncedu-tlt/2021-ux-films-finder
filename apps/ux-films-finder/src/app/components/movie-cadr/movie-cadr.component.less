@@ -1,0 +1,45 @@
+@import '../../../assets/styles/themes/base/common/shared';
+.movie-cadr {
+  position: relative;
+  overflow: hidden;
+  &__image {
+    object-fit: contain;
+    max-width: 90vw;
+    max-height: 90vh;
+    user-select: none;
+  }
+  &__arrows {
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    justify-items: center;
+    cursor: pointer;
+    user-select: none;
+    padding: 0 24px;
+  }
+  &__arrow {
+    height: 64px;
+    width: 64px;
+    stroke: @color-white-ff;
+    fill: none;
+
+    &._right-arrow {
+      transform: rotate(0.5turn);
+    }
+  }
+  &__arrow:hover {
+    stroke: @color-green-69;
+  }
+}
+@media (max-width: 550px) {
+  .movie-cadr {
+    &__arrow {
+      height: 48px;
+      width: 48px;
+      margin: 0 16px;
+    }
+  }
+}

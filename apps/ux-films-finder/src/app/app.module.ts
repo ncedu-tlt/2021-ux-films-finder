@@ -37,6 +37,8 @@ import { LoaderComponent } from './components/loader/loader.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { ScreenGalleryComponent } from './components/screen-gallery/screen-gallery.component';
 import { RatingPipe } from './pipes/pipe';
+import { MovieCadrComponent } from './components/movie-cadr/movie-cadr.component';
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 
 registerLocaleData(localeRu);
 @NgModule({
@@ -61,7 +63,8 @@ registerLocaleData(localeRu);
     GenreLabelComponent,
     LoaderComponent,
     ScreenGalleryComponent,
-    RatingPipe
+    RatingPipe,
+    MovieCadrComponent
   ],
   imports: [
     BrowserModule,
@@ -78,7 +81,8 @@ registerLocaleData(localeRu);
     MatSidenavModule,
     MatFormFieldModule,
     FormsModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatDialogModule
   ],
   providers: [
     {
