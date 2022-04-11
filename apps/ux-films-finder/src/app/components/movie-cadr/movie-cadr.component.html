@@ -1,0 +1,26 @@
+<div class="movie-cadr">
+  <img
+    class="movie-cadr__image"
+    src="{{ data.images[currentIndex] }}"
+    alt="enlargeImage"
+  />
+  <div class="movie-cadr__arrows">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      class="movie-cadr__arrow _left-arrow"
+      (click)="switchImage(true)"
+      viewBox="0 0 16 24"
+    >
+      <path d="M12.5 23L1.5 12L12.5 1" />
+    </svg>
+    <svg
+      *ngIf="data.images"
+      class="movie-cadr__arrow _right-arrow"
+      (click)="switchImage(false)"
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 16 24"
+    >
+      <path d="M12.5 23L1.5 12L12.5 1" />
+    </svg>
+  </div>
+</div>
