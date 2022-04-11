@@ -1,10 +1,11 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, ViewEncapsulation } from '@angular/core';
 import { SpousesEnum } from '../../enum/spouses.enum';
 
 @Component({
   selector: 'ff-person-spouses',
   templateUrl: './person-spouses.component.html',
-  styleUrls: ['./person-spouses.component.less']
+  styleUrls: ['./person-spouses.component.less'],
+  encapsulation: ViewEncapsulation.None
 })
 export class PersonSpousesComponent {
   @Input() relation = '';

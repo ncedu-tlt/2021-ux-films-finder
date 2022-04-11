@@ -31,19 +31,18 @@
     white-space: nowrap;
     color: @color-green-04;
     text-decoration: none;
+    &:hover,
+    &:active,
+    &:focus {
+      color: @color-green-04;
+    }
   }
 }
 .theme-dark {
-  &.person-film {
+  & .person-film {
     &__film-link {
       color: @color-green-69;
     }
-    &__film-link:hover,
-    &__film-link:active,
-    &__film-link:focus {
-      color: @color-green-04;
-    }
-
     &__rating {
       background: @color-gray-1b;
     }
