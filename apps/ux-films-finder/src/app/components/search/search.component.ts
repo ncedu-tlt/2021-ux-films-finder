@@ -5,6 +5,7 @@ import { FilmModel } from '../../models/film.model';
 import { pipe, Subject, take } from 'rxjs';
 import { FilmActorModel } from '../../models/film-actor.model';
 import { BiographyModel } from '../../models/biography.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'ff-search',
@@ -17,7 +18,10 @@ export class SearchComponent {
   films$: Subject<FilmModel[]> = new Subject();
   actors$: Subject<BiographyModel[]> = new Subject();
 
-  constructor(private filmDataService: FilmDataService) {}
+  constructor(
+    private filmDataService: FilmDataService,
+    private router: Router
+  ) {}
 
   public getListFilms() {
     this.filmDataService
@@ -35,6 +39,16 @@ export class SearchComponent {
       .subscribe((info: FilmActorModel) => {
         this.actors$.next(info.items);
       });
+  }
+  public searchPersons(): void {
+    this.router.navigate(['/search-persons'], {
+      queryParams: { search: this.searchInput.trim() }
+    });
+  }
+  public searchFilms(): void {
+    this.router.navigate(['/search-films'], {
+      queryParams: { search: this.searchInput.trim() }
+    });
   }
 
   public getInfo() {

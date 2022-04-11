@@ -42,7 +42,10 @@
       </div>-->
     </div>
     <mat-sidenav #sidenav role="navigation">
-      <ff-sidenav-list (sidenavClose)="sidenav.close()"></ff-sidenav-list>
+      <ff-sidenav-list
+        *ngIf="!laptop"
+        (sidenavClose)="sidenav.close()"
+      ></ff-sidenav-list>
     </mat-sidenav>
   </div>
 </header>

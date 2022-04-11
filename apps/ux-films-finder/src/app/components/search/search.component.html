@@ -22,16 +22,16 @@
         <img class="search__poster" src="{{ film.posterUrlPreview }}" />
 
         <div class="search__info">
-          <p *ngIf="film.nameRu !== undefined" class="search__name-ru">
+          <p *ngIf="film.nameRu" class="search__name-ru">
             {{ film.nameRu }}
           </p>
-          <p *ngIf="film.nameEn !== undefined" class="search__name-en">
+          <p *ngIf="film.nameEn" class="search__name-en">
             {{ film.nameEn }}
           </p>
         </div>
       </mat-list-item>
       <div *ngIf="searchInput" class="search__show-more">
-        <p class="search__button" (click)="getListFilms()">Показать все</p>
+        <p class="search__button" (click)="searchFilms()">Показать все</p>
         <mat-icon class="search__arrow-icon"> keyboard_arrow_right </mat-icon>
       </div>
 
@@ -42,16 +42,16 @@
         routerLink="/persons/{{ actor.kinopoiskId }}"
         ><img class="search__poster" src="{{ actor.posterUrl }}" />
         <div class="search__info">
-          <p *ngIf="actor.nameRu !== undefined" class="search__name-ru">
+          <p *ngIf="actor.nameRu" class="search__name-ru">
             {{ actor.nameRu }}
           </p>
-          <p *ngIf="actor.nameEn !== undefined" class="search__name-en">
+          <p *ngIf="actor.nameEn" class="search__name-en">
             {{ actor.nameEn }}
           </p>
         </div>
       </mat-list-item>
       <div *ngIf="searchInput" class="search__show-more">
-        <p class="search__button" (click)="getActorFilms()">Показать все</p>
+        <p class="search__button" (click)="searchPersons()">Показать все</p>
         <mat-icon class="search__arrow-icon">keyboard_arrow_right </mat-icon>
       </div>
     </mat-list>
