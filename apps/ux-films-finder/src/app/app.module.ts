@@ -39,6 +39,7 @@ import { ScreenGalleryComponent } from './components/screen-gallery/screen-galle
 import { RatingPipe } from './pipes/pipe';
 import { MovieCadrComponent } from './components/movie-cadr/movie-cadr.component';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
+import { TitleFilmsListComponent } from './components/title-films-list/title-films-list.component';
 
 registerLocaleData(localeRu);
 @NgModule({
@@ -64,7 +65,8 @@ registerLocaleData(localeRu);
     LoaderComponent,
     ScreenGalleryComponent,
     RatingPipe,
-    MovieCadrComponent
+    MovieCadrComponent,
+    TitleFilmsListComponent
   ],
   imports: [
     BrowserModule,
