@@ -1,5 +1,5 @@
 import { FilmGenreModel } from './film-genre.model';
 
-export interface TitleFilmsList {
+export interface TitleFilmsListModel {
   genres: FilmGenreModel[];
 }

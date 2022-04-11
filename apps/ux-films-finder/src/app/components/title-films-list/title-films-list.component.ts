@@ -1,7 +1,8 @@
 import { Component, HostBinding, Input } from '@angular/core';
 import { COLORS } from '../../consts/color-gender.const';
 import { Subject } from 'rxjs';
-import { TitleFilmsList } from '../../models/title-films-list.model';
+import { TitleFilmsListModel } from '../../models/title-films-list.model';
+import { TitleFilmsListResponseModel } from '../../models/title-films-list-response.model';
 import { FilmBaseModel } from '../../models/film-banner.model';
 
 @Component({
