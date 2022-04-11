@@ -4,6 +4,7 @@ import { VideoModel } from '../../models/video.model';
 import { ActivatedRoute } from '@angular/router';
 import { Subject } from 'rxjs';
 import { VideoDetailsModel } from '../../models/video-details.model';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'ff-video',
@@ -18,27 +19,32 @@ export class VideoComponent {
 
   isClicked = true;
 
-  public yturl = 'https://www.youtube.com/embed/YXNRu2YjRRk';
-  public link = 'https://www.youtube.com/embed/HA16mcJylmI';
+  url?: string;
+  link: any;
   constructor(
     private filmDataService: FilmDataService,
-    private activatedRouter: ActivatedRoute
+    private activatedRouter: ActivatedRoute,
+    private sanitizer: DomSanitizer
   ) {}
 
   ngOnInit(): void {
-    console.log(this.yturl);
     this.activatedRouter.params.subscribe(params => {
       const param = +params['id'];
       this.filmDataService.getVideoById(param).subscribe((info: VideoModel) => {
         this.videos$.next(info.items);
-        console.log(info);
+        let isNotExist = true;
+        for (let i = 0; i < info.items.length; i++) {
+          if (info.items[i].site.includes('YOUTUBE')) {
+            this.url =
+              'https://www.youtube.com/embed/' +
+              new URLSearchParams(info.items[0].url.split('?')[1]).get('v');
+            this.link = this.sanitizer.bypassSecurityTrustResourceUrl(this.url);
+            isNotExist = false;
+            break;
+          }
+        }
+        if (isNotExist) console.log('НЕ СУЩЕСТВУЕТ');
       });
     });
-    /*.replace(/^[^=]+/, '');*/
-  }
-  toGetInfo(site: string) {
-    if (site == '') {
-      console.log(this.yturl);
-    }
   }
 }
