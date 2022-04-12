@@ -31,11 +31,29 @@
       color: @color-green-04;
     }
   }
+  &__spouses {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 8px;
+  }
+  &__title {
+    line-height: 42px;
+    color: @color-gray-1b;
+    margin: 32px 0 8px 0;
+  }
 }
 .theme-dark {
   &.person-spouses {
     &__spouses-link {
       color: @color-green-69;
+    }
+  }
+}
+@media (max-width: 800px) {
+  .person-spouses {
+    &__title {
+      font-size: 20px;
+      line-height: 42px;
     }
   }
 }

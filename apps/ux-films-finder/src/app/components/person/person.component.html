@@ -76,37 +76,9 @@
           {{ personsInfo.profession }}
         </div>
       </div>
-      <div class="person__spouses" *ngIf="personsInfo?.spouses?.length !== 0">
-        <div class="person__title">Отношения</div>
-        <ng-container *ngFor="let spousesItem of personsInfo?.spouses">
-          <ff-person-spouses
-            [children]="spousesItem.children"
-            [divorced]="spousesItem.divorced"
-            [relation]="spousesItem.relation"
-            [personId]="spousesItem.personId"
-            [name]="spousesItem.name"
-          >
-          </ff-person-spouses>
-        </ng-container>
-      </div>
-    </div>
-    <div class="person__facts" *ngIf="personsInfo?.facts?.length !== 0">
-      <div class="person__title">Факты</div>
-      <ng-container *ngFor="let factsItem of personsInfo?.facts">
-        <ff-person-facts [fact]="factsItem"></ff-person-facts>
-      </ng-container>
-    </div>
-    <div class="person__films">
-      <div class="person__title">Фильмы</div>
-      <ng-container *ngFor="let filmsItem of personsInfo?.films">
-        <ff-person-films
-          [rating]="filmsItem.rating"
-          [nameEn]="filmsItem.nameEn"
-          [nameRu]="filmsItem.nameRu"
-          [filmId]="filmsItem.filmId"
-          [professionKey]="filmsItem.professionKey"
-        ></ff-person-films>
-      </ng-container>
+      <ff-person-spouses [spouses]="personsInfo.spouses"></ff-person-spouses>
+      <ff-person-facts [facts]="personsInfo.facts"></ff-person-facts>
+      <ff-person-films [films]="personsInfo.films"></ff-person-films>
     </div>
   </ng-container>
 </div>

@@ -1,5 +1,6 @@
 import { Component, Input, ViewEncapsulation } from '@angular/core';
 import { PROFESSIONS } from '../../consts/professions-key.const';
+import { FilmModel } from '../../models/film.model';
 
 @Component({
   selector: 'ff-person-films',
@@ -8,10 +9,6 @@ import { PROFESSIONS } from '../../consts/professions-key.const';
   encapsulation: ViewEncapsulation.None
 })
 export class PersonFilmsComponent {
-  @Input() public rating = '';
-  @Input() public filmId = 0;
-  @Input() public nameRu = '';
-  @Input() public nameEn = '';
-  @Input() public professionKey = '';
+  @Input() public films: FilmModel[] = [];
   public professions = PROFESSIONS;
 }

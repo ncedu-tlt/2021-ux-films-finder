@@ -1,16 +1,26 @@
 <div class="person-film">
-  <div class="person-film__rating-name">
-    <div class="person-film__rating" *ngIf="rating; else emptyTemplate">
-      {{ rating }}
-    </div>
-    <ng-template #emptyTemplate>
-      <div class="person-film__rating-empty"></div>
-    </ng-template>
-    <a class="person-film__film-link" routerLink="/details/{{ filmId }}"
-      >{{ nameRu || nameEn }}
-    </a>
-  </div>
-  <div class="person-film__profession-key">
-    {{ professions[professionKey] }}
-  </div>
+  <div class="person-film__title">Фильмы</div>
+  <ng-container *ngFor="let filmsItem of films"
+    ><div class="person-film__films">
+      <div class="person-film__rating-name">
+        <div
+          class="person-film__rating"
+          *ngIf="filmsItem.rating; else emptyTemplate"
+        >
+          {{ filmsItem.rating }}
+        </div>
+        <ng-template #emptyTemplate>
+          <div class="person-film__rating-empty"></div>
+        </ng-template>
+        <a
+          class="person-film__film-link"
+          routerLink="/details/{{ filmsItem.filmId }}"
+          >{{ filmsItem.nameRu || filmsItem.nameEn }}
+        </a>
+      </div>
+      <div class="person-film__profession-key">
+        {{ professions[filmsItem.professionKey] }}
+      </div>
+    </div></ng-container
+  >
 </div>
