@@ -37,6 +37,7 @@ import { ScreenGalleryComponent } from './components/screen-gallery/screen-galle
 import { SimilarFilmsComponent } from './components/similar-films/similar-films.component';
 import { MovieCadrComponent } from './components/movie-cadr/movie-cadr.component';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
+import { ReviewsComponent } from './components/reviews/reviews.component';
 registerLocaleData(localeRu);
 @NgModule({
   declarations: [
@@ -59,7 +60,8 @@ registerLocaleData(localeRu);
     LoaderComponent,
     ScreenGalleryComponent,
     SimilarFilmsComponent,
-    MovieCadrComponent
+    MovieCadrComponent,
+    ReviewsComponent
   ],
   imports: [
     BrowserModule,

@@ -10,6 +10,7 @@ import { PersonInfoResponseModel } from '../models/person-info-response.model';
 import { BiographyModel } from '../models/biography.model';
 import { Router } from '@angular/router';
 import { FilmImagesResponseModel } from '../models/fiml-images-response.model';
+import { ReviewResponseModel } from '../models/reviews-response.model';
 
 @Injectable({
   providedIn: 'root'
@@ -41,6 +42,17 @@ export class FilmDataService {
       )
       .pipe(catchError(this.handleError));
   }
+  public getReviewsById(
+    id: number,
+    page: number
+  ): Observable<ReviewResponseModel> {
+    return this.http
+      .get<ReviewResponseModel>(
+        this.kinopoiskUrl + '/api/v1/reviews?filmId=' + id + '&page=' + page
+      )
+      .pipe(catchError(this.handleError));
+  }
+
   public getFilmByGenre(
     genre: number,
     page: number
