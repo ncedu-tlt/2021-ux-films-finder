@@ -1,11 +1,7 @@
 import { Component, HostBinding, Input } from '@angular/core';
-import { COLORS } from '../../consts/color-gender.const';
-import { Subject } from 'rxjs';
-import { TitleFilmsListModel } from '../../models/title-films-list.model';
-import { TitleFilmsListResponseModel } from '../../models/title-films-list-response.model';
-import { FilmBaseModel } from '../../models/film-banner.model';
 import { Router } from '@angular/router';
 import { COLORSTITLE } from '../../consts/color-title.const';
+import { COLORSTITLENAME } from '../../consts/title-name.const';
 
 @Component({
   selector: 'ff-title-films-list',
@@ -17,6 +13,7 @@ export class TitleFilmsListComponent {
   public genres = '';
   public color = COLORSTITLE;
   public titleGenres = '';
+  public name = COLORSTITLENAME;
   // private routerSubscription: Subscription;
 
   constructor(private router: Router) {}
