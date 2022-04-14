@@ -4,6 +4,8 @@ import { Subject } from 'rxjs';
 import { TitleFilmsListModel } from '../../models/title-films-list.model';
 import { TitleFilmsListResponseModel } from '../../models/title-films-list-response.model';
 import { FilmBaseModel } from '../../models/film-banner.model';
+import { Router } from '@angular/router';
+import { COLORSTITLE } from '../../consts/color-title.const';
 
 @Component({
   selector: 'ff-title-films-list',
@@ -13,6 +15,24 @@ import { FilmBaseModel } from '../../models/film-banner.model';
 export class TitleFilmsListComponent {
   @Input()
   public genres = '';
-  films$: Subject<FilmBaseModel[]> = new Subject<FilmBaseModel[]>();
-  public color = COLORS;
+  public color = COLORSTITLE;
+  public titleGenres = '';
+  // private routerSubscription: Subscription;
+
+  constructor(private router: Router) {}
+  //   this.routerSubscription = router.params.subscribe(params=>this.id=params['']);
+  //   this
+  // .
+  //   router
+  // .
+  //
+  //   navigate(['localhost:4200'] {
+  //
+  //   }
+  //
+  // )
+  ngOnInit() {
+    this.titleGenres = this.router.url;
+    console.log(this.router.url);
+  }
 }
