@@ -7,5 +7,5 @@ import { Component, Input, ViewEncapsulation } from '@angular/core';
   encapsulation: ViewEncapsulation.None
 })
 export class PersonFactsComponent {
-  @Input() public facts: String[] = [];
+  @Input() public facts: string[] = [];
 }
