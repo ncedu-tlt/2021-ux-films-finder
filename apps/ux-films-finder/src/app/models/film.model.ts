@@ -1,20 +1,18 @@
 import { FilmGenreModel } from './film-genre.model';
 import { FilmCountryModel } from './film-country.model';
+import { FilmBaseModel } from './film-banner.model';
 
-export interface FilmModel extends BaseFilmModel {
+export interface FilmModel extends FilmBaseModel {
   kinopoiskId: number;
   imdbId: string;
-  countries: FilmCountryModel[];
-  genres: FilmGenreModel[];
+  nameOriginal: string;
   ratingKinopoisk: number;
   ratingImdb: number;
-  year: number;
   type: string;
-  description: string;
+  posterUrlPreview: string;
   slogan: string;
   professionKey: string;
-  rating: string;
-  filmLength: number;
+  description: string;
 }
 
 export interface BaseFilmModel {

@@ -1,0 +1,128 @@
+@import 'keen-slider/keen-slider.min.css';
+@import '../../../assets/styles/themes/base/common/shared';
+
+.film-banner {
+  background: @color-gray-1b;
+  color: @color-white-ff;
+  &__container {
+    position: relative;
+    max-width: 1600px;
+    margin: 0 auto;
+  }
+  &__slide {
+    display: grid;
+    grid-template-columns: auto 296px auto;
+    padding: 24px 80px;
+    column-gap: 40px;
+    grid-template-areas: 'main poster description';
+    @media screen and (max-width: 1100px) {
+      grid-template-areas: 'poster main' 'description description';
+      grid-template-columns: 160px auto;
+    }
+    @media screen and (max-width: 600px) {
+      padding: 24px 16px;
+      grid-template-areas: 'poster' 'main' 'description';
+      grid-template-columns: auto;
+    }
+  }
+  &__main-info {
+    grid-area: main;
+  }
+  &__name-main {
+    margin-top: 40px;
+    margin-bottom: 32px;
+    font-size: 40px;
+    line-height: 56px;
+    @media screen and (max-width: 1200px) {
+      font-size: 24px;
+      line-height: 40px;
+      margin-top: 16px;
+    }
+  }
+
+  &__name-en {
+    margin-bottom: 32px;
+    font-size: 24px;
+    line-height: 32px;
+    @media screen and (max-width: 1200px) {
+      font-size: 20px;
+      line-height: 28px;
+    }
+  }
+
+  &__genres {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  &__poster {
+    grid-area: poster;
+    width: 296px;
+    height: 444px;
+    border-radius: 16px;
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.25), 1px -1px 8px rgba(0, 0, 0, 0.25);
+    overflow: hidden;
+    @media screen and (max-width: 1100px) {
+      width: 160px;
+      height: 241px;
+    }
+    @media screen and (max-width: 600px) {
+      margin: 0 auto;
+    }
+  }
+
+  &__poster-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  &__description {
+    grid-area: description;
+    font-size: 18px;
+    line-height: 32px;
+
+    &-row {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 32px;
+    }
+
+    &-info {
+      text-align: right;
+      padding-left: 24px;
+    }
+  }
+  &__rating {
+    background: @color-white-ff;
+    border-radius: 16px;
+    color: @color-black-00;
+    padding: 0px 20px;
+    font-size: 24px;
+    line-height: 36px;
+  }
+  &__arrow {
+    width: 25px;
+    height: 25px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%) rotate(180deg);
+    cursor: pointer;
+    left: 20px;
+    stroke: @color-white-ff;
+
+    @media screen and (max-width: 600px) {
+      display: none;
+    }
+
+    &:hover {
+      stroke: @color-green-69;
+    }
+
+    &._right {
+      transform: translateY(-50%);
+      right: 20px;
+      left: initial;
+    }
+  }
+}
