@@ -1,3 +1,33 @@
-<div>
-  {{ reviewsInfo[1]?.reviewId }}
+<div class="reviews">
+  <div class="reviews__header">Рецензии зрителей</div>
+  <ng-container *ngFor="let review of reviewsInfo.slice(0, 2)">
+    <div class="reviews__review-container">
+      <div class="reviews__info-container">
+        <div class="reviews__author-name">{{ review.reviewAutor }}</div>
+        <div class="reviews__date">{{ review.reviewData }}</div>
+        <div class="reviews__author-ratings-container">
+          <div class="reviews__author-ratings-header">
+            Оценки этого пользователя
+          </div>
+          <div class="reviews__author-all-ratings-container">
+            <div class="reviews__author-positive-ratings">
+              {{ review.userPositiveRating }}
+            </div>
+            <div class="reviews__author-negative-ratings">
+              {{ review.userNegativeRating }}
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="reviews__review-type">
+        Тип рецензии: {{ review.reviewType }}
+      </div>
+      <div class="reviews__review-title">{{ review.reviewTitle }}</div>
+      <div class="reviews__review-description">
+        {{ review.reviewDescription }}
+      </div>
+      <button class="reviews__see-more-button">Подробнее</button>
+    </div>
+  </ng-container>
+  <button class="reviews__see-all-reviews-button">Показать все рецензии</button>
 </div>
