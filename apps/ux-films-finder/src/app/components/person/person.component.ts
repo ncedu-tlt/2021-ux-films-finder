@@ -1,4 +1,9 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import {
+  Component,
+  HostBinding,
+  OnInit,
+  ViewEncapsulation
+} from '@angular/core';
 import { FilmDataService } from '../../services/film-data.service';
 import { ActivatedRoute } from '@angular/router';
 import { BiographyModel } from '../../models/biography.model';
@@ -21,6 +26,7 @@ export class PersonComponent implements OnInit {
     private filmDataService: FilmDataService,
     private activatedRouter: ActivatedRoute
   ) {}
+  @HostBinding('class.center-content') private hostClass = true;
 
   ngOnInit(): void {
     this.activatedRouter.params
