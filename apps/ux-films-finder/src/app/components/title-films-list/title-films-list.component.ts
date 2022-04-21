@@ -1,7 +1,7 @@
 import { Component, HostBinding, Input } from '@angular/core';
 import { Router } from '@angular/router';
-import { COLORSTITLE } from '../../consts/color-title.const';
-import { COLORSTITLENAME } from '../../consts/title-name.const';
+import { COLORS_TITLE } from '../../consts/color-title.const';
+import { COLORS_TITLE_NAME } from '../../consts/title-name.const';
 
 @Component({
   selector: 'ff-title-films-list',
@@ -11,9 +11,9 @@ import { COLORSTITLENAME } from '../../consts/title-name.const';
 export class TitleFilmsListComponent {
   @Input()
   public genres = '';
-  public color = COLORSTITLE;
+  public color = COLORS_TITLE;
   public titleGenres = '';
-  public name = COLORSTITLENAME;
+  public name = COLORS_TITLE_NAME;
   constructor(private router: Router) {}
 
   ngOnInit() {

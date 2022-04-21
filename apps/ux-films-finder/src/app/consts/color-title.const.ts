@@ -1,4 +1,4 @@
-export const COLORSTITLE: {
+export const COLORS_TITLE: {
   [name: string]: string;
 } = {
   '/comedy': '_comedy',
