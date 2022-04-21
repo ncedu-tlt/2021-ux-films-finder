@@ -2,7 +2,7 @@ import { Component, ViewEncapsulation } from '@angular/core';
 import { FilmDataService } from '../../services/film-data.service';
 import { FilmKeywordModel } from '../../models/film-keyword.model';
 import { FilmModel } from '../../models/film.model';
-import { pipe, Subject, take } from 'rxjs';
+import { debounceTime, Subject, take } from 'rxjs';
 import { FilmActorModel } from '../../models/film-actor.model';
 import { BiographyModel } from '../../models/biography.model';
 import { Router } from '@angular/router';
@@ -17,25 +17,42 @@ export class SearchComponent {
   searchInput = '';
   films$: Subject<FilmModel[]> = new Subject();
   actors$: Subject<BiographyModel[]> = new Subject();
+  advanceIsOpened = false;
 
   constructor(
     private filmDataService: FilmDataService,
     private router: Router
   ) {}
 
-  public getListFilms() {
+  public openAdvanceSearch(): void {
+    if (!this.advanceIsOpened) {
+      this.advanceIsOpened = true;
+      this.router.navigate(['/advanced-search']);
+    } else {
+      this.advanceIsOpened = false;
+      this.router.navigate(['.']);
+    }
+  }
+  public closeSearch() {
+    this.searchInput = '';
+    this.getActorFilms();
+    this.getListFilms();
+  }
+
+  public getListFilms(): void {
     this.filmDataService
       .getFilmByKeyWord(this.searchInput, 1)
-      .pipe(take(1))
+      .pipe(take(1), debounceTime(1000))
       .subscribe((info: FilmKeywordModel) => {
         this.films$.next(info.films);
+        console.log(info);
       });
   }
 
-  public getActorFilms() {
+  public getActorFilms(): void {
     this.filmDataService
       .getActorByKeyWord(this.searchInput, 1)
-      .pipe(take(1))
+      .pipe(take(1), debounceTime(1000))
       .subscribe((info: FilmActorModel) => {
         this.actors$.next(info.items);
       });
@@ -51,7 +68,7 @@ export class SearchComponent {
     });
   }
 
-  public getInfo() {
+  public getInfo(): void {
     this.getActorFilms();
     this.getListFilms();
   }

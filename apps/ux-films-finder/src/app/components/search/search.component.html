@@ -7,7 +7,7 @@
       [(ngModel)]="searchInput"
       (ngModelChange)="getInfo()"
     />
-    <mat-icon routerLink="advanced-search" class="search__filter">
+    <mat-icon class="search__filter" (click)="openAdvanceSearch()">
       tune
     </mat-icon>
   </div>
@@ -17,10 +17,10 @@
       <mat-list-item
         class="search__results-list-item"
         *ngFor="let film of films$ | async | slice: 0:3"
+        (click)="closeSearch()"
         routerLink="/details/{{ film.filmId }}"
       >
         <img class="search__poster" src="{{ film.posterUrlPreview }}" />
-
         <div class="search__info">
           <p *ngIf="film.nameRu" class="search__name-ru">
             {{ film.nameRu }}
@@ -40,7 +40,9 @@
         class="search__results-list-item"
         *ngFor="let actor of actors$ | async | slice: 0:3"
         routerLink="/persons/{{ actor.kinopoiskId }}"
-        ><img class="search__poster" src="{{ actor.posterUrl }}" />
+        (click)="closeSearch()"
+      >
+        <img class="search__poster" src="{{ actor.posterUrl }}" />
         <div class="search__info">
           <p *ngIf="actor.nameRu" class="search__name-ru">
             {{ actor.nameRu }}
