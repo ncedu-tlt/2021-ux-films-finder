@@ -1,4 +1,4 @@
-import { Component, HostBinding, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { COLORS_TITLE } from '../../consts/color-title.const';
 import { COLORS_TITLE_NAME } from '../../consts/title-name.const';
