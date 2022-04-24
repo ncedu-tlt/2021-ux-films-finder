@@ -38,6 +38,7 @@ import { SimilarFilmsComponent } from './components/similar-films/similar-films.
 import { MovieCadrComponent } from './components/movie-cadr/movie-cadr.component';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { ReviewsComponent } from './components/reviews/reviews.component';
+import { MatExpansionModule } from '@angular/material/expansion';
 registerLocaleData(localeRu);
 @NgModule({
   declarations: [
@@ -79,7 +80,8 @@ registerLocaleData(localeRu);
     MatFormFieldModule,
     FormsModule,
     MatProgressSpinnerModule,
-    MatDialogModule
+    MatDialogModule,
+    MatExpansionModule
   ],
   providers: [
     {

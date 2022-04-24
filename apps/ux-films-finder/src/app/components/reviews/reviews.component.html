@@ -1,33 +1,73 @@
 <div class="reviews">
+  <div class="reviews__score-container">
+    <div class="reviews__score-header">Рейтинг фильма</div>
+    <div class="reviews__main-score">
+      {{ reviewsResponseInfo.reviewAllPositiveRatio }}
+    </div>
+    <div class="reviews__all-scores-container"></div>
+  </div>
   <div class="reviews__header">Рецензии зрителей</div>
-  <ng-container *ngFor="let review of reviewsInfo.slice(0, 2)">
-    <div class="reviews__review-container">
-      <div class="reviews__info-container">
-        <div class="reviews__author-name">{{ review.reviewAutor }}</div>
-        <div class="reviews__date">{{ review.reviewData }}</div>
-        <div class="reviews__author-ratings-container">
-          <div class="reviews__author-ratings-header">
-            Оценки этого пользователя
-          </div>
-          <div class="reviews__author-all-ratings-container">
-            <div class="reviews__author-positive-ratings">
-              {{ review.userPositiveRating }}
+  <mat-expansion-panel
+    (opened)="panelOpenState = true"
+    (closed)="panelOpenState = false"
+    class="reviews__expansion-panel"
+  >
+    <mat-expansion-panel-header class="reviews__expansion-panel-header">
+      <mat-panel-title class="reviews__expansion-panel-title">
+        Показать все рецензии
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <!-- TODO: Load first 5 reviews from every page -->
+    <ng-container *ngFor="let review of reviewsInfo.slice(0, 5)">
+      <div class="reviews__review-container">
+        <div class="reviews__info-container">
+          <div class="reviews__name-date-type-container">
+            <div class="reviews__author-name">{{ review.reviewAutor }}</div>
+            <div class="reviews__date">{{ review.reviewData }}</div>
+            <!-- TODO: Check this format please -->
+            <div
+              class="reviews__review-type"
+              [class]="
+                review.reviewType === 'Положительный'
+                  ? '_positive'
+                  : '' || review.reviewType === 'Отрицательный'
+                  ? '_negative'
+                  : '' || review.reviewType === 'Нейтральный'
+                  ? '_neutral'
+                  : ''
+              "
+            >
+              Тип рецензии: {{ review.reviewType }}
             </div>
-            <div class="reviews__author-negative-ratings">
-              {{ review.userNegativeRating }}
+          </div>
+          <div class="reviews__author-ratings-container">
+            <div class="reviews__author-ratings-header">
+              Оценки этого пользователя
+            </div>
+            <div class="reviews__author-all-ratings-container">
+              <div class="reviews__author-positive-ratings">
+                {{ review.userPositiveRating }}
+              </div>
+              <div class="reviews__author-negative-ratings">
+                {{ review.userNegativeRating }}
+              </div>
             </div>
           </div>
         </div>
+        <div class="reviews__review-title">{{ review.reviewTitle }}</div>
+        <div class="reviews__review-description">
+          {{ review.reviewDescription }}
+        </div>
+        <button class="reviews__see-more-button">Подробнее &#9660;</button>
       </div>
-      <div class="reviews__review-type">
-        Тип рецензии: {{ review.reviewType }}
-      </div>
-      <div class="reviews__review-title">{{ review.reviewTitle }}</div>
-      <div class="reviews__review-description">
-        {{ review.reviewDescription }}
-      </div>
-      <button class="reviews__see-more-button">Подробнее</button>
-    </div>
-  </ng-container>
-  <button class="reviews__see-all-reviews-button">Показать все рецензии</button>
+    </ng-container>
+
+    <mat-paginator
+      class="reviews__paginator"
+      *ngIf="reviewsResponseInfo.pagesCount !== 0"
+      [length]="reviewsInfo.length"
+      [pageSize]="pageSize"
+      (page)="onPageChange($event)"
+    ></mat-paginator>
+  </mat-expansion-panel>
 </div>

@@ -1,24 +1,122 @@
+@import '../../../assets/styles/themes/base/common/shared';
+@import '../../../assets/styles/themes/dark/common/shared';
+
 .reviews {
   display: flex;
   flex-direction: column;
   margin: 0px 70px 30px;
   &__header {
-    text-align: center;
     padding: 10px;
-    margin-bottom: 50px;
-    font-size: 40px;
+    margin-bottom: 10px;
+    font-size: 20px;
+    font-weight: bold;
+  }
+  &__expansion-panel {
+    // background-color: @color-white-ff;
+    // TODO: Doesn't work (P.S. Can I write style like this?)
+    &-header {
+      // color: @color-black-00;
+    }
+  }
+  &__expansion-panel-title {
+    // color: black;
   }
   &__review-container {
-    border: 1px solid black;
+    margin-bottom: 20px;
     padding: 20px;
+    // color: black;
+    border-radius: 20px;
+    box-shadow: 5px 5px 10px @color-black-00;
   }
   &__info-container {
     display: flex;
     justify-content: space-between;
+    margin-bottom: 30px;
+  }
+  &__name-date-type-container {
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 6px;
   }
   &__author-name {
     font-size: 25px;
     font-weight: bold;
     font-style: italic;
+  }
+  &__review-type {
+    margin-top: 6px;
+    padding: 6px;
+    border-radius: 4px;
+    color: @color-white-ff;
+    &._positive {
+      background-color: @color-green-04;
+    }
+    &._negative {
+      background-color: @color-pink-cb;
+    }
+    &._neutral {
+      background-color: @color-blue-27;
+    }
+  }
+  &__author-ratings-container {
+    margin-right: 50px;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 6px;
+  }
+  &__author-all-ratings-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 6px;
+    padding: 6px;
+  }
+  &__author-positive-ratings {
+    padding: 6px;
+    width: 30%;
+    text-align: center;
+    border-radius: 4px;
+    color: @color-white-ff;
+    background-color: @color-green-04;
+  }
+  &__author-negative-ratings {
+    padding: 6px;
+    width: 30%;
+    text-align: center;
+    border-radius: 4px;
+    color: @color-white-ff;
+    background-color: @color-pink-cb;
+  }
+  &__review-title {
+    margin-bottom: 20px;
+    font-size: 25px;
+    font-weight: bold;
+    font-style: italic;
+    width: 50%;
+  }
+  &__review-description {
+    margin-bottom: 5px;
+    padding: 0px 30px;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 5;
+    overflow: hidden;
+    &._show {
+      -webkit-line-clamp: none;
+    }
+  }
+  &__see-more-button {
+    transition: all 0.2s;
+    border: none;
+    margin-left: 30px;
+    padding: 5px;
+    width: 150px;
+    color: @color-white-ff;
+    background-color: @color-pink-cb;
+  }
+  &__see-more-button:hover {
+    transition: all 0.2s;
+    background-color: @color-green-69;
+    cursor: pointer;
+    border-radius: 5px;
   }
 }
