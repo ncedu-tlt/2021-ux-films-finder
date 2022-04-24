@@ -21,6 +21,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { SidenavListComponent } from './components/sidenav-list/sidenav-list.component';
 import { MatListModule } from '@angular/material/list';
 import { GenresBannerComponent } from './components/genres-banner/genres-banner.component';
+import { FilmBannerComponent } from './components/banner/film-banner.component';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatSidenavModule } from '@angular/material/sidenav';
@@ -31,14 +32,16 @@ import { PersonComponent } from './components/person/person.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule } from '@angular/forms';
 import localeRu from '@angular/common/locales/ru';
+import { GenreLabelComponent } from './components/genre-label/genre-label.component';
 import { LoaderComponent } from './components/loader/loader.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { ScreenGalleryComponent } from './components/screen-gallery/screen-gallery.component';
-import { SimilarFilmsComponent } from './components/similar-films/similar-films.component';
+import { RatingPipe } from './pipes/pipe';
 import { MovieCadrComponent } from './components/movie-cadr/movie-cadr.component';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
-import { ReviewsComponent } from './components/reviews/reviews.component';
 import { MatExpansionModule } from '@angular/material/expansion';
+import { ReviewsComponent } from './components/reviews/reviews.component';
+
 registerLocaleData(localeRu);
 @NgModule({
   declarations: [
@@ -58,9 +61,11 @@ registerLocaleData(localeRu);
     GenresBannerComponent,
     SwitcherComponent,
     PersonComponent,
+    FilmBannerComponent,
+    GenreLabelComponent,
     LoaderComponent,
     ScreenGalleryComponent,
-    SimilarFilmsComponent,
+    RatingPipe,
     MovieCadrComponent,
     ReviewsComponent
   ],

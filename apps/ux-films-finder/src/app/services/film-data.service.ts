@@ -6,6 +6,7 @@ import {
   BaseFilmsResponseModel,
   FilmsResponseModel
 } from '../models/films-response.model';
+import { FilmBannerResponseModel } from '../models/film-banner-response.model';
 import { PersonInfoResponseModel } from '../models/person-info-response.model';
 import { BiographyModel } from '../models/biography.model';
 import { Router } from '@angular/router';
@@ -80,4 +81,12 @@ export class FilmDataService {
     }
     return throwError(() => new Error('No such path exists.'));
   };
+  public getTopFilms(
+    top: string,
+    page: number
+  ): Observable<FilmBannerResponseModel> {
+    return this.http.get<FilmBannerResponseModel>(
+      this.kinopoiskUrl + '/api/v2.2/films/top?type=' + top + '&page=' + page
+    );
+  }
 }
