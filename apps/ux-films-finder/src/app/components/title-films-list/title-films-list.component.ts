@@ -1,7 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
-import { COLORS_TITLE } from '../../consts/color-title.const';
-import { COLORS_TITLE_NAME } from '../../consts/title-name.const';
+import { GENRES } from '../../consts/genres.const';
 
 @Component({
   selector: 'ff-title-films-list',
@@ -11,9 +10,8 @@ import { COLORS_TITLE_NAME } from '../../consts/title-name.const';
 export class TitleFilmsListComponent {
   @Input()
   public genres = '';
-  public color = COLORS_TITLE;
+  public name = GENRES;
   public titleGenres = '';
-  public name = COLORS_TITLE_NAME;
   constructor(private router: Router) {}
 
   ngOnInit() {
