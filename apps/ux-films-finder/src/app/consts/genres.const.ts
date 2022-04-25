@@ -1,17 +1,17 @@
 export const GENRES: {
   [name: string]: string;
 } = {
-  comedy: 'комедии',
+  comedy: 'комедия',
   horror: 'ужасы',
-  adventure: 'приключения',
+  //adventure: 'приключения',
   adventures: 'приключения',
   thriller: 'триллер',
   fantasy: 'фэнтези',
-  action: 'боевики',
+  action: 'боевик',
   family: 'семейный',
   drama: 'драма',
   crime: 'криминал',
-  cartoon: 'мультфильмы',
+  cartoon: 'мультфильм',
   anime: 'аниме',
   military: 'военный',
   history: 'история',
@@ -33,7 +33,7 @@ export const GENRES: {
   children: 'детский',
   'for-children': 'детские программы',
   'talk-show': 'ток-шоу',
-  romance: 'мелодрама',
+  //romance: 'мелодрама',
   melodrama: 'мелодрама',
   show: 'телешоу',
   'real-tv': 'реальное ТВ'

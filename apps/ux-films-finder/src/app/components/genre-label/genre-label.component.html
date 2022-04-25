@@ -1,1 +1,3 @@
-<div class="genre-label" [ngClass]="name[genres]">{{ genres }}</div>
+<div class="genre-label" [ngClass]="genres | genre">
+  {{ genres }}
+</div>

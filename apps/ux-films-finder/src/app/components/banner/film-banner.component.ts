@@ -41,6 +41,11 @@ export class FilmBannerComponent implements AfterViewInit, OnDestroy, OnInit {
       .getTopFilms('TOP_100_POPULAR_FILMS', 1)
       .pipe(take(1))
       .subscribe((info: FilmBannerResponseModel) => {
+        this.films$.forEach(function (films) {
+          films.forEach(function (film) {
+            film.genres;
+          });
+        });
         this.films$.next(info.films.slice(0, 10));
         this.cdr.detectChanges();
         this.slider.update();
