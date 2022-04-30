@@ -10,7 +10,8 @@ import { GENRES } from '../../consts/genres.const';
 })
 export class GenreLabelComponent {
   @Input()
-  public genres = '';
+  public genre = '';
+  public genreEng = '';
   films$: Subject<FilmBaseModel[]> = new Subject<FilmBaseModel[]>();
   public name = GENRES;
 }
