@@ -75,20 +75,20 @@
       display: flex;
       margin-bottom: 25px;
       background: @color-gray-66;
-      &:after {
-        position: absolute;
-        width: 244px;
-        height: 86px;
-        right: -3px;
-        content: '';
-        background: url('../../../assets/images/triangles-genres.svg') no-repeat;
-      }
+
       &-title {
         margin: 24px 24px;
         font-size: 32px;
         line-height: 20px;
         color: @color-white-ff;
       }
+      &-triangles {
+        width: 244px;
+        height: 86px;
+        right: -3px;
+        background: url('../../../assets/images/triangles-genres.svg') no-repeat;
+      }
+
       &._horror {
         background: @color-genre-horror;
       }
