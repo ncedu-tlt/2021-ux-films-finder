@@ -5,7 +5,6 @@
   background: @color-gray-49;
   position: fixed;
   left: 0;
-  height: 70px;
   z-index: 2;
   box-shadow: 0.4em 0.4em 5px rgba(122, 122, 122, 0.5);
 
@@ -70,12 +69,8 @@
   }
 
   &__link {
-    height: 40px;
-    line-height: 18px;
     font-size: 20px;
     background: none;
-    text-decoration: none;
-    color: @color-white-ff;
     font-family: 'Bellota Text';
   }
 
@@ -91,13 +86,6 @@
     display: flex;
     justify-content: flex-end;
     width: 1220px;
-  }
-
-  &__person-icon.mat-icon {
-    width: 50px;
-    height: 50px;
-    font-size: 50px;
-    margin-right: 34px;
   }
 
   &__search {
@@ -116,21 +104,6 @@
   }
 }
 
-@media only screen and (max-width: 1500px) {
-  .header {
-    &__right-side {
-      width: 650px;
-    }
-
-    &__search-content {
-      width: 400px;
-    }
-
-    &__search {
-      width: 410px;
-    }
-  }
-}
 @media only screen and (max-width: 1438px) {
   .header {
     width: 100vw;
@@ -170,10 +143,6 @@
     &__search-content {
       width: 400px;
     }
-
-    &__person-icon {
-      margin-right: 20px;
-    }
   }
 }
 
@@ -186,7 +155,6 @@
 
     &__left-side {
       width: 62%;
-      justify-content: flex-start;
     }
 
     &__search {
@@ -205,10 +173,6 @@
 
     &__toogle {
       margin-left: 12px;
-    }
-
-    &__person-icon {
-      margin-right: 10px;
     }
   }
 }

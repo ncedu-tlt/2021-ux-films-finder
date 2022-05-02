@@ -32,8 +32,8 @@ export class SearchComponent {
   @ViewChild('text', { static: true }) text!: ElementRef;
   ngAfterViewInit() {
     fromEvent(this.text.nativeElement, 'keydown')
-      .pipe(debounceTime(3000))
-      .subscribe(res => console.log(res));
+      .pipe(debounceTime(2000))
+      .subscribe(res => this.getInfo());
   }
   public openAdvanceSearch(): void {
     if (!this.advanceIsOpened) {
