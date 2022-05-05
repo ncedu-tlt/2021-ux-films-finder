@@ -1,1 +1,82 @@
-<p>advanced-search works!</p>
+<ng-container *ngIf="filmInfo">
+  <form>
+    <div class="search">
+
+      <div class = 'search__container'>
+
+        <div class="search__container _component">
+          <mat-label> Поиск фильма: </mat-label>
+          <mat-form-field appearance="fill" id ='NameFilm' name ='NameFilm' required>
+            <mat-hint>Введите полное или частичное название фильма</mat-hint>
+            <ng-container *ngIf="filmInfo.nameRu ">{{
+              filmInfo?.nameRu}}
+            </ng-container>
+            <input matInput type = 'text'
+                   [(ngModel)]="dataForm.keyWord" name="keyWord">
+          </mat-form-field>
+        </div>
+
+        <div class="search__container _component" >
+          <mat-label> Год выпуска: </mat-label>
+
+          <div class = 'search__container _yearFrom'>
+            <mat-label class = 'mat_year'>c</mat-label>
+            <mat-form-field class ='mat_from_to' appearance="fill">
+              <input matInput type = number [(ngModel)]="dataForm.yearFrom" name="yearFrom">
+            </mat-form-field> </div>
+
+          <div class = 'search__container _yearTo'>
+            <mat-label class = 'mat_year'>по</mat-label>
+            <mat-form-field class ='mat_from_to' appearance="fill">
+              <input matInput type = number [(ngModel)]="dataForm.yearTo" name="yearTo" >
+            </mat-form-field></div>
+
+        </div>
+
+        <div class="search__container _component" >
+          <mat-label> Страна: </mat-label>
+          <mat-form-field appearance="fill" >
+            <mat-select [(ngModel)]="dataForm.country" name="country" required>
+              <mat-option *ngFor="let countryItem of filmInfo?.countries" [value]="countryItem">{{countryItem.country}} </mat-option>>
+            </mat-select>
+          </mat-form-field>
+        </div>
+
+
+        <div class="search__container _component">
+          <mat-label> Жанр: </mat-label>
+          <mat-form-field appearance="fill" >
+            <mat-select [(ngModel)]="dataForm.genreFilm" name="genreFilm" required>
+              <mat-option *ngFor="let genreItem of filmInfo?.genres" [value]="genreItem"> {{ genreItem.genre }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+
+        <button mat-raised-button type="submit"
+                (click)="showFilms(1)">ПОИСК</button>
+      </div>
+    </div>
+  </form>
+</ng-container>
+
+<!--  <div class="category__card-list">
+    <ng-container *ngFor="let film of (films$ | async)?.items">
+      <a
+        class="category__card-link"
+        routerLink="/details/{{ film.kinopoiskId }}"
+      >
+        <ff-card
+          class="category__card"
+          [name]="film.nameRu || film.nameOriginal"
+          [rating]="film.ratingImdb"
+          [url]="film.posterUrlPreview"
+        >
+        </ff-card>
+      </a>
+    </ng-container>
+  </div>-->
+
+
+
+

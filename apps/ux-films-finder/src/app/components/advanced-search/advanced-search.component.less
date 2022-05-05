@@ -1,0 +1,106 @@
+@import '../../../assets/styles/themes/base/common/shared';
+.search {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: gray;
+  width: 100%;
+  @media only screen and (max-width: 500px) {
+    width: 150%;
+  }
+
+  &__container {
+    margin-top: 30px;
+    width: 80vw;
+    @media only screen and (max-width: 500px) {
+      width: 145vw;
+    }
+
+    ._component {
+      display: flex;
+      justify-content: center;
+      @media only screen and (max-width: 500px) {
+        width: 90vw;
+      }
+    }
+
+    ._yearFrom {
+      width: 24.5vw;
+      margin: -1% 0 0;
+      justify-content: center;
+    }
+    ._yearTo{
+      width: 24.5vw;
+      margin-top: -1%;
+      margin-left: 1vw;
+      justify-content: center;
+    }
+  }
+}
+
+.mat_from_to{
+  width: 24.5vw;
+}
+
+mat-form-field{
+  flex-direction: column;
+  font-size: 12px;
+  top: -1.5em;
+  align-items: stretch;
+  box-sizing: border-box;
+  margin-bottom: 10px;
+  width: 50vw;
+  color: black;
+}
+
+mat-label{
+  white-space: nowrap;
+  font-size: 20px;
+  margin-left: 5vw;
+  margin-right: 5vw;
+  width: 20vw;
+  font-weight: bold;
+  @media only screen and (max-width: 500px) {
+    width: 30vw;
+    font-size: 18px;
+  }
+}
+
+.mat_year{
+  margin-left: 1vw;
+}
+
+mat-hint{
+  color: #666666;
+}
+
+button {
+  position: center;
+  width: 15vw;
+  left: 35vw;
+  @media only screen and (max-width: 500px) {
+    left: 35vw;
+  }
+}
+
+
+/*.category__card-list {
+  padding: 40px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 72px 40px;
+
+    @media only screen and (max-width: 1240px) {
+      grid-template-columns: 1fr 1fr;
+    }
+    @media only screen and (max-width: 840px) {
+      grid-template-columns: 1fr;
+      grid-gap: 72px 0;
+    }
+  }
+
+.category__card-link {
+    width: 360px;
+
+  }*/
+

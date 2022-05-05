@@ -13,6 +13,7 @@ import { FilmImagesResponseModel } from '../models/fiml-images-response.model';
   providedIn: 'root'
 })
 export class FilmDataService {
+
   private readonly kinopoiskUrl: string = 'https://kinopoiskapiunofficial.tech';
 
   constructor(private http: HttpClient, private router: Router) {}
@@ -65,6 +66,27 @@ export class FilmDataService {
   ): Observable<FilmBannerResponseModel> {
     return this.http.get<FilmBannerResponseModel>(
       this.kinopoiskUrl + '/api/v2.2/films/top?type=' + top + '&page=' + page
+    );
+  }
+
+  public allFilters(
+    country = 'string',
+    genreFilm = 'string',
+    yearFrom = 'integer',
+    yearTo = 'integer',
+    keyWord = 'string'
+  ): Observable<FilmModel> {
+    return this.http.get<FilmModel>(
+      this.kinopoiskUrl + '/api/v2.2/films'+ '?countries=' + country + '&genres=' +
+      genreFilm + '&order=RATING&type=ALL&ratingFrom=0&ratingTo=10&yearFrom=' + yearFrom + '&yearTo='+ yearTo + '&keyword=' + keyWord
+    );
+  }
+
+  public getCountry(
+
+  ): Observable<FilmModel> {
+    return this.http.get<FilmModel>(
+      this.kinopoiskUrl + '/api/v2.2/films/filters'//
     );
   }
 }

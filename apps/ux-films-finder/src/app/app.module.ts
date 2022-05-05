@@ -39,6 +39,9 @@ import { ScreenGalleryComponent } from './components/screen-gallery/screen-galle
 import { RatingPipe } from './pipes/pipe';
 import { MovieCadrComponent } from './components/movie-cadr/movie-cadr.component';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
+import {MatOptionModule} from "@angular/material/core";
+import {MatSelectModule} from "@angular/material/select";
+import {MatInputModule} from "@angular/material/input";
 
 registerLocaleData(localeRu);
 @NgModule({
@@ -82,7 +85,10 @@ registerLocaleData(localeRu);
     MatFormFieldModule,
     FormsModule,
     MatProgressSpinnerModule,
-    MatDialogModule
+    MatDialogModule,
+    MatOptionModule,
+    MatSelectModule,
+    MatInputModule
   ],
   providers: [
     {
