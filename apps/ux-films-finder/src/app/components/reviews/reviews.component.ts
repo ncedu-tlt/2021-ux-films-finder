@@ -11,7 +11,7 @@ import { PageEvent } from '@angular/material/paginator';
   styleUrls: ['./reviews.component.less']
 })
 export class ReviewsComponent implements OnInit {
-  isComponentInited = false;
+  didComponentInit = false;
   isFullReviewShown = false;
 
   @Input() get filmId(): number {
@@ -19,7 +19,7 @@ export class ReviewsComponent implements OnInit {
   }
   set filmId(filmId: number) {
     this._filmdId = filmId;
-    if (this.isComponentInited) {
+    if (this.didComponentInit) {
       this.loadReviews(1);
     }
   }
@@ -58,9 +58,8 @@ export class ReviewsComponent implements OnInit {
       .subscribe((reviewsResponse: ReviewResponseModel) => {
         this.reviewsResponseInfo = reviewsResponse;
         this.reviewsInfo = this.convertData(reviewsResponse.reviews);
-        console.log(this.reviewsInfo.length);
         this.cdr.detectChanges();
-        this.isComponentInited = true;
+        this.didComponentInit = true;
       });
   }
 
