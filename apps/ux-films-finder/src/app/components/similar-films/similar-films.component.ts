@@ -28,7 +28,7 @@ export class SimilarFilmsComponent implements OnInit, OnDestroy, AfterViewInit {
   dots: number[] = [];
   slider!: KeenSliderInstance;
   extraDots = 2;
-  isComponentInited = false;
+  didComponentInit = false;
   readonly SLIDER_OPTIONS = {
     initial: this.currentSlide,
     slideChanged: (slider: KeenSliderInstance) => {
@@ -79,7 +79,7 @@ export class SimilarFilmsComponent implements OnInit, OnDestroy, AfterViewInit {
   }
   set filmId(filmdId: number) {
     this._filmId = filmdId;
-    if (this.isComponentInited) {
+    if (this.didComponentInit) {
       this.loadSimilarFilms();
     }
   }
@@ -114,7 +114,7 @@ export class SimilarFilmsComponent implements OnInit, OnDestroy, AfterViewInit {
 
         this.slider?.update(this.SLIDER_OPTIONS, 0);
 
-        this.isComponentInited = true;
+        this.didComponentInit = true;
       });
   }
 
