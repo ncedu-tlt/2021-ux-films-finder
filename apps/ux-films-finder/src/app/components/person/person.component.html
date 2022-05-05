@@ -76,8 +76,14 @@
           {{ personsInfo.profession }}
         </div>
       </div>
-      <ff-person-spouses [spouses]="personsInfo.spouses"></ff-person-spouses>
-      <ff-person-facts [facts]="personsInfo.facts"></ff-person-facts>
+      <ff-person-spouses
+        *ngIf="personsInfo.spouses.length !== 0"
+        [spouses]="personsInfo.spouses"
+      ></ff-person-spouses>
+      <ff-person-facts
+        [facts]="personsInfo.facts"
+        *ngIf="personsInfo.facts.length !== 0"
+      ></ff-person-facts>
       <ff-person-films [films]="personsInfo.films"></ff-person-films>
     </div>
   </ng-container>

@@ -1,6 +1,6 @@
-<div class="person-facts" *ngIf="facts.length !== 0">
+<div class="person-facts">
   <div class="person-facts__title">Факты</div>
-  <ng-container *ngFor="let factsItem of facts">
-    <p class="person-facts__fact">{{ factsItem }}</p>
-  </ng-container>
+  <p class="person-facts__fact" *ngFor="let factsItem of facts">
+    {{ factsItem }}
+  </p>
 </div>
