@@ -27,6 +27,7 @@ export class SimilarFilmsComponent implements OnInit, OnDestroy, AfterViewInit {
   clickedSlide = -1;
   dots: number[] = [];
   slider!: KeenSliderInstance;
+  extraDots = 2;
   isComponentInited = false;
   readonly SLIDER_OPTIONS = {
     initial: this.currentSlide,
@@ -91,12 +92,10 @@ export class SimilarFilmsComponent implements OnInit, OnDestroy, AfterViewInit {
   ) {}
 
   ngAfterViewInit() {
-    setTimeout(() => {
-      this.slider = new KeenSlider(
-        this.sliderRef.nativeElement,
-        this.SLIDER_OPTIONS
-      );
-    });
+    this.slider = new KeenSlider(
+      this.sliderRef.nativeElement,
+      this.SLIDER_OPTIONS
+    );
   }
 
   ngOnInit(): void {
@@ -109,8 +108,7 @@ export class SimilarFilmsComponent implements OnInit, OnDestroy, AfterViewInit {
       .pipe(take(1))
       .subscribe((films: BaseFilmsResponseModel) => {
         this.similarFilms = films.items.slice(0, 10);
-        this.dots = Array(this.similarFilms.length);
-        this.dots.length -= 2;
+        this.dots = Array(this.similarFilms.length - this.extraDots);
         this.currentSlide = 0;
         this.cdr.detectChanges();
 
