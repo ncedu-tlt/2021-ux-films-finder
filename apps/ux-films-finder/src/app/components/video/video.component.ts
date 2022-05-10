@@ -20,7 +20,8 @@ export class VideoComponent {
   isClicked = true;
 
   url?: string;
-  link: any;
+  link!: any;
+
   constructor(
     private filmDataService: FilmDataService,
     private activatedRouter: ActivatedRoute,
@@ -32,18 +33,38 @@ export class VideoComponent {
       const param = +params['id'];
       this.filmDataService.getVideoById(param).subscribe((info: VideoModel) => {
         this.videos$.next(info.items);
-        let isNotExist = true;
+        console.log(info);
+        let isYoutubeLinkNotExist = true;
         for (let i = 0; i < info.items.length; i++) {
+          this.url = 'https://www.youtube.com/embed/';
+          this.link = '';
           if (info.items[i].site.includes('YOUTUBE')) {
-            this.url =
-              'https://www.youtube.com/embed/' +
-              new URLSearchParams(info.items[0].url.split('?')[1]).get('v');
+            if (info.items[i].url.indexOf('v/') !== -1) {
+              const a = new URLSearchParams(info.items[i].url.split('v/')[1]);
+              this.url = this.url + a;
+            }
+            if (info.items[i].url.indexOf('be/') !== -1) {
+              const a = new URLSearchParams(info.items[i].url.split('be/')[1]);
+              this.url = this.url + a;
+            }
+            if (info.items[i].url.indexOf('?v=') !== -1) {
+              const a = new URLSearchParams(
+                info.items[i].url.split('?')[1]
+              ).get('v');
+              this.url = this.url + a;
+            }
+            this.url = this.url.substring(0, this.url.length - 1);
+
             this.link = this.sanitizer.bypassSecurityTrustResourceUrl(this.url);
-            isNotExist = false;
+            console.log(this.link);
+            isYoutubeLinkNotExist = false;
             break;
+          } else {
+            isYoutubeLinkNotExist = true;
+            console.log(isYoutubeLinkNotExist);
           }
         }
-        if (isNotExist) console.log('НЕ СУЩЕСТВУЕТ');
+        if (isYoutubeLinkNotExist) console.log('НЕ СУЩЕСТВУЕТ');
       });
     });
   }
