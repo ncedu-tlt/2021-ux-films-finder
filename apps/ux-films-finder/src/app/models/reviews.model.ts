@@ -7,4 +7,5 @@ export interface ReviewsModel {
   reviewAutor: string;
   reviewTitle: string;
   reviewDescription: string;
+  isShown?: boolean;
 }

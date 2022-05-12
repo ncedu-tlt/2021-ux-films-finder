@@ -1,4 +1,10 @@
-import { ChangeDetectorRef, Component, OnInit, Input } from '@angular/core';
+import {
+  ChangeDetectorRef,
+  Component,
+  OnInit,
+  Input,
+  ViewEncapsulation
+} from '@angular/core';
 import { ReviewResponseModel } from '../../models/reviews-response.model';
 import { ReviewsModel } from '../../models/reviews.model';
 import { FilmDataService } from '../../services/film-data.service';
@@ -8,7 +14,8 @@ import { PageEvent } from '@angular/material/paginator';
 @Component({
   selector: 'ff-reviews',
   templateUrl: './reviews.component.html',
-  styleUrls: ['./reviews.component.less']
+  styleUrls: ['./reviews.component.less'],
+  encapsulation: ViewEncapsulation.None
 })
 export class ReviewsComponent implements OnInit {
   didComponentInit = false;
@@ -27,7 +34,6 @@ export class ReviewsComponent implements OnInit {
   public reviewsInfo: ReviewsModel[] = [];
   public panelOpenState = false;
   private _filmdId = 0;
-  private date = new Date();
   readonly pageSize = 5;
 
   constructor(
@@ -37,18 +43,6 @@ export class ReviewsComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadReviews(1);
-
-    //TODO: Doesn't work
-    const showMoreButtons = document.querySelectorAll(
-      '.reviews__see-more-button'
-    );
-    const showMore = fromEvent(showMoreButtons, 'click');
-    showMore.subscribe(() => {
-      showMoreButtons.forEach(button => {
-        button.classList.add('_show');
-        console.log('class is added to the classList');
-      });
-    });
   }
 
   loadReviews(pageIndex: number): void {
@@ -66,8 +60,6 @@ export class ReviewsComponent implements OnInit {
   //TODO: How to translate months in Russian? (P.S. Check this format please)
   convertData(reviews: ReviewsModel[]): ReviewsModel[] {
     reviews.forEach(review => {
-      this.date = new Date(review.reviewData);
-      review.reviewData = this.date.toDateString();
       if (review.reviewType === 'POSITIVE') {
         review.reviewType = 'Положительный';
       }
@@ -79,6 +71,11 @@ export class ReviewsComponent implements OnInit {
       }
     });
     return reviews;
+  }
+
+  toggleReview(review: ReviewsModel): void {
+    review.isShown = !review.isShown;
+    console.log('toggleReview triggered');
   }
 
   onPageChange(page: PageEvent): void {

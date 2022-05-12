@@ -1,11 +1,4 @@
 <div class="reviews">
-  <div class="reviews__score-container">
-    <div class="reviews__score-header">Рейтинг фильма</div>
-    <div class="reviews__main-score">
-      {{ reviewsResponseInfo.reviewAllPositiveRatio }}
-    </div>
-    <div class="reviews__all-scores-container"></div>
-  </div>
   <div class="reviews__header">Рецензии зрителей</div>
   <mat-expansion-panel
     (opened)="panelOpenState = true"
@@ -17,14 +10,15 @@
         Показать все рецензии
       </mat-panel-title>
     </mat-expansion-panel-header>
-    <!-- TODO: Load first 5 reviews from every page -->
     <ng-container *ngFor="let review of reviewsInfo.slice(0, 5)">
       <div class="reviews__review-container">
         <div class="reviews__info-container">
           <div class="reviews__name-date-type-container">
             <div class="reviews__author-name">{{ review.reviewAutor }}</div>
-            <div class="reviews__date">{{ review.reviewData }}</div>
-            <!-- TODO: Check this format please -->
+            <div class="reviews__date">
+              {{ review.reviewData | date: 'dd MMMM yyyy':'GMT':'ru-Ru' }}
+            </div>
+            <!-- TODO: Should I change it? -->
             <div
               class="reviews__review-type"
               [class]="
@@ -55,10 +49,18 @@
           </div>
         </div>
         <div class="reviews__review-title">{{ review.reviewTitle }}</div>
-        <div class="reviews__review-description">
+        <div
+          class="reviews__review-description"
+          [class]="review.isShown ? '_show' : ''"
+        >
           {{ review.reviewDescription }}
         </div>
-        <button class="reviews__see-more-button">Подробнее &#9660;</button>
+        <button (click)="toggleReview(review)" class="reviews__see-more-button">
+          Подробнее
+          <span class="reviews__icon" [class]="review.isShown ? '_rotate' : ''">
+            &#9660;
+          </span>
+        </button>
       </div>
     </ng-container>
 

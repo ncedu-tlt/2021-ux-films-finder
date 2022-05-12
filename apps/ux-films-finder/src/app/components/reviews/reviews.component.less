@@ -12,21 +12,23 @@
     font-weight: bold;
   }
   &__expansion-panel {
-    // background-color: @color-white-ff;
-    // TODO: Doesn't work (P.S. Can I write style like this?)
-    &-header {
-      // color: @color-black-00;
+    background-color: @color-white-ff;
+    color: @color-black-00;
+    & .mat-expansion-indicator::after {
+      color: @color-black-00;
     }
-  }
-  &__expansion-panel-title {
-    // color: black;
+    &-header {
+      color: @color-black-00;
+    }
+    &-title {
+      color: @color-black-00;
+    }
   }
   &__review-container {
     margin-bottom: 20px;
     padding: 20px;
-    // color: black;
     border-radius: 20px;
-    box-shadow: 5px 5px 10px @color-black-00;
+    box-shadow: 6px 6px 10px;
   }
   &__info-container {
     display: flex;
@@ -39,7 +41,7 @@
     box-shadow: 0px 0px 6px;
   }
   &__author-name {
-    font-size: 25px;
+    font-size: 24px;
     font-weight: bold;
     font-style: italic;
   }
@@ -88,7 +90,7 @@
   }
   &__review-title {
     margin-bottom: 20px;
-    font-size: 25px;
+    font-size: 26px;
     font-weight: bold;
     font-style: italic;
     width: 50%;
@@ -98,25 +100,71 @@
     padding: 0px 30px;
     display: -webkit-box;
     -webkit-box-orient: vertical;
-    -webkit-line-clamp: 5;
+    -webkit-line-clamp: 3;
     overflow: hidden;
     &._show {
-      -webkit-line-clamp: none;
+      //TODO: Set transition (but how?)
+      -webkit-line-clamp: unset;
     }
   }
   &__see-more-button {
-    transition: all 0.2s;
     border: none;
     margin-left: 30px;
-    padding: 5px;
+    padding: 6px;
     width: 150px;
     color: @color-white-ff;
     background-color: @color-pink-cb;
+  }
+  &__icon {
+    transition: all 0.2s;
+    &._rotate {
+      display: inline-block;
+      transition: all 0.2s;
+      transform: rotate(180deg);
+    }
   }
   &__see-more-button:hover {
     transition: all 0.2s;
     background-color: @color-green-69;
     cursor: pointer;
-    border-radius: 5px;
+    border-radius: 6px;
+  }
+  &__paginator {
+    width: 24%;
+    font-size: 14px;
+    background-color: @color-white-ff;
+    box-shadow: 0px 0px 6px;
+    border-radius: 16px;
+    &.mat-paginator {
+      color: @color-black-00;
+    }
+  }
+}
+
+.theme-dark {
+  & .reviews {
+    &__expansion-panel {
+      background-color: @color-black-00;
+      color: @color-white-ff;
+      & .mat-expansion-indicator::after {
+        color: @color-white-ff;
+      }
+      &-header {
+        color: @color-white-ff;
+      }
+      &-title {
+        color: @color-white-ff;
+      }
+    }
+    &__review-container {
+      box-shadow: 6px 6px 10px;
+    }
+    &__paginator {
+      background-color: @color-black-00;
+      box-shadow: 0px 0px 6px;
+      &.mat-paginator {
+        color: @color-white-ff;
+      }
+    }
   }
 }
