@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostBinding, OnInit } from '@angular/core';
 import { FilmModel } from '../../models/film.model';
 import { FilmDataService } from '../../services/film-data.service';
 import { ActivatedRoute } from '@angular/router';
@@ -15,6 +15,7 @@ export class DetailsComponent implements OnInit {
     private filmDataService: FilmDataService,
     private activatedRoute: ActivatedRoute
   ) {}
+  @HostBinding('class.center-content') private hostClass = true;
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(params => {

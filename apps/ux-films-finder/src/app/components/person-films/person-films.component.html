@@ -1,0 +1,23 @@
+<div class="person-films">
+  <div class="person-films__title">Фильмы</div>
+  <ng-container *ngFor="let film of films">
+    <div class="person-films__film">
+      <div class="person-films__rating">
+        <div class="person-films__rating-number">
+          {{ film.rating }}
+        </div>
+      </div>
+
+      <a
+        class="person-films__film-link"
+        routerLink="/details/{{ film.filmId }}"
+      >
+        {{ film.nameRu || film.nameEn }}
+      </a>
+
+      <div class="person-films__profession-key">
+        {{ professions[film.professionKey] }}
+      </div>
+    </div>
+  </ng-container>
+</div>

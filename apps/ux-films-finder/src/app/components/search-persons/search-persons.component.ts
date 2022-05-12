@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostBinding, OnInit } from '@angular/core';
 import { FilmDataService } from '../../services/film-data.service';
 import { PersonInfoResponseModel } from '../../models/person-info-response.model';
-import { BehaviorSubject, map, Subject, Subscription, take } from 'rxjs';
+import { BehaviorSubject, Subject, Subscription, take } from 'rxjs';
 import { PageEvent } from '@angular/material/paginator';
 import { ActivatedRoute, Router } from '@angular/router';
 import { takeUntil } from 'rxjs/operators';
@@ -17,6 +17,7 @@ export class SearchPersonsComponent implements OnInit {
     private router: Router,
     private activatedRoute: ActivatedRoute
   ) {}
+  @HostBinding('class.center-content') private hostClass = true;
   public person$: BehaviorSubject<PersonInfoResponseModel> =
     new BehaviorSubject<PersonInfoResponseModel>({ items: [], total: 0 });
 
