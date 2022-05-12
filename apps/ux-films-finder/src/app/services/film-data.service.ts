@@ -8,6 +8,8 @@ import { PersonInfoResponseModel } from '../models/person-info-response.model';
 import { BiographyModel } from '../models/biography.model';
 import { Router } from '@angular/router';
 import { FilmImagesResponseModel } from '../models/fiml-images-response.model';
+import {FilmFilterModel} from "../models/film-flter.model";
+
 
 @Injectable({
   providedIn: 'root'
@@ -70,22 +72,21 @@ export class FilmDataService {
   }
 
   public allFilters(
-    country = 'string',
-    genreFilm = 'string',
-    yearFrom = 'integer',
-    yearTo = 'integer',
-    keyWord = 'string'
-  ): Observable<FilmModel> {
-    return this.http.get<FilmModel>(
+    country: string,
+    genreFilm: string,
+    yearFrom: number,
+    yearTo: number,
+    keyWord: string
+  ): Observable<FilmsResponseModel> {
+    return this.http.get<FilmsResponseModel>(
       this.kinopoiskUrl + '/api/v2.2/films'+ '?countries=' + country + '&genres=' +
       genreFilm + '&order=RATING&type=ALL&ratingFrom=0&ratingTo=10&yearFrom=' + yearFrom + '&yearTo='+ yearTo + '&keyword=' + keyWord
     );
   }
 
   public getCountry(
-
-  ): Observable<FilmModel> {
-    return this.http.get<FilmModel>(
+  ): Observable<FilmFilterModel> {
+    return this.http.get<FilmFilterModel>(
       this.kinopoiskUrl + '/api/v2.2/films/filters'//
     );
   }

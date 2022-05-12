@@ -54,14 +54,15 @@
         </div>
 
         <button mat-raised-button type="submit"
-                (click)="showFilms(1)">ПОИСК</button>
+                (click)="showFilmsLog()" >ПОИСК
+        </button>
       </div>
     </div>
   </form>
-</ng-container>
 
-<!--  <div class="category__card-list">
-    <ng-container *ngFor="let film of (films$ | async)?.items">
+</ng-container>
+ <div class="category__card-list">
+    <ng-container *ngFor="let film of (filmResponse | async)?.items">
       <a
         class="category__card-link"
         routerLink="/details/{{ film.kinopoiskId }}"
@@ -75,7 +76,7 @@
         </ff-card>
       </a>
     </ng-container>
-  </div>-->
+  </div>
 
 
 

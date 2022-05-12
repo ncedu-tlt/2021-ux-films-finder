@@ -5,6 +5,7 @@
   justify-content: center;
   background: gray;
   width: 100%;
+  padding-bottom: 3%;
   @media only screen and (max-width: 500px) {
     width: 150%;
   }
@@ -83,8 +84,69 @@ button {
   }
 }
 
+.ff-card {
+  width: 360px;
+  position: relative;
+  background-color: @color-gray-1b;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.25), 1px -1px 8px rgba(0, 0, 0, 0.25);
+  height: 450px;
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  &:hover &__name,
+  &:hover &__rating,
+  &:hover &__gender {
+    background-color: @color-green-69;
+  }
 
-/*.category__card-list {
+  &__img {
+    width: 314px;
+    height: 450px;
+  }
+  &__name {
+    display: flex;
+    position: absolute;
+    bottom: 24px;
+    line-height: 36px;
+    font-size: 24px;
+    width: 360px;
+    left: 0;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    padding-left: 24px;
+    padding-right: 24px;
+
+    color: @color-gray-1b;
+    background-color: @color-white-ff;
+  }
+
+  &__rating,
+  &__gender {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    font-size: 24px;
+    width: 84px;
+    height: 49px;
+    top: 0;
+    bottom: 85%;
+    border-radius: 0 0 0 16px;
+    right: 0;
+    color: @color-gray-1b;
+    background-color: @color-white-ff;
+  }
+  &__gender .mat-icon {
+    font-size: 32px;
+    line-height: 32px;
+    height: 32px;
+    width: 32px;
+  }
+}
+
+.category__card-list {
+  background: gray;
   padding: 40px;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -102,5 +164,5 @@ button {
 .category__card-link {
     width: 360px;
 
-  }*/
+}
 
