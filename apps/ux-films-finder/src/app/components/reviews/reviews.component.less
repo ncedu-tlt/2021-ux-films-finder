@@ -5,10 +5,14 @@
   display: flex;
   flex-direction: column;
   margin: 0px 70px 30px;
+  // background-color: black;
+  @media screen and (max-width: 770px) {
+    margin: 0px 10px 30px;
+  }
   &__header {
     padding: 10px;
     margin-bottom: 10px;
-    font-size: 20px;
+    font-size: 24px;
     font-weight: bold;
   }
   &__expansion-panel {
@@ -28,17 +32,24 @@
     margin-bottom: 20px;
     padding: 20px;
     border-radius: 20px;
-    box-shadow: 6px 6px 10px;
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.25), 1px -1px 8px rgba(0, 0, 0, 0.25);
   }
   &__info-container {
     display: flex;
     justify-content: space-between;
     margin-bottom: 30px;
+    @media screen and (max-width: 770px) {
+      flex-direction: column;
+    }
   }
   &__name-date-type-container {
+    max-width: 280px;
     padding: 10px;
     border-radius: 10px;
-    box-shadow: 0px 0px 6px;
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.25), 1px -1px 8px rgba(0, 0, 0, 0.25);
+    @media screen and (max-width: 770px) {
+      margin-bottom: 10px;
+    }
   }
   &__author-name {
     font-size: 24px;
@@ -61,10 +72,12 @@
     }
   }
   &__author-ratings-container {
+    max-width: 280px;
     margin-right: 50px;
     padding: 10px;
+    text-align: center;
     border-radius: 10px;
-    box-shadow: 0px 0px 6px;
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.25), 1px -1px 8px rgba(0, 0, 0, 0.25);
   }
   &__author-all-ratings-container {
     display: flex;
@@ -72,21 +85,18 @@
     margin-top: 6px;
     padding: 6px;
   }
-  &__author-positive-ratings {
+  &__author-ratings {
     padding: 6px;
     width: 30%;
     text-align: center;
     border-radius: 4px;
     color: @color-white-ff;
-    background-color: @color-green-04;
-  }
-  &__author-negative-ratings {
-    padding: 6px;
-    width: 30%;
-    text-align: center;
-    border-radius: 4px;
-    color: @color-white-ff;
-    background-color: @color-pink-cb;
+    &._positive {
+      background-color: @color-green-04;
+    }
+    &._negative {
+      background-color: @color-pink-cb;
+    }
   }
   &__review-title {
     margin-bottom: 20px;
@@ -103,7 +113,6 @@
     -webkit-line-clamp: 3;
     overflow: hidden;
     &._show {
-      //TODO: Set transition (but how?)
       -webkit-line-clamp: unset;
     }
   }
@@ -130,10 +139,10 @@
     border-radius: 6px;
   }
   &__paginator {
-    width: 24%;
+    max-width: 370px;
     font-size: 14px;
     background-color: @color-white-ff;
-    box-shadow: 0px 0px 6px;
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.25), 1px -1px 8px rgba(0, 0, 0, 0.25);
     border-radius: 16px;
     &.mat-paginator {
       color: @color-black-00;
@@ -144,7 +153,7 @@
 .theme-dark {
   & .reviews {
     &__expansion-panel {
-      background-color: @color-black-00;
+      background-color: transparent;
       color: @color-white-ff;
       & .mat-expansion-indicator::after {
         color: @color-white-ff;
@@ -157,11 +166,13 @@
       }
     }
     &__review-container {
-      box-shadow: 6px 6px 10px;
+      box-shadow: 0 5px 5px rgba(0, 0, 0, 0.25),
+        1px -1px 8px rgba(0, 0, 0, 0.25);
     }
     &__paginator {
-      background-color: @color-black-00;
-      box-shadow: 0px 0px 6px;
+      background-color: transparent;
+      box-shadow: 0 5px 5px rgba(0, 0, 0, 0.25),
+        1px -1px 8px rgba(0, 0, 0, 0.25);
       &.mat-paginator {
         color: @color-white-ff;
       }

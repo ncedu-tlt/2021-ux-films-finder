@@ -1,5 +1,10 @@
 <div class="reviews">
   <div class="reviews__header">Рецензии зрителей</div>
+  <ng-container
+    [ngTemplateOutlet]="reviewTemplate"
+    [ngTemplateOutletContext]="{review}"
+    *ngFor="let review of reviewsInfo.slice(0, 2)"
+  ></ng-container>
   <mat-expansion-panel
     (opened)="panelOpenState = true"
     (closed)="panelOpenState = false"
@@ -10,7 +15,13 @@
         Показать все рецензии
       </mat-panel-title>
     </mat-expansion-panel-header>
-    <ng-container *ngFor="let review of reviewsInfo.slice(0, 5)">
+    <ng-container
+      [ngTemplateOutlet]="reviewTemplate"
+      [ngTemplateOutletContext]="{review}"
+      *ngFor="let review of reviewsInfo.slice(2, 7)"
+    ></ng-container>
+
+    <ng-template #reviewTemplate let-review="review">
       <div class="reviews__review-container">
         <div class="reviews__info-container">
           <div class="reviews__name-date-type-container">
@@ -18,7 +29,6 @@
             <div class="reviews__date">
               {{ review.reviewData | date: 'dd MMMM yyyy':'GMT':'ru-Ru' }}
             </div>
-            <!-- TODO: Should I change it? -->
             <div
               class="reviews__review-type"
               [class]="
@@ -39,10 +49,10 @@
               Оценки этого пользователя
             </div>
             <div class="reviews__author-all-ratings-container">
-              <div class="reviews__author-positive-ratings">
+              <div class="reviews__author-ratings _positive">
                 {{ review.userPositiveRating }}
               </div>
-              <div class="reviews__author-negative-ratings">
+              <div class="reviews__author-ratings _negative">
                 {{ review.userNegativeRating }}
               </div>
             </div>
@@ -62,7 +72,7 @@
           </span>
         </button>
       </div>
-    </ng-container>
+    </ng-template>
 
     <mat-paginator
       class="reviews__paginator"
