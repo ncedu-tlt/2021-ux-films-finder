@@ -39,7 +39,12 @@ import { ScreenGalleryComponent } from './components/screen-gallery/screen-galle
 import { SimilarFilmsComponent } from './components/similar-films/similar-films.component';
 import { RatingPipe } from './pipes/pipe';
 import { MovieCadrComponent } from './components/movie-cadr/movie-cadr.component';
-import { MatDialog, MatDialogModule } from '@angular/material/dialog';
+import { MatDialogModule } from '@angular/material/dialog';
+import { PersonSpousesComponent } from './components/person-spouses/person-spouses.component';
+import { PersonFactsComponent } from './components/person-facts/person-facts.component';
+import { PersonFilmsComponent } from './components/person-films/person-films.component';
+
+import { MatDialog } from '@angular/material/dialog';
 
 registerLocaleData(localeRu);
 @NgModule({
@@ -65,6 +70,10 @@ registerLocaleData(localeRu);
     LoaderComponent,
     ScreenGalleryComponent,
     SimilarFilmsComponent,
+    MovieCadrComponent,
+    PersonSpousesComponent,
+    PersonFactsComponent,
+    PersonFilmsComponent,
     RatingPipe,
     MovieCadrComponent
   ],

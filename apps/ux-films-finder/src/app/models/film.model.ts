@@ -2,7 +2,7 @@ import { FilmGenreModel } from './film-genre.model';
 import { FilmCountryModel } from './film-country.model';
 import { FilmBaseModel } from './film-banner.model';
 
-export interface FilmModel extends FilmBaseModel {
+export interface FilmModel extends FilmBaseModel, BaseFilmModel {
   kinopoiskId: number;
   imdbId: string;
   nameOriginal: string;
