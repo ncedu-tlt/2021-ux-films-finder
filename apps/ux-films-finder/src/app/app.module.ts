@@ -46,6 +46,7 @@ import { PersonFactsComponent } from './components/person-facts/person-facts.com
 import { PersonFilmsComponent } from './components/person-films/person-films.component';
 
 import { MatDialog } from '@angular/material/dialog';
+import { SimilarFilmsComponent } from './components/similar-films/similar-films.component';
 
 registerLocaleData(localeRu);
 @NgModule({
@@ -76,7 +77,8 @@ registerLocaleData(localeRu);
     PersonFilmsComponent,
     RatingPipe,
     MovieCadrComponent,
-    ReviewsComponent
+    ReviewsComponent,
+    SimilarFilmsComponent
   ],
   imports: [
     BrowserModule,

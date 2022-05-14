@@ -57,7 +57,6 @@ export class ReviewsComponent implements OnInit {
       });
   }
 
-  //TODO: How to translate months in Russian? (P.S. Check this format please)
   convertData(reviews: ReviewsModel[]): ReviewsModel[] {
     reviews.forEach(review => {
       if (review.reviewType === 'POSITIVE') {
