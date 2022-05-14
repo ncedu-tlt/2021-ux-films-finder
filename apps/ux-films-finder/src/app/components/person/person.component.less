@@ -1,48 +1,32 @@
-@import '../../../assets/styles/themes/dark/common/shared';
+@import '../../../assets/styles/themes/base/common/shared';
 .person {
   font-size: 20px;
   line-height: 32px;
   padding: 40px;
   &__title {
-    font-size: 20px;
     line-height: 42px;
     color: @color-gray-1b;
-    margin-top: 32px;
-    margin-bottom: 8px;
+    margin: 32px 0 8px 0;
   }
   &__photo {
     display: flex;
-    justify-self: center;
     justify-content: center;
     width: 420px;
     height: 500px;
     background-color: @color-black-00;
-    margin-right: 32px;
-    margin-top: 16px;
+    margin: 16px 32px 0 0;
     border-radius: 16px;
     box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.25),
       1px -1px 8px rgba(0, 0, 0, 0.25);
   }
   &__img {
     width: 335px;
-    height: 501px;
-    filter: drop-shadow(0px 5px 5px rgba(0, 0, 0, 0.25))
-      drop-shadow(1px -1px 8px rgba(0, 0, 0, 0.25));
   }
   &__info {
     display: flex;
     flex-direction: column;
   }
-  &__icon {
-    font-size: 32px;
-    margin-right: 24px;
-    &._female {
-      color: @color-pink-cb;
-    }
-    &._male {
-      color: @color-blue-27;
-    }
-  }
+
   &__icon-title {
     font-size: 40px;
     line-height: 56px;
@@ -56,10 +40,7 @@
   }
   &__name {
     display: flex;
-    flex-direction: row;
     justify-content: left;
-    font-style: normal;
-    font-weight: normal;
     font-size: 36px;
     line-height: 56px;
     margin-bottom: 8px;
@@ -68,21 +49,14 @@
     font-size: 24px;
     line-height: 24px;
   }
-  &__fact-paragraph {
-    margin-block: 0em;
-    font-size: 24px;
-    line-height: 36px;
-    margin-bottom: 16px;
-  }
+
   &__data {
     display: grid;
     grid-template-columns: 2fr 2fr 2fr 2fr;
     white-space: nowrap;
     margin-bottom: 24px;
   }
-  &__date-title,
-  &__age-title,
-  &__birthplace-title {
+  &__label-title {
     font-size: 20px;
     line-height: 42px;
     color: @color-gray-1b;
@@ -123,26 +97,10 @@
   &__profession-title {
     color: @color-gray-42;
   }
-  &__spouses {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 8px;
-  }
-  &__spouses-link-name,
-  &__film-name {
-    white-space: nowrap;
-    color: @color-green-04;
-    text-decoration: none;
-  }
-  &__films {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 32px;
-  }
+
   &__stripe {
     position: absolute;
     display: flex;
-    flex-direction: row;
     justify-content: space-between;
     background: @color-gray-0E;
     right: -1px;
@@ -162,53 +120,6 @@
       transform: rotate(0.5turn);
     }
   }
-
-  &__relation {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    margin-bottom: 16px;
-  }
-
-  &__rating-empty {
-    display: flex;
-    flex-direction: row;
-    width: 71px;
-    height: 32px;
-  }
-  &__rating {
-    width: 55px;
-    height: 32px;
-    background: @color-gray-0E;
-    border-radius: 16px;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    margin-right: 16px;
-  }
-  &__film {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    margin-bottom: 32px;
-    white-space: nowrap;
-  }
-  &__rating-name {
-    display: flex;
-    flex-direction: row;
-    justify-content: start;
-    margin-right: 32px;
-    margin-top: 8px;
-  }
-  &__icon-and-name {
-    display: flex;
-    flex-direction: row;
-    justify-content: start;
-    margin-right: 16px;
-  }
-  a:hover,
-  a:active,
-  a:focus {
-    color: @color-green-04;
-  }
 }
 @media only screen and (max-width: 1275px) {
   .person {
@@ -222,14 +133,9 @@
     }
     &__title {
       font-size: 20px;
-      line-height: 125%;
-      letter-spacing: 0.08em;
+      line-height: 42px;
     }
-    &__fact-paragraph {
-      font-size: 16px;
-      line-height: 24px;
-      margin-bottom: 16px;
-    }
+
     &__data {
       display: flex;
       flex-direction: column;
@@ -238,27 +144,13 @@
   }
 }
 .theme-dark {
-  a:hover,
-  a:active,
-  a:focus {
-    color: @color-green-04;
-  }
   & .person {
     &__stripe {
       background-color: @color-gray-1b;
     }
-    &__date-title,
-    &__age-title,
-    &__birthplace-title,
+    &__label-title,
     &__title {
       color: @color-gray-ac;
-    }
-    &__spouses-link-name,
-    &__film-name {
-      color: @color-green-69;
-    }
-    &__rating {
-      background: @color-gray-1b;
     }
   }
 }

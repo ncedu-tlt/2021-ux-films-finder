@@ -11,8 +11,8 @@ import {
 import KeenSlider, { KeenSliderInstance, KeenSliderOptions } from 'keen-slider';
 import { FilmDataService } from '../../services/film-data.service';
 import { FilmImagesResponseModel } from '../../models/fiml-images-response.model';
-import { BehaviorSubject, Subscription, take } from 'rxjs';
-import { MAT_DIALOG_DATA, MatDialog } from '@angular/material/dialog';
+import { take } from 'rxjs';
+import { MatDialog } from '@angular/material/dialog';
 import { MovieCadrComponent } from '../movie-cadr/movie-cadr.component';
 import { FilmImagesModel } from '../../models/film-images.model';
 
@@ -69,7 +69,7 @@ export class ScreenGalleryComponent
     const newImagesArray = this.activeImage.map((currentValue, index) => {
       return currentValue.imageUrl;
     });
-    const dialogRef = this.dialog.open(MovieCadrComponent, {
+    this.dialog.open(MovieCadrComponent, {
       data: { currentImage: url, images: newImagesArray },
       maxWidth: '1600px'
     });

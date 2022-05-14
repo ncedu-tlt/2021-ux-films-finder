@@ -38,9 +38,14 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { ScreenGalleryComponent } from './components/screen-gallery/screen-gallery.component';
 import { RatingPipe } from './pipes/pipe';
 import { MovieCadrComponent } from './components/movie-cadr/movie-cadr.component';
-import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { ReviewsComponent } from './components/reviews/reviews.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { PersonSpousesComponent } from './components/person-spouses/person-spouses.component';
+import { PersonFactsComponent } from './components/person-facts/person-facts.component';
+import { PersonFilmsComponent } from './components/person-films/person-films.component';
+
+import { MatDialog } from '@angular/material/dialog';
 
 registerLocaleData(localeRu);
 @NgModule({
@@ -65,6 +70,10 @@ registerLocaleData(localeRu);
     GenreLabelComponent,
     LoaderComponent,
     ScreenGalleryComponent,
+    MovieCadrComponent,
+    PersonSpousesComponent,
+    PersonFactsComponent,
+    PersonFilmsComponent,
     RatingPipe,
     MovieCadrComponent,
     ReviewsComponent

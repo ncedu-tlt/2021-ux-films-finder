@@ -1,0 +1,60 @@
+@import '../../../assets/styles/themes/base/common/shared';
+.person-films {
+  &__rating-name {
+    display: flex;
+    justify-content: start;
+    margin-right: 32px;
+    margin-top: 8px;
+  }
+
+  &__rating-number {
+    background: @color-gray-0E;
+    display: flex;
+    justify-content: center;
+    border-radius: 16px;
+    padding: 0px 32px;
+  }
+  &__rating {
+    width: 55px;
+    height: 32px;
+  }
+  &__film {
+    display: grid;
+    grid-template-columns: 75px 700px 100px;
+    margin-bottom: 32px;
+    white-space: nowrap;
+  }
+  &__title {
+    line-height: 42px;
+    color: @color-gray-1b;
+    margin: 32px 0 8px 0;
+  }
+  &__film-link {
+    white-space: nowrap;
+    color: @color-green-04;
+    text-decoration: none;
+    &:hover,
+    &:active,
+    &:focus {
+      color: @color-green-04;
+    }
+  }
+}
+.theme-dark {
+  & .person-film {
+    &__film-link {
+      color: @color-green-69;
+    }
+    &__rating {
+      background: @color-gray-1b;
+    }
+  }
+}
+@media (max-width: 800px) {
+  .person-film {
+    &__title {
+      font-size: 20px;
+      line-height: 42px;
+    }
+  }
+}
