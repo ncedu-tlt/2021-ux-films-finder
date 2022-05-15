@@ -1,0 +1,36 @@
+<div class="person-spouses">
+  <div class="person-spouses__spouses">
+    <div class="person-spouses__title">Отношения</div>
+    <ng-container *ngFor="let spousesItem of spouses">
+      <div class="person-spouses__relation">
+        <div class="person-spouses__icon-and-name">
+          <mat-icon
+            class="person-spouses__icon"
+            [ngClass]="
+              spousesItem.relation === SPOUSES.WIFE ? '_female' : '_male'
+            "
+          >
+            {{ spousesItem.relation === SPOUSES.WIFE ? 'female' : 'male' }}
+          </mat-icon>
+
+          <a
+            class="person-spouses__spouses-link"
+            routerLink="/persons/{{ spousesItem.personId }}"
+          >
+            {{ spousesItem.name }}
+          </a>
+        </div>
+        <div class="person-spouses__divorced">
+          {{ spousesItem.divorced ? 'Разведены' : 'В браке' }}
+        </div>
+        <div class="person-spouses__children">
+          {{
+            spousesItem.children !== 0
+              ? 'Детей ' + spousesItem.children
+              : 'Детей нет'
+          }}
+        </div>
+      </div>
+    </ng-container>
+  </div>
+</div>

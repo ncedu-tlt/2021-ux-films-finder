@@ -1,4 +1,9 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import {
+  Component,
+  HostBinding,
+  OnInit,
+  ViewEncapsulation
+} from '@angular/core';
 import { FilmDataService } from '../../services/film-data.service';
 import { FilmModel } from '../../models/film.model';
 import { ActivatedRoute, UrlSegment } from '@angular/router';
@@ -33,7 +38,7 @@ export class CategoryComponent implements OnInit {
     private filmDataService: FilmDataService,
     private activatedRoute: ActivatedRoute
   ) {}
-
+  @HostBinding('class.center-content') private hostClass = true;
   ngOnInit(): void {
     this.activeFilm$ = this.activatedRoute.data
       .pipe(take(1))

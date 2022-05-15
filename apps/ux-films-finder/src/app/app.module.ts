@@ -40,6 +40,12 @@ import { GenresPipe, RatingPipe } from './pipes/pipe';
 import { MovieCadrComponent } from './components/movie-cadr/movie-cadr.component';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { TitleFilmsListComponent } from './components/title-films-list/title-films-list.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { PersonSpousesComponent } from './components/person-spouses/person-spouses.component';
+import { PersonFactsComponent } from './components/person-facts/person-facts.component';
+import { PersonFilmsComponent } from './components/person-films/person-films.component';
+
+import { MatDialog } from '@angular/material/dialog';
 
 registerLocaleData(localeRu);
 @NgModule({
@@ -64,6 +70,10 @@ registerLocaleData(localeRu);
     GenreLabelComponent,
     LoaderComponent,
     ScreenGalleryComponent,
+    MovieCadrComponent,
+    PersonSpousesComponent,
+    PersonFactsComponent,
+    PersonFilmsComponent,
     RatingPipe,
     GenresPipe,
     MovieCadrComponent,
