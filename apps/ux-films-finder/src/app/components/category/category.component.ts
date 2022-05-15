@@ -1,11 +1,13 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { FilmDataService } from '../../services/film-data.service';
 import { FilmModel } from '../../models/film.model';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, UrlSegment } from '@angular/router';
 import { BehaviorSubject, Subject, Subscription, take } from 'rxjs';
 import { FilmsResponseModel } from '../../models/films-response.model';
 import { PageEvent } from '@angular/material/paginator';
 import { PersonInfoResponseModel } from '../../models/person-info-response.model';
+import { takeUntil } from 'rxjs/operators';
+import { BiographyModel } from '../../models/biography.model';
 
 @Component({
   selector: 'ff-category',
@@ -24,6 +26,7 @@ export class CategoryComponent implements OnInit {
       totalPages: 0
     });
   genreId = 0;
+  genre = '';
   public loading!: boolean;
 
   constructor(
@@ -38,6 +41,12 @@ export class CategoryComponent implements OnInit {
         this.genreId = data['genreId'];
         this.loadFilmsList(1);
         this.loading = true;
+      });
+
+    this.activatedRoute.url
+      .pipe(take(1))
+      .subscribe((segments: UrlSegment[]) => {
+        this.genre = segments[0].path;
       });
   }
   onPageChange(page: PageEvent): void {

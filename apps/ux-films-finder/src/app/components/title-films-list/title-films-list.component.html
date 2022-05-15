@@ -1,7 +1,7 @@
-<div class="title-films-list" [ngClass]="name[titleGenres]">
+<div class="title-films-list" [ngClass]="'_' + genre">
   <div class="title-films-list__stripe">
-    <div class="title-films-list__genres">
-      {{ name[titleGenres] }}
+    <div class="title-films-list__title">
+      {{ genres[genre] }}
     </div>
   </div>
 </div>
