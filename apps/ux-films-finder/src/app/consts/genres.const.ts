@@ -3,7 +3,7 @@ export const GENRES: {
 } = {
   comedy: 'комедия',
   horror: 'ужасы',
-  //adventure: 'приключения',
+  adventure: 'приключения',
   adventures: 'приключения',
   thriller: 'триллер',
   fantasy: 'фэнтези',
@@ -33,7 +33,7 @@ export const GENRES: {
   children: 'детский',
   'for-children': 'детские программы',
   'talk-show': 'ток-шоу',
-  //romance: 'мелодрама',
+  romance: 'мелодрама',
   melodrama: 'мелодрама',
   show: 'телешоу',
   'real-tv': 'реальное ТВ'
