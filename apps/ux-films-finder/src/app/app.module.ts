@@ -36,6 +36,7 @@ import { GenreLabelComponent } from './components/genre-label/genre-label.compon
 import { LoaderComponent } from './components/loader/loader.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { ScreenGalleryComponent } from './components/screen-gallery/screen-gallery.component';
+import { SimilarFilmsComponent } from './components/similar-films/similar-films.component';
 import { GenresPipe, RatingPipe } from './pipes/pipe';
 import { MovieCadrComponent } from './components/movie-cadr/movie-cadr.component';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
@@ -67,6 +68,7 @@ registerLocaleData(localeRu);
     GenreLabelComponent,
     LoaderComponent,
     ScreenGalleryComponent,
+    SimilarFilmsComponent,
     MovieCadrComponent,
     PersonSpousesComponent,
     PersonFactsComponent,

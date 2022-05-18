@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { catchError, Observable, throwError } from 'rxjs';
 import { FilmModel } from '../models/film.model';
+import { BaseFilmsResponseModel } from '../models/films-response.model';
 import { FilmsResponseModel } from '../models/films-response.model';
 import { FilmBannerResponseModel } from '../models/film-banner-response.model';
 import { PersonInfoResponseModel } from '../models/person-info-response.model';
@@ -29,6 +30,13 @@ export class FilmDataService {
           '/api/v2.2/films/' +
           id +
           '/images?type=STILL&page=1'
+      )
+      .pipe(catchError(this.handleError));
+  }
+  public getSimilarFilms(id: number): Observable<BaseFilmsResponseModel> {
+    return this.http
+      .get<BaseFilmsResponseModel>(
+        this.kinopoiskUrl + '/api/v2.2/films/' + id + '/similars'
       )
       .pipe(catchError(this.handleError));
   }

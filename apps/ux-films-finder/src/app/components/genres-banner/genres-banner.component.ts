@@ -37,7 +37,7 @@ export class GenresBannerComponent implements AfterViewInit, OnDestroy {
         },
         slides: { perView: 1 }
       });
-      this.dots = [...Array(this.slider.track.details.slides.length).keys()];
+      this.dots = Array(9);
     });
   }
 
