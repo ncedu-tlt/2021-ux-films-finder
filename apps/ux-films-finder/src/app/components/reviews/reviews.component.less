@@ -1,5 +1,6 @@
 @import '../../../assets/styles/themes/base/common/shared';
 @import '../../../assets/styles/themes/dark/common/shared';
+// @import '../../../assets/fonts/BellotaText-Regular.woff';
 
 .reviews {
   display: flex;
@@ -9,10 +10,10 @@
     margin: 0px 10px 30px;
   }
   &__header {
+    text-align: center;
     padding: 10px;
-    margin-bottom: 10px;
-    font-size: 24px;
-    font-weight: bold;
+    margin-bottom: 40px;
+    font-size: 40px;
   }
   &__expansion-panel {
     background-color: @color-white-ff;
@@ -28,7 +29,8 @@
     }
   }
   &__review-container {
-    margin-bottom: 20px;
+    .font-regular();
+    margin: 20px 0px;
     padding: 20px;
     border-radius: 20px;
     box-shadow: 0 5px 5px rgba(0, 0, 0, 0.25), 1px -1px 8px rgba(0, 0, 0, 0.25);
@@ -52,7 +54,6 @@
   }
   &__author-name {
     font-size: 24px;
-    font-weight: bold;
     font-style: italic;
   }
   &__review-type {
@@ -100,24 +101,23 @@
   &__review-title {
     margin-bottom: 20px;
     font-size: 26px;
-    font-weight: bold;
     font-style: italic;
     width: 50%;
   }
   &__review-description {
     margin-bottom: 5px;
-    padding: 0px 30px;
     display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 3;
     overflow: hidden;
+    line-height: 24px;
     &._show {
       -webkit-line-clamp: unset;
     }
   }
   &__see-more-button {
     border: none;
-    margin-left: 30px;
+    margin-top: 10px;
     padding: 6px;
     width: 150px;
     color: @color-white-ff;
@@ -132,10 +132,8 @@
     }
   }
   &__see-more-button:hover {
-    transition: all 0.2s;
     background-color: @color-green-69;
     cursor: pointer;
-    border-radius: 6px;
   }
   &__paginator {
     max-width: 370px;
