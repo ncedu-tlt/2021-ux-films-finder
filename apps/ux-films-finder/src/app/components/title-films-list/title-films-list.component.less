@@ -1,0 +1,136 @@
+@import 'keen-slider/keen-slider.min.css';
+@import '../../../assets/styles/themes/base/common/shared';
+
+.title-films-list {
+  &__stripe {
+    display: flex;
+    justify-content: space-between;
+    height: 120px;
+    &:after,
+    &:before {
+      content: '';
+      width: 73px;
+      background: url('../../../assets/images/triangles.svg') no-repeat;
+    }
+    &:before {
+      transform: rotate(0.5turn);
+    }
+  }
+  &__title {
+    text-transform: capitalize;
+    font-size: 42px;
+    display: flex;
+    align-items: center;
+    color: #ffffff;
+  }
+
+  &._comedy {
+    background-color: @color-genre-comedy;
+  }
+
+  &._horror {
+    background-color: @color-genre-horror;
+  }
+
+  &._adventure {
+    background-color: @color-genre-adventure;
+  }
+
+  &._thriller {
+    background-color: @color-genre-thriller;
+  }
+
+  &._romance {
+    background-color: @color-genre-romance;
+  }
+
+  &._fantasy {
+    background-color: @color-genre-fantasy;
+  }
+
+  &._action {
+    background-color: @color-genre-action;
+  }
+
+  &._family {
+    background-color: @color-genre-family;
+  }
+
+  &._drama {
+    background-color: @color-genre-drama;
+  }
+
+  &._crime {
+    background-color: @color-genre-crime;
+  }
+
+  &._cartoon {
+    background-color: @color-genre-cartoon;
+  }
+
+  &._anime {
+    background-color: @color-genre-anime;
+  }
+
+  &._military {
+    background-color: @color-genre-military;
+  }
+
+  &._history {
+    background-color: @color-genre-history;
+  }
+
+  &._biography {
+    background-color: @color-genre-biography;
+  }
+
+  &._detective {
+    background-color: @color-genre-detective;
+  }
+
+  &._fiction {
+    background-color: @color-genre-fiction;
+  }
+  &._western {
+    background-color: @color-genre-western;
+  }
+  &._musical {
+    background-color: @color-genre-musical;
+  }
+  &._sport {
+    background-color: @color-genre-sport;
+  }
+  &._documentary {
+    background-color: @color-genre-documentary;
+  }
+  &._short-film {
+    background-color: @color-genre-short-film;
+  }
+  &._news {
+    background-color: @color-genre-news;
+  }
+  &._concert {
+    background-color: @color-genre-concert;
+  }
+  &._for-adults {
+    background-color: @color-genre-for-adults;
+  }
+  &._ceremony {
+    background-color: @color-genre-ceremony;
+  }
+  &._live {
+    background-color: @color-genre-live;
+  }
+  &._game {
+    background-color: @color-genre-game;
+  }
+  &._show {
+    background-color: @color-genre-show;
+  }
+  &._for-children {
+    background-color: @color-genre-for-children;
+  }
+  &._music {
+    background-color: @color-genre-music;
+  }
+}

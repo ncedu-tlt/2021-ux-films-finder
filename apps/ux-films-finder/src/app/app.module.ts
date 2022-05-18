@@ -37,16 +37,19 @@ import { GenreLabelComponent } from './components/genre-label/genre-label.compon
 import { LoaderComponent } from './components/loader/loader.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { ScreenGalleryComponent } from './components/screen-gallery/screen-gallery.component';
+import { SimilarFilmsComponent } from './components/similar-films/similar-films.component';
+import { GenresPipe, RatingPipe } from './pipes/pipe';
 import { VideoComponent } from './components/video/video.component';
 import { VgCoreModule } from 'ngx-videogular';
-
 import { VgControlsModule } from 'ngx-videogular';
 import { VgOverlayPlayModule } from 'ngx-videogular';
 import { VgBufferingModule } from 'ngx-videogular';
-
-import { RatingPipe } from './pipes/pipe';
 import { MovieCadrComponent } from './components/movie-cadr/movie-cadr.component';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
+import { TitleFilmsListComponent } from './components/title-films-list/title-films-list.component';
+import { PersonSpousesComponent } from './components/person-spouses/person-spouses.component';
+import { PersonFactsComponent } from './components/person-facts/person-facts.component';
+import { PersonFilmsComponent } from './components/person-films/person-films.component';
 
 registerLocaleData(localeRu);
 
@@ -74,8 +77,15 @@ registerLocaleData(localeRu);
     LoaderComponent,
     ScreenGalleryComponent,
     VideoComponent,
+    SimilarFilmsComponent,
+    MovieCadrComponent,
+    PersonSpousesComponent,
+    PersonFactsComponent,
+    PersonFilmsComponent,
     RatingPipe,
-    MovieCadrComponent
+    GenresPipe,
+    MovieCadrComponent,
+    TitleFilmsListComponent
   ],
   imports: [
     BrowserModule,
