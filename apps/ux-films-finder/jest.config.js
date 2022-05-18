@@ -10,7 +10,7 @@ module.exports = {
   },
   coverageDirectory: '../../coverage/apps/ux-films-finder',
   transform: {
-    '^.+\\.(ts|mjs|js|html)$': 'jest-preset-angular'
+    '^.+\\.(ts|mjs|js|html)$': 'jest-preset-angular',
   },
   transformIgnorePatterns: ['node_modules/(?!.*\\.mjs$)'],
   snapshotSerializers: [

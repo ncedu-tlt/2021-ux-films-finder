@@ -2,10 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { catchError, Observable, throwError } from 'rxjs';
 import { FilmModel } from '../models/film.model';
-import {
-  BaseFilmsResponseModel,
-  FilmsResponseModel
-} from '../models/films-response.model';
+import { BaseFilmsResponseModel } from '../models/films-response.model';
+import { FilmsResponseModel } from '../models/films-response.model';
 import { FilmBannerResponseModel } from '../models/film-banner-response.model';
 import { PersonInfoResponseModel } from '../models/person-info-response.model';
 import { BiographyModel } from '../models/biography.model';
