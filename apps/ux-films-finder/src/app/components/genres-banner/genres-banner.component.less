@@ -2,41 +2,37 @@
 @import '../../../assets/styles/themes/base/common/shared';
 
 .genres-banner {
-  width: 70%;
-  margin: 16px auto;
-
-  &__title {
-    p {
-      font-size: 16px;
-      letter-spacing: 2px;
-    }
-
-    h1 {
-      font-size: 24px;
-      line-height: 1;
-      font-weight: 600;
-    }
+  max-width: 1600px;
+  color: @color-black-00;
+  text-align: center;
+  margin: 0 auto;
+  padding: 0 150px;
+  &__main {
+    font-weight: 400;
+    font-size: 50px;
+    margin: 54px 0 50px;
   }
+  &__minor {
+    font-size: 25px;
+    margin: 0 0 54px;
+  }
+
   &__slide {
     display: flex;
     align-items: end;
-    justify-content: end;
-    font-size: 50px;
-    color: #fff;
-    font-weight: 500;
     height: 400px;
     border-radius: 16px;
-    padding: 8px;
-    &._comedy {
-      background-size: cover;
-      background: url('../../../assets/images/comedy.jpg') center;
-    }
 
+    &._comedy {
+      width: 100%;
+      height: 400px;
+      object-fit: contain;
+      background: url('../../../assets/images/comedy.jpg') no-repeat center;
+    }
     &._horror {
       background-size: cover;
       background: url('../../../assets/images/horror.jpg') center;
     }
-
     &._action {
       background-size: cover;
       background: url('../../../assets/images/action.jpg') center;
@@ -72,11 +68,55 @@
       background: url('../../../assets/images/family.jpg') center;
     }
   }
-  &__slider {
-  }
   &__slide-link {
-    color: @color-white-ff;
-    text-decoration: none;
+    &-genre {
+      position: absolute;
+      width: 100%;
+      height: 70px;
+      display: flex;
+      margin-bottom: 25px;
+      background: @color-gray-66;
+
+      &-title {
+        margin: 24px 24px;
+        font-size: 32px;
+        line-height: 20px;
+        color: @color-white-ff;
+      }
+      &-triangles {
+        width: 600px;
+        height: 86px;
+        background: url('../../../assets/images/triangles-genres.svg') no-repeat;
+      }
+
+      &._horror {
+        background: @color-genre-horror;
+      }
+      &._comedy {
+        background: @color-genre-comedy;
+      }
+      &._action {
+        background: @color-genre-action;
+      }
+      &._drama {
+        background: @color-genre-drama;
+      }
+      &._adventure {
+        background: @color-genre-adventures;
+      }
+      &._fantasy {
+        background: @color-genre-fantasy;
+      }
+      &._thriller {
+        background: @color-genre-thriller;
+      }
+      &._romance {
+        background: @color-genre-melodrama;
+      }
+      &._family {
+        background: @color-genre-family;
+      }
+    }
   }
   &__dots {
     display: flex;
@@ -99,7 +139,15 @@
     }
 
     &.active {
-      background: #000;
+      background: @color-black-00;
+    }
+  }
+}
+.theme-dark {
+  & .genres-banner {
+    &__main,
+    &__minor {
+      color: @color-white-ff;
     }
   }
 }

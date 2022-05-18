@@ -1,17 +1,28 @@
 @import 'keen-slider/keen-slider.min.css';
 @import '../../../assets/styles/themes/base/common/shared';
 
-.genre-label {
-  padding: 4px 32px;
-  margin: 1px 24px 24px 1px;
-  border-radius: 17px;
-  color: white;
-  font-size: 20px;
-  line-height: 24px;
-  word-spacing: 0.5em;
-  text-transform: capitalize;
-  text-align: center;
-  display: inline-block;
+.title-films-list {
+  &__stripe {
+    display: flex;
+    justify-content: space-between;
+    height: 120px;
+    &:after,
+    &:before {
+      content: '';
+      width: 73px;
+      background: url('../../../assets/images/triangles.svg') no-repeat;
+    }
+    &:before {
+      transform: rotate(0.5turn);
+    }
+  }
+  &__title {
+    text-transform: capitalize;
+    font-size: 42px;
+    display: flex;
+    align-items: center;
+    color: #ffffff;
+  }
 
   &._comedy {
     background-color: @color-genre-comedy;
@@ -21,16 +32,16 @@
     background-color: @color-genre-horror;
   }
 
-  &._adventures {
-    background-color: @color-genre-adventures;
+  &._adventure {
+    background-color: @color-genre-adventure;
   }
 
   &._thriller {
     background-color: @color-genre-thriller;
   }
 
-  &._melodrama {
-    background-color: @color-genre-melodrama;
+  &._romance {
+    background-color: @color-genre-romance;
   }
 
   &._fantasy {
@@ -107,27 +118,19 @@
   &._ceremony {
     background-color: @color-genre-ceremony;
   }
-  &._real-tv {
-    background-color: @color-genre-real-tv;
+  &._live {
+    background-color: @color-genre-live;
   }
   &._game {
     background-color: @color-genre-game;
   }
-  &._talk-show {
-    background-color: @color-genre-talk-show;
+  &._show {
+    background-color: @color-genre-show;
   }
-  &._children {
-    background-color: @color-genre-children;
+  &._for-children {
+    background-color: @color-genre-for-children;
   }
   &._music {
     background-color: @color-genre-music;
-  }
-}
-@media screen and (max-width: 1200px) {
-  .genre-label {
-    font-size: 16px;
-    padding: 3px 28px;
-    margin: 1px 20px 20px 1px;
-    line-height: 20px;
   }
 }

@@ -1,16 +1,26 @@
-import { Component, Input } from '@angular/core';
-import { Subject, take } from 'rxjs';
+import { Component, Input, OnInit } from '@angular/core';
+import { Subject } from 'rxjs';
 import { FilmBaseModel } from '../../models/film-banner.model';
-import { COLORS } from '../../consts/color-gender.const';
+import { GENRES } from '../../consts/genres.const';
 
 @Component({
   selector: 'ff-genre-label',
   templateUrl: './genre-label.component.html',
   styleUrls: ['./genre-label.component.less']
 })
-export class GenreLabelComponent {
+export class GenreLabelComponent implements OnInit {
   @Input()
-  public genres = '';
-  films$: Subject<FilmBaseModel[]> = new Subject<FilmBaseModel[]>();
-  public color = COLORS;
+  public genre = '';
+  public genreEng = '';
+
+  public genres = GENRES;
+
+  ngOnInit() {
+    for (const [key, value] of Object.entries(this.genres)) {
+      console.log(`${key}: ${value}`);
+      if (value === this.genre) {
+        this.genreEng = key;
+      }
+    }
+  }
 }
