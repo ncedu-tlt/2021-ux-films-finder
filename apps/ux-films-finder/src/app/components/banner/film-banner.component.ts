@@ -12,8 +12,7 @@ import { Subject, Subscription, take } from 'rxjs';
 import { FilmBannerResponseModel } from '../../models/film-banner-response.model';
 import { FilmBaseModel } from '../../models/film-banner.model';
 import { FilmDataService } from '../../services/film-data.service';
-import { COLORS } from '../../consts/color-gender.const';
-import { Pipe, PipeTransform } from '@angular/core';
+import { GENRES } from '../../consts/genres.const';
 
 @Component({
   selector: 'ff-film-banner',
@@ -23,7 +22,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class FilmBannerComponent implements AfterViewInit, OnDestroy, OnInit {
   private loadFilms$: Subscription = new Subscription();
   films$: Subject<FilmBaseModel[]> = new Subject<FilmBaseModel[]>();
-  public color = COLORS;
+  public name = GENRES;
   @ViewChild('sliderRef') sliderRef!: ElementRef<HTMLElement>;
   currentSlide = 1;
   slider!: KeenSliderInstance;
@@ -42,6 +41,11 @@ export class FilmBannerComponent implements AfterViewInit, OnDestroy, OnInit {
       .getTopFilms('TOP_100_POPULAR_FILMS', 1)
       .pipe(take(1))
       .subscribe((info: FilmBannerResponseModel) => {
+        this.films$.forEach(function (films) {
+          films.forEach(function (film) {
+            film.genres;
+          });
+        });
         this.films$.next(info.films.slice(0, 10));
         this.cdr.detectChanges();
         this.slider.update();

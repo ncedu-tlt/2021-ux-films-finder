@@ -36,15 +36,15 @@ import { GenreLabelComponent } from './components/genre-label/genre-label.compon
 import { LoaderComponent } from './components/loader/loader.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { ScreenGalleryComponent } from './components/screen-gallery/screen-gallery.component';
-import { RatingPipe } from './pipes/pipe';
+import { GenresPipe, RatingPipe } from './pipes/pipe';
 import { MovieCadrComponent } from './components/movie-cadr/movie-cadr.component';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { ReviewsComponent } from './components/reviews/reviews.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { TitleFilmsListComponent } from './components/title-films-list/title-films-list.component';
 import { PersonSpousesComponent } from './components/person-spouses/person-spouses.component';
 import { PersonFactsComponent } from './components/person-facts/person-facts.component';
 import { PersonFilmsComponent } from './components/person-films/person-films.component';
-
 import { MatDialog } from '@angular/material/dialog';
 import { SimilarFilmsComponent } from './components/similar-films/similar-films.component';
 
@@ -76,9 +76,10 @@ registerLocaleData(localeRu);
     PersonFactsComponent,
     PersonFilmsComponent,
     RatingPipe,
-    MovieCadrComponent,
     ReviewsComponent,
-    SimilarFilmsComponent
+    SimilarFilmsComponent,
+    GenresPipe,
+    TitleFilmsListComponent
   ],
   imports: [
     BrowserModule,
