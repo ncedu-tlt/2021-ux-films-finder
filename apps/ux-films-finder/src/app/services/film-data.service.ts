@@ -63,6 +63,7 @@ export class FilmDataService {
       this.kinopoiskUrl + '/api/v1/persons?name=' + name + '&page=' + page
     );
   }
+
   public getInfoByPersonName(
     name: string,
     page: number

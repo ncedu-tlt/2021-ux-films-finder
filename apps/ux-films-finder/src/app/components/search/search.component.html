@@ -11,24 +11,27 @@
       tune
     </mat-icon>
   </div>
-  <ng-container
-    class="search__results"
-    *ngIf="
-      (films$ | async)?.length ||
-        (actors$ | async)?.length ||
-        searchInput === '';
-      else notFoundTemplate
-    "
-  >
-    <div class="search__results-container">
-      <ng-container *ngIf="(films$ | async)?.length">
+
+  <div class="search__results-loader">
+    <ff-loader *ngIf="loading; else resultTemplate"></ff-loader>
+  </div>
+
+  <ng-template #resultTemplate>
+    <div
+      class="search__results-container"
+      *ngIf="
+        films$.length || actors$.length || searchInput === '';
+        else notFoundTemplate
+      "
+    >
+      <ng-container *ngIf="films$.length">
         <mat-list class="search__results-list">
           <p *ngIf="searchInput" class="search__results-title">
             Фильмы и сериалы
           </p>
           <mat-list-item
             class="search__results-list-item"
-            *ngFor="let film of films$ | async | slice: 0:3"
+            *ngFor="let film of films$"
             (click)="closeSearch()"
             routerLink="/details/{{ film.filmId }}"
           >
@@ -54,14 +57,14 @@
           </div>
         </mat-list>
       </ng-container>
-      <ng-container *ngIf="(actors$ | async)?.length">
+      <ng-container *ngIf="actors$.length">
         <mat-list class="search__results-list">
           <p *ngIf="searchInput" class="search__second-results-title">
             Персоны
           </p>
           <mat-list-item
             class="search__results-list-item"
-            *ngFor="let actor of actors$ | async | slice: 0:3"
+            *ngFor="let actor of actors$"
             routerLink="/persons/{{ actor.kinopoiskId }}"
             (click)="closeSearch()"
           >
@@ -88,7 +91,8 @@
         </mat-list>
       </ng-container>
     </div>
-  </ng-container>
+  </ng-template>
+
   <ng-template #notFoundTemplate>
     <div class="search__results-container">
       <p class="search__not-found">Ничего не найдено</p>
