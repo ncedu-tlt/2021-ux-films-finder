@@ -38,7 +38,7 @@ export class CategoryComponent implements OnInit {
     private filmDataService: FilmDataService,
     private activatedRoute: ActivatedRoute
   ) {}
-  @HostBinding('class.center-content') private hostClass = true;
+
   ngOnInit(): void {
     this.activeFilm$ = this.activatedRoute.data
       .pipe(take(1))
