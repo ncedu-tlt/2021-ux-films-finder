@@ -1,4 +1,9 @@
-import { Component, HostListener, ViewEncapsulation } from '@angular/core';
+import {
+  Component,
+  HostListener,
+  OnInit,
+  ViewEncapsulation
+} from '@angular/core';
 
 @Component({
   selector: 'ff-header',
@@ -6,12 +11,13 @@ import { Component, HostListener, ViewEncapsulation } from '@angular/core';
   styleUrls: ['./header.component.less'],
   encapsulation: ViewEncapsulation.None
 })
-export class HeaderComponent {
+export class HeaderComponent implements OnInit {
   isShown = false;
   desktop = false;
-  isScrolled = false;
-  DESKTOP_SIZE = 871;
-  searchDisplay() {
+  laptop = true;
+  readonly DESKTOP_SIZE = 871;
+  readonly LAPTOP_SIZE = 1439;
+  toggleSearchVisibility() {
     this.isShown = !this.isShown;
   }
   @HostListener('window:resize')
@@ -21,6 +27,11 @@ export class HeaderComponent {
       this.isShown = false;
     } else {
       this.desktop = false;
+    }
+    if (window.innerWidth <= this.LAPTOP_SIZE) {
+      this.laptop = false;
+    } else {
+      this.laptop = true;
     }
   }
   ngOnInit() {

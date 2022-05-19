@@ -6,4 +6,3 @@ export interface FilmKeywordModel {
   films: FilmModel[];
   searchFilmsCountResult: number;
 }
-export type KinopoiskRequestModel = FilmKeywordModel;

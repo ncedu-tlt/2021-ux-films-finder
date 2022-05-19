@@ -12,6 +12,7 @@ import { BiographyModel } from '../models/biography.model';
 import { Router } from '@angular/router';
 import { FilmImagesResponseModel } from '../models/fiml-images-response.model';
 import { VideoModel } from '../models/video.model';
+import { ReviewResponseModel } from '../models/reviews-response.model';
 
 @Injectable({
   providedIn: 'root'
@@ -36,6 +37,7 @@ export class FilmDataService {
       )
       .pipe(catchError(this.handleError));
   }
+
   public getSimilarFilms(id: number): Observable<BaseFilmsResponseModel> {
     return this.http
       .get<BaseFilmsResponseModel>(
@@ -43,6 +45,17 @@ export class FilmDataService {
       )
       .pipe(catchError(this.handleError));
   }
+  public getReviewsById(
+    id: number,
+    page: number
+  ): Observable<ReviewResponseModel> {
+    return this.http
+      .get<ReviewResponseModel>(
+        this.kinopoiskUrl + '/api/v1/reviews?filmId=' + id + '&page=' + page
+      )
+      .pipe(catchError(this.handleError));
+  }
+
 
   public getFilmByGenre(
     genre: number,
@@ -66,12 +79,13 @@ export class FilmDataService {
   }
   public getActorByKeyWord(
     name: string,
-    page: number
+    page: number = 1
   ): Observable<FilmActorModel> {
     return this.http.get<FilmActorModel>(
       this.kinopoiskUrl + '/api/v1/persons?name=' + name + '&page=' + page
     );
   }
+
   public getInfoByPersonName(
     name: string,
     page: number

@@ -1,14 +1,25 @@
 @import '../../../assets/styles/themes/base/common/shared';
-@import '../../../assets/styles/themes/dark/common/shared';
 
 .header {
-  display: flex;
-  justify-content: space-between;
-  height: 70px;
-  background: #494949;
-  a {
+  width: 100%;
+  background: @color-gray-49;
+  position: fixed;
+  left: 0;
+  z-index: 2;
+  box-shadow: 0.4em 0.4em 5px rgba(122, 122, 122, 0.5);
+
+  &__content {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    height: 70px;
+    max-width: 1600px;
+    margin: 0 auto;
+  }
+
+  &__text {
     text-decoration: none;
-    color: white;
+    color: @color-green-69;
   }
 
   &__left-side {
@@ -21,60 +32,60 @@
     font-size: 24px;
     margin: 20px;
   }
-  hr {
-    margin-bottom: 2px;
+
+  &__text:hover {
+    color: @color-white-ff;
   }
 
   &__first-line {
     margin-top: -3px;
+    margin-bottom: 2px;
+    border-color: @color-green-69;
   }
+
   &__second-line {
+    margin-bottom: 2px;
     margin-top: 3px;
     width: 60px;
     margin-left: 5px;
+    border-color: @color-green-69;
   }
+
   &__third-line {
+    margin-bottom: 2px;
     margin-top: 3px;
     width: 24px;
     margin-left: 12px;
+    border-color: @color-green-69;
   }
-  &__navigation {
+
+  &__navigation.mat-nav-list {
     display: flex;
     justify-content: space-between;
     width: 600px;
-    margin-top: 20px;
+    margin-top: 10px;
     margin-left: 15px;
+    color: @color-white-ff;
   }
 
   &__link {
-    height: 40px;
-    font-family: ABeeZee, serif;
-    color: aliceblue;
-    font-size: 23px;
+    font-size: 20px;
     background: none;
+    font-family: 'Bellota Text';
   }
 
+  &__link:hover {
+    color: @color-green-69;
+  }
   &__toogle {
     display: none;
+    color: @color-white-ff;
   }
 
   &__right-side {
     display: flex;
     justify-content: flex-end;
     width: 1220px;
-  }
-
-  &__user-info {
-    display: flex;
-    align-items: center;
-  }
-
-  &__person-icon.mat-icon {
-    width: 50px;
-    height: 50px;
-    font-size: 50px;
-    margin-right: 34px;
-    color: white;
   }
 
   &__search {
@@ -90,6 +101,7 @@
   &__search-icon-hidden.mat-icon {
     display: none;
     margin-top: 5px;
+    color: @color-white-ff;
   }
 }
 
@@ -133,14 +145,14 @@
     top: 0px;
 
     &__right-side {
-      margin-right: 10px;
+      margin-right: 5px;
     }
 
     &__left-side {
       justify-content: flex-start;
     }
 
-    &__navigation {
+    &__navigation.mat-nav-list {
       display: none;
     }
 
@@ -164,10 +176,6 @@
     &__search-content {
       width: 400px;
     }
-
-    &__person-icon {
-      margin-right: 20px;
-    }
   }
 }
 
@@ -180,7 +188,6 @@
 
     &__left-side {
       width: 62%;
-      justify-content: flex-start;
     }
 
     &__search {
@@ -201,28 +208,24 @@
     &__toogle {
       margin-left: 12px;
     }
-
-    &__person-icon {
-      margin-right: 10px;
-    }
   }
 }
 
-@media only screen and (max-width: 555px) {
+@media only screen and (max-width: 520px) {
   .header {
     &__search-content {
-      width: 300px;
+      width: 350px;
     }
 
     &__input {
-      width: 250px;
+      width: 300px;
     }
   }
 }
 @media screen and (max-width: 470px) {
   .header {
     &__search-content {
-      width: 220px;
+      width: 300px;
     }
 
     &__switcher {
@@ -230,11 +233,11 @@
     }
 
     &__input {
-      width: 190px;
+      width: 250px;
     }
   }
 }
-@media screen and (max-width: 380px) {
+@media screen and (max-width: 400px) {
   .header {
     &__left-side {
       width: 25%;
@@ -261,6 +264,7 @@
   .header {
     &__search-content {
       width: 170px;
+      width: 250px;
     }
 
     &__search {
@@ -270,8 +274,8 @@
 }
 .theme-dark {
   & .header {
+    box-shadow: 0.4em 0.4em 5px rgba(10, 10, 10, 0.5);
     background: @color-gray-1b;
-  }
 
   & a {
     color: @color-green-69;
@@ -279,5 +283,17 @@
 
   & hr {
     border-color: #69f0ae;
+    &__first-line,
+    &__second-line,
+    &__third-line {
+      border-color: @color-green-69;
+    }
+    &__link,
+    &__text,
+    &__search-icon-hidden,
+    &__navigation,
+    &__toogle {
+      color: @color-green-69;
+    }
   }
 }

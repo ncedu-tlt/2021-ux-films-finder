@@ -45,11 +45,14 @@ import { VgControlsModule } from 'ngx-videogular';
 import { VgOverlayPlayModule } from 'ngx-videogular';
 import { VgBufferingModule } from 'ngx-videogular';
 import { MovieCadrComponent } from './components/movie-cadr/movie-cadr.component';
-import { MatDialog, MatDialogModule } from '@angular/material/dialog';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { ReviewsComponent } from './components/reviews/reviews.component';
+import { MatDialogModule } from '@angular/material/dialog';
 import { TitleFilmsListComponent } from './components/title-films-list/title-films-list.component';
 import { PersonSpousesComponent } from './components/person-spouses/person-spouses.component';
 import { PersonFactsComponent } from './components/person-facts/person-facts.component';
 import { PersonFilmsComponent } from './components/person-films/person-films.component';
+import { MatDialog } from '@angular/material/dialog';
 
 registerLocaleData(localeRu);
 
@@ -82,9 +85,12 @@ registerLocaleData(localeRu);
     PersonSpousesComponent,
     PersonFactsComponent,
     PersonFilmsComponent,
-    RatingPipe,
-    GenresPipe,
     MovieCadrComponent,
+    SearchComponent,
+    RatingPipe,
+    ReviewsComponent,
+    SimilarFilmsComponent,
+    GenresPipe,
     TitleFilmsListComponent
   ],
   imports: [
@@ -108,7 +114,8 @@ registerLocaleData(localeRu);
     VgControlsModule,
     VgOverlayPlayModule,
     VgBufferingModule,
-    MatDialogModule
+    MatDialogModule,
+    MatExpansionModule
   ],
   providers: [
     {

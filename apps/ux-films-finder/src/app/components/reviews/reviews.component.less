@@ -1,0 +1,178 @@
+@import '../../../assets/styles/themes/base/common/shared';
+@import '../../../assets/styles/themes/dark/common/shared';
+// @import '../../../assets/fonts/BellotaText-Regular.woff';
+
+.reviews {
+  display: flex;
+  flex-direction: column;
+  margin: 0px 70px 30px;
+  @media screen and (max-width: 770px) {
+    margin: 0px 10px 30px;
+  }
+  &__header {
+    text-align: center;
+    padding: 10px;
+    margin-bottom: 40px;
+    font-size: 40px;
+  }
+  &__expansion-panel {
+    background-color: @color-white-ff;
+    color: @color-black-00;
+    & .mat-expansion-indicator::after {
+      color: @color-black-00;
+    }
+    &-header {
+      color: @color-black-00;
+    }
+    &-title {
+      color: @color-black-00;
+    }
+  }
+  &__review-container {
+    .font-regular();
+    margin: 20px 0px;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.25), 1px -1px 8px rgba(0, 0, 0, 0.25);
+  }
+  &__info-container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+    @media screen and (max-width: 770px) {
+      flex-direction: column;
+    }
+  }
+  &__name-date-type-container {
+    max-width: 280px;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.25), 1px -1px 8px rgba(0, 0, 0, 0.25);
+    @media screen and (max-width: 770px) {
+      margin-bottom: 10px;
+    }
+  }
+  &__author-name {
+    font-size: 24px;
+    font-style: italic;
+  }
+  &__review-type {
+    margin-top: 6px;
+    padding: 6px;
+    border-radius: 4px;
+    color: @color-white-ff;
+    &._positive {
+      background-color: @color-green-04;
+    }
+    &._negative {
+      background-color: @color-pink-cb;
+    }
+    &._neutral {
+      background-color: @color-blue-27;
+    }
+  }
+  &__author-ratings-container {
+    max-width: 280px;
+    margin-right: 50px;
+    padding: 10px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.25), 1px -1px 8px rgba(0, 0, 0, 0.25);
+  }
+  &__author-all-ratings-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 6px;
+    padding: 6px;
+  }
+  &__author-ratings {
+    padding: 6px;
+    width: 30%;
+    text-align: center;
+    border-radius: 4px;
+    color: @color-white-ff;
+    &._positive {
+      background-color: @color-green-04;
+    }
+    &._negative {
+      background-color: @color-pink-cb;
+    }
+  }
+  &__review-title {
+    margin-bottom: 20px;
+    font-size: 26px;
+    font-style: italic;
+    width: 50%;
+  }
+  &__review-description {
+    margin-bottom: 5px;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+    line-height: 24px;
+    &._show {
+      -webkit-line-clamp: unset;
+    }
+  }
+  &__see-more-button {
+    border: none;
+    margin-top: 10px;
+    padding: 6px;
+    width: 150px;
+    color: @color-white-ff;
+    background-color: @color-pink-cb;
+  }
+  &__icon {
+    transition: all 0.2s;
+    &._rotate {
+      display: inline-block;
+      transition: all 0.2s;
+      transform: rotate(180deg);
+    }
+  }
+  &__see-more-button:hover {
+    background-color: @color-green-69;
+    cursor: pointer;
+  }
+  &__paginator {
+    max-width: 370px;
+    font-size: 14px;
+    background-color: @color-white-ff;
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.25), 1px -1px 8px rgba(0, 0, 0, 0.25);
+    border-radius: 16px;
+    &.mat-paginator {
+      color: @color-black-00;
+    }
+  }
+}
+
+.theme-dark {
+  & .reviews {
+    &__expansion-panel {
+      background-color: transparent;
+      color: @color-white-ff;
+      & .mat-expansion-indicator::after {
+        color: @color-white-ff;
+      }
+      &-header {
+        color: @color-white-ff;
+      }
+      &-title {
+        color: @color-white-ff;
+      }
+    }
+    &__review-container {
+      box-shadow: 0 5px 5px rgba(0, 0, 0, 0.25),
+        1px -1px 8px rgba(0, 0, 0, 0.25);
+    }
+    &__paginator {
+      background-color: transparent;
+      box-shadow: 0 5px 5px rgba(0, 0, 0, 0.25),
+        1px -1px 8px rgba(0, 0, 0, 0.25);
+      &.mat-paginator {
+        color: @color-white-ff;
+      }
+    }
+  }
+}

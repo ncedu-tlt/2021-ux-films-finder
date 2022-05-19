@@ -2,6 +2,7 @@ import { FilmModel } from './film.model';
 import { SpousesModel } from './spouses.model';
 
 export interface BiographyModel {
+  kinopoiskId: number;
   personId: number;
   webUrl: string;
   nameRu: string;
