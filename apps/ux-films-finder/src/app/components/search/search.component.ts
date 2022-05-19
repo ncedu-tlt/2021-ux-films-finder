@@ -96,7 +96,7 @@ export class SearchComponent {
     /*this.filmDataService
       .getActorByKeyWord(this.searchInput, 1)
       .getFilmByKeyWord(this.searchInput, 1)
-      .pipe(take(1), zipWith(this.actors$))
+      .pipe(take(1), zipWith(this.actors$, this.films$))
       .subscribe((films: FilmKeywordModel, actors: FilmActorModel) => {
         this.films$ = films.films.slice(0, 3);
         this.actors$ = actors.items.slice(0, 3);

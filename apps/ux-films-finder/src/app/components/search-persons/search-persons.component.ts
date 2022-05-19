@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, HostBinding, OnDestroy, OnInit } from '@angular/core';
 import { FilmDataService } from '../../services/film-data.service';
 import { PersonInfoResponseModel } from '../../models/person-info-response.model';
 import { BehaviorSubject, Subject, Subscription, take } from 'rxjs';
@@ -17,6 +17,7 @@ export class SearchPersonsComponent implements OnInit, OnDestroy {
     private router: Router,
     private activatedRoute: ActivatedRoute
   ) {}
+  @HostBinding('class.center-content') private hostClass = true;
   public person$: BehaviorSubject<PersonInfoResponseModel> =
     new BehaviorSubject<PersonInfoResponseModel>({ items: [], total: 0 });
 

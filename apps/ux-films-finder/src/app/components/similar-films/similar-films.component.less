@@ -1,0 +1,79 @@
+@import '../../../assets/styles/themes/base/common/shared';
+@import '../../../assets/styles/themes/dark/common/shared';
+@import (inline) 'keen-slider/keen-slider.min.css';
+
+.similar-films {
+  margin-bottom: 70px;
+  padding: 10px 50px 10px 50px;
+  &__title {
+    text-align: center;
+    color: @color-black-00;
+    font-size: 40px;
+  }
+  &__card-container {
+    display: flex;
+    padding: 20px;
+    justify-content: center;
+  }
+  &__card-link {
+    display: inline-block;
+  }
+  &__dots {
+    display: flex;
+    justify-content: center;
+
+    @media only screen and (max-width: 600px) {
+      display: none;
+    }
+
+    &._inactive {
+      display: none;
+    }
+  }
+  &__dots {
+    margin: 20px;
+  }
+  &__dot {
+    border: none;
+    width: 20px;
+    height: 20px;
+    background: @color-gray-66;
+    border-radius: 50%;
+    margin: 0 5px;
+    padding: 5px;
+    cursor: pointer;
+
+    &:focus {
+      outline: none;
+      background: @color-pink-cb;
+    }
+    &.active {
+      background: @color-pink-cb;
+    }
+    &:hover {
+      background: @color-green-69;
+    }
+  }
+}
+
+.theme-dark {
+  & .similar-films {
+    &__title {
+      color: @color-gray-0E;
+    }
+    &__dot {
+      background: @color-gray-ac;
+
+      &:focus {
+        outline: none;
+        background: @color-pink-cb;
+      }
+      &.active {
+        background: @color-pink-cb;
+      }
+      &:hover {
+        background: @color-green-69;
+      }
+    }
+  }
+}

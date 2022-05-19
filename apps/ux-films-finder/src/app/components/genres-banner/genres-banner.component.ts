@@ -3,14 +3,16 @@ import {
   Component,
   ElementRef,
   OnDestroy,
-  ViewChild
+  ViewChild,
+  ViewEncapsulation
 } from '@angular/core';
 import KeenSlider, { KeenSliderInstance } from 'keen-slider';
 
 @Component({
   selector: 'ff-genres-banner',
   templateUrl: './genres-banner.component.html',
-  styleUrls: ['./genres-banner.component.less']
+  styleUrls: ['./genres-banner.component.less'],
+  encapsulation: ViewEncapsulation.None
 })
 export class GenresBannerComponent implements AfterViewInit, OnDestroy {
   @ViewChild('sliderRef') sliderRef!: ElementRef<HTMLElement>;
@@ -35,7 +37,7 @@ export class GenresBannerComponent implements AfterViewInit, OnDestroy {
         },
         slides: { perView: 1 }
       });
-      this.dots = [...Array(this.slider.track.details.slides.length).keys()];
+      this.dots = Array(9);
     });
   }
 

@@ -1,0 +1,85 @@
+<div class="reviews">
+  <div class="reviews__header">Рецензии зрителей</div>
+  <ng-container
+    [ngTemplateOutlet]="reviewTemplate"
+    [ngTemplateOutletContext]="{review}"
+    *ngFor="let review of reviewsInfo.slice(0, 2)"
+  ></ng-container>
+  <mat-expansion-panel
+    (opened)="panelOpenState = true"
+    (closed)="panelOpenState = false"
+    class="reviews__expansion-panel"
+  >
+    <mat-expansion-panel-header class="reviews__expansion-panel-header">
+      <mat-panel-title class="reviews__expansion-panel-title">
+        Показать все рецензии
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <ng-container
+      [ngTemplateOutlet]="reviewTemplate"
+      [ngTemplateOutletContext]="{review}"
+      *ngFor="let review of reviewsInfo.slice(2, 7)"
+    ></ng-container>
+
+    <ng-template #reviewTemplate let-review="review">
+      <div class="reviews__review-container">
+        <div class="reviews__info-container">
+          <div class="reviews__name-date-type-container">
+            <div class="reviews__author-name">{{ review.reviewAutor }}</div>
+            <div class="reviews__date">
+              {{ review.reviewData | date: 'dd MMMM yyyy':'GMT':'ru-Ru' }}
+            </div>
+            <div
+              class="reviews__review-type"
+              [class]="
+                review.reviewType === 'Положительный'
+                  ? '_positive'
+                  : '' || review.reviewType === 'Отрицательный'
+                  ? '_negative'
+                  : '' || review.reviewType === 'Нейтральный'
+                  ? '_neutral'
+                  : ''
+              "
+            >
+              Тип рецензии: {{ review.reviewType }}
+            </div>
+          </div>
+          <div class="reviews__author-ratings-container">
+            <div class="reviews__author-ratings-header">
+              Оценки этого пользователя
+            </div>
+            <div class="reviews__author-all-ratings-container">
+              <div class="reviews__author-ratings _positive">
+                {{ review.userPositiveRating }}
+              </div>
+              <div class="reviews__author-ratings _negative">
+                {{ review.userNegativeRating }}
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="reviews__review-title">{{ review.reviewTitle }}</div>
+        <div
+          class="reviews__review-description"
+          [class]="review.isShown ? '_show' : ''"
+        >
+          {{ review.reviewDescription }}
+        </div>
+        <button (click)="toggleReview(review)" class="reviews__see-more-button">
+          Подробнее
+          <span class="reviews__icon" [class]="review.isShown ? '_rotate' : ''">
+            &#9660;
+          </span>
+        </button>
+      </div>
+    </ng-template>
+
+    <mat-paginator
+      class="reviews__paginator"
+      *ngIf="reviewsResponseInfo.pagesCount !== 0"
+      [length]="reviewsInfo.length"
+      [pageSize]="pageSize"
+      (page)="onPageChange($event)"
+    ></mat-paginator>
+  </mat-expansion-panel>
+</div>
