@@ -90,7 +90,7 @@ export class SearchComponent {
       .subscribe(([actors, films]) => {
         this.films$ = films.films.slice(0, 3);
         this.actors$ = actors.items.slice(0, 3);
-        //this.loading = false;
+        this.loading = false;
       });
   }
 }

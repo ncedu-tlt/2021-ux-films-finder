@@ -56,7 +56,6 @@ export class FilmDataService {
       .pipe(catchError(this.handleError));
   }
 
-
   public getFilmByGenre(
     genre: number,
     page: number
