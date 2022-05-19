@@ -39,11 +39,14 @@ import { ScreenGalleryComponent } from './components/screen-gallery/screen-galle
 import { SimilarFilmsComponent } from './components/similar-films/similar-films.component';
 import { GenresPipe, RatingPipe } from './pipes/pipe';
 import { MovieCadrComponent } from './components/movie-cadr/movie-cadr.component';
-import { MatDialog, MatDialogModule } from '@angular/material/dialog';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { ReviewsComponent } from './components/reviews/reviews.component';
+import { MatDialogModule } from '@angular/material/dialog';
 import { TitleFilmsListComponent } from './components/title-films-list/title-films-list.component';
 import { PersonSpousesComponent } from './components/person-spouses/person-spouses.component';
 import { PersonFactsComponent } from './components/person-facts/person-facts.component';
 import { PersonFilmsComponent } from './components/person-films/person-films.component';
+import { MatDialog } from '@angular/material/dialog';
 
 registerLocaleData(localeRu);
 @NgModule({
@@ -74,8 +77,9 @@ registerLocaleData(localeRu);
     PersonFactsComponent,
     PersonFilmsComponent,
     RatingPipe,
+    ReviewsComponent,
+    SimilarFilmsComponent,
     GenresPipe,
-    MovieCadrComponent,
     TitleFilmsListComponent
   ],
   imports: [
@@ -94,7 +98,8 @@ registerLocaleData(localeRu);
     MatFormFieldModule,
     FormsModule,
     MatProgressSpinnerModule,
-    MatDialogModule
+    MatDialogModule,
+    MatExpansionModule
   ],
   providers: [
     {
