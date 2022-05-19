@@ -12,6 +12,7 @@ import {
   fromEvent,
   Observable,
   take,
+  tap,
   zip,
   zipAll,
   zipWith
@@ -42,7 +43,12 @@ export class SearchComponent {
 
   ngAfterViewInit() {
     fromEvent(this.text.nativeElement, 'keydown')
-      .pipe(debounceTime(2000))
+      .pipe(
+        tap(() => {
+          this.loading = true;
+        }),
+        debounceTime(2000)
+      )
       .subscribe(res => this.getInfo());
   }
 
@@ -76,31 +82,15 @@ export class SearchComponent {
 
   public getInfo() {
     this.loading = true;
-    this.filmDataService
-      .getFilmByKeyWord(this.searchInput, 1)
+    zip([
+      this.filmDataService.getActorByKeyWord(this.searchInput, 1),
+      this.filmDataService.getFilmByKeyWord(this.searchInput, 1)
+    ])
       .pipe(take(1))
-      .subscribe((films: FilmKeywordModel) => {
-        this.films$ = films.films.slice(0, 3);
-        console.log(films);
-        this.loading = false;
-      });
-
-    this.filmDataService
-      .getActorByKeyWord(this.searchInput, 1)
-      .pipe(take(1))
-      .subscribe((actors: FilmActorModel) => {
-        this.actors$ = actors.items.slice(0, 3);
-        console.log(actors);
-        this.loading = false;
-      });
-    /*this.filmDataService
-      .getActorByKeyWord(this.searchInput, 1)
-      .getFilmByKeyWord(this.searchInput, 1)
-      .pipe(take(1), zipWith(this.actors$, this.films$))
-      .subscribe((films: FilmKeywordModel, actors: FilmActorModel) => {
+      .subscribe(([actors, films]) => {
         this.films$ = films.films.slice(0, 3);
         this.actors$ = actors.items.slice(0, 3);
-        this.loading = false;
-      });*/
+        //this.loading = false;
+      });
   }
 }
