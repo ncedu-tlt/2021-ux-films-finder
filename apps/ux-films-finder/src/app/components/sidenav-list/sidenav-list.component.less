@@ -1,3 +1,5 @@
+@import '../../../assets/styles/themes/base/common/shared';
+
 .nav-list {
   z-index: 2;
   position: fixed;
@@ -21,9 +23,8 @@
   &__link {
     justify-content: center;
     align-items: center;
-    background: white;
     display: flex;
-    color: black;
+    color: @color-white-ff;
     cursor: pointer;
     text-decoration: none;
     overflow: hidden;
@@ -31,5 +32,14 @@
     line-height: 22px;
     font-weight: 400;
     height: 69px;
+    background: @color-gray-49;
+  }
+}
+.theme-dark {
+  & .nav-list {
+    &__link {
+      background: @color-gray-1b;
+      color: @color-green-69;
+    }
   }
 }

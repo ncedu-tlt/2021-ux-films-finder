@@ -1,4 +1,4 @@
-import { Component, HostBinding, OnInit } from '@angular/core';
+import { Component, HostBinding, OnDestroy, OnInit } from '@angular/core';
 import { FilmDataService } from '../../services/film-data.service';
 import { PersonInfoResponseModel } from '../../models/person-info-response.model';
 import { BehaviorSubject, Subject, Subscription, take } from 'rxjs';
@@ -11,7 +11,7 @@ import { takeUntil } from 'rxjs/operators';
   templateUrl: './search-persons.component.html',
   styleUrls: ['./search-persons.component.less']
 })
-export class SearchPersonsComponent implements OnInit {
+export class SearchPersonsComponent implements OnInit, OnDestroy {
   constructor(
     private personData: FilmDataService,
     private router: Router,

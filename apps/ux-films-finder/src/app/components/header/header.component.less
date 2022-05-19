@@ -1,14 +1,25 @@
 @import '../../../assets/styles/themes/base/common/shared';
 
 .header {
-  display: flex;
-  justify-content: space-between;
-  height: 70px;
+  width: 100%;
+  background: @color-gray-49;
+  position: fixed;
+  left: 0;
+  z-index: 2;
+  box-shadow: 0.4em 0.4em 5px rgba(122, 122, 122, 0.5);
 
-  a {
+  &__content {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    height: 70px;
+    max-width: 1600px;
+    margin: 0 auto;
+  }
+
+  &__text {
     text-decoration: none;
-    color: black;
-    background: white;
+    color: @color-green-69;
   }
 
   &__left-side {
@@ -19,26 +30,56 @@
 
   &__logo {
     font-size: 24px;
-    margin: 25px;
+    margin: 20px;
   }
 
-  &__navigation {
+  &__text:hover {
+    color: @color-white-ff;
+  }
+
+  &__first-line {
+    margin-top: -3px;
+    margin-bottom: 2px;
+    border-color: @color-green-69;
+  }
+
+  &__second-line {
+    margin-bottom: 2px;
+    margin-top: 3px;
+    width: 60px;
+    margin-left: 5px;
+    border-color: @color-green-69;
+  }
+
+  &__third-line {
+    margin-bottom: 2px;
+    margin-top: 3px;
+    width: 24px;
+    margin-left: 12px;
+    border-color: @color-green-69;
+  }
+
+  &__navigation.mat-nav-list {
     display: flex;
     justify-content: space-between;
-    width: 700px;
-    margin-top: 20px;
-    margin-left: 22px;
+    width: 600px;
+    margin-top: 10px;
+    margin-left: 15px;
+    color: @color-white-ff;
   }
 
   &__link {
-    height: 40px;
-    font-family: ABeeZee, serif;
-    color: aliceblue;
-    font-size: 23px;
+    font-size: 20px;
+    background: none;
+    font-family: 'Bellota Text';
   }
 
+  &__link:hover {
+    color: @color-green-69;
+  }
   &__toogle {
     display: none;
+    color: @color-white-ff;
   }
 
   &__right-side {
@@ -47,60 +88,51 @@
     width: 1220px;
   }
 
-  &__user-info {
-    display: flex;
-    align-items: center;
-  }
-
-  &__person-icon {
-    width: 50px;
-    height: 50px;
-    font-size: 50px;
-    margin-right: 34px;
-  }
-
   &__search {
     width: 470px;
     display: flex;
     align-items: flex-start;
     justify-content: flex-end;
     margin-right: 25px;
-    margin-top: 15px;
+    margin-top: 18px;
   }
 
-  &__search-icon-hidden {
+  &__search-icon-hidden.mat-icon {
     display: none;
-  }
-  &__search-content {
-    border: solid 1px;
-    border-radius: 5px;
+    margin-top: 5px;
+    color: @color-white-ff;
   }
 }
-@media only screen and (max-width: 1500px) {
+
+@media only screen and (max-width: 1438px) {
   .header {
-    display: flex;
+    width: 100vw;
+    position: sticky;
+    z-index: 1;
+    top: 0px;
+
+    &__right-side {
+      margin-right: 5px;
+    }
 
     &__left-side {
       justify-content: flex-start;
     }
 
-    &__navigation {
+    &__navigation.mat-nav-list {
       display: none;
     }
 
     &__toogle {
       position: relative;
       margin-top: 25px;
-      margin-left: 25px;
+      margin-left: 10px;
+      display: block;
+      width: 38px;
     }
 
     &__logo {
       margin-left: 1px;
-    }
-
-    &__toogle {
-      display: block;
-      width: 50px;
     }
 
     &__search {
@@ -111,14 +143,10 @@
     &__search-content {
       width: 400px;
     }
-
-    &__person-icon {
-      margin-right: 20px;
-    }
   }
 }
 
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 870px) {
   .header {
     &__right-side {
       justify-content: flex-end;
@@ -127,14 +155,16 @@
 
     &__left-side {
       width: 62%;
-      justify-content: space-between;
     }
 
-    &__search-icon-hidden {
+    &__search {
       width: 35px;
+    }
+    &__search-icon-hidden.mat-icon {
+      width: 25px;
       display: block;
       cursor: pointer;
-      margin-left: 10px;
+      margin-left: 5px;
     }
 
     &__search-icon {
@@ -144,40 +174,68 @@
     &__toogle {
       margin-left: 12px;
     }
-
-    &__person-icon {
-      margin-right: 10px;
-    }
   }
 }
 
-@media only screen and (max-width: 555px) {
+@media only screen and (max-width: 520px) {
+  .header {
+    &__search-content {
+      width: 350px;
+    }
+    &__input {
+      width: 300px;
+    }
+  }
+}
+@media screen and (max-width: 470px) {
   .header {
     &__search-content {
       width: 300px;
+    }
+    &__switcher {
+      display: none;
     }
     &__input {
       width: 250px;
     }
   }
 }
-@media screen and (max-width: 460px) {
+@media screen and (max-width: 400px) {
   .header {
-    &__search-content {
-      width: 220px;
+    &__left-side {
+      width: 25%;
     }
-    &__input {
-      width: 190px;
+    &__logo {
+      margin-left: 8px;
+    }
+    &__right-side {
+      width: 75%;
+    }
+    &__search-content {
+      width: 250px;
+    }
+    &__search {
+      margin-right: 5px;
     }
   }
 }
-@media screen and (max-width: 380px) {
-  .header {
-    &__search-content {
-      width: 150px;
+
+.theme-dark {
+  & .header {
+    box-shadow: 0.4em 0.4em 5px rgba(10, 10, 10, 0.5);
+    background: @color-gray-1b;
+
+    &__first-line,
+    &__second-line,
+    &__third-line {
+      border-color: @color-green-69;
     }
-    &__input {
-      width: 120px;
+    &__link,
+    &__text,
+    &__search-icon-hidden,
+    &__navigation,
+    &__toogle {
+      color: @color-green-69;
     }
   }
 }

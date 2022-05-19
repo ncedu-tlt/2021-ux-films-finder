@@ -31,6 +31,7 @@ import { SwitcherComponent } from './components/switcher/switcher.component';
 import { PersonComponent } from './components/person/person.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule } from '@angular/forms';
+import { SearchComponent } from './components/search/search.component';
 import localeRu from '@angular/common/locales/ru';
 import { GenreLabelComponent } from './components/genre-label/genre-label.component';
 import { LoaderComponent } from './components/loader/loader.component';
@@ -49,6 +50,7 @@ import { PersonFilmsComponent } from './components/person-films/person-films.com
 import { MatDialog } from '@angular/material/dialog';
 
 registerLocaleData(localeRu);
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -76,6 +78,8 @@ registerLocaleData(localeRu);
     PersonSpousesComponent,
     PersonFactsComponent,
     PersonFilmsComponent,
+    MovieCadrComponent,
+    SearchComponent,
     RatingPipe,
     ReviewsComponent,
     SimilarFilmsComponent,
@@ -96,6 +100,7 @@ registerLocaleData(localeRu);
     MatPaginatorModule,
     MatSidenavModule,
     MatFormFieldModule,
+    MatSidenavModule,
     FormsModule,
     MatProgressSpinnerModule,
     MatDialogModule,
