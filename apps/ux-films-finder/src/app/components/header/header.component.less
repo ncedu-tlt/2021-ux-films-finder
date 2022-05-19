@@ -6,7 +6,7 @@
   position: fixed;
   left: 0;
   z-index: 2;
-  box-shadow: 0.4em 0.4em 5px rgba(122, 122, 122, 0.5);
+  box-shadow: 0px 1px 5px rgb(0 0 0);
 
   &__content {
     display: flex;
@@ -95,7 +95,6 @@
     justify-content: flex-end;
     margin-right: 25px;
     margin-top: 18px;
-    margin-top: 15px;
   }
 
   &__search-icon-hidden.mat-icon {
@@ -105,38 +104,6 @@
   }
 }
 
-@media only screen and (max-width: 1610px) {
-  .header {
-    display: flex;
-
-    &__left-side {
-      width: 800px;
-    }
-
-    &__navigation {
-      margin-left: 15px;
-    }
-  }
-}
-@media only screen and (max-width: 1500px) {
-  .header {
-    &__right-side {
-      width: 650px;
-    }
-
-    &__search-content {
-      width: 400px;
-    }
-
-    &__search {
-      width: 410px;
-    }
-
-    &__user-info {
-      width: 50px;
-    }
-  }
-}
 @media only screen and (max-width: 1438px) {
   .header {
     width: 100vw;
@@ -252,18 +219,6 @@
     }
 
     &__search-content {
-      width: 200px;
-    }
-
-    &__input {
-      width: 80px;
-    }
-  }
-}
-@media screen and (max-width: 380px) {
-  .header {
-    &__search-content {
-      width: 170px;
       width: 250px;
     }
 
@@ -274,27 +229,20 @@
 }
 .theme-dark {
   & .header {
-    box-shadow: 0.4em 0.4em 5px rgba(10, 10, 10, 0.5);
+    box-shadow: 0px 0.4em 5px rgba(10, 10, 10, 0.5);
     background: @color-gray-1b;
 
-    & a {
-      color: @color-green-69;
+    &__first-line,
+    &__second-line,
+    &__third-line {
+      border-color: @color-green-69;
     }
-
-    & hr {
-      border-color: #69f0ae;
-      &__first-line,
-      &__second-line,
-      &__third-line {
-        border-color: @color-green-69;
-      }
-      &__link,
-      &__text,
-      &__search-icon-hidden,
-      &__navigation,
-      &__toogle {
-        color: @color-green-69;
-      }
+    &__link,
+    &__text,
+    &__search-icon-hidden,
+    &__navigation,
+    &__toogle {
+      color: @color-green-69;
     }
   }
 }

@@ -5,19 +5,8 @@ import {
   ViewEncapsulation
 } from '@angular/core';
 import { FilmDataService } from '../../services/film-data.service';
-import { FilmKeywordModel } from '../../models/film-keyword.model';
 import { FilmModel } from '../../models/film.model';
-import {
-  debounceTime,
-  fromEvent,
-  Observable,
-  take,
-  tap,
-  zip,
-  zipAll,
-  zipWith
-} from 'rxjs';
-import { FilmActorModel } from '../../models/film-actor.model';
+import { debounceTime, fromEvent, take, tap, zip } from 'rxjs';
 import { BiographyModel } from '../../models/biography.model';
 import { Router } from '@angular/router';
 
