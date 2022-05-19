@@ -5,11 +5,11 @@ import {
   ViewEncapsulation
 } from '@angular/core';
 
-import {FilmDataService} from "../../services/film-data.service";
-import {BehaviorSubject, Subscription, take} from "rxjs";
-import {HttpClient} from "@angular/common/http";
-import {FilmsResponseModel} from "../../models/films-response.model";
-import {FilmFilterModel} from "../../models/film-flter.model";
+import {FilmDataService} from '../../services/film-data.service';
+import {BehaviorSubject, Subscription, take} from 'rxjs';
+import {HttpClient} from '@angular/common/http';
+import {FilmsResponseModel} from '../../models/films-response.model';
+import {FilmFilterModel} from '../../models/film-filter.model';
 
 @Injectable()
 export class DataService {
@@ -55,7 +55,7 @@ export class AdvancedSearchComponent implements OnInit {
 
       });
   }
-  showFilmsLog() {
+  showFilms() {
     this.filmDataService
       .allFilters(this.dataForm.country.id, this.dataForm.genreFilm.id, this.dataForm.yearFrom, this.dataForm.yearTo, this.dataForm.keyWord)
       .pipe(take(1))

@@ -8,7 +8,7 @@ import { PersonInfoResponseModel } from '../models/person-info-response.model';
 import { BiographyModel } from '../models/biography.model';
 import { Router } from '@angular/router';
 import { FilmImagesResponseModel } from '../models/fiml-images-response.model';
-import {FilmFilterModel} from "../models/film-flter.model";
+import {FilmFilterModel} from '../models/film-filter.model';
 
 
 @Injectable({
