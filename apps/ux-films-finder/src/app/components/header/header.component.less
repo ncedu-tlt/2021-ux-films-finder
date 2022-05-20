@@ -6,7 +6,7 @@
   position: fixed;
   left: 0;
   z-index: 2;
-  box-shadow: 0.4em 0.4em 5px rgba(122, 122, 122, 0.5);
+  box-shadow: 0px 1px 5px rgb(0 0 0);
 
   &__content {
     display: flex;
@@ -160,6 +160,7 @@
     &__search {
       width: 35px;
     }
+
     &__search-icon-hidden.mat-icon {
       width: 25px;
       display: block;
@@ -182,6 +183,7 @@
     &__search-content {
       width: 350px;
     }
+
     &__input {
       width: 300px;
     }
@@ -192,9 +194,11 @@
     &__search-content {
       width: 300px;
     }
+
     &__switcher {
       display: none;
     }
+
     &__input {
       width: 250px;
     }
@@ -205,24 +209,27 @@
     &__left-side {
       width: 25%;
     }
+
     &__logo {
       margin-left: 8px;
     }
+
     &__right-side {
       width: 75%;
     }
+
     &__search-content {
       width: 250px;
     }
+
     &__search {
       margin-right: 5px;
     }
   }
 }
-
 .theme-dark {
   & .header {
-    box-shadow: 0.4em 0.4em 5px rgba(10, 10, 10, 0.5);
+    box-shadow: 0px 0.4em 5px rgba(10, 10, 10, 0.5);
     background: @color-gray-1b;
 
     &__first-line,
