@@ -28,6 +28,7 @@ const routes: Routes = [
   { path: 'anime', component: CategoryComponent, data: { genreId: 24 } },
   { path: 'live', component: CategoryComponent, data: { genreId: 30 } },
   { path: 'search-persons', component: SearchPersonsComponent },
+  { path: 'advanced-search', component: AdvancedSearchComponent },
   { path: 'details/:id', component: DetailsComponent },
   { path: 'persons/:id', component: PersonComponent },
   { path: 'simple-ex', component: SimpleExComponent },

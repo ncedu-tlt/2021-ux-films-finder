@@ -79,7 +79,7 @@
   &__gender-and-name {
     display: flex;
     flex-direction: row-reverse;
-    justify-content: flex-end;
+    justify-content: flex-start;
     margin-top: 88px;
   }
   &__name-en {
@@ -119,6 +119,53 @@
     &:before {
       transform: rotate(0.5turn);
     }
+  }
+
+  &__relation {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin-bottom: 16px;
+  }
+
+  &__rating-empty {
+    display: flex;
+    flex-direction: row;
+    width: 71px;
+    height: 32px;
+  }
+  &__rating {
+    width: 55px;
+    height: 32px;
+    background: @color-gray-0E;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-right: 16px;
+  }
+  &__film {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-bottom: 32px;
+    white-space: nowrap;
+  }
+  &__rating-name {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    margin-right: 32px;
+    margin-top: 8px;
+  }
+  &__icon-and-name {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    margin-right: 16px;
+  }
+  a:hover,
+  a:active,
+  a:focus {
+    color: @color-green-04;
   }
 }
 @media only screen and (max-width: 1275px) {

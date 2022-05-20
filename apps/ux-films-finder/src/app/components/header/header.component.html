@@ -1,45 +1,48 @@
 <header class="header">
-  <div class="header__left-side">
-    <div class="header__toogle">
-      <mat-icon class="header__toogle-button" (click)="sidenav.toggle()">
-        menu
-      </mat-icon>
-    </div>
-    <div *ngIf="!isShown" class="header__logo">
-      <a routerLink="">OnlineCinema</a>
-    </div>
-    <div class="header__navigation">
-      <a class="header__link" mat-flat-button routerLink="/news">Новости</a>
-      <a class="header__link" mat-flat-button routerLink="/show">Ток-шоу</a>
-      <a class="header__link" mat-flat-button routerLink="/for-children"
-        >Детский</a
-      >
-      <a class="header__link" mat-flat-button routerLink="/cartoon">
-        Мультфильмы
-      </a>
-    </div>
-  </div>
-  <ff-switcher></ff-switcher>
-  <div class="header__right-side">
-    <form class="header__search">
-      <div *ngIf="isShown" class="header__search-content">
-        <input class="header__input" />
-        <mat-icon class="header__filter">filter_list</mat-icon>
-        <mat-icon class="header__search-icon" routerLink=".">search</mat-icon>
+  <div class="header__content">
+    <div class="header__left-side">
+      <div class="header__toogle">
+        <mat-icon class="header__toogle-button" (click)="sidenav.toggle()">
+          menu
+        </mat-icon>
       </div>
-      <mat-icon
-        class="header__search-icon-hidden"
-        (click)="searchDisplay()"
-        routerLink="."
-      >
-        search
-      </mat-icon>
-    </form>
-    <div class="header__user-info">
-      <mat-icon class="header__person-icon"> person_pin</mat-icon>
+      <div *ngIf="!isShown" class="header__logo">
+        <a class="header__text" routerLink="">OnlineCinema</a>
+        <hr class="header__first-line" />
+        <hr class="header__second-line" />
+        <hr class="header__third-line" />
+      </div>
+      <mat-nav-list class="header__navigation">
+        <a class="header__link" mat-flat-button routerLink="/news">НОВОСТИ</a>
+        <a class="header__link" mat-flat-button routerLink="/show">ТОК-ШОУ</a>
+        <a class="header__link" mat-flat-button routerLink="/for-children">
+          ДЕТСКИЙ
+        </a>
+        <a class="header__link" mat-flat-button routerLink="/cartoon">
+          МУЛЬТФИЛЬМЫ
+        </a>
+      </mat-nav-list>
     </div>
+    <div class="header__right-side">
+      <ff-switcher *ngIf="!isShown" class="header__switcher"></ff-switcher>
+      <form class="header__search">
+        <div *ngIf="isShown || desktop" class="header__search-content">
+          <ff-search></ff-search>
+        </div>
+        <mat-icon
+          class="header__search-icon-hidden"
+          (click)="toggleSearchVisibility()"
+          routerLink="."
+        >
+          search
+        </mat-icon>
+      </form>
+    </div>
+    <mat-sidenav #sidenav role="navigation">
+      <ff-sidenav-list
+        *ngIf="!laptop"
+        (sidenavClose)="sidenav.close()"
+      ></ff-sidenav-list>
+    </mat-sidenav>
   </div>
-  <mat-sidenav #sidenav role="navigation">
-    <ff-sidenav-list (sidenavClose)="sidenav.close()"></ff-sidenav-list>
-  </mat-sidenav>
 </header>

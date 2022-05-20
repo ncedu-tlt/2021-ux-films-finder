@@ -2,8 +2,10 @@ import {
   Component,
   HostBinding,
   OnInit,
-  ViewEncapsulation
+  ViewEncapsulation,
+  OnDestroy
 } from '@angular/core';
+
 import { FilmDataService } from '../../services/film-data.service';
 import { FilmModel } from '../../models/film.model';
 import { ActivatedRoute, UrlSegment } from '@angular/router';
@@ -20,7 +22,7 @@ import { BiographyModel } from '../../models/biography.model';
   styleUrls: ['./category.component.less'],
   encapsulation: ViewEncapsulation.None
 })
-export class CategoryComponent implements OnInit {
+export class CategoryComponent implements OnInit, OnDestroy {
   private loadFilms$: Subscription = new Subscription();
   private activeFilm$: Subscription = new Subscription();
   readonly pageSize = 20;

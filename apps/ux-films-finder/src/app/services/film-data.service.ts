@@ -4,6 +4,8 @@ import { catchError, Observable, throwError } from 'rxjs';
 import { FilmModel } from '../models/film.model';
 import { BaseFilmsResponseModel } from '../models/films-response.model';
 import { FilmsResponseModel } from '../models/films-response.model';
+import { FilmKeywordModel } from '../models/film-keyword.model';
+import { FilmActorModel } from '../models/film-actor.model';
 import { FilmBannerResponseModel } from '../models/film-banner-response.model';
 import { PersonInfoResponseModel } from '../models/person-info-response.model';
 import { BiographyModel } from '../models/biography.model';
@@ -34,6 +36,7 @@ export class FilmDataService {
       )
       .pipe(catchError(this.handleError));
   }
+
   public getSimilarFilms(id: number): Observable<BaseFilmsResponseModel> {
     return this.http
       .get<BaseFilmsResponseModel>(
@@ -60,6 +63,27 @@ export class FilmDataService {
       this.kinopoiskUrl + '/api/v2.2/films?genres=' + genre + '&page=' + page
     );
   }
+  public getFilmByKeyWord(
+    keyword: string,
+    page: number = 1
+  ): Observable<FilmKeywordModel> {
+    return this.http.get<FilmKeywordModel>(
+      this.kinopoiskUrl +
+        '/api/v2.1/films/search-by-keyword?keyword=' +
+        keyword +
+        '&page=' +
+        page
+    );
+  }
+  public getActorByKeyWord(
+    name: string,
+    page: number = 1
+  ): Observable<FilmActorModel> {
+    return this.http.get<FilmActorModel>(
+      this.kinopoiskUrl + '/api/v1/persons?name=' + name + '&page=' + page
+    );
+  }
+
   public getInfoByPersonName(
     name: string,
     page: number
