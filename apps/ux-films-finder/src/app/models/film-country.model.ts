@@ -1,3 +1,3 @@
 export interface FilmCountryModel {
-  country: string;
+  country?: string;
 }

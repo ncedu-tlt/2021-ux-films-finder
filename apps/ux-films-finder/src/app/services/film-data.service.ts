@@ -14,6 +14,7 @@ import { FilmImagesResponseModel } from '../models/fiml-images-response.model';
 import { VideoModel } from '../models/video.model';
 import { ReviewResponseModel } from '../models/reviews-response.model';
 
+import {FilmFilterModel} from '../models/film-filter.model';
 @Injectable({
   providedIn: 'root'
 })
@@ -115,6 +116,27 @@ export class FilmDataService {
   ): Observable<FilmBannerResponseModel> {
     return this.http.get<FilmBannerResponseModel>(
       this.kinopoiskUrl + '/api/v2.2/films/top?type=' + top + '&page=' + page
+    );
+  }
+
+  public allFilters(
+    country: string | undefined,
+    genreFilm: string,
+    yearFrom: number,
+    yearTo: number,
+    keyWord: string,
+    page: number
+  ): Observable<FilmsResponseModel> {
+    return this.http.get<FilmsResponseModel>(
+      this.kinopoiskUrl + '/api/v2.2/films'+ '?countries=' + country + '&genres=' +
+      genreFilm + '&order=RATING&type=ALL&ratingFrom=0&ratingTo=10&yearFrom=' + yearFrom + '&yearTo='+ yearTo + '&keyword=' + keyWord
+    );
+  }
+
+  public getCountry(
+  ): Observable<FilmFilterModel> {
+    return this.http.get<FilmFilterModel>(
+      this.kinopoiskUrl + '/api/v2.2/films/filters'//
     );
   }
 }

@@ -1,0 +1,187 @@
+@import '../../../assets/styles/themes/base/common/shared';
+.searchForm {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-right: 10%;
+  background: white;
+  width: 100%;
+  padding-bottom: 3%;
+  @media only screen and (max-width: 500px) {
+    width: 90%;
+  }
+
+  &__container {
+    margin-top: 30px;
+    width: 80vw;
+    @media only screen and (max-width: 500px) {
+      width: 100vw;
+    }
+
+    ._component {
+      display: flex;
+      justify-content: center;
+      @media only screen and (max-width: 500px) {
+        width: 90vw;
+      }
+    }
+
+    ._yearFrom {
+      color: black;
+      width: 24.5vw;
+      margin: -1% 0 0;
+      justify-content: center;
+    }
+    ._yearTo{
+      color: black;
+      width: 24.5vw;
+      margin-top: -1%;
+      margin-left: 1vw;
+      justify-content: center;
+    }
+  }
+}
+
+.mat-select-value {
+  color: black;
+}
+.matInput{
+  color: #666666;
+}
+.mat_from_to{
+  width: 24.5vw;
+}
+.mat-option-text{
+  font-family: @font-family;
+  color: black;
+}
+
+.mat-form-field{
+  font-family: @font-family;
+  font-size: 18px;
+}
+
+mat-form-field{
+  font-family: @font-family;
+  flex-direction: column;
+  font-size: 12px;
+  top: -1.5em;
+  align-items: stretch;
+  box-sizing: border-box;
+  margin-bottom: 10px;
+  width: 50vw;
+}
+
+.mat-form-field-appearance-fill .mat-form-field-flex {
+  background-color: #d3d3d359;
+}
+
+mat-label{
+  color: black;
+  white-space: nowrap;
+  font-size: 20px;
+  margin-left: 5vw;
+  margin-right: 5vw;
+  width: 20vw;
+  font-weight: bold;
+  @media only screen and (max-width: 500px) {
+    width: 30vw;
+    font-size: 18px;
+  }
+}
+
+.mat_year{
+  margin-left: 1vw;
+  color: black;
+}
+
+.mat-hint{
+  color: black;
+}
+
+.search_button, mat-raised-button{
+  background-color: @color-green-69;
+  font-family: @font-family;
+  font-size: 16px;
+  position: center;
+  height: 3vw;
+  width: 15vw;
+  left: 30vw;
+  margin-bottom: 15px;
+  background-color: @color-green-69;
+  font-family: @font-family;
+
+  @media only screen and (max-width: 500px) {
+    /*left: 35vw;*/
+  }
+}
+
+.mat-form-field ng-tns-c87-4 mat-primary mat-form-field-type-mat-select mat-form-field-appearance-fill mat-form-field-can-float ng-pristine ng-valid ng-star-inserted ng-touched mat-focused mat-form-field-should-float{
+  background-color: black;
+  solid-color: black;
+  color: black;
+  accent-color: black;
+  text-decoration-color: black;
+}
+.mat-select-min-line ng-tns-c99-5 ng-star-inserted {
+  color: black;
+}
+.mat-option.mat-active{
+  color: black;
+}
+.mat-select-min-line ng-tns-c99-5 ng-star-inserted{
+  color: #048e4b;
+}
+
+.mat-select{
+  font-family: @font-family;
+  color: black;
+}
+
+.search_card-link {
+  margin-left: 50px;
+  width: 360px;
+}
+.search_paginator{
+  margin-top: 64px;
+}
+.search_card-list {
+  background: white;
+  width: 100%;
+  padding: 40px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 72px 40px;
+
+    @media only screen and (max-width: 1240px) {
+      grid-template-columns: 1fr 1fr;
+    }
+    @media only screen and (max-width: 840px) {
+      grid-template-columns: 1fr;
+      grid-gap: 72px 0;
+    }
+  }
+
+
+.theme-dark {
+  & .search {
+    background-color: #303030;
+    color: black;
+  }
+  & .ff-card{
+    background-color: @color-gray-1b;
+  }
+  mat-label{
+    color: white;
+  }
+  mat-hint{
+    color: white;
+  }
+  & .mat-option-text{
+    color: white;
+  }
+  & .search_card-list{
+    background-color: #303030;
+  }
+  }
+
