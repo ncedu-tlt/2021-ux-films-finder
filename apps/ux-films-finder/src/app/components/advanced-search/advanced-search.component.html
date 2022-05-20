@@ -1,10 +1,10 @@
 <ng-container *ngIf="filmInfo">
   <form>
-    <div class="search">
+    <div class="searchForm">
 
-      <div class = 'search__container'>
+      <div class = 'searchForm__container'>
 
-        <div class="search__container _component">
+        <div class="searchForm__container _component">
           <mat-label> Поиск фильма: </mat-label>
           <mat-form-field appearance= 'fill' id ='NameFilm' name ='NameFilm' required>
             <mat-hint>Введите полное или частичное название фильма</mat-hint>
@@ -16,16 +16,16 @@
           </mat-form-field>
         </div>
 
-        <div class="search__container _component" >
+        <div class="searchForm__container _component" >
           <mat-label> Год выпуска: </mat-label>
 
-          <div class = 'search__container _yearFrom'>
+          <div class = 'searchForm__container _yearFrom'>
             <mat-label class = 'mat_year'>c</mat-label>
             <mat-form-field class ='mat_from_to' appearance="fill">
               <input matInput type = number [(ngModel)]="dataForm.yearFrom" name="yearFrom">
             </mat-form-field> </div>
 
-          <div class = 'search__container _yearTo'>
+          <div class = 'searchForm__container _yearTo'>
             <mat-label class = 'mat_year'>по</mat-label>
             <mat-form-field class ='mat_from_to' appearance="fill">
               <input matInput type = number [(ngModel)]="dataForm.yearTo" name="yearTo" >
@@ -33,7 +33,7 @@
 
         </div>
 
-        <div class="search__container _component" >
+        <div class="searchForm__container _component" >
           <mat-label> Страна: </mat-label>
           <mat-form-field appearance="fill" >
             <mat-select [(ngModel)]="dataForm.country" name="country">
@@ -43,7 +43,7 @@
         </div>
 
 
-        <div class="search__container _component">
+        <div class="searchForm__container _component">
           <mat-label> Жанр: </mat-label>
           <mat-form-field appearance="fill" >
             <mat-select [(ngModel)]="dataForm.genreFilm" name="genreFilm" required>
