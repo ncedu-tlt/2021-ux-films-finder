@@ -39,6 +39,11 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { ScreenGalleryComponent } from './components/screen-gallery/screen-gallery.component';
 import { SimilarFilmsComponent } from './components/similar-films/similar-films.component';
 import { GenresPipe, RatingPipe } from './pipes/pipe';
+import { VideoComponent } from './components/video/video.component';
+import { VgCoreModule } from 'ngx-videogular';
+import { VgControlsModule } from 'ngx-videogular';
+import { VgOverlayPlayModule } from 'ngx-videogular';
+import { VgBufferingModule } from 'ngx-videogular';
 import { MovieCadrComponent } from './components/movie-cadr/movie-cadr.component';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { ReviewsComponent } from './components/reviews/reviews.component';
@@ -69,10 +74,12 @@ registerLocaleData(localeRu);
     GenresBannerComponent,
     SwitcherComponent,
     PersonComponent,
+    SearchComponent,
     FilmBannerComponent,
     GenreLabelComponent,
     LoaderComponent,
     ScreenGalleryComponent,
+    VideoComponent,
     SimilarFilmsComponent,
     MovieCadrComponent,
     PersonSpousesComponent,
@@ -103,6 +110,10 @@ registerLocaleData(localeRu);
     MatSidenavModule,
     FormsModule,
     MatProgressSpinnerModule,
+    VgCoreModule,
+    VgControlsModule,
+    VgOverlayPlayModule,
+    VgBufferingModule,
     MatDialogModule,
     MatExpansionModule
   ],

@@ -1,0 +1,17 @@
+<div class="video">
+  <div
+    class="video__wrap"
+    *ngFor="let videoItem of videos$ | async | slice: 0:1"
+  >
+    <iframe
+      class="video__player"
+      width="1560"
+      height="815"
+      *ngIf="!!link"
+      [src]="link"
+      title="YouTube video player"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen
+    ></iframe>
+  </div>
+</div>
