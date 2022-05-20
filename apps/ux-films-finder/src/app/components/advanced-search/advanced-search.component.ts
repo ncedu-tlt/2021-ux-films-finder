@@ -80,6 +80,5 @@ export class AdvancedSearchComponent implements OnInit {
 
   ngOnDestroy(): void {
     this.loadFilms$.unsubscribe();
-    this.activeFilm$.unsubscribe();
   }
 }
