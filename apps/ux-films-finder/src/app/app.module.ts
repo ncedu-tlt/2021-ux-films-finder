@@ -31,6 +31,7 @@ import { SwitcherComponent } from './components/switcher/switcher.component';
 import { PersonComponent } from './components/person/person.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule } from '@angular/forms';
+import { SearchComponent } from './components/search/search.component';
 import localeRu from '@angular/common/locales/ru';
 import { GenreLabelComponent } from './components/genre-label/genre-label.component';
 import { LoaderComponent } from './components/loader/loader.component';
@@ -38,6 +39,11 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { ScreenGalleryComponent } from './components/screen-gallery/screen-gallery.component';
 import { SimilarFilmsComponent } from './components/similar-films/similar-films.component';
 import { GenresPipe, RatingPipe } from './pipes/pipe';
+import { VideoComponent } from './components/video/video.component';
+import { VgCoreModule } from 'ngx-videogular';
+import { VgControlsModule } from 'ngx-videogular';
+import { VgOverlayPlayModule } from 'ngx-videogular';
+import { VgBufferingModule } from 'ngx-videogular';
 import { MovieCadrComponent } from './components/movie-cadr/movie-cadr.component';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { ReviewsComponent } from './components/reviews/reviews.component';
@@ -49,6 +55,7 @@ import { PersonFilmsComponent } from './components/person-films/person-films.com
 import { MatDialog } from '@angular/material/dialog';
 
 registerLocaleData(localeRu);
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -67,15 +74,19 @@ registerLocaleData(localeRu);
     GenresBannerComponent,
     SwitcherComponent,
     PersonComponent,
+    SearchComponent,
     FilmBannerComponent,
     GenreLabelComponent,
     LoaderComponent,
     ScreenGalleryComponent,
+    VideoComponent,
     SimilarFilmsComponent,
     MovieCadrComponent,
     PersonSpousesComponent,
     PersonFactsComponent,
     PersonFilmsComponent,
+    MovieCadrComponent,
+    SearchComponent,
     RatingPipe,
     ReviewsComponent,
     SimilarFilmsComponent,
@@ -96,8 +107,13 @@ registerLocaleData(localeRu);
     MatPaginatorModule,
     MatSidenavModule,
     MatFormFieldModule,
+    MatSidenavModule,
     FormsModule,
     MatProgressSpinnerModule,
+    VgCoreModule,
+    VgControlsModule,
+    VgOverlayPlayModule,
+    VgBufferingModule,
     MatDialogModule,
     MatExpansionModule
   ],
